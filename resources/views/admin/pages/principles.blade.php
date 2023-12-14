@@ -27,38 +27,39 @@
             <div class="card">
                <!-- /.card-header -->
                <div class="card-body">
-                  <form method="POST" action="">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <!-- text input -->
-                            <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control" placeholder="Enter Title" required>
-                            </div>
-                        </div>
-                    </div>
+                  <form id="fromdata" method="POST" action="{{route('store.principle')}}">
+                    @csrf
+                      <div class="row">
+                          <div class="col-sm-12">
+                              <!-- text input -->
+                              <div class="form-group">
+                                  <label for="prin_title">Title</label>
+                                  <input type="text" name="title" id="prin_title" class="form-control" placeholder="Enter Title" required>
+                              </div>
+                          </div>
+                      </div>
+                      
                       <div class="row">
                           <div class="col-sm-12">
                               <!-- text input -->
                               <div class="form-group">
                                   <label>Heading</label>
-                                  <input type="text" class="form-control" placeholder="Enter Heading" required>
+                                  <input type="text" name="heading" id="prin_heading" class="form-control" placeholder="Enter Heading" required>
                               </div>
                           </div>
                       </div>
+
                       <div class="row">
                           <div class="col-sm-12">
                               <!-- textarea -->
                               <div class="form-group">
                                   <label>Description</label>
-                                  <textarea class="form-control" rows="3" placeholder="Enter Description" required></textarea>
+                                  <textarea name="desc" id="prin_desc" class="form-control" rows="3" placeholder="Enter Description" required></textarea>
                               </div>
                           </div>
                       </div>
-                      <div class="card-footer">
-                          <button type="submit" class="btn btn-primary" style="
-                          float: right;
-                      ">Add</button>
+                      <div class="">
+                          <button type="submit" class="btn btn-primary" style="float: right;">Add</button>
                       </div>
                   </form>
               </div>
