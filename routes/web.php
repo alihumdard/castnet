@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +13,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin.pages.dashboard');
+    return view('web.pages.home');
 });
+
+include __DIR__.'/admin.php';

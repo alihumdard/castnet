@@ -1,215 +1,174 @@
-<div class="wrapper">
-    
-    <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-        <!-- Left navbar links -->
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="index3.html" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Contact</a>
-            </li>
-        </ul>
-
-        <!-- Right navbar links -->
-        <ul class="navbar-nav ml-auto">
-            <!-- Navbar Search -->
-            <li class="nav-item">
-                <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                    <i class="fas fa-search"></i>
-                </a>
-                <div class="navbar-search-block">
-                    <form class="form-inline">
-                        <div class="input-group input-group-sm">
-                            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                            <div class="input-group-append">
-                                <button class="btn btn-navbar" type="submit">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
+<!-- Header Start -->
+    <header>
+        <!-- Topbar Start -->
+        <section class="section_topbar">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 col-lg-6">
+                        <div class="d-flex gap-3">
+                            <a href="#" class="social_link">
+                                <img src="assets/web/images/icon_fb.png" alt="social icons" class="img-icon">
+                            </a>
+                            <a href="#" class="social_link">
+                                <img src="assets/web/images/icon_tw.png" alt="social icons" class="img-icon">
+                            </a>
+                            <a href="#" class="social_link">
+                                <img src="assets/web/images/icon_li.png" alt="social icons" class="img-icon">
+                            </a>
+                            <a href="#" class="social_link">
+                                <img src="assets/web/images/icon_ig.png" alt="social icons" class="img-icon">
+                            </a>
                         </div>
-                    </form>
-                </div>
-            </li>
-
-            <!-- Messages Dropdown Menu -->
-            <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="#">
-                    <i class="far fa-comments"></i>
-                    <span class="badge badge-danger navbar-badge">3</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <a href="#" class="dropdown-item">
-                        <!-- Message Start -->
-                        <div class="media">
-                            <img src="assets/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                            <div class="media-body">
-                                <h3 class="dropdown-item-title">
-                                    Brad Diesel
-                                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                                </h3>
-                                <p class="text-sm">Call me whenever you can...</p>
-                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                            </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="d-flex gap-4 justify-content-md-end">
+                            <form action="#">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="site search">
+                                    <button type="submit" class="btn-search">
+                                        <img src="assets/web/images/icon_search.png" alt="search">
+                                    </button>
+                                </div>
+                            </form>
+                            <a href="#" class="btn btn-primary">
+                                <span>sponsors login</span>
+                                <img src="assets/web/images/icon_log.png" alt="icon login" class="icon-login">
+                            </a>
                         </div>
-                        <!-- Message End -->
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <!-- Message Start -->
-                        <div class="media">
-                            <img src="assets/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                            <div class="media-body">
-                                <h3 class="dropdown-item-title">
-                                    John Pierce
-                                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                                </h3>
-                                <p class="text-sm">I got your message bro</p>
-                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                            </div>
-                        </div>
-                        <!-- Message End -->
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <!-- Message Start -->
-                        <div class="media">
-                            <img src="assets/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                            <div class="media-body">
-                                <h3 class="dropdown-item-title">
-                                    Nora Silvester
-                                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                                </h3>
-                                <p class="text-sm">The subject goes here</p>
-                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                            </div>
-                        </div>
-                        <!-- Message End -->
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                </div>
-            </li>
-            <!-- Notifications Dropdown Menu -->
-            <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="#">
-                    <i class="far fa-bell"></i>
-                    <span class="badge badge-warning navbar-badge">15</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <span class="dropdown-header">15 Notifications</span>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-envelope mr-2"></i> 4 new messages
-                        <span class="float-right text-muted text-sm">3 mins</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-users mr-2"></i> 8 friend requests
-                        <span class="float-right text-muted text-sm">12 hours</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-file mr-2"></i> 3 new reports
-                        <span class="float-right text-muted text-sm">2 days</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                    <i class="fas fa-expand-arrows-alt"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                    <i class="fas fa-th-large"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <!-- /.navbar -->
-
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
-            <img src="assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-light">AdminLTE 3</span>
-        </a>
-
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <!-- Sidebar user panel (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                </div>
-                <div class="info">
-                    <a href="#" class="d-block">Alexander Pierce</a>
-                </div>
-            </div>
-
-            <!-- SidebarSearch Form -->
-            <div class="form-inline">
-                <div class="input-group" data-widget="sidebar-search">
-                    <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-sidebar">
-                            <i class="fas fa-search fa-fw"></i>
-                        </button>
                     </div>
                 </div>
             </div>
-
-            <!-- Sidebar Menu -->
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-                    <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Starter Pages
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link active">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Active Page</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Inactive Page</p>
-                                </a>
-                            </li>
+        </section>
+        <!-- Topbar End -->
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/web/images/logo.png" alt="logo" class="img-logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                        <li class="nav-item"><a class="nav-link active" href="index.html">home</a></li>
+                        <li class="nav-item dropdown-link">
+                            <a class="nav-link" href="#">about us</a>
+                            <ul class="dropdown-content">
+                                <li><a href="#">who we are</a></li>
+                                <li><a href="#">team</a></li>
+                                <li><a href="#">contact us</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown-link">
+                            <a class="nav-link" href="#">membership</a>
+                            <ul class="dropdown-content">
+                                <li><a href="#">join</a></li>
+                                <li><a href="#">benefits</a></li>
+                                <li><a href="#">programs</a></li>
+                                <li><a href="#">evaluation</a></li>
+                                <li><a href="#">rules of engagement</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown-link">
+                            <a class="nav-link" href="#">sectors</a>
+                            <ul class="dropdown-content">
+                                <li><a href="#">construction</a></li>
+                                <li><a href="#">agriculture</a></li>
+                                <li><a href="#">supply chain</a></li>
+                                <li><a href="#">technology</a></li>
+                                <li><a href="#">natural resources</a></li>
+                                <li><a href="#">energy</a></li>
+                                <li><a href="#">textiles</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown-link">
+                            <a class="nav-link" href="#">advocacy</a>
+                            <ul class="dropdown-content">
+                                <li><a href="#">small businesses</a></li>
+                                <li><a href="#">women</a></li>
+                                <li><a href="#">veterans</a></li>
+                                <li><a href="#">support services</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown-link">
+                            <a class="nav-link" href="#">events</a>
+                            <ul class="dropdown-content">
+                                <li><a href="#">event calendar</a></li>
+                                <li><a href="#">event request</a></li>
+                                <li><a href="#">international events</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasExample">
+                                <img src="assets/web/images/icon_menu.png" alt="menu" class="img-menu">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="ps-0">
+                    <li class="offcanvas-menu">
+                        <a href="#" class="link">financial</a>
+                        <ul class="sub_menu">
+                            <li><a href="#">grants</a></li>
+                            <li><a href="#">funding</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Simple Link
-                                <span class="right badge badge-danger">New</span>
-                            </p>
-                        </a>
+                </ul>
+                <ul class="ps-0">
+                    <li class="offcanvas-menu">
+                        <a href="#" class="link">partners / sponsors</a>
+                        <ul class="sub_menu">
+                            <li><a href="#">become a partner</a></li>
+                            <li><a href="#">become a sponsor</a></li>
+                        </ul>
                     </li>
                 </ul>
-            </nav>
-            <!-- /.sidebar-menu -->
+                <ul class="ps-0">
+                    <li class="offcanvas-menu">
+                        <a href="#" class="link">outreach</a>
+                        <ul class="sub_menu">
+                            <li><a href="#">chad</a></li>
+                            <li><a href="#">ghana</a></li>
+                            <li><a href="#">south africa</a></li>
+                            <li><a href="#">zimbabwe</a></li>
+                            <li><a href="#">cameroon</a></li>
+                            <li><a href="#">drc</a></li>
+                            <li><a href="#">cote d'ivoire</a></li>
+                            <li><a href="#">usa</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="ps-0">
+                    <li class="offcanvas-menu">
+                        <a href="#" class="link">opportunities</a>
+                        <ul class="sub_menu">
+                            <li><a href="#">agriculture</a></li>
+                            <li><a href="#">construction</a></li>
+                            <li><a href="#">mining</a></li>
+                            <li><a href="#">rfx</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="ps-0">
+                    <li class="offcanvas-menu">
+                        <a href="#" class="link">careers</a>
+                        <ul class="sub_menu">
+                            <li><a href="#">job openings</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <!-- /.sidebar -->
-    </aside>
+        <!-- Navbar End -->
+    </header>

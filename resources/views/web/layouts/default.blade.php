@@ -6,13 +6,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html lang="en">
 
 <head>
-    @include('admin.includes.head')
+    @include('web.includes.head')
 </head>
 
 <body class="hold-transition sidebar-mini">
-    @include('admin.includes.header')
+    @include('web.includes.header')
     @yield('content')
-    @include('admin.includes.footer')
+    @include('web.includes.footer')
 </body>
 
 </html>
