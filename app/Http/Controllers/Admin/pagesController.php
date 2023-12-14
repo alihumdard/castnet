@@ -10,9 +10,6 @@ class pagesController extends Controller
     {
         return view('admin.pages.dashboard');
     }
-    public function principle()
-    {
-        return view('admin.pages.principles');
-    }
+
 }
 
