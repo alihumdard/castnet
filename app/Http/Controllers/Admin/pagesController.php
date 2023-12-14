@@ -10,6 +10,9 @@ class pagesController extends Controller
     {
         return view('admin.pages.dashboard');
     }
-
+    public function setting()
+    {
+        return view('admin.pages.setting');
+    }
 }
 

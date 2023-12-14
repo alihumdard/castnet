@@ -33,20 +33,22 @@
                           <div class="col-sm-12">
                               <!-- text input -->
                               <div class="form-group">
-                                  <label>Heading</label>
-                                  <input type="text" name="heading" id="prin_heading" class="form-control" placeholder="Enter Heading" required>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <!-- text input -->
-                              <div class="form-group">
                                   <label for="prin_title">Title</label>
                                   <input type="text" name="title" id="prin_title" class="form-control" placeholder="Enter Title" required>
                               </div>
                           </div>
                       </div>
+                      
+                      <div class="row">
+                          <div class="col-sm-12">
+                              <!-- text input -->
+                              <div class="form-group">
+                                  <label>Heading</label>
+                                  <input type="text" name="heading" id="prin_heading" class="form-control" placeholder="Enter Heading" required>
+                              </div>
+                          </div>
+                      </div>
+
                       <div class="row">
                           <div class="col-sm-12">
                               <!-- textarea -->

@@ -252,7 +252,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link" >
+                        <a href="{{ route('admin.setting') }}" class="nav-link {{(request()->routeIs('admin.setting')) ? 'active' :''}}" >
                             <i class="nav-icon fas fa-cog"></i>
                             <p>
                                 Setting
