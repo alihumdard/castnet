@@ -155,7 +155,7 @@
                     <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-                <a href="widgets.html" class="nav-link active">
+                <a href="{{route('admin.index')}}" class="nav-link {{(request()->routeIs('admin.index')) ? 'active' :''}}">
                   <i class="nav-icon fas fa-users"></i>
                   <p>
                     Users
@@ -218,7 +218,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('admin.principle') }}" class="nav-link">
+                                <a href="{{ route('admin.principle') }}" class="nav-link {{(request()->routeIs('admin.principle')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Principles</p>
                                 </a>
