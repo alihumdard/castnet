@@ -28,21 +28,21 @@
                <!-- /.card-header -->
                <div class="card-body">
                   <form method="POST" action="">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" class="form-control" placeholder="Enter Title" required>
+                            </div>
+                        </div>
+                    </div>
                       <div class="row">
                           <div class="col-sm-12">
                               <!-- text input -->
                               <div class="form-group">
                                   <label>Heading</label>
                                   <input type="text" class="form-control" placeholder="Enter Heading" required>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <!-- text input -->
-                              <div class="form-group">
-                                  <label>Title</label>
-                                  <input type="text" class="form-control" placeholder="Enter Title" required>
                               </div>
                           </div>
                       </div>

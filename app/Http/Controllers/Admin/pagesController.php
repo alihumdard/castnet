@@ -14,5 +14,9 @@ class pagesController extends Controller
     {
         return view('admin.pages.principles');
     }
+    public function setting()
+    {
+        return view('admin.pages.setting');
+    }
 }
 
