@@ -5,5 +5,5 @@ use App\Http\Controllers\Admin\pagesController;
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [pagesController::class, 'index'])->name('admin.index');
-    // Add other admin routes as needed
+    Route::get('/principles', [pagesController::class, 'principle'])->name('admin.principle');
 });
