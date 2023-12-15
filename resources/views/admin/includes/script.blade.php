@@ -17,6 +17,11 @@
 <script src="{{asset('/assets/admin/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
 <script src="{{asset('/assets/admin/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{asset('/assets/admin/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
+<!-- jquery-validation -->
+<script src="{{asset('/assets/admin/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
+<script src="{{asset('/assets/admin/plugins/jquery-validation/additional-methods.min.js')}}"></script>
+ <!-- Summernote -->
+<script src="{{asset('/assets/admin/plugins/summernote/summernote-bs4.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="/assets/admin/dist/js/adminlte.min.js"></script>
 
@@ -28,11 +33,7 @@
 <!-- {{--  <script src="assets/admin/dist/js/demo.js"></script>  --}} -->
 
 <script>
-  $(function () {
-    // $(".datatable").DataTable({
-    //   "responsive": true, "lengthChange": false, "autoWidth": false,
-    //   "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    // }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+  $(function() {
     $('.datatable').DataTable({
       "paging": true,
       "lengthChange": false,
@@ -43,6 +44,9 @@
       "responsive": true,
     });
   });
+   // Summernote
+   $('.summernote').summernote({
+    height:200,
+   });
+
 </script>
-
-
