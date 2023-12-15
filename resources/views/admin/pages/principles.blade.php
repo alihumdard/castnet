@@ -20,18 +20,15 @@
     </div>
     <!-- /.content-header -->
 
-    <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
             <!-- card for principle data -->
             <div class="card">
-                <!-- /.card-header -->
                 <div class="card-body">
-                    <form id="fromdata" method="POST" action="{{route('store.principle')}}">
+                    <form id="fromdata" class="formValidation" method="POST" action="{{route('store.principle')}}">
                         @csrf
                         <div class="row">
                             <div class="col-sm-12">
-                                <!-- text input -->
                                 <div class="form-group">
                                     <label for="prin_title">Principle Title</label>
                                     <input type="text" name="title" id="prin_title" class="form-control" placeholder="Enter Title" required>
@@ -39,18 +36,8 @@
                             </div>
                         </div>
 
-                        <!-- <div class="row">
-                          <div class="col-sm-12">
-                              <div class="form-group">
-                                  <label>Heading</label>
-                                  <input type="text" name="heading" id="prin_heading" class="form-control" placeholder="Enter Heading" required>
-                              </div>
-                          </div>
-                      </div> -->
-
                         <div class="row">
                             <div class="col-sm-12">
-                                <!-- textarea -->
                                 <div class="form-group">
                                     <label> Principle Description</label>
                                     <textarea name="desc" id="prin_desc" class="form-control" rows="3" placeholder="Enter Description" required></textarea>
@@ -72,7 +59,6 @@
                 <div class="card-header">
                     <h3 class="card-title">Principles data is here</h3>
                 </div>
-                <!-- /.card-header -->
                 <div class="card-body">
                     <table id="principle_tbl" class="table table-bordered table-striped datatable">
                         <thead>
@@ -104,16 +90,63 @@
                 </div>
                 <!-- /.card-body -->
             </div>
-            <!-- /.card -->
-
             <!-- end table card for principle data -->
 
         </div>
         <!-- /.container-fluid -->
     </div>
     <!-- /.content -->
-
-    <!-- /.content-wrapper -->
 </div>
+<!-- /.content-wrapper -->
 
 @stop
+
+@pushOnce('scripts')
+<!-- form validation setting default for all -->
+<script>
+    $(function() {
+        $.validator.setDefaults({
+            submitHandler: function() {
+                alert("Form successful submitted!");
+            }
+        });
+        $('.formValidation').validate({
+            rules: {
+                title: {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 255
+                },
+                desc: {
+                    required: true,
+                    minlength: 15,
+                    maxlength: 2000
+                },
+            },
+            messages: {
+                title: {
+                    required: "please wirte suitetable title",
+                    minlength: "Please write more ",
+                    maxlength: "please can write more then 225 char"
+                },
+                title: {
+                    required: "please wirte describe principle",
+                    minlength: "Please write more ",
+                    maxlength: "please can write more then 2000 char"
+                },
+            },
+            errorElement: 'span',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            }
+        });
+    });
+</script>
+@endPushOnce

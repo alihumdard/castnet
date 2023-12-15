@@ -208,7 +208,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item {{(request()->routeIs('admin.principle')) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['admin.principle','admin.roadmap' ])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-palette"></i>
                             <p>
@@ -221,6 +221,12 @@
                                 <a href="{{ route('admin.principle') }}" class="nav-link {{(request()->routeIs('admin.principle')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Principles</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.roadmap') }}" class="nav-link {{(request()->routeIs('admin.roadmap')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Road Map</p>
                                 </a>
                             </li>
                             <li class="nav-item">
