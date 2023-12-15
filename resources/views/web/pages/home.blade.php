@@ -98,6 +98,7 @@
                 <h2 class="section_title">Lorem Ipsum inquiriestment</h2>
             </div>
         </div>
+        @if(count($principles))
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             @if(count($principles) >= 1)   
             <li class="nav-item" role="presentation">
@@ -126,6 +127,7 @@
             <div class="tab-pane fade" id="pills-purpose" role="tabpanel" aria-labelledby="pills-purpose-tab" tabindex="0">{{$principles[2]['desc'] ?? ''}}</div>
             @endif
         </div>
+        @endif
     </div>
 </section>
 <!-- Principles End -->
