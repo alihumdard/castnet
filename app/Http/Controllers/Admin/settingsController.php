@@ -1,52 +1,73 @@
 <?php
+// app/Http/Controllers/Admin/SettingsController.php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Principle;
+use App\Models\Setting;
 
-class settingsController extends Controller
+class SettingsController extends Controller
 {
-    public function principles()
+    public function uploadLargeLogo(Request $request)
     {
-        $data['principles'] = Principle::where(['status' => 'Active'])->latest()->get()->toArray();
-        return view('admin.pages.principles',$data);
+        $setting = new Setting;
+
+        // Define hardcoded values for all attributes
+        $hardcodedAttributes = [
+            'section' => 'Large Logo',
+            'img_url' => 'Hardcoded Type',
+            'link' => 'Hardcoded Description',
+            'desc' => 'Hardcoded Description',
+            'type' => 'Hardcoded Description',
+            'status' => 'Hardcoded Description',
+            'created_by' => 'Hardcoded Creator',
+            // Add other hardcoded attributes here
+        ];
+
+        $setting->uploadLargeLogo($hardcodedAttributes);
+
+        return redirect()->route('admin.setting');
     }
-
-    public function store_principle(Request $request)
+    public function uploadMediumLogo(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'title' => 'required|string|max:255',
-            'desc' => 'required|string|max:4294967295',
-        ]);
+        $setting = new Setting;
 
-        if ($validator->fails()) {
-            return response()->json(['status' => 'error', 'message' => $validator->errors()]);
-        }
+        // Define hardcoded values for all attributes
+        $hardcodedAttributes = [
+            'section' => 'Medium Logo',
+            'img_url' => 'Hardcoded Type',
+            'link' => 'Hardcoded Description',
+            'desc' => 'Hardcoded Description',
+            'type' => 'Hardcoded Description',
+            'status' => 'Hardcoded Description',
+            'created_by' => 'Hardcoded Creator',
+            // Add other hardcoded attributes here
+        ];
 
-        try {
-            // $user = auth()->user();
-            $message  = NULL;
-            Session::forget('msg');
-            $saved = Principle::updateOrCreate(
-                ['id' => $request->id ?? NULL],
-                [
-                    'title' => strtoupper($request->title),
-                    'desc' => $request->desc,
-                    'created_by' => Auth::id(),
-                ]
-            );
-            $message = "Principle " . ($request->id ? "Updated" : "Saved") . " Successfully";
-            Session::flash('msg', $message);
-            
-            $data['principles'] = Principle::where(['status' => 'Active'])->latest()->get()->toArray();
-            return view('admin.pages.principles',$data);
-        } catch (\Exception $e) {
-            return response()->json(['status' => 'error', 'message' => 'Error storing Transection', 'error' => $e->getMessage()], 500);
-        }
+        $setting->uploadMediumLogo($hardcodedAttributes);
+
+        return redirect()->route('admin.setting');
+    }
+    public function uploadSmallLogo(Request $request)
+    {
+        $setting = new Setting;
+
+        // Define hardcoded values for all attributes
+        $hardcodedAttributes = [
+            'section' => 'Small Logo',
+            'img_url' => 'Hardcoded Type',
+            'link' => 'Hardcoded Description',
+            'desc' => 'Hardcoded Description',
+            'type' => 'Hardcoded Description',
+            'status' => 'Hardcoded Description',
+            'created_by' => 'Hardcoded Creator',
+            // Add other hardcoded attributes here
+        ];
+
+        $setting->uploadSmallLogo($hardcodedAttributes);
+
+        return redirect()->route('admin.setting');
     }
 }
+
