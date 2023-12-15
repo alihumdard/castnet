@@ -11,4 +11,3 @@
 
 <!-- REQUIRED SCRIPTS -->
 
-@include('admin.includes.script')
