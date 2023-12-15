@@ -100,6 +100,7 @@
                       // Read the selected file
                       reader.onload = function (e) {
                         // Update the image src with the data URL of the uploaded image
+                       
                         imageElement.src = e.target.result;
                       };
 
@@ -110,72 +111,83 @@
                 </script>
                 <div class="">
                     <div class="row">
-                        <div class="col-lg-4">
+                      <div class="col-lg-4">
                             <div class="profile-header-container">   
-                                <div class="profile-header-img">
+                              <div class="profile-header-img">
+                                <form action="{{ route('upload.largelogo') }}" method="post" enctype="multipart/form-data">
+                                    @csrf
                                     <div>
-                                      <div onclick="triggerFileInput(1)" style="
-                                      position: absolute;
-                                      right:0;/* Adjust as needed */">
-                                      <i class="fas fa-edit"></i>
-                                    </div>
-                                      <img class="img-circle" id="uploadTrigger1" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" height="220" width="220">
-                                     
-  <!-- Hidden file input 1 -->
-  <input type="file" class="file-input" id="fileInput1" name="file1" accept=".jpg, .jpeg, .png" onchange="displaySelectedFile(1)">
-
+                                        <div onclick="triggerFileInput(1)" style="
+                                              position: absolute;
+                                              right:0;/* Adjust as needed */">
+                                            <i class="fas fa-edit"></i>
+                                        </div>
+                                        <img class="img-circle" id="uploadTrigger1" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" height="220" width="220">
+                            
+                                        <!-- Hidden file input 1 -->
+                                        <input type="file" class="file-input" id="fileInput1" name="file1" accept=".jpg, .jpeg, .png" onchange="displaySelectedFile(1)">
+                            
                                         <div></div>
-                                      </div>
-                                      <span>220 x 220</span>
+                                    </div>
+                                    <span>220 x 220</span>
                                     <br/>
                                     <button type="submit" class="btn btn-primary">Large Logo</button>
-                                </div>
+                                </form>
+                            </div>
                             </div> 
                         </div>
                         <div class="col-lg-4" style="    display: flex;
                         justify-content: center;
                         align-self: end;margin-top:10px;">
                             <div class="profile-header-container">   
-                                <div class="profile-header-img">
+                              <div class="profile-header-img">
+                                <form action="{{ route('upload.mediumlogo') }}" method="post" enctype="multipart/form-data">
+                                    @csrf
                                     <div>
-                                      <div onclick="triggerFileInput(2)" style="
-                                      position: absolute;
-                                      right:0;/* Adjust as needed */">
-                                      <i class="fas fa-edit"></i>
+                                        <div onclick="triggerFileInput(2)" style="
+                                              position: absolute;
+                                              right:0;/* Adjust as needed */">
+                                            <i class="fas fa-edit"></i>
+                                        </div>
+                                        <img class="img-circle" id="uploadTrigger2" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" height="140" width="140">
+                            
+                                        <!-- Hidden file input 1 -->
+                                        <input type="file" class="file-input" id="fileInput2" name="file2" accept=".jpg, .jpeg, .png" onchange="displaySelectedFile(2)">
+                            
+                                        <div></div>
                                     </div>
-                                      <img class="img-circle" id="uploadTrigger2" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" height="140" width="140">
-                                      
-                                      <!-- Hidden file input 2 -->
-                                      <input type="file" class="file-input" id="fileInput2" name="file2" accept=".jpg, .jpeg, .png" onchange="displaySelectedFile(2)">
-                                    <div></div>
-                                    </div>
-                                    <span>140 x 140</span>
+                                    <span>220 x 220</span>
                                     <br/>
                                     <button type="submit" class="btn btn-primary">Medium Logo</button>
-                                </div>
+                                </form>
+                            </div>
                             </div> 
                         </div>
                         <div class="col-lg-4" style="    display: flex;
                         justify-content: center;
                         align-self: end;margin-top:10px;">
                             <div class="profile-header-container">   
-                                <div class="profile-header-img">
+                              <div class="profile-header-img">
+                                <form action="{{ route('upload.smalllogo') }}" method="post" enctype="multipart/form-data">
+                                    @csrf
                                     <div>
-                                      <div onclick="triggerFileInput(3)" style="
-                                      position: absolute;
-                                      right:0;/* Adjust as needed */">
-                                      <i class="fas fa-edit"></i>
+                                        <div onclick="triggerFileInput(3)" style="
+                                              position: absolute;
+                                              right:0;/* Adjust as needed */">
+                                            <i class="fas fa-edit"></i>
+                                        </div>
+                                        <img class="img-circle" id="uploadTrigger3" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" height="110" width="110">
+                            
+                                        <!-- Hidden file input 1 -->
+                                        <input type="file" class="file-input" id="fileInput3" name="file3" accept=".jpg, .jpeg, .png" onchange="displaySelectedFile(3)">
+                            
+                                        <div></div>
                                     </div>
-                                      <img class="img-circle" id="uploadTrigger3" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" height="110" width="110">
-                                      
-                                      <!-- Hidden file input 3 -->
-                                      <input type="file" class="file-input" id="fileInput3" name="file3" accept=".jpg, .jpeg, .png" onchange="displaySelectedFile(3)">
-                                    <div></div>
-                                    </div>
-                                    <span>110 x 110</span>
+                                    <span>220 x 220</span>
                                     <br/>
                                     <button type="submit" class="btn btn-primary">Small Logo</button>
-                                </div>
+                                </form>
+                            </div>
                             </div> 
                         </div>
                        
@@ -213,9 +225,9 @@
                     </a>
                     <!-- Twitter -->
                     <a href="#">
-<i class="fab fa-twitter fa-2x" style="color: #55acee;margin-right:5px"></i>
-                    </a>
-<!-- Google -->
+                        <i class="fab fa-twitter fa-2x" style="color: #55acee;margin-right:5px"></i>
+                                            </a>
+                        <!-- Google -->
                       <a href="#">
                         <i class="fab fa-google fa-2x" style="color: #dd4b39;margin-right:5px"></i>
                       </a>
@@ -225,7 +237,7 @@
                         </a>
                           <!-- Linkedin -->
                           <a href="#">
-<i class="fab fa-linkedin-in fa-2x" style="color: #0082ca;margin-right:5px"></i>
+                              <i class="fab fa-linkedin-in fa-2x" style="color: #0082ca;margin-right:5px"></i>
                           </a>
                 </div>
                 <hr>
