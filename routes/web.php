@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\web\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,8 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('web.pages.home');
-});
+Route::get('/', [HomeController::class, 'index'])->name('web.index');
 
 include __DIR__.'/admin.php';

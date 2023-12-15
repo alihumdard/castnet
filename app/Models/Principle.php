@@ -9,11 +9,10 @@ class Principle extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['title', 'heading', 'desc','created_by'];
+    protected $fillable = ['title', 'type', 'desc','created_by'];
 
     public static $rules = [
         'title' => 'required|string|max:255',
-        'heading' => 'required|string|max:65535',
         'desc' => 'required|string|max:4294967295',
     ];
 }
