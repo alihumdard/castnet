@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('principles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('heading');
             $table->longText('desc');
             $table->string('status')->default('Active');
+            $table->string('type')->default('sec-body');
             $table->string('created_by')->nullable();
             $table->timestamps();
         });

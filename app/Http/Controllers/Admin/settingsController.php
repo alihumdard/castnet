@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Principle;
 
-class widgetsController extends Controller
+class settingsController extends Controller
 {
     public function principles()
     {
