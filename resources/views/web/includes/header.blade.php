@@ -1,3 +1,4 @@
+{{--  @dd($socialmedia);  --}}
 <!-- Header Start -->
     <header>
         <!-- Topbar Start -->
@@ -6,18 +7,11 @@
                 <div class="row align-items-center">
                     <div class="col-md-6 col-lg-6">
                         <div class="d-flex gap-3">
-                            <a href="#" class="social_link">
-                                <img src="assets/web/images/icon_fb.png" alt="social icons" class="img-icon">
-                            </a>
-                            <a href="#" class="social_link">
-                                <img src="assets/web/images/icon_tw.png" alt="social icons" class="img-icon">
-                            </a>
-                            <a href="#" class="social_link">
-                                <img src="assets/web/images/icon_li.png" alt="social icons" class="img-icon">
-                            </a>
-                            <a href="#" class="social_link">
-                                <img src="assets/web/images/icon_ig.png" alt="social icons" class="img-icon">
-                            </a>
+                            @foreach ($socialmedia as $link)
+        <a href="{{ $link['link'] }}">
+            <img class="img-circle" src="{{ Storage::url($link['img_url']) }}" alt="{{ $link['type'] }}" height="50" width="50" style="border-radius: 50%" alt="Your Image Alt Text">
+        </a>
+    @endforeach
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6">
@@ -32,7 +26,7 @@
                             </form>
                             <a href="#" class="btn btn-primary">
                                 <span>sponsors login</span>
-                                <img src="assets/web/images/icon_log.png" alt="icon login" class="icon-login">
+                                <img src="assets/web/images/icon_log.png" alt="icon login here" class="icon-login">
                             </a>
                         </div>
                     </div>
@@ -44,7 +38,8 @@
         <nav class="navbar navbar-expand-lg bg-white">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <img src="assets/web/images/logo.png" alt="logo" class="img-logo">
+                    {{--  @dd($largelogo);  --}}
+                    <img src="{{ asset($largelogo) }}" alt="logo" class="img-logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

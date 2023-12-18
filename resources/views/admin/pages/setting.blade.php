@@ -1,6 +1,8 @@
 @extends('admin.layouts.default')
 @section('title', 'settings')
 @section('content')
+
+{{--  @dd($sociallinks);  --}}
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
    <!-- Content Header (Page header) -->
@@ -85,27 +87,21 @@
                 </style>
                 <script>
                   function triggerFileInput(index) {
-                    // Trigger the click event of the corresponding hidden file input
                     document.getElementById('fileInput' + index).click();
                   }
                 
                   function displaySelectedFile(index) {
-                    // Get the image element and file input based on the index
                     const imageElement = document.getElementById('uploadTrigger' + index);
                     const fileInput = document.getElementById('fileInput' + index);
                     
-                    // Check if a file is selected
                     if (fileInput.files && fileInput.files[0]) {
                       const reader = new FileReader();
                 
-                      // Read the selected file
                       reader.onload = function (e) {
-                        // Update the image src with the data URL of the uploaded image
                        
                         imageElement.src = e.target.result;
                       };
 
-                      // Read the file as a data URL
                       reader.readAsDataURL(fileInput.files[0]);
                     }
                   }
@@ -123,16 +119,24 @@
                                               right:0;/* Adjust as needed */">
                                             <i class="fas fa-edit"></i>
                                         </div>
-                                        <img class="img-circle" id="uploadTrigger1" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" height="220" width="220">
-                            
-                                        <!-- Hidden file input 1 -->
+                                        @if (isset($largeLogoImageUrl))
+                                        {{--  @dd($data);  --}}
+    <img class="img-circle" id="uploadTrigger1" src="{{ asset($largeLogoImageUrl) }}" alt="Large Logo" height="220" width="220" alt="Your Image Alt Text">
+@else
+    
+    
+<img class="img-circle" id="uploadTrigger1" src="{{ asset('assets/web/images/logo.png') }}" height="220" width="220" alt="Your Image Alt Text">
+
+    @endif
+    
+    <!-- Hidden file input 1 -->
                                         <input type="file" class="file-input" id="fileInput1" name="file1" accept=".jpg, .jpeg, .png" onchange="displaySelectedFile(1)">
                             
                                         <div></div>
                                     </div>
                                     <span>220 x 220</span>
                                     <br/>
-                                    <button type="submit" class="btn btn-primary">Large Logo</button>
+                                    <button type="submit" class="btn btn-primary">Update Large Logo</button>
                                 </form>
                             </div>
                             </div> 
@@ -150,16 +154,32 @@
                                               right:0;/* Adjust as needed */">
                                             <i class="fas fa-edit"></i>
                                         </div>
-                                        <img class="img-circle" id="uploadTrigger2" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" height="140" width="140">
+
+
+
+
+                                        @if (isset($mediumLogoImageUrl))
+                                        {{--  @dd($data);  --}}
+                                        <img class="img-circle" id="uploadTrigger2" src="{{ asset($mediumLogoImageUrl) }}" height="140" width="140">
+@else
+    
+    
+<img class="img-circle" id="uploadTrigger1" src="{{ asset('assets/web/images/logo.png') }}" height="140" width="140" alt="Your Image Alt Text">
+
+    @endif
+
+
+
+
                             
                                         <!-- Hidden file input 1 -->
                                         <input type="file" class="file-input" id="fileInput2" name="file2" accept=".jpg, .jpeg, .png" onchange="displaySelectedFile(2)">
                             
                                         <div></div>
                                     </div>
-                                    <span>220 x 220</span>
+                                    <span>140 x 140</span>
                                     <br/>
-                                    <button type="submit" class="btn btn-primary">Medium Logo</button>
+                                    <button type="submit" class="btn btn-primary">Update Medium Logo</button>
                                 </form>
                             </div>
                             </div> 
@@ -177,16 +197,23 @@
                                               right:0;/* Adjust as needed */">
                                             <i class="fas fa-edit"></i>
                                         </div>
-                                        <img class="img-circle" id="uploadTrigger3" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" height="110" width="110">
-                            
+                                        @if (isset($smallLogoImageUrl))
+                                        <img class="img-circle" id="uploadTrigger3" src="{{ asset($smallLogoImageUrl) }}" height="110" width="110">
+                                        @else
+    
+    
+
+                                        <img class="img-circle" id="uploadTrigger1" src="{{ asset('assets/web/images/logo.png') }}" height="110" width="110" alt="Your Image Alt Text">
+                                        
+                                            @endif
                                         <!-- Hidden file input 1 -->
                                         <input type="file" class="file-input" id="fileInput3" name="file3" accept=".jpg, .jpeg, .png" onchange="displaySelectedFile(3)">
                             
                                         <div></div>
                                     </div>
-                                    <span>220 x 220</span>
+                                    <span>110 x 110</span>
                                     <br/>
-                                    <button type="submit" class="btn btn-primary">Small Logo</button>
+                                    <button type="submit" class="btn btn-primary">Update Small Logo</button>
                                 </form>
                             </div>
                             </div> 
@@ -221,44 +248,45 @@
                 <div>
                   <!-- Facebook -->
                   <div>
-                    <a href="#">
-                      <i class="fab fa-facebook-f fa-2x" style="color: #3b5998;margin-right:5px"></i>
+                    @foreach ($sociallinks as $link)
+                    {{--  @dd($link);  --}}
+                    <a href="{{ $link['link'] }}">
+                        {{--  <i class="{{ $link['icon_class'] }} fa-2x" style="color: {{ $link['icon_color'] }}; margin-right:5px"></i>  --}}
+                        <img class="img-circle" src="{{ Storage::url($link['img_url']) }}" alt="{{ $link['type'] }}" height="50" width="50" alt="Your Image Alt Text">
+
                     </a>
-                    <!-- Twitter -->
-                    <a href="#">
-                        <i class="fab fa-twitter fa-2x" style="color: #55acee;margin-right:5px"></i>
-                                            </a>
-                        <!-- Google -->
-                      <a href="#">
-                        <i class="fab fa-google fa-2x" style="color: #dd4b39;margin-right:5px"></i>
-                      </a>
-                        <!-- Instagram -->
-                        <a href="#">
-                          <i class="fab fa-instagram fa-2x" style="color: #ac2bac;margin-right:5px"></i>
-                        </a>
-                          <!-- Linkedin -->
-                          <a href="#">
-                              <i class="fab fa-linkedin-in fa-2x" style="color: #0082ca;margin-right:5px"></i>
-                          </a>
+                
+              @endforeach
+
                 </div>
                 <hr>
                   <!-- /.card-header -->
                   <!-- form start -->
-                  <form>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Icon Name</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Social Icon Name">
-                      </div>
+                  <form action="{{ route('upload.socialmedia')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="section" value="social_links">
+                    <div class="form-group">
+                      <label>Select Icon name</label>
+                      <select name="type" class="form-control">
+                        <option>facebook</option>
+                        <option>twitter</option>
+                        <option>skype</option>
+                        <option>Instagram</option>
+                      </select>
+                    </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Icon URL</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Social URL">
+                        <input name="link" type="text" class="form-control" id="exampleInputPassword1" placeholder="Social URL" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputFile">Upload Icon</label>
                         <div class="input-group">
                           <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="exampleInputFile">
-                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            <input type="file" name="img_url" class="form-control" id="exampleInputFile" required style="
+                            padding-left: 3px;
+                            padding-top: 3px;
+                        ">
+                            <label class="form-label" for="exampleInputFile"></label>
                           </div>
                           <div class="input-group-append" style="
                           margin: auto;
