@@ -15,4 +15,5 @@ Route::prefix('admin')->group(function () {
     Route::post('/uploadlarge-logo', [settingsController::class,'uploadlargeLogo'])->name('upload.largelogo');
     Route::post('/uploadmedium-logo', [settingsController::class,'uploadMediumLogo'])->name('upload.mediumlogo');
     Route::post('/uploadsmall-logo', [settingsController::class,'uploadSmallLogo'])->name('upload.smalllogo');
+    Route::post('/uploadsocialmedia', [settingsController::class,'uploadSocialMediaInfo'])->name('upload.socialmedia');
 });

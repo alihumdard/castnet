@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-6 col-lg-3">
                 <a href="index.html">
-                    <img src="assets/web/images/logo.png" alt="logo" class="footer_logo">
+                    <img src="{{ asset($mediumlogo) }}" alt="Footer logo" class="footer_logo">
                 </a>
                 <p class="footer_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
                 <div class="d-flex gap-3">
@@ -92,7 +92,7 @@
             <div class="modal-body">
                 <div class="row gx-4">
                     <div class="col-lg-5 text-center text-lg-start">
-                        <img src="assets/web/images/logo.png" alt="logo" class="img-logo">
+                        <img src="{{ asset($largelogo) }}" alt="logo" class="img-logo">
                     </div>
                     <div class="col-lg-7">
                         <h2 class="modal-title">castnet purpose</h2>
