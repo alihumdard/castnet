@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('title', 'RoadMap')
+@section('title', 'All Pages')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">

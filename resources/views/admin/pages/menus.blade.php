@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('title', 'RoadMap')
+@section('title', 'Menus')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -175,16 +175,6 @@
 @pushOnce('scripts')
 <!-- data table -->
 <script>
-    $(function() {
-        $('#allpages_tbl').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": false,
-            "info": true,
-            "autoWidth": false,
-            "responsive": false,
-        });
-    });
+   
 </script>
 @endPushOnce
