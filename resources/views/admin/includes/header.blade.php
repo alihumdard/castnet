@@ -1,5 +1,5 @@
 <div class="wrapper">
-    
+
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
@@ -154,16 +154,17 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <li class="nav-item">
-                <a href="{{route('admin.index')}}" class="nav-link {{(request()->routeIs('admin.index')) ? 'active' :''}}">
-                  <i class="nav-icon fas fa-users"></i>
-                  <p>
-                    Users
-                  </p>
-                </a>
-              </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('admin.index')}}" class="nav-link {{(request()->routeIs('admin.index')) ? 'active' :''}}">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Users
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item {{(request()->routeIs(['admin.allpages','admin.addpage' ])) ? 'menu-is-opening menu-open' : ''}}">
+                        <a href="{{ route('admin.allpages') }}" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
                                 Pages
@@ -172,20 +173,21 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('admin.allpages') }}" class="nav-link {{(request()->routeIs('admin.allpages')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>All Pages</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('admin.addpage') }}" class="nav-link {{(request()->routeIs('admin.addpage')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Add Page</p>
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item">
+
+                    <li class="nav-item {{(request()->routeIs(['admin.menus'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-palette"></i>
                             <p>
@@ -194,12 +196,14 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
+
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('admin.menus') }}" class="nav-link {{(request()->routeIs('admin.menus')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Menus</p>
                                 </a>
                             </li>
+                            
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
@@ -208,6 +212,7 @@
                             </li>
                         </ul>
                     </li>
+
                     <li class="nav-item {{(request()->routeIs(['admin.principle','admin.roadmap' ])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-palette"></i>
@@ -258,7 +263,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.setting') }}" class="nav-link {{(request()->routeIs('admin.setting')) ? 'active' :''}}" >
+                        <a href="{{ route('admin.setting') }}" class="nav-link {{(request()->routeIs('admin.setting')) ? 'active' :''}}">
                             <i class="nav-icon fas fa-cog"></i>
                             <p>
                                 Setting
