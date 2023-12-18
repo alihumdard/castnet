@@ -146,19 +146,17 @@
                 <h2 class="section_title">how we're working for you</h2>
                 <div class="accordion" id="accordionExample">
                     @forelse($roadmaps ?? [] as $key => $val)
-
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="{{($loop->first) ? 'true' : 'false'}}" aria-controls="collapseOne">
-                                <span class="text-secondary fs-2">01</span>
-                                <span class="font-roboto ms-4 p-1">Market Research and Needs Analysis</span>
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_{{$val['id'] ?? ''}}" aria-expanded="{{($loop->first) ? 'true' : 'false'}}" aria-controls="collapse_{{$val['id'] ?? ''}}">
+                                <span class="text-secondary fs-2">{{ ++$key ?? '' }}</span>
+                                <span class="font-roboto ms-4 p-1">{{ $val['title'] ?? '' }}</span>
                             </button>
                         </h2>
-                        <div id="collapseOne" @class([ 'accordion-collapse' , 'collapse' , 'show'=> $loop->first]) data-bs-parent="#accordionExample">
+                        <div id="collapse_{{$val['id'] ?? ''}}" @class([ 'accordion-collapse' , 'collapse' , 'show'=> $loop->first]) data-bs-parent="#accordionExample">
                             <div class="accordion-body p-4">
                                 <ul class="mb-0">
-                                    <li class="accordion-list-item">Develop or partner with digital platforms like BidLock for efficient source-to-pay processes.</li>
-                                    <li class="accordion-list-item">Ensure these platforms are accessible, user-friendly, and customizable to various business needs.</li>
+                                    {!! $val['desc'] ?? '' !!}
                                 </ul>
                             </div>
                         </div>
@@ -166,16 +164,15 @@
                     @empty
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                <span class="text-secondary fs-2">02</span>
-                                <span class="font-roboto ms-4 p-1">Building Digital Infrastructure</span>
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_empty" aria-expanded="true" aria-controls="collapse_empty">
+                                <span class="text-secondary fs-2">01</span>
+                                <span class="font-roboto ms-4 p-1">No Records available </span>
                             </button>
                         </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div id="collapse_empty" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body p-4">
                                 <ul class="mb-0">
-                                    <li class="accordion-list-item">Develop or partner with digital platforms like BidLock for efficient source-to-pay processes.</li>
-                                    <li class="accordion-list-item">Ensure these platforms are accessible, user-friendly, and customizable to various business needs.</li>
+                                    <li class="accordion-list-item">No Records available. please create road maps.</li>
                                 </ul>
                             </div>
                         </div>
