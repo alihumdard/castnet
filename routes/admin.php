@@ -20,4 +20,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/allpages', [pagesController::class, 'allpages'])->name('admin.allpages');
     Route::get('/addpage', [pagesController::class, 'addpage'])->name('admin.addpage');
     Route::get('/menus', [apperenceController::class, 'menus'])->name('admin.menus');
+    Route::post('/update_sociallink/{id}', [settingsController::class,'updateImage'])->name('update.socialmedia');
 });
+

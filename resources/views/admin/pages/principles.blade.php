@@ -106,11 +106,11 @@
 <!-- form validation setting default for all -->
 <script>
     $(function() {
-        $.validator.setDefaults({
+      /*  $.validator.setDefaults({
             submitHandler: function() {
                 alert("Form successful submitted!");
             }
-        });
+        }); */
         $('.formValidation').validate({
             rules: {
                 title: {

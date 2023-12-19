@@ -9,7 +9,7 @@
                         <div class="d-flex gap-3">
                             @foreach ($socialmedia as $link)
         <a href="{{ $link['link'] }}" target="_blank">
-            <img class="img-circle" src="{{ Storage::url($link['img_url']) }}" alt="{{ $link['type'] }}" height="50" width="50" style="border-radius: 50%" alt="Your Image Alt Text">
+            <img class="img-circle" src="{{ Storage::url($link['img_url']) }}" alt="{{ $link['type'] }}" height="32" width="32" style="border-radius: 50%" alt="Your Image Alt Text">
         </a>
     @endforeach 
                         </div>

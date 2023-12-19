@@ -16,3 +16,25 @@ use App\Http\Controllers\web\HomeController;
 Route::get('/', [HomeController::class, 'index'])->name('web.index');
 
 include __DIR__.'/admin.php';
+
+Route::get('/commands', function () {
+    \Artisan::call('cache:clear');
+    \Artisan::call('config:clear');
+    \Artisan::call('route:clear');
+    \Artisan::call('optimize');
+    \Artisan::call('view:clear');
+    \Artisan::call('optimize:clear');
+    \Artisan::call('dump-autoload --optimize');
+    \Artisan::call('clear-compiled');
+    return 'Commands executed successfully!';
+});
+
+Route::get('/commandMigrate', function () {
+    \Artisan::call('migrate');
+    \Artisan::call('config:clear');
+    \Artisan::call('route:clear');
+    \Artisan::call('optimize');
+    \Artisan::call('view:clear');
+    \Artisan::call('optimize:clear');
+    return 'Commands executed successfully!';
+});

@@ -24,20 +24,18 @@ class pagesController extends Controller
 
     public function setting()
     {
-        $largeLogoSetting = Setting::where('type', 'Large Logo')->first();
-        $mediumLogoSetting = Setting::where('type', 'Medium Logo')->first();
-        $smallLogoSetting = Setting::where('type', 'Small Logo')->first();
+        $largeLogoSetting = Setting::where('type', 'large_logo')->first();
+        $mediumLogoSetting = Setting::where('type', 'medium_logo')->first();
+        $smallLogoSetting = Setting::where('type', 'small_logo')->first();
         $sociallinks = Setting::where('section', 'social_links')->get()->toArray();
    
         
  
 
         if ($largeLogoSetting || $mediumLogoSetting || $smallLogoSetting) {
-            $largeLogoImageUrl = asset("storage/{$largeLogoSetting->img_url}");
 
+            $largeLogoImageUrl = $largeLogoSetting ? asset("storage/{$largeLogoSetting->img_url}") : null;
             $mediumLogoImageUrl = $mediumLogoSetting ? asset("storage/{$mediumLogoSetting->img_url}") : null;
-
-           
             $smallLogoImageUrl = $smallLogoSetting ? asset("storage/{$smallLogoSetting->img_url}") : null;
 
             return view('admin.pages.setting', compact('largeLogoImageUrl', 'mediumLogoImageUrl', 'smallLogoImageUrl','sociallinks'));
