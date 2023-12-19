@@ -128,7 +128,7 @@
                             @if (isset($mediumLogoImageUrl))
                             <img class="img-circle" id="uploadTrigger2" src="{{ asset($mediumLogoImageUrl) }}" height="140" width="140">
                             @else
-                            <img class="img-circle" id="uploadTrigger1" src="{{ asset('assets/web/images/logo.png') }}" height="140" width="140" alt="Your Image Alt Text">
+                            <img class="img-circle" id="uploadTrigger2" src="{{ asset('assets/web/images/logo.png') }}" height="140" width="140" alt="Your Image Alt Text">
                             @endif
                             <!-- Hidden file input 1 -->
                             <input type="file" class="file-input" id="fileInput2" name="file2" accept=".jpg, .jpeg, .png" onchange="displaySelectedFile(2)">
@@ -154,7 +154,7 @@
                             @if (isset($smallLogoImageUrl))
                             <img class="img-circle" id="uploadTrigger3" src="{{ asset($smallLogoImageUrl) }}" height="110" width="110">
                             @else
-                            <img class="img-circle" id="uploadTrigger1" src="{{ asset('assets/web/images/logo.png') }}" height="110" width="110" alt="Your Image Alt Text">
+                            <img class="img-circle" id="uploadTrigger3" src="{{ asset('assets/web/images/logo.png') }}" height="110" width="110" alt="Your Image Alt Text">
 
                             @endif
                             <!-- Hidden file input 1 -->
