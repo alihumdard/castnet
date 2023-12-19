@@ -21,5 +21,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/addpage', [pagesController::class, 'addpage'])->name('admin.addpage');
     Route::get('/menus', [apperenceController::class, 'menus'])->name('admin.menus');
     Route::post('/update_sociallink/{id}', [settingsController::class,'updateImage'])->name('update.socialmedia');
+    Route::post('/update-social-media', [settingsController::class,'uploadSocialMediaInfo'])->name('update.record');
 });
 
