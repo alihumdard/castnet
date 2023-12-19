@@ -15,30 +15,31 @@ class SettingsController extends Controller
     {
   
         $request->validate([
-            'file1' => 'image|mimes:jpg,jpeg,png|max:2048', 
-        ]);
+            'largelogo' => 'image|mimes:jpg,jpeg,png|max:2048|dimensions:width=220,height=220',
+        ]);        
 
-        if ($request->hasFile('file1')) {
-            $oldImagePath = Setting::where('type', 'Large Logo')->value('img_url');
-
+        if ($request->hasFile('largelogo')) {
+            $oldImagePath = Setting::where('type', 'large_logo')->value('img_url');
       
-            $imagePath = $request->file('file1')->store('logos', 'public');
+            $imagePath = $request->file('largelogo')->store('logos', 'public');
 
 
-            Setting::updateOrCreate(
-                ['type' => 'Large Logo'], 
+           $setting= Setting::updateOrCreate(
+                ['type' => 'large_logo'], 
                 [
-                    'section' => 'Logo',
+                    'section' => 'logo',
                     'img_url' => $imagePath,
-                    'type' => 'Large Logo',
+                    'type' => 'large_logo',
                 ]
             );
 
             if ($oldImagePath && Storage::disk('public')->exists($oldImagePath)) {
                 Storage::disk('public')->delete($oldImagePath);
             }
+            $message = $setting->wasRecentlyCreated ? 'Small Logo Successfully Created.' : 'Small Logo Successfully Updated.';
 
-            return redirect()->route('admin.setting');
+            return redirect()->route('admin.setting')->with('success', $message);
+
         }
 
 
@@ -49,24 +50,24 @@ class SettingsController extends Controller
     {
 
         $request->validate([
-            'file2' => 'image|mimes:jpg,jpeg,png|max:2048', 
+            'mediumlogo' => 'image|mimes:jpg,jpeg,png|max:2048|dimensions:width=140,height=140',
         ]);
 
 
-        if ($request->hasFile('file2')) {
+        if ($request->hasFile('mediumlogo')) {
 
-            $oldImagePath = Setting::where('type', 'Medium Logo')->value('img_url');
+            $oldImagePath = Setting::where('type', 'medium_logo')->value('img_url');
 
 
-            $imagePath = $request->file('file2')->store('logos', 'public');
+            $imagePath = $request->file('mediumlogo')->store('logos', 'public');
 
       
-            Setting::updateOrCreate(
-                ['type' => 'Medium Logo'], 
+            $setting = Setting::updateOrCreate(
+                ['type' => 'medium_logo'], 
                 [
-                    'section' => 'Logo',
+                    'section' => 'logo',
                     'img_url' => $imagePath,
-                    'type' => 'Medium Logo',
+                    'type' => 'medium_logo',
                 ]
             );
 
@@ -74,8 +75,10 @@ class SettingsController extends Controller
             if ($oldImagePath && Storage::disk('public')->exists($oldImagePath)) {
                 Storage::disk('public')->delete($oldImagePath);
             }
+            
+            $message = $setting->wasRecentlyCreated ? 'Small Logo Successfully Created.' : 'Small Logo Successfully Updated.';
 
-            return redirect()->route('admin.setting');
+            return redirect()->route('admin.setting')->with('success', $message);
         }
         return redirect()->back()->with('error', 'No image provided.');
     }
@@ -83,24 +86,23 @@ class SettingsController extends Controller
     {
 
         $request->validate([
-            'file3' => 'image|mimes:jpg,jpeg,png|max:2048', 
+            'smalllogo' => 'image|mimes:jpg,jpeg,png|max:2048|dimensions:width=110,height=110',
         ]);
 
+        if ($request->hasFile('smalllogo')) {
 
-        if ($request->hasFile('file3')) {
-
-            $oldImagePath = Setting::where('type', 'small Logo')->value('img_url');
+            $oldImagePath = Setting::where('type', 'small_logo')->value('img_url');
 
             
-            $imagePath = $request->file('file3')->store('logos', 'public');
+            $imagePath = $request->file('smalllogo')->store('logos', 'public');
 
         
-            Setting::updateOrCreate(
-                ['type' => 'small Logo'], 
+            $setting = Setting::updateOrCreate(
+                ['type' => 'small_logo'], 
                 [
-                    'section' => 'Logo',
+                    'section' => 'logo',
                     'img_url' => $imagePath,
-                    'type' => 'small Logo',
+                    'type' => 'small_logo',
                 ]
             );
 
@@ -109,7 +111,9 @@ class SettingsController extends Controller
                 Storage::disk('public')->delete($oldImagePath);
             }
 
-            return redirect()->route('admin.setting');
+            $message = $setting->wasRecentlyCreated ? 'Small Logo Successfully Created.' : 'Small Logo Successfully Updated.';
+
+            return redirect()->route('admin.setting')->with('success', $message);
         }
    
         return redirect()->back()->with('error', 'No image provided.');
@@ -125,7 +129,7 @@ class SettingsController extends Controller
         ]);
         $imagePath = $request->file('img_url')->store('social_icons', 'public');
 
-        Setting::updateOrCreate(
+        $setting = Setting::updateOrCreate(
             ['id' => $request->id ?? NULL],
             [
                 'section' => $request->section,
@@ -135,7 +139,17 @@ class SettingsController extends Controller
                 'created_by' => Auth::id()
             ]
         );
+        $message = $setting->wasRecentlyCreated ? 'Social Link Successfully Created.' : 'Social Link Successfully Updated.';
 
-        return redirect()->route('admin.setting');
+            return redirect()->route('admin.setting')->with('success', $message);
+
+    }
+    
+    public function updateImage(Request $request, $id)
+    {
+        $setting = Setting::find($id);
+        $socialMediaData = $setting->toArray();
+        // dd($settingArray);\
+        return redirect()->route('admin.setting')->with('socialMediaData', $socialMediaData);
     }
 }

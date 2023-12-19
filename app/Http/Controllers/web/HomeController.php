@@ -38,7 +38,7 @@ class HomeController extends Controller
         return [];
     }
     protected function largelogo(){
-        $largelogo = Setting::where('type', 'Large Logo')->value('img_url');
+        $largelogo = Setting::where('type', 'large_logo')->value('img_url');
         if ($largelogo) {
             return asset("storage/$largelogo");
         } else {
@@ -46,7 +46,7 @@ class HomeController extends Controller
         }
     }
     protected function mediumlogo(){
-        $mediumlogo = Setting::where('type', 'Medium Logo')->value('img_url');
+        $mediumlogo = Setting::where('type', 'medium_logo')->value('img_url');
         if ($mediumlogo) {
             return asset("storage/$mediumlogo");
         } else {
@@ -54,7 +54,7 @@ class HomeController extends Controller
         }
     }
     protected function smalllogo(){
-        $smalllogo = Setting::where('type', 'small Logo')->value('img_url');
+        $smalllogo = Setting::where('type', 'small_logo')->value('img_url');
         if ($smalllogo) {
             return asset("storage/$smalllogo");
         } else {
