@@ -54,6 +54,10 @@
     border-radius: 50%;
   }
 </style>
+{{--  @if(count($socialMediaData) > 0)  --}}
+    {{--  @dd($socialMediaData ?? '')  --}}
+{{--  @endif  --}}
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -202,44 +206,51 @@
                   {{--  ****************************************  --}}
 
                 </div>
-                @if(count($sociallinks) > 0)
-    {{-- Your $sociallinks rendering logic here --}}
+                @if(!isset($socialMediaData))
+    {{--  Your $sociallinks rendering logic here  --}}
     <hr>
 @endif
-                <form action="{{ route('upload.socialmedia')}}" method="POST" enctype="multipart/form-data" id="socialMediaForm">
-                  @csrf
-                  <input type="hidden" name="section" value="social_links">
-                  <div class="form-group">
-                      <label>Select Icon name</label>
-                      <select name="type" class="form-control" onchange="checkFormFields()">
+               
+              <form action="{{ route('upload.socialmedia') }}" method="POST" enctype="multipart/form-data" id="socialMediaForm">
+                @csrf
+               
+                <input type="hidden" name="section" value="social_links">
+                <input type="hidden" name="id" value="{{ $socialMediaData['id'] ?? '' }}">
+                <div class="form-group">
+                    <label>Select Icon name</label>
+                    <select name="type" class="form-control" onchange="checkFormFields()">
                         <option value="" disabled selected>Select One Option</option>
-                          <option value="facebook">facebook</option>
-                          <option value="twitter">twitter</option>
-                          <option value="skype">skype</option>
-                          <option value="instagram">Instagram</option>
-                      </select>
-                  </div>
-                  <div class="form-group">
-                      <label for="exampleInputPassword1">Icon URL</label>
-                      <input name="link" type="text" class="form-control" id="exampleInputPassword1" placeholder="Social URL" required onchange="checkFormFields()">
-                  </div>
-                  <div class="form-group">
-                      <label for="exampleInputFile">Upload Icon</label>
-                      <div class="input-group">
-                          <div class="custom-file">
-                              <input type="file" name="img_url" class="form-control" id="exampleInputFile" required style=" padding-left: 3px; padding-top: 3px; " onchange="checkFormFields()">
-                              <label class="form-label" for="exampleInputFile"></label>
-                          </div>
-                          <div class="input-group-append" style="margin: auto; padding-left: 5px;">
-                              <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
-                          </div>
-                      </div>
-                  </div>
-                  <!-- /.card-body -->
-                  <div class="card-footer">
-                      <button type="submit" class="btn btn-primary" id="addButton" disabled>Add</button>
-                  </div>
-              </form>
+                        <option value="facebook" {{ isset($socialMediaData) && $socialMediaData['type'] == 'facebook' ? 'selected' : '' }}>facebook</option>
+                        <option value="twitter" {{ isset($socialMediaData) && $socialMediaData['type'] == 'twitter' ? 'selected' : '' }}>twitter</option>
+                        <option value="skype" {{ isset($socialMediaData) && $socialMediaData['type'] == 'skype' ? 'selected' : '' }}>skype</option>
+                        <option value="instagram" {{ isset($socialMediaData) && $socialMediaData['type'] == 'instagram' ? 'selected' : '' }}>Instagram</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Icon URL</label>
+                    <input name="link" type="text" class="form-control" value="{{ $socialMediaData['link'] ?? '' }}" id="exampleInputPassword1" placeholder="Social URL" required onchange="checkFormFields()">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">Upload Icon</label>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" name="img_url" class="form-control" id="exampleInputFile" {{ isset($socialMediaData) ? '' : 'required' }} style="padding-left: 3px; padding-top: 3px;" onchange="checkFormFields()">
+                            <label class="form-label" for="exampleInputFile"></label>
+                        </div>
+                        <div class="input-group-append" style="margin: auto; padding-left: 5px;">
+                          <img src="{{ isset($socialMediaData) ? asset('storage/' . $socialMediaData['img_url']) : 'https://www.w3schools.com/howto/img_avatar.png' }}" alt="Avatar" class="avatar">
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary" id="addButton" disabled>{{ isset($socialMediaData) ? 'Update' : 'Add' }}</button>
+                    {{--  @if(isset($socialMediaData))
+                    <button type="submit" class="btn btn-danger" id="addButton" disabled>Delete</button>
+                    @endif  --}}
+                </div>
+            </form>
+            
 
               </div>
               <!-- /.card-body -->
@@ -323,17 +334,23 @@
       });
   });
   function checkFormFields() {
-    var type = document.getElementsByName('type')[0].value;
-    var link = document.getElementById('exampleInputPassword1').value;
-    var img_url = document.getElementById('exampleInputFile').value;
+    var type = document.getElementsByName('type')[0];
+    var link = document.getElementById('exampleInputPassword1');
+    var imgInput = document.getElementById('exampleInputFile');
+    var imgPreview = document.querySelector('.avatar');
 
     var addButton = document.getElementById('addButton');
 
-    if (type.trim() !== '' && link.trim() !== '' && img_url.trim() !== '') {
+    var isTypeChanged = type.value !== type.dataset.initial;
+    var isLinkChanged = link.value !== link.dataset.initial;
+    var isImgChanged = imgInput.value !== imgInput.dataset.initial;
+
+    if (isTypeChanged || isLinkChanged || isImgChanged) {
         addButton.disabled = false;
     } else {
         addButton.disabled = true;
     }
 }
+
   </script>
   @endPushOnce

@@ -120,36 +120,73 @@ class SettingsController extends Controller
     }
     public function uploadSocialMediaInfo(Request $request)
     {
- 
         $request->validate([
             'section' => 'required|string',
             'type' => 'required|string',
             'link' => 'required|url',
             'img_url' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-        $imagePath = $request->file('img_url')->store('social_icons', 'public');
-
+    
+        $imagePath = null;
+    
+        if ($request->hasFile('img_url')) {
+            // If a new file is provided, upload it
+            $imagePath = $request->file('img_url')->store('social_icons', 'public');
+        } elseif ($request->filled('id')) {
+            // If it's an update and no new file is provided, use the existing value
+            $existingSetting = Setting::find($request->id);
+            $imagePath = $existingSetting->img_url;
+        }
+    
         $setting = Setting::updateOrCreate(
-            ['id' => $request->id ?? NULL],
+            ['id' => $request->id ?? null],
             [
                 'section' => $request->section,
-                'type'    => $request->type,
-                'link'    => $request->link,
+                'type' => $request->type,
+                'link' => $request->link,
                 'img_url' => $imagePath,
-                'created_by' => Auth::id()
+                'created_by' => Auth::id(),
             ]
         );
+    
         $message = $setting->wasRecentlyCreated ? 'Social Link Successfully Created.' : 'Social Link Successfully Updated.';
-
-            return redirect()->route('admin.setting')->with('success', $message);
-
+    
+        return redirect()->route('admin.setting')->with('success', $message);
     }
+    
+      
     
     public function updateImage(Request $request, $id)
     {
         $setting = Setting::find($id);
-        $socialMediaData = $setting->toArray();
-        // dd($settingArray);\
-        return redirect()->route('admin.setting')->with('socialMediaData', $socialMediaData);
+        $data['socialMediaData'] = $setting->toArray();
+     
+        return view('admin.pages.setting',$data);
+    }
+    // ****************************
+    public function update(Request $request)
+    {
+        dd($request);
+        // Validate the request
+        $request->validate([
+            'type' => 'required',
+            'link' => 'required',
+            'img_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Example validation for image upload
+        ]);
+
+        // Assuming your model has a static method to find or create a record
+        $socialMedia = Setting::updateOrCreate(
+            ['id' => $request->id], // Update based on the provided ID
+            [
+                'type' => $request->type,
+                'link' => $request->link,
+                // handle image upload and storage, e.g., using Laravel's Storage facade
+                // 'img_url' => ...
+            ]
+        );
+
+        // Additional logic if needed
+
+        return redirect()->back()->with('success', 'Record updated successfully.');
     }
 }
