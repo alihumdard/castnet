@@ -13,16 +13,13 @@ class SettingsController extends Controller
 {
     public function uploadLargeLogo(Request $request)
     {
-  
         $request->validate([
             'largelogo' => 'image|mimes:jpg,jpeg,png|max:2048|dimensions:width=220,height=220',
         ]);        
-
         if ($request->hasFile('largelogo')) {
             $oldImagePath = Setting::where('type', 'large_logo')->value('img_url');
       
             $imagePath = $request->file('largelogo')->store('logos', 'public');
-
 
            $setting= Setting::updateOrCreate(
                 ['type' => 'large_logo'], 
@@ -84,7 +81,6 @@ class SettingsController extends Controller
     }
     public function uploadSmallLogo(Request $request)
     {
-
         $request->validate([
             'smalllogo' => 'image|mimes:jpg,jpeg,png|max:2048|dimensions:width=110,height=110',
         ]);
