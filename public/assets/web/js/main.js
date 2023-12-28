@@ -38,3 +38,6 @@ const partnerSwiper = new Swiper('.swiperEvents', {
         prevEl: ".swiper-button-prev",
     },
 });
+
+// AOS Initialize
+AOS.init();

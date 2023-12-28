@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\pagesController;
 use App\Http\Controllers\Admin\widgetsController;
 use App\Http\Controllers\Admin\settingsController;
 use App\Http\Controllers\Admin\apperenceController;
+use App\Http\Controllers\Admin\PageController;
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [pagesController::class, 'index'])->name('admin.index');
@@ -22,5 +23,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/menus', [apperenceController::class, 'menus'])->name('admin.menus');
     Route::post('/update_sociallink/{id}', [settingsController::class,'updateImage'])->name('update.socialmedia');
     Route::post('/update-social-media', [settingsController::class,'uploadSocialMediaInfo'])->name('update.record');
+    Route::get('pages/{id}/editor', [PageController::class,'editor'])->name('page.editor');
 });
 
