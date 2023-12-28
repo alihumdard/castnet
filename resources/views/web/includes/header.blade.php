@@ -58,44 +58,44 @@
                         <li class="nav-item dropdown-link">
                             <a class="nav-link" href="{{ route('web.membership') }}">membership</a>
                             <ul class="dropdown-content">
-                                <li><a href="join.html">join</a></li>
-                                <li><a href="benefits.html">benefits</a></li>
-                                <li><a href="programs.html">programs</a></li>
-                                <li><a href="evaluation.html">evaluation</a></li>
-                                <li><a href="rules_of_engagement.html">rules of engagement</a></li>
+                                <li><a href="{{ route('web.join') }}">join</a></li>
+                                <li><a href="{{ route('web.benefits') }}">benefits</a></li>
+                                <li><a href="{{ route('web.programs') }}">programs</a></li>
+                                <li><a href="{{ route('web.evaluation') }}">evaluation</a></li>
+                                <li><a href="{{ route('web.rules_of_engagement') }}">rules of engagement</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown-link">
-                            <a class="nav-link" href="sectors.html">sectors</a>
+                            <a class="nav-link" href="{{ route('web.sectors') }}">sectors</a>
                             <ul class="dropdown-content">
-                                <li><a href="construction.html">construction</a></li>
-                                <li><a href="agriculture.html">agriculture</a></li>
-                                <li><a href="supply_chain.html">supply chain</a></li>
-                                <li><a href="technology.html">technology</a></li>
-                                <li><a href="natural_resources.html">natural resources</a></li>
-                                <li><a href="energy.html">energy</a></li>
-                                <li><a href="textiles.html">textiles</a></li>
+                                <li><a href="{{ route('web.rules_of_engagement') }}">construction</a></li>
+                                <li><a href="{{ route('web.rules_of_engagement') }}">agriculture</a></li>
+                                <li><a href="{{ route('web.rules_of_engagement') }}">supply chain</a></li>
+                                <li><a href="{{ route('web.rules_of_engagement') }}">technology</a></li>
+                                <li><a href="{{ route('web.rules_of_engagement') }}">natural resources</a></li>
+                                <li><a href="{{ route('web.rules_of_engagement') }}">energy</a></li>
+                                <li><a href="{{ route('web.rules_of_engagement') }}">textiles</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown-link">
-                            <a class="nav-link" href="advocacy.html">advocacy</a>
+                            <a class="nav-link" href="{{ route('web.rules_of_engagement') }}">advocacy</a>
                             <ul class="dropdown-content">
-                                <li><a href="small_businesses.html">small businesses</a></li>
-                                <li><a href="women.html">women</a></li>
-                                <li><a href="veterans.html">veterans</a></li>
-                                <li><a href="support_services.html">support services</a></li>
+                                <li><a href="{{ route('web.rules_of_engagement') }}">small businesses</a></li>
+                                <li><a href="{{ route('web.rules_of_engagement') }}">women</a></li>
+                                <li><a href="{{ route('web.rules_of_engagement') }}">veterans</a></li>
+                                <li><a href="{{ route('web.rules_of_engagement') }}">support services</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown-link">
-                            <a class="nav-link" href="events.html">events</a>
+                            <a class="nav-link" href="{{ route('web.rules_of_engagement') }}">events</a>
                             <ul class="dropdown-content">
-                                <li><a href="event_calendar.html">event calendar</a></li>
-                                <li><a href="event_request.html">event request</a></li>
-                                <li><a href="international_events.html">international events</a></li>
+                                <li><a href="{{ route('web.rules_of_engagement') }}">event calendar</a></li>
+                                <li><a href="{{ route('web.rules_of_engagement') }}">event request</a></li>
+                                <li><a href="{{ route('web.rules_of_engagement') }}">international events</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.html">blog</a>
+                            <a class="nav-link" href="{{ route('web.rules_of_engagement') }}">blog</a>
                         </li>
                         <li class="nav-item">
                             <a data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasExample">
@@ -113,53 +113,53 @@
             <div class="offcanvas-body">
                 <ul class="ps-0">
                     <li class="offcanvas-menu">
-                        <a href="financial.html" class="link">financial</a>
+                        <a href="{{ route('web.rules_of_engagement') }}" class="link">financial</a>
                         <ul class="sub_menu">
-                            <li><a href="grants.html">grants</a></li>
-                            <li><a href="funding.html">funding</a></li>
+                            <li><a href="{{ route('web.rules_of_engagement') }}">grants</a></li>
+                            <li><a href="{{ route('web.rules_of_engagement') }}">funding</a></li>
                         </ul>
                     </li>
                 </ul>
                 <ul class="ps-0">
                     <li class="offcanvas-menu">
-                        <a href="partners_sponsors.html" class="link">partners / sponsors</a>
+                        <a href="{{ route('web.rules_of_engagement') }}" class="link">partners / sponsors</a>
                         <ul class="sub_menu">
-                            <li><a href="become_partner.html">become a partner</a></li>
-                            <li><a href="become_sponsor.html">become a sponsor</a></li>
+                            <li><a href="{{ route('web.rules_of_engagement') }}">become a partner</a></li>
+                            <li><a href="{{ route('web.rules_of_engagement') }}">become a sponsor</a></li>
                         </ul>
                     </li>
                 </ul>
                 <ul class="ps-0">
                     <li class="offcanvas-menu">
-                        <a href="outreach.html" class="link">outreach</a>
+                        <a href="{{ route('web.rules_of_engagement') }}" class="link">outreach</a>
                         <ul class="sub_menu">
-                            <li><a href="chad.html">chad</a></li>
-                            <li><a href="ghana.html">ghana</a></li>
-                            <li><a href="south_africa.html">south africa</a></li>
-                            <li><a href="zimbabwe.html">zimbabwe</a></li>
-                            <li><a href="cameroon.html">cameroon</a></li>
-                            <li><a href="drc.html">drc</a></li>
-                            <li><a href="cote_divoire.html">cote d'ivoire</a></li>
-                            <li><a href="usa.html">usa</a></li>
+                            <li><a href="{{ route('web.rules_of_engagement') }}">chad</a></li>
+                            <li><a href="{{ route('web.rules_of_engagement') }}">ghana</a></li>
+                            <li><a href="{{ route('web.rules_of_engagement') }}">south africa</a></li>
+                            <li><a href="{{ route('web.rules_of_engagement') }}">zimbabwe</a></li>
+                            <li><a href="{{ route('web.rules_of_engagement') }}">cameroon</a></li>
+                            <li><a href="{{ route('web.rules_of_engagement') }}">drc</a></li>
+                            <li><a href="{{ route('web.rules_of_engagement') }}">cote d'ivoire</a></li>
+                            <li><a href="{{ route('web.rules_of_engagement') }}">usa</a></li>
                         </ul>
                     </li>
                 </ul>
                 <ul class="ps-0">
                     <li class="offcanvas-menu">
-                        <a href="opportunities.html" class="link">opportunities</a>
+                        <a href="{{ route('web.rules_of_engagement') }}" class="link">opportunities</a>
                         <ul class="sub_menu">
-                            <li><a href="opportunities_agriculture.html">agriculture</a></li>
-                            <li><a href="opportunities_construction.html">construction</a></li>
-                            <li><a href="mining.html">mining</a></li>
-                            <li><a href="rfx.html">rfx</a></li>
+                            <li><a href="{{ route('web.rules_of_engagement') }}">agriculture</a></li>
+                            <li><a href="{{ route('web.rules_of_engagement') }}">construction</a></li>
+                            <li><a href="{{ route('web.rules_of_engagement') }}">mining</a></li>
+                            <li><a href="{{ route('web.rules_of_engagement') }}">rfx</a></li>
                         </ul>
                     </li>
                 </ul>
                 <ul class="ps-0">
                     <li class="offcanvas-menu">
-                        <a href="careers.html" class="link">careers</a>
+                        <a href="{{ route('web.rules_of_engagement') }}" class="link">careers</a>
                         <ul class="sub_menu">
-                            <li><a href="job_openings.html">job openings</a></li>
+                            <li><a href="{{ route('web.rules_of_engagement') }}">job openings</a></li>
                         </ul>
                     </li>
                 </ul>
