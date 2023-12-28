@@ -452,4 +452,29 @@
 </section>
 <!-- Impact End -->
 
+<!-- Modal Start -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row gx-4">
+                    <div class="col-lg-5 text-center text-lg-start">
+                        <img src="{{ asset($largelogo) }}" alt="logo" class="img-logo">
+                    </div>
+                    <div class="col-lg-7">
+                        <h2 class="modal-title">castnet purpose</h2>
+                        <p class="modal-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <p class="modal-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span>get started</span>
+                            <img src="assets/web/images/icon_arrow_alt.png" alt="arrow">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal End -->
+
 @stop

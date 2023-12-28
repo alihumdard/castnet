@@ -37,6 +37,7 @@ class HomeController extends Controller
         }
         return [];
     }
+    
     protected function largelogo(){
         $largelogo = Setting::where('type', 'large_logo')->value('img_url');
         if ($largelogo) {

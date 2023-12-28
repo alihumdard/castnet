@@ -32,7 +32,7 @@ class pagesController extends Controller
         
  
 
-        if ($largeLogoSetting || $mediumLogoSetting || $smallLogoSetting) {
+        if ($largeLogoSetting || $mediumLogoSetting || $smallLogoSetting || $sociallinks) {
 
             $largeLogoImageUrl = $largeLogoSetting ? asset("storage/{$largeLogoSetting->img_url}") : null;
             $mediumLogoImageUrl = $mediumLogoSetting ? asset("storage/{$mediumLogoSetting->img_url}") : null;

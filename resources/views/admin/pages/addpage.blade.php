@@ -19,7 +19,6 @@
             </div>
         </div>
     </div>
-
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
@@ -106,9 +105,13 @@
                                             <option value="trash">Trash</option>
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="submit" class="btn btn-primary  btn-block" value="Apply">
-                                    </div>
+                                    {{--  <form action="{{ route('page.editor', 1)}}" method="get">  --}}
+
+                                        <div class="form-group">
+                                            <input type="submit" class="btn btn-primary  btn-block" value="Apply">
+                                            {{--  <a href="{{ route('page.editor', 1)}}" class="btn btn-primary btn-block">Apply2</a>  --}}
+                                        </div>
+                                    {{--  </form>  --}}
                                 </div>
                             </div>
                             <!-- choose templates  -->

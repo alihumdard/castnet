@@ -1,6 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\web\HomeController;
+use App\Http\Controllers\web\AboutController;
+use App\Http\Controllers\web\WhoweareController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,8 @@ use App\Http\Controllers\web\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('web.index');
+Route::get('/about', [AboutController::class, 'index'])->name('web.about');
+Route::get('/who-we-are', [WhoweareController::class, 'index'])->name('web.who-we-are');
 
 include __DIR__.'/admin.php';
 
