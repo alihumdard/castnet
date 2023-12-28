@@ -3,6 +3,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\web\HomeController;
 use App\Http\Controllers\web\AboutController;
 use App\Http\Controllers\web\WhoweareController;
+use App\Http\Controllers\web\TeamController;
+use App\Http\Controllers\web\ContactusController;
+use App\Http\Controllers\web\MembershipController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +21,10 @@ use App\Http\Controllers\web\WhoweareController;
 Route::get('/', [HomeController::class, 'index'])->name('web.index');
 Route::get('/about', [AboutController::class, 'index'])->name('web.about');
 Route::get('/who-we-are', [WhoweareController::class, 'index'])->name('web.who-we-are');
+Route::get('/who-we-are', [WhoweareController::class, 'index'])->name('web.who-we-are');
+Route::get('/team', [TeamController::class, 'index'])->name('web.team');
+Route::get('/contactus', [ContactusController::class, 'index'])->name('web.contactus');
+Route::get('/membership', [MembershipController::class, 'index'])->name('web.membership');
 
 include __DIR__.'/admin.php';
 
