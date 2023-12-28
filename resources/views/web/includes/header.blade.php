@@ -8,7 +8,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-6 col-lg-6">
                         <div class="d-flex gap-3">
-                            @foreach ($socialmedia as $link)
+                            @foreach ($socialmedia ?? [] as $link)
                             <a href="{{ $link['link'] }}" target="_blank">
                                 <img class="img-circle" src="{{ Storage::url($link['img_url']) }}" alt="{{ $link['type'] }}" height="32" width="32" style="border-radius: 50%" alt="Your Image Alt Text">
                             </a>
@@ -39,7 +39,7 @@
         <nav class="navbar navbar-expand-lg bg-white">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <img src="{{ asset($largelogo) }}" alt="logo" class="img-logo">
+                    <img src="{{ asset($largelogo ?? '')  }}" alt="logo" class="img-logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
