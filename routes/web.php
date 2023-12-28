@@ -6,6 +6,10 @@ use App\Http\Controllers\web\WhoweareController;
 use App\Http\Controllers\web\TeamController;
 use App\Http\Controllers\web\ContactusController;
 use App\Http\Controllers\web\MembershipController;
+use App\Http\Controllers\web\JoinController;
+use App\Http\Controllers\web\BenefitsController;
+use App\Http\Controllers\web\ProgramsController;
+use App\Http\Controllers\web\EvaluationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +29,13 @@ Route::get('/who-we-are', [WhoweareController::class, 'index'])->name('web.who-w
 Route::get('/team', [TeamController::class, 'index'])->name('web.team');
 Route::get('/contactus', [ContactusController::class, 'index'])->name('web.contactus');
 Route::get('/membership', [MembershipController::class, 'index'])->name('web.membership');
+Route::get('/join', [JoinController::class, 'index'])->name('web.join');
+Route::get('/benefits', [BenefitsController::class, 'index'])->name('web.benefits');
+Route::get('/programs', [ProgramsController::class, 'index'])->name('web.programs');
+Route::get('/evaluation', [EvaluationController::class, 'index'])->name('web.evaluation');
+Route::get('/rules_of_engagement', [EvaluationController::class, 'rulesOfEngagement'])->name('web.rules_of_engagement');
+Route::get('/sectors', [EvaluationController::class, 'sectors'])->name('web.sectors');
+
 
 include __DIR__.'/admin.php';
 
