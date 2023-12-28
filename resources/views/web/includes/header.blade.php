@@ -51,12 +51,12 @@
                             <a class="nav-link" href="{{ route('web.about') }}">about us</a>
                             <ul class="dropdown-content">
                                 <li><a href="{{ route('web.who-we-are') }}">who we are</a></li>
-                                <li><a href="team.html">team</a></li>
-                                <li><a href="contact_us.html">contact us</a></li>
+                                <li><a href="{{ route('web.team') }}">team</a></li>
+                                <li><a href="{{ route('web.contactus') }}">contact us</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown-link">
-                            <a class="nav-link" href="membership.html">membership</a>
+                            <a class="nav-link" href="{{ route('web.membership') }}">membership</a>
                             <ul class="dropdown-content">
                                 <li><a href="join.html">join</a></li>
                                 <li><a href="benefits.html">benefits</a></li>
