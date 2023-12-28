@@ -36,6 +36,46 @@ Route::get('/evaluation', [EvaluationController::class, 'index'])->name('web.eva
 Route::get('/rules_of_engagement', [EvaluationController::class, 'rulesOfEngagement'])->name('web.rules_of_engagement');
 Route::get('/sectors', [EvaluationController::class, 'sectors'])->name('web.sectors');
 
+Route::get('/construction', function(){ view('web.pages.construction'); })->name('web.construction');
+Route::get('/agriculture', function(){ view('web.pages.agriculture'); })->name('web.agriculture');
+Route::get('/supply_chain', function(){ view('web.pages.supply_chain'); })->name('web.supply_chain');
+Route::get('/technology', function(){ view('web.pages.technology'); })->name('web.technology');
+Route::get('/natural_resources', function(){ view('web.pages.natural_resources'); })->name('web.natural_resources');
+Route::get('/energy', function(){ view('web.pages.energy'); })->name('web.energy');
+Route::get('/textiles', function(){ view('web.pages.textiles'); })->name('web.textiles');
+Route::get('/advocacy', function(){ view('web.pages.advocacy'); })->name('web.advocacy');
+Route::get('/small_businesses', function(){ view('web.pages.small_businesses'); })->name('web.small_businesses');
+Route::get('/women', function(){ view('web.pages.women'); })->name('web.women');
+Route::get('/veterans', function(){ view('web.pages.veterans'); })->name('web.veterans');
+Route::get('/support_services', function(){ view('web.pages.support_services'); })->name('web.support_services');
+Route::get('/international_events', function(){ view('web.pages.international_events'); })->name('web.international_events');
+Route::get('/event_request', function(){ view('web.pages.event_request'); })->name('web.event_request');
+Route::get('/event_calendar', function(){ view('web.pages.event_calendar'); })->name('web.event_calendar');
+Route::get('/events', function(){ view('web.pages.events'); })->name('web.events');
+Route::get('/blog', function(){ view('web.pages.blog'); })->name('web.blog');
+Route::get('/financial', function(){ view('web.pages.financial'); })->name('web.financial');
+Route::get('/grants', function(){ view('web.pages.grants'); })->name('web.grants');
+Route::get('/funding', function(){ view('web.pages.funding'); })->name('web.funding');
+Route::get('/partners_sponsors', function(){ view('web.pages.partners_sponsors'); })->name('web.partners_sponsors');
+Route::get('/become_partner', function(){ view('web.pages.become_partner'); })->name('web.become_partner');
+Route::get('/become_sponsor', function(){ view('web.pages.become_sponsor'); })->name('web.become_sponsor');
+Route::get('/outreach', function(){ view('web.pages.outreach'); })->name('web.outreach');
+Route::get('/chad', function(){ view('web.pages.chad'); })->name('web.chad');
+Route::get('/ghana', function(){ view('web.pages.ghana'); })->name('web.ghana');
+Route::get('/south_africa', function(){ view('web.pages.south_africa'); })->name('web.south_africa');
+Route::get('/zimbabwe', function(){ view('web.pages.zimbabwe'); })->name('web.zimbabwe');
+Route::get('/cameroon', function(){ view('web.pages.cameroon'); })->name('web.cameroon');
+Route::get('/drc', function(){ view('web.pages.drc'); })->name('web.drc');
+Route::get('/cote_divoire', function(){ view('web.pages.cote_divoire'); })->name('web.cote_divoire');
+Route::get('/usa', function(){ view('web.pages.usa'); })->name('web.usa');
+Route::get('/opportunities', function(){ view('web.pages.opportunities'); })->name('web.opportunities');
+Route::get('/opportunities_agriculture', function(){ view('web.pages.opportunities_agriculture'); })->name('web.opportunities_agriculture');
+Route::get('/opportunities_construction', function(){ view('web.pages.opportunities_construction'); })->name('web.opportunities_construction');
+Route::get('/mining', function(){ view('web.pages.mining'); })->name('web.mining');
+Route::get('/rfx', function(){ view('web.pages.rfx'); })->name('web.rfx');
+Route::get('/job_openings', function(){ view('web.pages.job_openings'); })->name('web.job_openings');
+Route::get('/careers', function(){ view('web.pages.careers'); })->name('web.careers');
+
 
 include __DIR__.'/admin.php';
 
