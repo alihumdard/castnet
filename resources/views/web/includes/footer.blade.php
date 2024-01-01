@@ -3,16 +3,29 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-3">
-                <a href="index.html" target="_blank">
-                    <img src="{{ asset($mediumlogo ?? '') }}" alt="Footer logo" class="footer_logo">
+                <a href="{{ route('web.index') }}">
+                    {{--  <img src="{{ asset($mediumlogo ?? '') }}" alt="Footer logo" class="footer_logo">  --}}
+                    <img src="assets/web/images/logo.png" alt="logo" class="footer_logo">
                 </a>
                 <p class="footer_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
                 <div class="d-flex gap-3">
-                    @foreach ($socialmedia ?? [] as $link)
+                    <a href="#" class="social_link">
+                        <img src="assets/web/images/icon_fb.png" alt="social icons" class="img-icon">
+                    </a>
+                    <a href="#" class="social_link">
+                        <img src="assets/web/images/icon_tw.png" alt="social icons" class="img-icon">
+                    </a>
+                    <a href="#" class="social_link">
+                        <img src="assets/web/images/icon_li.png" alt="social icons" class="img-icon">
+                    </a>
+                    <a href="#" class="social_link">
+                        <img src="assets/web/images/icon_ig.png" alt="social icons" class="img-icon">
+                    </a>
+                    {{--  @foreach ($socialmedia ?? [] as $link)
                     <a href="{{ $link['link'] }}">
                         <img class="img-circle" src="{{ Storage::url($link['img_url']) }}" alt="{{ $link['type'] }}" height="32" width="32" style="border-radius: 50%" alt="Your Image Alt Text">
                     </a>
-                @endforeach 
+                @endforeach   --}}
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 mt-lg-5">
