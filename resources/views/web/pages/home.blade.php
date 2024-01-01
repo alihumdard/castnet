@@ -98,7 +98,7 @@
                 <h2 class="section_title">Lorem Ipsum inquiriestment</h2>
             </div>
         </div>
-        @if(count( $principles))
+        {{--  @if(count( $principles))
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             @if(count($principles) >= 1)
             <li class="nav-item" role="presentation">
@@ -127,7 +127,25 @@
             <div class="tab-pane fade" id="pills-purpose" role="tabpanel" aria-labelledby="pills-purpose-tab" tabindex="0">{{$principles[2]['desc'] ?? ''}}</div>
             @endif
         </div>
-        @endif
+        @endif  --}}
+        <div data-aos="zoom-in" data-aos-duration="1000">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-mission-tab" data-bs-toggle="pill" data-bs-target="#pills-mission" type="button" role="tab" aria-controls="pills-mission" aria-selected="true">mission</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-vision-tab" data-bs-toggle="pill" data-bs-target="#pills-vision" type="button" role="tab" aria-controls="pills-vision" aria-selected="false">vision</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-purpose-tab" data-bs-toggle="pill" data-bs-target="#pills-purpose" type="button" role="tab" aria-controls="pills-purpose" aria-selected="false">purpose</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-mission" role="tabpanel" aria-labelledby="pills-mission-tab" tabindex="0">mission</div>
+                <div class="tab-pane fade" id="pills-vision" role="tabpanel" aria-labelledby="pills-vision-tab" tabindex="0">Our vision at C.A.S.T.N.E.T. is to be the leading international platform that seamlessly integrates small businesses from diverse regions, especially those in the United States and Africa. We aim to create a thriving global ecosystem where these businesses can leverage digital solutions to foster sustainable growth, innovation, and economic development, free from any political or partisan influences</div>
+                <div class="tab-pane fade" id="pills-purpose" role="tabpanel" aria-labelledby="pills-purpose-tab" tabindex="0">purpose</div>
+            </div>
+        </div>
     </div>
 </section>
 <!-- Principles End -->
@@ -144,7 +162,7 @@
             <div class="col-lg-6">
                 <span class="sub_title">our roadmap</span>
                 <h2 class="section_title">how we're working for you</h2>
-                <div class="accordion" id="accordionExample">
+                {{--  <div class="accordion" id="accordionExample">
                     @forelse($roadmaps ?? [] as $key => $val)
                     <div class="accordion-item">
                         <h2 class="accordion-header">
@@ -179,6 +197,120 @@
                     </div>
                     @endforelse
 
+                </div>  --}}
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <span class="text-secondary fs-2">01</span>
+                                <span class="font-roboto ms-4 p-1">Market Research and Needs Analysis</span>
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                            <div class="accordion-body p-4">
+                                <ul class="mb-0">
+                                    <li class="accordion-list-item">Develop or partner with digital platforms like BidLock for efficient source-to-pay processes.</li>
+                                    <li class="accordion-list-item">Ensure these platforms are accessible, user-friendly, and customizable to various business needs.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <span class="text-secondary fs-2">02</span>
+                                <span class="font-roboto ms-4 p-1">Building Digital Infrastructure</span>
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body p-4">
+                                <ul class="mb-0">
+                                    <li class="accordion-list-item">Develop or partner with digital platforms like BidLock for efficient source-to-pay processes.</li>
+                                    <li class="accordion-list-item">Ensure these platforms are accessible, user-friendly, and customizable to various business needs.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <span class="text-secondary fs-2">03</span>
+                                <span class="font-roboto ms-4 p-1">Networking and Partnership Development</span>
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body p-4"> 
+                                <ul class="mb-0">
+                                    <li class="accordion-list-item">Develop or partner with digital platforms like BidLock for efficient source-to-pay processes.</li>
+                                    <li class="accordion-list-item">Ensure these platforms are accessible, user-friendly, and customizable to various business needs.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                <span class="text-secondary fs-2">04</span>
+                                <span class="font-roboto ms-4 p-1">Education and Resource Sharing</span>
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body p-4"> 
+                                <ul class="mb-0">
+                                    <li class="accordion-list-item">Develop or partner with digital platforms like BidLock for efficient source-to-pay processes.</li>
+                                    <li class="accordion-list-item">Ensure these platforms are accessible, user-friendly, and customizable to various business needs.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                <span class="text-secondary fs-2">05</span>
+                                <span class="font-roboto ms-4 p-1">Pilot Programs and Feedback Loops</span>
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body p-4"> 
+                                <ul class="mb-0">
+                                    <li class="accordion-list-item">Develop or partner with digital platforms like BidLock for efficient source-to-pay processes.</li>
+                                    <li class="accordion-list-item">Ensure these platforms are accessible, user-friendly, and customizable to various business needs.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                <span class="text-secondary fs-2">06</span>
+                                <span class="font-roboto ms-4 p-1">Scaling and Expansion</span>
+                            </button>
+                        </h2>
+                        <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body p-4"> 
+                                <ul class="mb-0">
+                                    <li class="accordion-list-item">Develop or partner with digital platforms like BidLock for efficient source-to-pay processes.</li>
+                                    <li class="accordion-list-item">Ensure these platforms are accessible, user-friendly, and customizable to various business needs.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                <span class="text-secondary fs-2">07</span>
+                                <span class="font-roboto ms-4 p-1">Continuous Improvement and Adaptation</span>
+                            </button>
+                        </h2>
+                        <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body p-4"> 
+                                <ul class="mb-0">
+                                    <li class="accordion-list-item">Develop or partner with digital platforms like BidLock for efficient source-to-pay processes.</li>
+                                    <li class="accordion-list-item">Ensure these platforms are accessible, user-friendly, and customizable to various business needs.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -459,7 +591,8 @@
             <div class="modal-body">
                 <div class="row gx-4">
                     <div class="col-lg-5 text-center text-lg-start">
-                        <img src="{{ asset($largelogo) }}" alt="logo" class="img-logo">
+                        {{--  <img src="{{ asset($largelogo) }}" alt="logo" class="img-logo">  --}}
+                        <img src="assets/web/images/logo.png" alt="logo" class="img-logo">
                     </div>
                     <div class="col-lg-7">
                         <h2 class="modal-title">castnet purpose</h2>
