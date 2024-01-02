@@ -255,10 +255,10 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-film"></i>
+                        <a href="{{ route('admin.sociallinks') }}" class="nav-link {{(request()->routeIs('admin.sociallinks')) ? 'active' :''}}">
+                            <i class="nav-icon fas fa-globe"></i>
                             <p>
-                                Media
+                                Social links
                             </p>
                         </a>
                     </li>

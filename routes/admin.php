@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\PageController;
 Route::prefix('admin')->group(function () {
     Route::get('/', [pagesController::class, 'index'])->name('admin.index');
     Route::get('/setting', [pagesController::class, 'setting'])->name('admin.setting');
+    Route::get('/sociallinks', [pagesController::class, 'sociallinks'])->name('admin.sociallinks');
     Route::get('/principles', [widgetsController::class, 'principles'])->name('admin.principle');
     Route::post('/principles', [widgetsController::class, 'store_principle'])->name('store.principle');
     Route::get('/roadmaps', [widgetsController::class, 'roadmaps'])->name('admin.roadmap');

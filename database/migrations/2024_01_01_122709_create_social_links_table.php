@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('road_maps', function (Blueprint $table) {
+        Schema::create('social_links', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->longText('desc');
-            $table->string('status')->default('Active');
-            $table->string('created_by')->nullable();
+            $table->text('facebook')->nullable();
+            $table->text('pintrest')->nullable();
+            $table->text('linkedin')->nullable();
+            $table->text('twitter')->nullable();
+            $table->text('instagram')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('road_maps');
+        Schema::dropIfExists('social_links');
     }
 };
