@@ -1,15 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\web\HomeController;
-use App\Http\Controllers\web\AboutController;
-use App\Http\Controllers\web\WhoweareController;
-use App\Http\Controllers\web\TeamController;
-use App\Http\Controllers\web\ContactusController;
-use App\Http\Controllers\web\MembershipController;
-use App\Http\Controllers\web\JoinController;
-use App\Http\Controllers\web\BenefitsController;
-use App\Http\Controllers\web\ProgramsController;
-use App\Http\Controllers\web\EvaluationController;
+use App\Http\Controllers\web\PagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,17 +13,19 @@ use App\Http\Controllers\web\EvaluationController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('web.index');
-Route::get('/about', [AboutController::class, 'index'])->name('web.about');
-Route::get('/who-we-are', [WhoweareController::class, 'index'])->name('web.who-we-are');
-Route::get('/who-we-are', [WhoweareController::class, 'index'])->name('web.who-we-are');
-Route::get('/team', [TeamController::class, 'index'])->name('web.team');
-Route::get('/contactus', [ContactusController::class, 'index'])->name('web.contactus');
-Route::get('/membership', [MembershipController::class, 'index'])->name('web.membership');
-Route::get('/join', [JoinController::class, 'index'])->name('web.join');
-Route::get('/benefits', [BenefitsController::class, 'index'])->name('web.benefits');
-Route::get('/programs', [ProgramsController::class, 'index'])->name('web.programs');
-Route::get('/evaluation', [EvaluationController::class, 'index'])->name('web.evaluation');
+Route::get('/', [PagesController::class, 'index'])->name('web.index');
+Route::get('/about', [PagesController::class, 'aboutUs'])->name('web.about');
+Route::get('/who-we-are', [PagesController::class, 'whoweare'])->name('web.who-we-are');
+Route::get('/team', [PagesController::class, 'team'])->name('web.team');
+Route::get('/contactus', [PagesController::class, 'contactUs'])->name('web.contactus');
+Route::get('/membership', [PagesController::class, 'membership'])->name('web.membership');
+Route::get('/join', [PagesController::class, 'join'])->name('web.join');
+Route::get('/benefits', [PagesController::class, 'benefits'])->name('web.benefits');
+Route::get('/programs', [PagesController::class, 'programs'])->name('web.programs');
+Route::get('/evaluation', [PagesController::class, 'evaluation'])->name('web.evaluation');
+
+
+
 Route::get('/rules_of_engagement', [EvaluationController::class, 'rulesOfEngagement'])->name('web.rules_of_engagement');
 Route::get('/sectors', [EvaluationController::class, 'sectors'])->name('web.sectors');
 Route::get('/construction', function(){ return view('web.pages.construction'); })->name('web.construction');

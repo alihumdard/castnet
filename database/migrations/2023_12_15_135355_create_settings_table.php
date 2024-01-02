@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('section');
-            $table->text('img_url')->nullable();
-            $table->string('link')->nullable();
-            $table->longText('desc')->nullable();
-            $table->string('type')->nullable();
-            $table->string('status')->default('Active');
-            $table->string('created_by')->nullable();
+            $table->string('title')->nullable();
+            $table->string('header_logo')->nullable();
+            $table->string('popup_logo')->nullable();
+            $table->string('footer_logo')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
             $table->timestamps();
         });
     }
