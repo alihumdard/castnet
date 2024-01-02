@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
+
 
 class SettingsController extends Controller
 {
@@ -20,7 +22,7 @@ class SettingsController extends Controller
             $oldImagePath = Setting::where('type', 'large_logo')->value('img_url');
       
             $imagePath = $request->file('largelogo')->store('logos', 'public');
-
+ 
            $setting= Setting::updateOrCreate(
                 ['type' => 'large_logo'], 
                 [
@@ -42,9 +44,50 @@ class SettingsController extends Controller
 
         return redirect()->back()->with('error', 'No image provided.');
     }
+public function updateSetting(Request $request)
+{
+    $request->validate([
+        // 'header_logo' => 'image|mimes:jpg,jpeg,png|max:2048|dimensions:width=220,height=220',
+        'header_logo' => 'image|mimes:jpg,jpeg,png',
+        'popup_logo' => 'image|mimes:jpg,jpeg,png',
+        // 'popup_logo' => 'image|mimes:jpg,jpeg,png|max:2048|dimensions:width=220,height=220',
+        'footer_logo' => 'image|mimes:jpg,jpeg,png',
+        // 'footer_logo' => 'image|mimes:jpg,jpeg,png|max:2048|dimensions:width=220,height=220',
+    ]);
 
+    $setting = Setting::first();
+
+    if (!$setting) {
+        $setting = new Setting();
+    }
+
+    // if ($setting) {
+        // Access the form values
+        $title = $request->input('title');
+        $headerLogo = $request->file('header_logo');
+        $popupLogo = $request->file('popup_logo');
+        $footerLogo = $request->file('footer_logo');
+
+        $headerLogoPath = $headerLogo ? $headerLogo->store('assets/web/images', 'public') : $request->input('old_header_logo');
+        $popupLogoPath = $popupLogo ? $popupLogo->store('assets/web/images', 'public') : $request->input('old_popup_logo');
+        $footerLogoPath = $footerLogo ? $footerLogo->store('assets/web/images', 'public') : $request->input('old_footer_logo');
+
+        $setting->title = $title;
+        $setting->header_logo = $headerLogoPath;
+        $setting->popup_logo = $popupLogoPath;
+        $setting->footer_logo = $footerLogoPath;
+        $setting->email = $request->input('email');
+        $setting->phone = $request->input('phone');
+        $setting->address = $request->input('address');
+        $setting->created_at = Carbon::now();
+
+        $setting->save();
+
+        return redirect()->route('admin.setting')->with('success', 'Settings updated successfully');
+}
     public function uploadMediumLogo(Request $request)
     {
+        
 
         $request->validate([
             'mediumlogo' => 'image|mimes:jpg,jpeg,png|max:2048|dimensions:width=140,height=140',

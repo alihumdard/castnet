@@ -16,6 +16,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/roadmaps', [widgetsController::class, 'roadmaps'])->name('admin.roadmap');
     Route::post('/roadmaps', [widgetsController::class, 'store_roadmaps'])->name('store.roadmap');
     Route::post('/uploadlarge-logo', [settingsController::class,'uploadlargeLogo'])->name('upload.largelogo');
+    Route::post('/updateSetting', [settingsController::class,'updateSetting'])->name('setting.update');
     Route::post('/uploadmedium-logo', [settingsController::class,'uploadMediumLogo'])->name('upload.mediumlogo');
     Route::post('/uploadsmall-logo', [settingsController::class,'uploadSmallLogo'])->name('upload.smalllogo');
     Route::post('/uploadsocialmedia', [settingsController::class,'uploadSocialMediaInfo'])->name('upload.socialmedia');

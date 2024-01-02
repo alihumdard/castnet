@@ -24,7 +24,10 @@ class pagesController extends Controller
 
     public function setting()
     {
-        return view('admin.pages.setting');
+        $settings = Setting::all()->toArray();
+        // dd($settings);
+        // return view('admin.pages.setting');
+        return view('admin.pages.setting', compact('settings'));
     }
 
     public function sociallinks()

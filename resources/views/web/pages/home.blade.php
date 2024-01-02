@@ -1,3 +1,4 @@
+{{--  @dd(appSetting());  --}}
 @extends('web.layouts.default')
 @section('content')
 <!-- Header End -->
@@ -583,7 +584,10 @@
     </div>
 </section>
 <!-- Impact End -->
-
+@php
+$setting = appSetting();
+$popupLogoPath = isset($setting['popup_logo']) ? asset('storage/' . $setting['popup_logo']) : asset('assets/web/images/logo.png');
+@endphp
 <!-- Modal Start -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -591,8 +595,7 @@
             <div class="modal-body">
                 <div class="row gx-4">
                     <div class="col-lg-5 text-center text-lg-start">
-                        {{--  <img src="{{ asset($largelogo) }}" alt="logo" class="img-logo">  --}}
-                        <img src="assets/web/images/logo.png" alt="logo" class="img-logo">
+                        <img src="{{$popupLogoPath}}" alt="logo" class="img-logo">
                     </div>
                     <div class="col-lg-7">
                         <h2 class="modal-title">castnet purpose</h2>

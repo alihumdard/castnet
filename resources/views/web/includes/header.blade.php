@@ -49,10 +49,15 @@
         </section>
         <!-- Topbar End -->
         <!-- Navbar Start -->
+        @php
+    $setting = appSetting();
+    $logoPath = isset($setting['header_logo']) ? asset('storage/' . $setting['header_logo']) : asset('assets/web/images/logo.png');
+@endphp
         <nav class="navbar navbar-expand-lg bg-white">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('web.index') }}">
-                    <img src="assets/web/images/logo.png" alt="logo" class="img-logo">
+                    {{--  <img src="assets/web/images/logo.png" alt="logo" class="img-logo">  --}}
+                    <img src="{{ $logoPath }}" alt="logo" class="img-logo">
                     {{--  <img src="{{ asset($largelogo ?? '')  }}" alt="logo" class="img-logo">  --}}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -1,11 +1,14 @@
 <!-- Footer Start -->
+@php
+$setting = appSetting();
+$footerLogoPath = isset($setting['footer_logo']) ? asset('storage/' . $setting['footer_logo']) : asset('assets/web/images/logo.png');
+@endphp
 <footer class="footer">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-3">
                 <a href="{{ route('web.index') }}">
-                    {{--  <img src="{{ asset($mediumlogo ?? '') }}" alt="Footer logo" class="footer_logo">  --}}
-                    <img src="assets/web/images/logo.png" alt="logo" class="footer_logo">
+                    <img src="{{$footerLogoPath}}" alt="logo" class="footer_logo">
                 </a>
                 <p class="footer_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
                 <div class="d-flex gap-3">
@@ -49,7 +52,7 @@
                             <img src="assets/web/images/icon_phone.png" alt="phone" class="img-fluid">
                         </div>
                         <div class="text">
-                            <a href="tel:4065550120">(406) 555-0120</a>
+                            <a href="tel:{{ appSetting()['phone'] ?? '(406) 555-0120' }}">{{ appSetting()['phone'] ?? '(406) 555-0120' }}</a>
                         </div>
                     </div>
                     <div class="contact_media">
@@ -57,14 +60,14 @@
                             <img src="assets/web/images/icon_email.png" alt="phone" class="img-fluid">
                         </div>
                         <div class="text">
-                            <a href="mailto:castnetdummy@gmail.com">castnetdummy@gmail.com</a>
+                            <a href="mailto:{{ appSetting()['email'] ?? 'castnetdummy@gmail.com' }}">{{ appSetting()['email'] ?? 'castnetdummy@gmail.com' }}</a>
                         </div>
                     </div>
                     <div class="contact_media">
                         <div class="icon">
                             <img src="assets/web/images/icon_map.png" alt="phone" class="img-fluid">
                         </div>
-                        <div class="text">11580 State Route 44 #1016 Mantua, OH 44255 United States</div>
+                        <div class="text">{{ appSetting()['address'] ?? '11580 State Route 44 #1016 Mantua, OH 44255 United States' }}</div>
                     </div>
                 </div>
             </div>
