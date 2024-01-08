@@ -186,6 +186,43 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item {{(request()->routeIs(['admin.heroBanner','admin.homesection1','admin.homesection2','admin.homesection3'])) ? 'menu-is-opening menu-open' : ''}}">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                Home
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('admin.heroBanner') }}" class="nav-link {{(request()->routeIs('admin.heroBanner')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Banner</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.homesection1') }}" class="nav-link {{(request()->routeIs('admin.homesection1')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 1</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.homesection2') }}" class="nav-link {{(request()->routeIs('admin.homesection2')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 2</p>
+                                </a>
+                            </li>
+                            {{--  Home Section 3 blade file start  --}}
+                            <li class="nav-item">
+                                <a href="{{ route('admin.homesection3') }}" class="nav-link {{(request()->routeIs('admin.homesection3')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 3</p>
+                                </a>
+                            </li>
+                            {{--  Home Section 3 blade file end  --}}
+                        </ul>
+                    </li>
 
                     <li class="nav-item {{(request()->routeIs(['admin.menus'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">

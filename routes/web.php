@@ -66,6 +66,10 @@ Route::get('/job_openings', function(){ return view('web.pages.job_openings'); }
 Route::get('/careers', function(){ return view('web.pages.careers'); })->name('web.careers');
 
 
+// **************************************************** Home Page Frontend Route Starat *****************************************************
+// **************************************************** Home Page Frontend Route End *****************************************************
+
+
 include __DIR__.'/admin.php';
 
 Route::get('/commands', function () {

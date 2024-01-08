@@ -1,19 +1,17 @@
-{{--  @dd(appSetting());  --}}
 @extends('web.layouts.default')
 @section('content')
-<!-- Header End -->
-
+{{--  @dd(homeSection1());  --}}
 <!-- Hero Start -->
-<section class="hero">
+<section class="hero" style="background:linear-gradient(90deg, #071B34 0%, rgba(7, 27, 52, 0.76) 51.46%, rgba(7, 27, 52, 0.00) 100%), url({{ asset("storage/" . ($heroBannerData->banner ?? '')) }}) right center no-repeat">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-lg-8 mt-50">
-                <span class="hero_tagline">Grow Your Business with</span>
-                <h1 class="hero_title">castnet international chamber of commerce</h1>
-                <p class="hero_text">C.A.S.T.N.E.T. International Chamber of Commerce was established as a response to the critical need for empowering<br>small and disadvantaged businesses to transcend local boundaries and engage in the global economy.</p>
+                <span class="hero_tagline">{{$heroBannerData->short_heading ?? ''}}</span>
+                <h1 class="hero_title">{{$heroBannerData->heading ?? ''}}</h1>
+                <p class="hero_text">{{$heroBannerData->description ?? ''}}</p>
                 <div class="d-flex flex-column flex-md-row gap-4">
-                    <a href="#" class="btn btn-primary">join chamber <img src="assets/web/images/icon_log.png" alt="icon login" class="icon-login"></a>
-                    <a href="#" class="btn btn-sponsor">Sponsors login <img src="assets/web/images/icon_arrow.png" alt="icon login" class="icon-login"></a>
+                    <a href="#" class="btn btn-primary">{{$heroBannerData->button1 ?? ''}} <img src="assets/web/images/icon_log.png" alt="icon login" class="icon-login"></a>
+                    <a href="#" class="btn btn-sponsor">{{$heroBannerData->button2 ?? ''}} <img src="assets/web/images/icon_arrow.png" alt="icon login" class="icon-login"></a>
                 </div>
             </div>
         </div>
@@ -22,52 +20,32 @@
 <!-- Hero End -->
 
 <!-- Card Events Start -->
+@if(count(homeSection1()) > 0)
 <section class="card_events">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-10 mx-auto">
                 <div class="row gy-4">
+                    @foreach(homeSection1() as $item)
                     <div class="col-lg-4 d-flex">
                         <div class="card">
                             <div class="card-body">
-                                <img src="assets/web/images/icon_group.png" alt="group" class="img-card">
-                                <h3 class="card-title">Join our Membership</h3>
-                                <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
+                                <img src="{{ asset('storage/' . $item['image']) }}" alt="group" class="img-card">
+                                <h3 class="card-title">{{ $item['heading'] }}</h3>
+                                <p class="card-text">{{ $item['description'] }}</p>
                             </div>
                             <div class="card-footer">
-                                <a href="#" class="btn btn-secondary">join now <img src="assets/web/images/icon_log_alt.png" alt="login"></a>
+                                <a href="{{ $item['buttonlink'] }}" class="btn btn-secondary">{{ $item['button'] }}<img src="assets/web/images/icon_log_alt.png" alt="login"></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 d-flex">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="assets/web/images/icon_calender.png" alt="group" class="img-card">
-                                <h3 class="card-title">Get plugged in</h3>
-                                <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="#" class="btn btn-secondary">attend event <img src="assets/web/images/icon_log_alt.png" alt="login"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 d-flex">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="assets/web/images/icon_growth.png" alt="group" class="img-card">
-                                <h3 class="card-title">grow you business</h3>
-                                <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="#" class="btn btn-secondary">join leadership <img src="assets/web/images/icon_log_alt.png" alt="login"></a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
 </section>
+@endif
 <!-- Card Events End -->
 
 <!-- About Start -->
@@ -75,14 +53,14 @@
     <div class="container">
         <div class="row align-items-center gy-4 gy-md-0 gx-md-5">
             <div class="col-md-6 col-lg-6">
-                <span class="sub_title">about us</span>
-                <h2 class="section_title">CASTNET International Chamber of Commerce</h2>
-                <p class="about_text">C.A.S.T.N.E.T. International Chamber of Commerce was established as a response to the critical need for empowering small and disadvantaged businesses to transcend local boundaries and engage in the global economy. Through focused efforts in key sectors, the utilization of digital tools, and the creation of a genuine business network, C.A.S.T.N.E.T. is dedicated to transforming the landscape for these businesses, enabling them to achieve scalability, prosperity, and a lasting impact in the global marketplace</p>
-                <a href="#" class="btn btn-primary">read more <img src="assets/web/images/icon_arrow_alt.png" alt="icon login" class="img-icon"></a>
+                <span class="sub_title">{{$section2Data -> heading ?? ''}}</span>
+                <div style="color: white !important;font-size: inherit;
+                font-family: inherit;">{!! $section2Data -> description ?? '' !!}</div>
+                <a href="{{$section2Data -> buttonlink ?? '#'}}" class="btn btn-primary">{{$section2Data -> button ?? ''}}<img src="assets/web/images/icon_arrow_alt.png" alt="icon login" class="img-icon"></a>
             </div>
             <div class="col-md-6 col-lg-6">
                 <div class="img_border">
-                    <img src="assets/web/images/about_img.png" alt="about us">
+                    <img src="{{ $section2Data ? asset('storage/' . $section2Data->image) : '' }}" alt="about us">
                 </div>
             </div>
         </div>

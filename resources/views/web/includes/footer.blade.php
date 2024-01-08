@@ -2,6 +2,7 @@
 @php
 $setting = appSetting();
 $footerLogoPath = isset($setting['footer_logo']) ? asset('storage/' . $setting['footer_logo']) : asset('assets/web/images/logo.png');
+$result = socialLinks();
 @endphp
 <footer class="footer">
     <div class="container">
@@ -12,16 +13,16 @@ $footerLogoPath = isset($setting['footer_logo']) ? asset('storage/' . $setting['
                 </a>
                 <p class="footer_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
                 <div class="d-flex gap-3">
-                    <a href="#" class="social_link">
+                    <a href="{{ !empty($result['facebook']) ? $result['facebook'] : '#' }}" class="social_link">
                         <img src="assets/web/images/icon_fb.png" alt="social icons" class="img-icon">
                     </a>
-                    <a href="#" class="social_link">
+                    <a href="{{ !empty($result['twitter']) ? $result['twitter'] : '#' }}" class="social_link">
                         <img src="assets/web/images/icon_tw.png" alt="social icons" class="img-icon">
                     </a>
-                    <a href="#" class="social_link">
+                    <a href="{{ !empty($result['linkedin']) ? $result['linkedin'] : '#' }}" class="social_link">
                         <img src="assets/web/images/icon_li.png" alt="social icons" class="img-icon">
                     </a>
-                    <a href="#" class="social_link">
+                    <a href="{{ !empty($result['instagram']) ? $result['instagram'] : '#' }}" class="social_link">
                         <img src="assets/web/images/icon_ig.png" alt="social icons" class="img-icon">
                     </a>
                     {{--  @foreach ($socialmedia ?? [] as $link)

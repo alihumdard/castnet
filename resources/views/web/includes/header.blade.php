@@ -1,4 +1,6 @@
-{{--  @dd($socialmedia);  --}}
+@php
+    $result = socialLinks();
+@endphp
 <!-- Header Start -->
 
     <header>
@@ -8,16 +10,16 @@
                 <div class="row align-items-center">
                     <div class="col-md-6 col-lg-6">
                         <div class="d-flex gap-3">
-                            <a href="#" class="social_link">
+                            <a href="{{ !empty($result['facebook']) ? $result['facebook'] : '#' }}" class="social_link">
                                 <img src="assets/web/images/icon_fb.png" alt="social icons" class="img-icon">
                             </a>
-                            <a href="#" class="social_link">
+                            <a href="{{ !empty($result['twitter']) ? $result['twitter'] : '#' }}" class="social_link">
                                 <img src="assets/web/images/icon_tw.png" alt="social icons" class="img-icon">
                             </a>
-                            <a href="#" class="social_link">
+                            <a href="{{ !empty($result['linkedin']) ? $result['linkedin'] : '#' }}" class="social_link">
                                 <img src="assets/web/images/icon_li.png" alt="social icons" class="img-icon">
                             </a>
-                            <a href="#" class="social_link">
+                            <a href="{{ !empty($result['instagram']) ? $result['instagram'] : '#' }}" class="social_link">
                                 <img src="assets/web/images/icon_ig.png" alt="social icons" class="img-icon">
                             </a>
                             {{--  @foreach ($socialmedia ?? [] as $link)

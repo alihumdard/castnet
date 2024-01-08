@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SocialLinks extends Model
+class Principle extends Model
 {
+    public $table = 'principles';
     use HasFactory;
 
-    protected $guarded = ['id'];  
+    protected $guarded = ['id']; 
 }
