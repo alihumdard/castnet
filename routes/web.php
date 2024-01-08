@@ -23,11 +23,8 @@ Route::get('/join', [PagesController::class, 'join'])->name('web.join');
 Route::get('/benefits', [PagesController::class, 'benefits'])->name('web.benefits');
 Route::get('/programs', [PagesController::class, 'programs'])->name('web.programs');
 Route::get('/evaluation', [PagesController::class, 'evaluation'])->name('web.evaluation');
-
-
-
-Route::get('/rules_of_engagement', [EvaluationController::class, 'rulesOfEngagement'])->name('web.rules_of_engagement');
-Route::get('/sectors', [EvaluationController::class, 'sectors'])->name('web.sectors');
+Route::get('/rules_of_engagement', function(){ return view('web.pages.rules_of_engagement'); })->name('web.rules_of_engagement');
+Route::get('/sectors', function(){ return view('web.pages.sectors'); })->name('web.sectors');
 Route::get('/construction', function(){ return view('web.pages.construction'); })->name('web.construction');
 Route::get('/agriculture', function(){ return view('web.pages.agriculture'); })->name('web.agriculture');
 Route::get('/supply_chain', function(){ return view('web.pages.supply_chain'); })->name('web.supply_chain');
@@ -67,6 +64,10 @@ Route::get('/mining', function(){ return view('web.pages.mining'); })->name('web
 Route::get('/rfx', function(){ return view('web.pages.rfx'); })->name('web.rfx');
 Route::get('/job_openings', function(){ return view('web.pages.job_openings'); })->name('web.job_openings');
 Route::get('/careers', function(){ return view('web.pages.careers'); })->name('web.careers');
+
+
+// **************************************************** Home Page Frontend Route Starat *****************************************************
+// **************************************************** Home Page Frontend Route End *****************************************************
 
 
 include __DIR__.'/admin.php';

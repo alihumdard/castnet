@@ -4,11 +4,23 @@ namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Banner;
+use App\Models\HomeSection1;
+use App\Models\HomeSection2;
 
 class PagesController extends Controller
 {
     public function index(){
-        return view('web.pages.home');
+        $heroBannerData = Banner::first();
+        $section2Data = HomeSection2::first();
+        $section1Data = HomeSection1::all()->toarray();
+
+        // dd($section1Data);
+        return view('web.pages.home', [
+            'heroBannerData' => $heroBannerData,
+            'section1Data' => $section1Data,
+            'section2Data' => $section2Data,
+        ]);
     }
 
     public function aboutUs(){

@@ -26,12 +26,11 @@
 <script src="/assets/admin/dist/js/adminlte.min.js"></script>
 
 <!-- Ekko Lightbox -->
-<!-- {{--  <script src="assets/admin/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>  --}} -->
+<script src="assets/admin/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
 <!-- Filterizr-->
-<!-- {{--  <script src="assets/admin/plugins/filterizr/jquery.filterizr.min.js"></script>  --}} -->
+<script src="assets/admin/plugins/filterizr/jquery.filterizr.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<!-- {{--  <script src="assets/admin/dist/js/demo.js"></script>  --}} -->
-
+<script src="assets/admin/dist/js/demo.js"></script>
 <script>
   $(function() {
     $('.datatable').DataTable({
@@ -48,5 +47,14 @@
    $('.summernote').summernote({
     height:200,
    });
+   $(function () {
+    // Summernote
+    $('#summernote').summernote('color','white')
 
+    // CodeMirror
+    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+      mode: "htmlmixed",
+      theme: "monokai"
+    });
+  })
 </script>

@@ -1,3 +1,4 @@
+{{--  @dd($record)  --}}
 @extends('admin.layouts.default')
 @section('title', 'Social links')
 @section('content')
@@ -24,18 +25,19 @@
         <div class="col-md-12">
             <div class="card ">
                 <div class="card-body">
-                  <form action="" method="post">
+                  <form action="{{ route('sociallinks.createupdate') }}" method="post">
+                    @csrf
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="prin_title">Facebook</label>
-                                <input type="text" name="title" id="prin_title" class="form-control" placeholder="Enter Title" required>
+                                <input type="url" name="facebook" id="facebookURL" class="form-control" value="{{ $record['facebook'] ?? '' }}" placeholder="Enter URL">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="prin_title">Twitter</label>
-                                <input type="text" name="title" id="prin_title" class="form-control" placeholder="Enter Title" required>
+                                <input type="url" name="twitter" id="twitterURL" class="form-control" value="{{ $record['twitter'] ?? '' }}" placeholder="Enter URL">
                             </div>
                         </div>                        
                     </div>
@@ -43,13 +45,13 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="prin_title">Instagram</label>
-                                <input type="text" name="title" id="prin_title" class="form-control" placeholder="Enter Title" required>
+                                <input type="url" name="instagram" id="instagramURL" class="form-control" value="{{ $record['instagram'] ?? '' }}" placeholder="Enter URL">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="prin_title">Linkedin</label>
-                                <input type="text" name="title" id="prin_title" class="form-control" placeholder="Enter Title" required>
+                                <input type="url" name="linkedin" id="linkedinURL" class="form-control" value="{{ $record['linkedin'] ?? '' }}" placeholder="Enter URL">
                             </div>
                         </div>                        
                     </div>                    
@@ -57,7 +59,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="prin_title">Pinterest</label>
-                                <input type="text" name="title" id="prin_title" class="form-control" placeholder="Enter Title" required>
+                                <input type="url" name="pintrest" id="pinterestURL" class="form-control" value="{{ $record['pintrest'] ?? '' }}" placeholder="Enter URL">
                             </div>
                         </div>                       
                     </div>  
