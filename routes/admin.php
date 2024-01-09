@@ -5,6 +5,10 @@ use App\Http\Controllers\Admin\HomePage\HomePageSection1Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageSection2Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageSection3Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageBannerController;
+use App\Http\Controllers\Admin\AboutPage\AboutPageBannerController;
+use App\Http\Controllers\Admin\AboutPage\AboutPageSection1Controller;
+use App\Http\Controllers\Admin\AboutPage\AboutPageSection2Controller;
+use App\Http\Controllers\Admin\AboutPage\AboutPageSection3Controller;
 use App\Http\Controllers\Admin\SocialLinkController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\PagesController;
@@ -41,5 +45,22 @@ Route::prefix('admin')->group(function () {
     Route::get('/addpage', [PagesController::class, 'addpage'])->name('admin.addpage');
     Route::get('/menus', [apperenceController::class, 'menus'])->name('admin.menus');
     Route::get('pages/{id}/editor', [PageController::class,'editor'])->name('page.editor');
+    
+    
+    // --------- About Page Routes Start ------------
+    Route::get('/aboutUs-banner', [AboutPageBannerController::class, 'index'])->name('aboutUs.banner');
+    Route::get('/aboutUs-section1', [AboutPageSection1Controller::class, 'index'])->name('aboutUs.section1');
+    Route::get('/aboutUs-section2', [AboutPageSection2Controller::class, 'index'])->name('aboutUs.section2');
+    Route::get('/aboutUs-section3', [AboutPageSection3Controller::class, 'index'])->name('aboutUs.section3');
+    // --------- About Page Routes End --------------
+
+
+    // --------- who_we_are Page Routes Start ------------
+
+    // --------- who_we_are Page Routes End --------------
+
+    // --------- who_we_are Page Routes Start ------------
+
+    // --------- who_we_are Page Routes End --------------
 });
 
