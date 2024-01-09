@@ -163,7 +163,7 @@
                         </a>
                     </li>
 
-                    <li class="nav-item {{(request()->routeIs(['admin.allpages','admin.addpage' ])) ? 'menu-is-opening menu-open' : ''}}">
+                    {{-- <li class="nav-item {{(request()->routeIs(['admin.allpages','admin.addpage' ])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="{{ route('admin.allpages') }}" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -185,8 +185,8 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
-                    <li class="nav-item {{(request()->routeIs(['admin.heroBanner','admin.homesection1','admin.homesection2','admin.homesection3'])) ? 'menu-is-opening menu-open' : ''}}">
+                    </li> --}}
+                    <li class="nav-item {{(request()->routeIs(['homepage.banner','homesection1','homesection2','homesection3'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -196,26 +196,26 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('admin.heroBanner') }}" class="nav-link {{(request()->routeIs('admin.heroBanner')) ? 'active' : ''}}">
+                                <a href="{{ route('homepage.banner') }}" class="nav-link {{(request()->routeIs('homepage.banner')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Banner</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('admin.homesection1') }}" class="nav-link {{(request()->routeIs('admin.homesection1')) ? 'active' : ''}}">
+                                <a href="{{ route('homesection1.index') }}" class="nav-link {{(request()->routeIs('homesection1.index')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 1</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('admin.homesection2') }}" class="nav-link {{(request()->routeIs('admin.homesection2')) ? 'active' : ''}}">
+                                <a href="{{ route('homesection2.index') }}" class="nav-link {{(request()->routeIs('homesection2.index')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 2</p>
                                 </a>
                             </li>
                             {{--  Home Section 3 blade file start  --}}
                             <li class="nav-item">
-                                <a href="{{ route('admin.homesection3') }}" class="nav-link {{(request()->routeIs('admin.homesection3')) ? 'active' : ''}}">
+                                <a href="{{ route('homesection3.index') }}" class="nav-link {{(request()->routeIs('homesection3.index')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 3</p>
                                 </a>
@@ -250,7 +250,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item {{(request()->routeIs(['admin.principle','admin.roadmap' ])) ? 'menu-is-opening menu-open' : ''}}">
+                    {{-- <li class="nav-item {{(request()->routeIs(['admin.principle','admin.roadmap' ])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-palette"></i>
                             <p>
@@ -290,7 +290,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a href="{{ route('admin.sociallinks') }}" class="nav-link {{(request()->routeIs('admin.sociallinks')) ? 'active' :''}}">
                             <i class="nav-icon fas fa-globe"></i>

@@ -10,16 +10,16 @@
                 <div class="row align-items-center">
                     <div class="col-md-6 col-lg-6">
                         <div class="d-flex gap-3">
-                            <a href="{{ !empty($result['facebook']) ? $result['facebook'] : '#' }}" class="social_link">
+                            <a href="{{ !empty($result->facebook) ? $result->facebook : '#' }}" class="social_link">
                                 <img src="assets/web/images/icon_fb.png" alt="social icons" class="img-icon">
                             </a>
-                            <a href="{{ !empty($result['twitter']) ? $result['twitter'] : '#' }}" class="social_link">
+                            <a href="{{ !empty($result->twitter) ? $result->twitter : '#' }}" class="social_link">
                                 <img src="assets/web/images/icon_tw.png" alt="social icons" class="img-icon">
                             </a>
-                            <a href="{{ !empty($result['linkedin']) ? $result['linkedin'] : '#' }}" class="social_link">
+                            <a href="{{ !empty($result->linkedin) ? $result->linkedin : '#' }}" class="social_link">
                                 <img src="assets/web/images/icon_li.png" alt="social icons" class="img-icon">
                             </a>
-                            <a href="{{ !empty($result['instagram']) ? $result['instagram'] : '#' }}" class="social_link">
+                            <a href="{{ !empty($result->instagram) ? $result->instagram : '#' }}" class="social_link">
                                 <img src="assets/web/images/icon_ig.png" alt="social icons" class="img-icon">
                             </a>
                             {{--  @foreach ($socialmedia ?? [] as $link)
@@ -51,16 +51,13 @@
         </section>
         <!-- Topbar End -->
         <!-- Navbar Start -->
-        @php
-    $setting = appSetting();
-    $logoPath = isset($setting['header_logo']) ? asset('storage/' . $setting['header_logo']) : asset('assets/web/images/logo.png');
-@endphp
+    @php
+        $setting = appSetting();
+    @endphp
         <nav class="navbar navbar-expand-lg bg-white">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('web.index') }}">
-                    {{--  <img src="assets/web/images/logo.png" alt="logo" class="img-logo">  --}}
-                    <img src="{{ $logoPath }}" alt="logo" class="img-logo">
-                    {{--  <img src="{{ asset($largelogo ?? '')  }}" alt="logo" class="img-logo">  --}}
+                    <img src="{{ asset('assets/web/images/'.$setting->header_logo) }}" alt="logo" class="img-logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

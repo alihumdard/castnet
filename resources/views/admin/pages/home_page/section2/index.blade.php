@@ -1,7 +1,6 @@
 @extends('admin.layouts.default')
-@section('title', 'Banner')
+@section('title', 'About us')
 @section('content')
-{{--  @dd($record->banner)  --}}
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -9,12 +8,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Section 1</h1>
-                    </div>
+                        <h1 class="m-0">About us</h1>
+                    </div> 
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Banner</li>
+                            <li class="breadcrumb-item active">About us</li>
                         </ol>
                     </div>
                 </div>
@@ -24,50 +23,55 @@
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
-                <div class="col-md-12">
+                    <div class="col-md-12">
                     <div class="card ">
                         <div class="card-body">
-                            <form action="{{ route('setting.homeSection1') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('homesection2.update',$section2->id) }}" method="post" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">Title</label>
+                                            <input type="text" name="heading" class="form-control" placeholder="Enter Title" value="{{ $section2->heading ?? '' }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
                                         <div class="form-group">
                                             <label for="prin_title">Upload Image</label>
-                                            <input type="file" name="image" class="form-control" id="" required>
+                                            <input type="file" name="image" class="form-control" id="">
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group errorshow">
-                                            <label for="prin_title">Heading</label>
-                                                <input type="text" name="heading" class="form-control" placeholder="Enter Heading" required>
-                                        </div>
+                                    <div class="col-sm-3">
+                                        <img src="{{ asset('assets/web/images/'.$section2->image) }}" width="120" height="140" alt="">
                                     </div>
-                                    
                                 </div>
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
                                             <label>Button Text</label>
-                                            <input type="text" name="button" placeholder="Enter Button Text" class="form-control" required>
+                                            <input type="text" name="button" placeholder="Enter Button Text" class="form-control" value="{{ $section2->button ?? '' }}">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
                                             <label>Button Link</label>
-                                            <input type="text" name="buttonlink" placeholder="Enter Button Link" pattern="^#|https?://\S+$" class="form-control">
+                                            <input type="text" name="buttonlink" placeholder="Enter Button Link" pattern="^#|https?://\S+$" value="{{ $section2->buttonlink ?? '' }}" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row mb-2">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label>Description</label>
-                                            <textarea class="form-control" name="description" rows="3" placeholder="Enter Description" style="resize: none;"></textarea>
+                                    <div class="col-md-12">
+                                        <!-- /.card-header -->
+                                        <div class="card-body" style="padding: 0px">
+                                            <textarea id="summernote" name="description">
+                                            {{ $section2->description ?? '' }}
+                                            </textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-footer" style="background:none;">
-                                    <button type="submit" class="btn btn-primary" style="float: right;">Save changes</button>
+                                    <button id="sectionslist" type="submit" class="btn btn-sm btn-primary" style="float: right;">Save changes</button>
                                 </div>
                             </form>
                         </div>
@@ -78,20 +82,3 @@
         <!-- /.content-wrapper -->
     </div>
 @stop
-
-@pushOnce('scripts')
-    <!-- data table -->
-    <script>
-        $(function() {
-            $('#allpages_tbl').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": false,
-                "info": true,
-                "autoWidth": false,
-                "responsive": false,
-            });
-        });
-    </script>
-@endPushOnce

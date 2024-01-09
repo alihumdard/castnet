@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('homesection1', function (Blueprint $table) {
+        Schema::create('home_section1s', function (Blueprint $table) {
             $table->id();
             $table->string('image')->nullable();
             $table->string('heading')->nullable();
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->string('button')->nullable();
             $table->text('buttonlink')->nullable();
             $table->timestamps();
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('homesection1');
+        Schema::dropIfExists('home_section1s');
     }
 };

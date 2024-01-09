@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class HomeSection2 extends Model
 {
-    public $table = 'homesection2s';
     use HasFactory;
-
-    protected $guarded = ['id']; 
+    protected $guarded = ['id'];
 }
