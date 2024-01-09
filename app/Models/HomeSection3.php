@@ -5,10 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Principle extends Model
+class HomeSection3 extends Model
 {
-    public $table = 'principles';
     use HasFactory;
-
-    protected $guarded = ['id']; 
+    protected $guarded = ['id'];
 }

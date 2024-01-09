@@ -1,17 +1,18 @@
 @extends('web.layouts.default')
 @section('content')
-{{--  @dd(homeSection1());  --}}
-<!-- Hero Start -->
-<section class="hero" style="background:linear-gradient(90deg, #071B34 0%, rgba(7, 27, 52, 0.76) 51.46%, rgba(7, 27, 52, 0.00) 100%), url({{ asset("storage/" . ($heroBannerData->banner ?? '')) }}) right center no-repeat">
+@php
+$setting = appSetting();
+@endphp
+<section class="hero" style="background:linear-gradient(90deg, #071B34 0%, rgba(7, 27, 52, 0.76) 51.46%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/'.$banner->banner) }}) right center no-repeat">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-lg-8 mt-50">
-                <span class="hero_tagline">{{$heroBannerData->short_heading ?? ''}}</span>
-                <h1 class="hero_title">{{$heroBannerData->heading ?? ''}}</h1>
-                <p class="hero_text">{{$heroBannerData->description ?? ''}}</p>
+                <span class="hero_tagline">{{ $banner->short_heading ?? '' }}</span>
+                <h1 class="hero_title">{{$banner->heading ?? '' }}</h1>
+                <p class="hero_text">{{$banner->description ?? '' }}</p>
                 <div class="d-flex flex-column flex-md-row gap-4">
-                    <a href="#" class="btn btn-primary">{{$heroBannerData->button1 ?? ''}} <img src="assets/web/images/icon_log.png" alt="icon login" class="icon-login"></a>
-                    <a href="#" class="btn btn-sponsor">{{$heroBannerData->button2 ?? ''}} <img src="assets/web/images/icon_arrow.png" alt="icon login" class="icon-login"></a>
+                    <a href="#" class="btn btn-primary">{{ $banner->button1 ?? ''}} <img src="assets/web/images/icon_log.png" alt="icon login" class="icon-login"></a>
+                    <a href="#" class="btn btn-sponsor">{{ $banner->button2 ?? ''}} <img src="assets/web/images/icon_arrow.png" alt="icon login" class="icon-login"></a>
                 </div>
             </div>
         </div>
@@ -20,22 +21,21 @@
 <!-- Hero End -->
 
 <!-- Card Events Start -->
-@if(count(homeSection1()) > 0)
 <section class="card_events">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-10 mx-auto">
                 <div class="row gy-4">
-                    @foreach(homeSection1() as $item)
+                    @foreach($section1 as $item)
                     <div class="col-lg-4 d-flex">
                         <div class="card">
                             <div class="card-body">
-                                <img src="{{ asset('storage/' . $item['image']) }}" alt="group" class="img-card">
-                                <h3 class="card-title">{{ $item['heading'] }}</h3>
-                                <p class="card-text">{{ $item['description'] }}</p>
+                                <img src="{{ asset('assets/web/images/'.$item->image) }}" alt="group" class="img-card">
+                                <h3 class="card-title">{{ $item->heading }}</h3>
+                                <p class="card-text">{{ $item->description }}</p>
                             </div>
                             <div class="card-footer">
-                                <a href="{{ $item['buttonlink'] }}" class="btn btn-secondary">{{ $item['button'] }}<img src="assets/web/images/icon_log_alt.png" alt="login"></a>
+                                <a href="{{ $item->buttonlink }}" class="btn btn-secondary">{{ $item->button }}<img src="assets/web/images/icon_log_alt.png" alt="login"></a>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,6 @@
         </div>
     </div>
 </section>
-@endif
 <!-- Card Events End -->
 
 <!-- About Start -->
@@ -53,14 +52,14 @@
     <div class="container">
         <div class="row align-items-center gy-4 gy-md-0 gx-md-5">
             <div class="col-md-6 col-lg-6">
-                <span class="sub_title">{{$section2Data -> heading ?? ''}}</span>
+                <span class="sub_title">{{ $section2->heading ?? '' }}</span>
                 <div style="color: white !important;font-size: inherit;
-                font-family: inherit;">{!! $section2Data -> description ?? '' !!}</div>
-                <a href="{{$section2Data -> buttonlink ?? '#'}}" class="btn btn-primary">{{$section2Data -> button ?? ''}}<img src="assets/web/images/icon_arrow_alt.png" alt="icon login" class="img-icon"></a>
+                font-family: inherit;">{!! $section2->description ?? '' !!}</div>
+                <a href="{{ $section2->buttonlink ?? '' }}" class="btn btn-primary">{{$section2->button ?? ''}}<img src="assets/web/images/icon_arrow_alt.png" alt="icon login" class="img-icon"></a>
             </div>
             <div class="col-md-6 col-lg-6">
                 <div class="img_border">
-                    <img src="{{ $section2Data ? asset('storage/' . $section2Data->image) : '' }}" alt="about us">
+                    <img src="{{ asset('assets/web/images/'.$section2->image) }}" alt="about us">
                 </div>
             </div>
         </div>
@@ -73,57 +72,25 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <span class="sub_title">our Principles</span>
-                <h2 class="section_title">Lorem Ipsum inquiriestment</h2>
+                <span class="sub_title">{{ $section3->title }}</span>
+                <h2 class="section_title">{{ $section3->heading }}</h2>
             </div>
         </div>
-        {{--  @if(count( $principles))
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            @if(count($principles) >= 1)
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="pills-mission-tab" data-bs-toggle="pill" data-bs-target="#pills-mission" type="button" role="tab" aria-controls="pills-mission" aria-selected="true">{{$principles[0]['title'] ?? ''}}</button>
+                <button class="nav-link active" id="pills-mission-tab" data-bs-toggle="pill" data-bs-target="#pills-mission" type="button" role="tab" aria-controls="pills-mission" aria-selected="true">{{ $section3->subtitle1 }}</button>
             </li>
-            @endif
-            @if(count($principles) >= 2)
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-vision-tab" data-bs-toggle="pill" data-bs-target="#pills-vision" type="button" role="tab" aria-controls="pills-vision" aria-selected="false">{{$principles[1]['title'] ?? ''}}</button>
+                <button class="nav-link" id="pills-vision-tab" data-bs-toggle="pill" data-bs-target="#pills-vision" type="button" role="tab" aria-controls="pills-vision" aria-selected="false">{{ $section3->subtitle2 }}</button>
             </li>
-            @endif
-            @if(count($principles) >= 3)
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-purpose-tab" data-bs-toggle="pill" data-bs-target="#pills-purpose" type="button" role="tab" aria-controls="pills-purpose" aria-selected="false">{{$principles[2]['title'] ?? ''}}</button>
+                <button class="nav-link" id="pills-purpose-tab" data-bs-toggle="pill" data-bs-target="#pills-purpose" type="button" role="tab" aria-controls="pills-purpose" aria-selected="false">{{ $section3->subtitle3 }}</button>
             </li>
-            @endif
         </ul>
         <div class="tab-content" id="pills-tabContent">
-            @if(count($principles) >= 1)
-            <div class="tab-pane fade show active" id="pills-mission" role="tabpanel" aria-labelledby="pills-mission-tab" tabindex="0">{{$principles[0]['desc'] ?? ''}}</div>
-            @endif
-            @if(count($principles) >= 2)
-            <div class="tab-pane fade" id="pills-vision" role="tabpanel" aria-labelledby="pills-vision-tab" tabindex="0">{{$principles[1]['desc'] ?? ''}} </div>
-            @endif
-            @if(count($principles) >= 3)
-            <div class="tab-pane fade" id="pills-purpose" role="tabpanel" aria-labelledby="pills-purpose-tab" tabindex="0">{{$principles[2]['desc'] ?? ''}}</div>
-            @endif
-        </div>
-        @endif  --}}
-        <div data-aos="zoom-in" data-aos-duration="1000">
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="pills-mission-tab" data-bs-toggle="pill" data-bs-target="#pills-mission" type="button" role="tab" aria-controls="pills-mission" aria-selected="true">mission</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-vision-tab" data-bs-toggle="pill" data-bs-target="#pills-vision" type="button" role="tab" aria-controls="pills-vision" aria-selected="false">vision</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-purpose-tab" data-bs-toggle="pill" data-bs-target="#pills-purpose" type="button" role="tab" aria-controls="pills-purpose" aria-selected="false">purpose</button>
-                </li>
-            </ul>
-            <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-mission" role="tabpanel" aria-labelledby="pills-mission-tab" tabindex="0">mission</div>
-                <div class="tab-pane fade" id="pills-vision" role="tabpanel" aria-labelledby="pills-vision-tab" tabindex="0">Our vision at C.A.S.T.N.E.T. is to be the leading international platform that seamlessly integrates small businesses from diverse regions, especially those in the United States and Africa. We aim to create a thriving global ecosystem where these businesses can leverage digital solutions to foster sustainable growth, innovation, and economic development, free from any political or partisan influences</div>
-                <div class="tab-pane fade" id="pills-purpose" role="tabpanel" aria-labelledby="pills-purpose-tab" tabindex="0">purpose</div>
-            </div>
+            <div class="tab-pane fade show active" id="pills-mission" role="tabpanel" aria-labelledby="pills-mission-tab" tabindex="0">{{ $section3->description1 }}</div>
+            <div class="tab-pane fade" id="pills-vision" role="tabpanel" aria-labelledby="pills-vision-tab" tabindex="0">{{ $section3->description2 }}</div>
+            <div class="tab-pane fade" id="pills-purpose" role="tabpanel" aria-labelledby="pills-purpose-tab" tabindex="0">{{ $section3->description3 }}</div>
         </div>
     </div>
 </section>
@@ -562,10 +529,6 @@
     </div>
 </section>
 <!-- Impact End -->
-@php
-$setting = appSetting();
-$popupLogoPath = isset($setting['popup_logo']) ? asset('storage/' . $setting['popup_logo']) : asset('assets/web/images/logo.png');
-@endphp
 <!-- Modal Start -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -573,7 +536,7 @@ $popupLogoPath = isset($setting['popup_logo']) ? asset('storage/' . $setting['po
             <div class="modal-body">
                 <div class="row gx-4">
                     <div class="col-lg-5 text-center text-lg-start">
-                        <img src="{{$popupLogoPath}}" alt="logo" class="img-logo">
+                        <img src="{{ asset('assets/web/images/'.$setting->popup_logo) }}" alt="logo" class="img-logo">
                     </div>
                     <div class="col-lg-7">
                         <h2 class="modal-title">castnet purpose</h2>

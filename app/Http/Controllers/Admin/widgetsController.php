@@ -12,44 +12,6 @@ use App\Models\RoadMap;
 
 class widgetsController extends Controller
 {
-    public function principles()
-    {
-        $data['principles'] = Principle::where(['status' => 'Active'])->latest()->get()->toArray();
-        return view('admin.pages.principles',$data);
-    }
-
-    public function store_principle(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'title' => 'required|string|max:255',
-            'desc' => 'required|string|max:4294967295',
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json(['status' => 'error', 'message' => $validator->errors()]);
-        }
-
-        try {
-            // $user = auth()->user();
-            $message  = NULL;
-            Session::forget('msg');
-            $saved = Principle::updateOrCreate(
-                ['id' => $request->id ?? NULL],
-                [
-                    'title' => strtoupper($request->title),
-                    'desc' => $request->desc,
-                    'created_by' => Auth::id(),
-                ]
-            );
-            $message = "Principle " . ($request->id ? "Updated" : "Saved") . " Successfully";
-            Session::flash('msg', $message);
-
-            $data['principles'] = Principle::where(['status' => 'Active'])->latest()->get()->toArray();
-            return view('admin.pages.principles',$data);
-        } catch (\Exception $e) {
-            return response()->json(['status' => 'error', 'message' => 'Error storing Transection', 'error' => $e->getMessage()], 500);
-        }
-    }
 
     public function roadmaps()
     {

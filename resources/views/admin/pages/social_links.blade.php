@@ -25,19 +25,20 @@
         <div class="col-md-12">
             <div class="card ">
                 <div class="card-body">
-                  <form action="{{ route('sociallinks.createupdate') }}" method="post">
+                  <form method="post" action="{{ route('sociallinks.update',$links->id) }}">
                     @csrf
+                    @method('PUT')
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="prin_title">Facebook</label>
-                                <input type="url" name="facebook" id="facebookURL" class="form-control" value="{{ $record['facebook'] ?? '' }}" placeholder="Enter URL">
+                                <input type="url" name="facebook" id="facebookURL" class="form-control" value="{{ $links->facebook }}" placeholder="Enter URL">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="prin_title">Twitter</label>
-                                <input type="url" name="twitter" id="twitterURL" class="form-control" value="{{ $record['twitter'] ?? '' }}" placeholder="Enter URL">
+                                <input type="url" name="twitter" id="twitterURL" class="form-control" value="{{ $links->twitter }}" placeholder="Enter URL">
                             </div>
                         </div>                        
                     </div>
@@ -45,13 +46,13 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="prin_title">Instagram</label>
-                                <input type="url" name="instagram" id="instagramURL" class="form-control" value="{{ $record['instagram'] ?? '' }}" placeholder="Enter URL">
+                                <input type="url" name="instagram" id="instagramURL" class="form-control" value="{{ $links->instagram }}" placeholder="Enter URL">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="prin_title">Linkedin</label>
-                                <input type="url" name="linkedin" id="linkedinURL" class="form-control" value="{{ $record['linkedin'] ?? '' }}" placeholder="Enter URL">
+                                <input type="url" name="linkedin" id="linkedinURL" class="form-control" value="{{ $links->linkedin }}" placeholder="Enter URL">
                             </div>
                         </div>                        
                     </div>                    
@@ -59,7 +60,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="prin_title">Pinterest</label>
-                                <input type="url" name="pintrest" id="pinterestURL" class="form-control" value="{{ $record['pintrest'] ?? '' }}" placeholder="Enter URL">
+                                <input type="url" name="pintrest" id="pinterestURL" class="form-control" value="{{ $links->pintrest }}" placeholder="Enter URL">
                             </div>
                         </div>                       
                     </div>  
@@ -74,34 +75,3 @@
   </div>
 </div>
 @stop
-@pushOnce('scripts')
-<script>
-    $('#webSetting').validate({ 
-        rules: {
-            title: {
-                 required: true,
-            },
-            email: {
-                 required: true,
-            },
-            phone: {
-                 required: true,
-            },
-            vendor_note: {
-                 required: true,
-            },
-        },
-        errorElement: 'span',
-        errorPlacement: function (error, element) {
-            error.addClass('invalid-feedback');
-            element.closest('.errorshow').append(error);
-        },
-        highlight: function (element, errorClass, validClass) {
-            $(element).addClass('is-invalid');
-        },
-        unhighlight: function (element, errorClass, validClass) {
-            $(element).removeClass('is-invalid');
-        }
-     });
-</script>
-@endPushOnce

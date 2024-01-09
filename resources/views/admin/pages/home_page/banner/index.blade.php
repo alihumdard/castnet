@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('title', 'Banner')
+@section('title', 'Home Banner')
 @section('content')
 {{--  @dd($record->banner)  --}}
     <!-- Content Wrapper. Contains page content -->
@@ -27,40 +27,37 @@
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-body">
-                            <form action="{{ route('setting.homeBanner') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('homebanner.update',$banner->id) }}" method="post" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
                                 <div class="row mb-2">
                                     <div class="col-sm-3">
                                         <div class="form-group">
                                             <label for="prin_title">Banner Image</label>
                                             <input type="file" name="banner" class="form-control" id="">
-                                            <input type="hidden" name="old_banner"
-                                                value="{{ $record->banner ?? 'assets/web/images/bg_hero.png'  }}">
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
-                                        <img src="{{ isset($record->banner) && $record->banner !== 'assets/web/images/bg_hero.png'  ? asset('storage/' . $record->banner) : asset('assets/web/images/bg_hero.png') }}" alt="Home Banner" width="50" height="50">
+                                        <img src="{{ asset('assets/web/images/'.$banner->banner) }}" alt="Home page banner" width="50" height="50">
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
                                             <label for="prin_title">Banner title</label>
-                                                <input type="text" name="title" class="form-control"
-       placeholder="Enter Banner Title" value="{{ $record->short_heading ?? '' }}">
+                                                <input type="text" name="title" class="form-control" placeholder="Enter Banner Title" value="{{ $banner->short_heading }}">
                                         </div>
                                     </div>
-                                    
                                 </div>
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
                                             <label>Button 1</label>
-                                            <input type="text" name="button1" placeholder="Enter Button1 Text" class="form-control" id="" value="{{ $record->button1 ?? '' }}">
+                                            <input type="text" name="button1" placeholder="Enter Button1 Text" class="form-control" id="" value="{{ $banner->button1 }}">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
                                             <label>Button 1 Link</label>
-                                            <input type="text" name="button1link" placeholder="Enter Button1 Link" pattern="^#|https?://\S+$" class="form-control" id="" value="{{ $record->button1link ?? '' }}">
+                                            <input type="text" name="button1link" placeholder="Enter Button1 Link" pattern="^#|https?://\S+$" class="form-control" id="" value="{{ $banner->button1link }}">
                                         </div>
                                     </div>
                                 </div>
@@ -68,13 +65,13 @@
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
                                             <label>Button 2</label>
-                                            <input type="text" name="button2" placeholder="Enter Button2 Text" class="form-control" id="" value="{{ $record->button2 ?? '' }}">
+                                            <input type="text" name="button2" placeholder="Enter Button2 Text" class="form-control" id="" value="{{ $banner->button2  }}">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
                                             <label>Button 2 Link</label>
-                                            <input type="text" name="button2link" placeholder="Enter Button2 Link" pattern="^#|https?://\S+$" class="form-control" id="" value="{{ $record->button2link ?? '' }}">
+                                            <input type="text" name="button2link" placeholder="Enter Button2 Link" pattern="^#|https?://\S+$" class="form-control" id="" value="{{ $banner->button2link }}">
                                         </div>
                                     </div>
                                 </div>
@@ -82,7 +79,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>Heading</label>
-                                            <textarea class="form-control" name="heading" rows="3" placeholder="Enter Heading" style="resize: none;">{{ $record->heading ??''}}</textarea>
+                                            <textarea class="form-control" name="heading" rows="3" placeholder="Enter Heading" style="resize: none;">{{ $banner->heading }}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -90,13 +87,12 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea class="form-control" name="description" rows="4" placeholder="Enter Description" style="resize: none;">{{ $record->description ??''}}</textarea>
+                                            <textarea class="form-control" name="description" rows="4" placeholder="Enter Description" style="resize: none;">{{ $banner->description }}</textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-footer" style="background:none;">
-                                    <button type="submit" class="btn btn-primary" style="float: right;">Save
-                                        changes</button>
+                                    <button type="submit" class="btn btn-primary" style="float: right;">Save changes</button>
                                 </div>
                             </form>
                         </div>
@@ -107,20 +103,3 @@
         <!-- /.content-wrapper -->
     </div>
 @stop
-
-@pushOnce('scripts')
-    <!-- data table -->
-    <script>
-        $(function() {
-            $('#allpages_tbl').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": false,
-                "info": true,
-                "autoWidth": false,
-                "responsive": false,
-            });
-        });
-    </script>
-@endPushOnce
