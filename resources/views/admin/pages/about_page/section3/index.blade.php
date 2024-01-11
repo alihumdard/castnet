@@ -1,6 +1,14 @@
 @extends('admin.layouts.default')
 @section('title', 'About Banner')
 @section('content')
+<style>
+    .note-editor.note-airframe .note-editing-area .note-editable, .note-editor.note-frame .note-editing-area .note-editable {
+    word-wrap: break-word;
+    overflow: auto;
+    padding: 10px;
+    background-color: white;
+}
+</style>
 {{--  @dd($record->banner)  --}}
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -27,7 +35,7 @@
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-body">
-                            <form action="" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('aboutUs.section3Update') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="row mb-2">
@@ -35,10 +43,11 @@
                                         <div class="form-group">
                                             <label for="prin_title">Image</label>
                                             <input type="file" name="banner" class="form-control" id="">
+                                            <input type="hidden" name="previousImage" value="{{ $section3Record->image ?? '' }}" class="form-control" id="">
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
-                                        <img src="" alt="Image" width="50" height="50">
+                                        <img src="{{ asset($section3Record->image ?? '') }}" alt="Image" width="50" height="50">
                                     </div>
                                 </div>
                                 <div class="row mb-2">
@@ -46,7 +55,7 @@
                                         <!-- /.card-header -->
                                         <div class="card-body" style="padding: 0px">
                                             <textarea id="summernote" name="description">
-                                            {{ $section2->description ?? '' }}
+                                            {{ $section3Record->description ?? '' }}
                                             </textarea>
                                         </div>
                                     </div>
