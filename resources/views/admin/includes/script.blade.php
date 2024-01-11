@@ -3,7 +3,6 @@
 <!-- Bootstrap 4 -->
 <script src="{{asset('/assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- Bootstrap 4 -->
-<script src="{{asset('/assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- DataTables  & Plugins -->
 <script src="{{asset('/assets/admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{asset('/assets/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
@@ -30,7 +29,7 @@
 <!-- Filterizr-->
 <script src="{{asset('assets/admin/plugins/filterizr/jquery.filterizr.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
-{{-- <script src="{{asset('assets/admin/dist/js/demo.js') }}"></script> --}}
+<script src="{{asset('assets/admin/dist/js/demo.js') }}"></script>
 <script src="{{ asset('assets/admin/dist/js/custom.js') }}"></script>
 <script src="{{ asset('assets/admin/sweetalert/sweetalert2/sweetalert2.min.js') }}"></script>
 <script>
