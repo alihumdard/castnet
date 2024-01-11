@@ -7,8 +7,19 @@ use Illuminate\Http\Request;
 use App\Models\HomeSection1;
 use App\Models\HomeSection2;
 use App\Models\HomeSection3;
+use App\Models\HomeSection4;
+use App\Models\HomeSection5;
+use App\Models\HomeSection6;
+use App\Models\HomeSection7;
+use App\Models\HomeSection8;
+use App\Models\HomeSection9;
+use App\Models\HomeSectionEvent;
+use App\Models\HomeSection4Detail;
+use App\Models\HomeSectionSponser;
+use App\Models\HomeSectionFeature;
+use App\Models\HomeSection9Feature;
 use App\Models\Banner;
-
+use Carbon\Carbon;
 class PagesController extends Controller
 {
     public function index(){
@@ -16,7 +27,19 @@ class PagesController extends Controller
         $section1 = HomeSection1::all();
         $section2 = HomeSection2::first();
         $section3 = HomeSection3::first();
-        return view('web.pages.home',compact('banner','section1','section2','section3'));
+        $section4 = HomeSection4::first();
+        $section5 = HomeSection5::first();
+        $section6 = HomeSection6::first();
+        $section7 = HomeSection7::first();
+        $section8 = HomeSection8::first();
+        $section9 = HomeSection9::first();
+        $section4detail = HomeSection4Detail::get();
+        $section5event = HomeSectionEvent::get();
+        $section6sponsor = HomeSectionSponser::get();
+        $section8feature1 = HomeSectionFeature::take(3)->get();
+        $section8feature2 = HomeSectionFeature::skip(3)->take(3)->get();
+        $section9feature = HomeSection9Feature::get();
+        return view('web.pages.home',get_defined_vars());
     }
 
     public function aboutUs(){

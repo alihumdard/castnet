@@ -66,15 +66,25 @@
                         <div class="col-sm-3">
                             <img src="{{ asset('assets/web/images/'.$setting->footer_logo) }}" alt="Footer Logo" width="50" height="50">
                         </div>
-                    </div>
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
+                            <div class="form-group errorshow">
+                                <label>Popup Description:</label>
+                                <textarea name="description" class="summernote form-control">{!! $setting->popup_description !!}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group errorshow">
+                                <label>Popup Button link:</label>
+                                <input type="link" name="popup_link" placeholder="Enter Button link..." class="form-control" value="{{ $setting->popup_link }}">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
                             <div class="form-group errorshow">
                                 <label>Email:</label>
                                 <input type="text" name="email" placeholder="Enter Email..." class="form-control" value="{{ $setting->email }}">
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="form-group errorshow">
                                 <label>Phone:</label>
                                 <input type="text" name="phone" placeholder="Enter Phone..." class="form-control" value="{{ $setting->phone }}">
