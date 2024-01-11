@@ -148,20 +148,7 @@
         </a>
 
         <!-- Sidebar -->
-        <div class="sidebar" style="
-        height: 100vh;
-        overflow-y: auto;
-    ">
-            <!-- Sidebar user panel (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="{{url('assets/admin/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
-                </div>
-                <div class="info">
-                    <a href="#" class="d-block">Alexander Pierce</a>
-                </div>
-            </div>
-
+        <div class="sidebar">
             <!-- SidebarSearch Form -->
 
             <!-- Sidebar Menu -->
@@ -169,14 +156,14 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a href="{{route('admin.index')}}" class="nav-link {{(request()->routeIs('admin.index')) ? 'active' :''}}">
                             <i class="nav-icon fas fa-users"></i>
                             <p>
                                 Users
                             </p>
                         </a>
-                    </li>
+                    </li> --}}
 
                     {{-- <li class="nav-item {{(request()->routeIs(['admin.allpages','admin.addpage' ])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="{{ route('admin.allpages') }}" class="nav-link">
@@ -201,7 +188,7 @@
                             </li>
                         </ul>
                     </li> --}}
-                    <li class="nav-item {{(request()->routeIs(['homepage.banner','homesection1.index','homesection2.index','homesection3.index'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['homepage.banner','homesection1*','homesection2*','homesection3*','homesection4*','homesection5*','homesection6*','homesection7*','homesection8*','homesection9*'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -217,7 +204,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('homesection1.index') }}" class="nav-link {{(request()->routeIs('homesection1.index')) ? 'active' : ''}}">
+                                <a href="{{ route('homesection1.index') }}" class="nav-link {{(request()->routeIs('homesection1*')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 1</p>
                                 </a>
@@ -228,14 +215,48 @@
                                     <p>Section 2</p>
                                 </a>
                             </li>
-                            {{--  Home Section 3 blade file start  --}}
                             <li class="nav-item">
                                 <a href="{{ route('homesection3.index') }}" class="nav-link {{(request()->routeIs('homesection3.index')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 3</p>
                                 </a>
                             </li>
-                            {{--  Home Section 3 blade file end  --}}
+                            <li class="nav-item">
+                                <a href="{{ route('homesection4.index') }}" class="nav-link {{(request()->routeIs('homesection4*')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 4</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('homesection5.index') }}" class="nav-link {{(request()->routeIs('homesection5*')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 5</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('homesection6.index') }}" class="nav-link {{(request()->routeIs('homesection6*')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 6</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('homesection7.index') }}" class="nav-link {{(request()->routeIs('homesection7*')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 7</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('homesection8.index') }}" class="nav-link {{(request()->routeIs('homesection8*')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 8</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('homesection9.index') }}" class="nav-link {{(request()->routeIs('homesection9*')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 9</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     {{--  About Us section start  --}}
@@ -2164,7 +2185,7 @@
                     </li> --}}
                     {{--  JOB OPENINGS Page End  --}}
 
-                    <li class="nav-item {{(request()->routeIs(['admin.menus'])) ? 'menu-is-opening menu-open' : ''}}">
+                    {{-- <li class="nav-item {{(request()->routeIs(['admin.menus'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-palette"></i>
                             <p>
@@ -2188,49 +2209,8 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
-
-                    {{-- <li class="nav-item {{(request()->routeIs(['admin.principle','admin.roadmap' ])) ? 'menu-is-opening menu-open' : ''}}">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-palette"></i>
-                            <p>
-                                Widgets
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('admin.principle') }}" class="nav-link {{(request()->routeIs('admin.principle')) ? 'active' : ''}}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Principles</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.roadmap') }}" class="nav-link {{(request()->routeIs('admin.roadmap')) ? 'active' : ''}}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Road Map</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Sponsers</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>News</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Events</p>
-                                </a>
-                            </li>
-                        </ul>
                     </li> --}}
+
                     <li class="nav-item">
                         <a href="{{ route('admin.sociallinks') }}" class="nav-link {{(request()->routeIs('admin.sociallinks')) ? 'active' :''}}">
                             <i class="nav-icon fas fa-globe"></i>

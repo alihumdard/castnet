@@ -49,7 +49,7 @@
                                 </div>
                               </td>
                               <td>
-                                <img src="{{ asset('assets/web/images/'.$item->image) }}" alt="section img" height="50" width="50">
+                                <img style="border:1px solid black;" src="{{ asset('assets/web/images/'.$item->image) }}" alt="section img" height="50" width="50">
                               </td>
                               <td>
                                 <a href="{{ route('homesection1.edit',$item->id) }}"><i class="fa fa-edit"></i></a>

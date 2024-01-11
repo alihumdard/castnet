@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Admin\HomePage;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
-use App\Models\HomeSection1;
-class HomePageSection1Controller extends Controller
+use App\Models\HomeSectionSponser;
+use App\Models\HomeSection6;
+class HomePageSection6Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,9 @@ class HomePageSection1Controller extends Controller
      */
     public function index()
     {
-        $section1 = HomeSection1::all();
-        return view('admin.pages.home_page.section1.index',compact('section1'));
+        $section6 = HomeSection6::first();
+        $sponsor = HomeSectionSponser::get();
+        return view('admin.pages.home_page.section6.index',compact('section6','sponsor'));
     }
 
     /**
@@ -26,7 +28,7 @@ class HomePageSection1Controller extends Controller
      */
     public function create()
     {
-        return view('admin.pages.home_page.section1.create');
+        return view('admin.pages.home_page.section6.create');
     }
 
     /**
@@ -37,21 +39,12 @@ class HomePageSection1Controller extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'image' => 'image|mimes:jpg,jpeg,png',
-            'heading' => 'required|string|max:255',
-            'description' => 'nullable|string',
-        ]);
-
         $file = time().'.'.$request->image->extension();  
         $request->image->move(public_path('assets/web/images'), $file);
 
-        HomeSection1::create([
+        HomeSectionSponser::create([
+            'title' => $request->title,
             'image' => $file,
-            'heading' => $request->heading,
-            'description' => $request->description,
-            'button' => $request->button,
-            'buttonlink' => $request->buttonlink,
         ]);
     
         return redirect()->back()->with('success', 'Data saved successfully!');
@@ -76,11 +69,8 @@ class HomePageSection1Controller extends Controller
      */
     public function edit($id)
     {
-        $section1 = HomeSection1::findOrFail($id);
-        if ($section1 == null) {
-            return redirect()->back()->with('error', 'No records were found for editing.');
-        }
-        return view('admin.pages.home_page.section1.edit',compact('section1'));
+        $sponsor = HomeSectionSponser::find($id);
+        return view('admin.pages.home_page.section6.edit',compact('sponsor'));
     }
 
     /**
@@ -92,16 +82,10 @@ class HomePageSection1Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = HomeSection1::findOrFail($id);
+        $item = HomeSectionSponser::findOrFail($id);
         if ($item == null) {
             return redirect()->back()->with('error', 'No records were found for updating.');
         }
-
-        $request->validate([
-            'image' => 'image|mimes:jpg,jpeg,png',
-            'heading' => 'required|string|max:255',
-            'description' => 'nullable|string',
-        ]);
 
         if($request->image){
             $file = time().'.'.$request->image->extension();  
@@ -111,10 +95,7 @@ class HomePageSection1Controller extends Controller
         }
 
         $data = [
-            'heading' => $request->heading,
-            'button' => $request->button,
-            'buttonlink' => $request->buttonlink,
-            'description' => $request->description,
+            'title' => $request->title,
             'image' => $file,
         ];
         $item->update($data);
@@ -130,16 +111,31 @@ class HomePageSection1Controller extends Controller
      */
     public function destroy($id)
     {
-        $path = HomeSection1::where('id',$id)->first()->image;
+        $path = HomeSectionSponser::where('id',$id)->first()->image;
         if(isset($path)){
             $path = public_path().'/assets/web/images/'.$path;
             File::delete($path);
         }
-        HomeSection1::destroy($id);
+        HomeSectionSponser::destroy($id);
         return response()->json(array(
             'data' => true,
-            'message' => 'Item has been deleted.',
+            'message' => 'Sponsor has been deleted.',
             'status' => 'success',
         ));
+    }
+
+    public function updation(Request $request,$id){
+        $item = HomeSection6::findOrFail($id);
+        if ($item == null) {
+            return redirect()->back()->with('error', 'No records were found for updating.');
+        }
+
+        $data = [
+            'title' => $request->title,
+            'heading' => $request->heading,
+        ];
+        $item->update($data);
+
+        return redirect()->back()->with('success', 'Data updated successfully.');
     }
 }

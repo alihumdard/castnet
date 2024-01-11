@@ -8,8 +8,8 @@ $setting = appSetting();
         <div class="row">
             <div class="col-md-8 col-lg-8 mt-50">
                 <span class="hero_tagline">{{ $banner->short_heading ?? '' }}</span>
-                <h1 class="hero_title">{{$banner->heading ?? '' }}</h1>
-                <p class="hero_text">{{$banner->description ?? '' }}</p>
+                <h1 class="hero_title">{{ $banner->heading ?? '' }}</h1>
+                <p class="hero_text">{{ $banner->description ?? '' }}</p>
                 <div class="d-flex flex-column flex-md-row gap-4">
                     <a href="#" class="btn btn-primary">{{ $banner->button1 ?? ''}} <img src="assets/web/images/icon_log.png" alt="icon login" class="icon-login"></a>
                     <a href="#" class="btn btn-sponsor">{{ $banner->button2 ?? ''}} <img src="assets/web/images/icon_arrow.png" alt="icon login" class="icon-login"></a>
@@ -102,161 +102,28 @@ $setting = appSetting();
         <div class="row gy-5 gy-md-0">
             <div class="col-lg-6">
                 <div class="img_border">
-                    <img src="assets/web/images/laptop_desk.png" alt="laptop desk">
+                    <img src="{{ asset('assets/web/images/'.$section4->image) }}" alt="laptop desk">
                 </div>
             </div>
             <div class="col-lg-6">
-                <span class="sub_title">our roadmap</span>
-                <h2 class="section_title">how we're working for you</h2>
-                {{--  <div class="accordion" id="accordionExample">
-                    @forelse($roadmaps ?? [] as $key => $val)
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_{{$val['id'] ?? ''}}" aria-expanded="{{($loop->first) ? 'true' : 'false'}}" aria-controls="collapse_{{$val['id'] ?? ''}}">
-                                <span class="text-secondary fs-2">{{ ++$key ?? '' }}</span>
-                                <span class="font-roboto ms-4 p-1">{{ $val['title'] ?? '' }}</span>
-                            </button>
-                        </h2>
-                        <div id="collapse_{{$val['id'] ?? ''}}" @class([ 'accordion-collapse' , 'collapse' , 'show'=> $loop->first]) data-bs-parent="#accordionExample">
-                            <div class="accordion-body p-4">
-                                <ul class="mb-0">
-                                    {!! $val['desc'] ?? '' !!}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    @empty
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_empty" aria-expanded="true" aria-controls="collapse_empty">
-                                <span class="text-secondary fs-2">01</span>
-                                <span class="font-roboto ms-4 p-1">No Records available </span>
-                            </button>
-                        </h2>
-                        <div id="collapse_empty" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body p-4">
-                                <ul class="mb-0">
-                                    <li class="accordion-list-item">No Records available. please create road maps.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    @endforelse
-
-                </div>  --}}
+                <span class="sub_title">{{ $section4->heading }}</span>
+                <h2 class="section_title">{{ $section4->sub_heading }}</h2>
                 <div class="accordion" id="accordionExample">
+                    @foreach($section4detail as $key=>$item)
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                <span class="text-secondary fs-2">01</span>
-                                <span class="font-roboto ms-4 p-1">Market Research and Needs Analysis</span>
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $key+1 }}" aria-expanded="@if($key==0) true @else false @endif" aria-controls="collapse{{ $key+1 }}">
+                                <span class="text-secondary fs-2">{{ $key+1 }}</span>
+                                <span class="font-roboto ms-4 p-1">{{ $item->title }}</span>
                             </button>
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div id="collapse{{ $key+1 }}" class="accordion-collapse collapse @if($key==0) show @endif" data-bs-parent="#accordionExample">
                             <div class="accordion-body p-4">
-                                <ul class="mb-0">
-                                    <li class="accordion-list-item">Develop or partner with digital platforms like BidLock for efficient source-to-pay processes.</li>
-                                    <li class="accordion-list-item">Ensure these platforms are accessible, user-friendly, and customizable to various business needs.</li>
-                                </ul>
+                                {!! $item->features !!}
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                <span class="text-secondary fs-2">02</span>
-                                <span class="font-roboto ms-4 p-1">Building Digital Infrastructure</span>
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body p-4">
-                                <ul class="mb-0">
-                                    <li class="accordion-list-item">Develop or partner with digital platforms like BidLock for efficient source-to-pay processes.</li>
-                                    <li class="accordion-list-item">Ensure these platforms are accessible, user-friendly, and customizable to various business needs.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                <span class="text-secondary fs-2">03</span>
-                                <span class="font-roboto ms-4 p-1">Networking and Partnership Development</span>
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body p-4"> 
-                                <ul class="mb-0">
-                                    <li class="accordion-list-item">Develop or partner with digital platforms like BidLock for efficient source-to-pay processes.</li>
-                                    <li class="accordion-list-item">Ensure these platforms are accessible, user-friendly, and customizable to various business needs.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                <span class="text-secondary fs-2">04</span>
-                                <span class="font-roboto ms-4 p-1">Education and Resource Sharing</span>
-                            </button>
-                        </h2>
-                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body p-4"> 
-                                <ul class="mb-0">
-                                    <li class="accordion-list-item">Develop or partner with digital platforms like BidLock for efficient source-to-pay processes.</li>
-                                    <li class="accordion-list-item">Ensure these platforms are accessible, user-friendly, and customizable to various business needs.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                <span class="text-secondary fs-2">05</span>
-                                <span class="font-roboto ms-4 p-1">Pilot Programs and Feedback Loops</span>
-                            </button>
-                        </h2>
-                        <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body p-4"> 
-                                <ul class="mb-0">
-                                    <li class="accordion-list-item">Develop or partner with digital platforms like BidLock for efficient source-to-pay processes.</li>
-                                    <li class="accordion-list-item">Ensure these platforms are accessible, user-friendly, and customizable to various business needs.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                <span class="text-secondary fs-2">06</span>
-                                <span class="font-roboto ms-4 p-1">Scaling and Expansion</span>
-                            </button>
-                        </h2>
-                        <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body p-4"> 
-                                <ul class="mb-0">
-                                    <li class="accordion-list-item">Develop or partner with digital platforms like BidLock for efficient source-to-pay processes.</li>
-                                    <li class="accordion-list-item">Ensure these platforms are accessible, user-friendly, and customizable to various business needs.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                <span class="text-secondary fs-2">07</span>
-                                <span class="font-roboto ms-4 p-1">Continuous Improvement and Adaptation</span>
-                            </button>
-                        </h2>
-                        <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body p-4"> 
-                                <ul class="mb-0">
-                                    <li class="accordion-list-item">Develop or partner with digital platforms like BidLock for efficient source-to-pay processes.</li>
-                                    <li class="accordion-list-item">Ensure these platforms are accessible, user-friendly, and customizable to various business needs.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -269,8 +136,8 @@ $setting = appSetting();
     <div class="container ps-lg-0 pe-lg-5">
         <div class="row mb-lg-60">
             <div class="col-12 text-center">
-                <span class="sub_title">events</span>
-                <h2 class="section_title">engage with us</h2>
+                <span class="sub_title">{{ $section5->title }}</span>
+                <h2 class="section_title">{{ $section5->heading }}</h2>
             </div>
         </div>
         <div class="row align-items-center gy-3 gy-md-0 gx-md-5 border-y">
@@ -278,13 +145,18 @@ $setting = appSetting();
             <div class="col-lg-8 m-events px-3">
                 <div class="swiper swiperEvents">
                     <div class="swiper-wrapper">
+                        @foreach($section5event as $event)
+                        @php
+                            $date = \Carbon\Carbon::parse($event->date);
+                            $dayName = $date->format('l');
+                        @endphp
                         <div class="swiper-slide">
                             <div class="card">
-                                <img src="assets/web/images/event_1.png" alt="card" class="card-img-top">
+                                <img src="{{ asset('assets/web/images/'.$event->image)}}" alt="card" class="card-img-top">
                                 <div class="card-body">
                                     <div class="d-flex align-items-center justify-content-between">
                                         <h3 class="card-title font-roboto">
-                                            <a href="#">lorem ipsum</a>
+                                            <a href="#">{{ $event->title }}</a>
                                         </h3>
                                         <a href="#">
                                             <img src="assets/web/images/plus_vector.png" alt="plus" class="img-plus">
@@ -292,49 +164,12 @@ $setting = appSetting();
                                     </div>
                                 </div>
                                 <div class="date_box">
-                                    <span class="day">mon</span>
-                                    <span class="date">16</span>
+                                    <span class="day">{{ strtoupper(substr($dayName, 0, 3)) }}</span>
+                                    <span class="date">{{ \Carbon\Carbon::parse($event->date)->format('j') }}</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img src="assets/web/images/event_2.png" alt="card" class="card-img-top">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h3 class="card-title font-roboto">
-                                            <a href="#">lorem ipsum</a>
-                                        </h3>
-                                        <a href="#">
-                                            <img src="assets/web/images/plus_vector.png" alt="plus" class="img-plus">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="date_box">
-                                    <span class="day">sat</span>
-                                    <span class="date">18</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img src="assets/web/images/event_1.png" alt="card" class="card-img-top">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h3 class="card-title font-roboto">
-                                            <a href="#">lorem ipsum</a>
-                                        </h3>
-                                        <a href="#">
-                                            <img src="assets/web/images/plus_vector.png" alt="plus" class="img-plus">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="date_box">
-                                    <span class="day">mon</span>
-                                    <span class="date">20</span>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="d-flex align-items-center justify-content-between mt-5">
                         <div class="swiper-pagination"></div>
@@ -350,8 +185,8 @@ $setting = appSetting();
                 </div>
             </div>
             <div class="col-lg-4 m-upcoming">
-                <h3 class="events_title">upcoming events</h3>
-                <p class="events_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
+                <h3 class="events_title">{{ $section5->sub_heading }}</h3>
+                <p class="events_text">{!! $section5->description !!}</p>
                 <a href="#" class="events_link">
                     <span>see all</span>
                     <img src="assets/web/images/icon_arrow_round.png" alt="arrow" class="icon_arrow">
@@ -368,39 +203,21 @@ $setting = appSetting();
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 text-center">
-                <span class="sub_title">our sponsors</span>
-                <h2 class="section_title">Lorem Ipsum Dummy Text</h2>
+                <span class="sub_title">{{ $section6->title }}</span>
+                <h2 class="section_title">{{ $section6->heading }}</h2>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
                 <div class="swiper sponsorSwiper">
                     <div class="swiper-wrapper">
+                        @foreach($section6sponsor as $item)
                         <div class="swiper-slide">
                             <div class="img-box">
-                                <img src="assets/web/images/sponsor_1.png" alt="sponsor" class="img-fluid">
+                                <img src="{{ asset('assets/web/images/'.$item->image) }}" alt="sponsor" title="{{ $item->title }}" class="img-fluid">
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="img-box">
-                                <img src="assets/web/images/sponsor_2.png" alt="sponsor" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img-box">
-                                <img src="assets/web/images/sponsor_3.png" alt="sponsor" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img-box">
-                                <img src="assets/web/images/sponsor_4.png" alt="sponsor" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img-box">
-                                <img src="assets/web/images/sponsor_5.png" alt="sponsor" class="img-fluid">
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -415,14 +232,14 @@ $setting = appSetting();
         <div class="row align-items-center gy-5 gy-md-0">
             <div class="col-md-6 offset-lg-1 col-lg-5 order-2 order-md-1">
                 <div class="mt-content pb-5">
-                    <span class="sub_title">community news</span>
-                    <h2 class="section_title">don't miss an update</h2>
-                    <p class="community_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
+                    <span class="sub_title">{{ $section7->title }}</span>
+                    <h2 class="section_title">{{ $section7->heading }}</h2>
+                    <p class="community_text">{{ $section7->description }}</p>
                     <a href="#" class="btn btn-primary">read more <img src="assets/web/images/icon_arrow_alt.png" alt="arrow" class="img-icon"></a>
                 </div>
             </div>
             <div class="col-md-6 offset-lg-1 col-lg-5 px-0 order-1 order-md-2">
-                <img src="assets/web/images/img_vector.png" alt="vector" class="img-fluid">
+                <img src="{{ asset('assets/web/images/'.$section7->image) }}" alt="vector" class="img-fluid">
             </div>
         </div>
     </div>
@@ -434,57 +251,33 @@ $setting = appSetting();
     <div class="container">
         <div class="row gy-5 gy-md-0 gx-lg-5">
             <div class="col-md-4 col-lg-4">
-                <span class="sub_title">castnet focus</span>
-                <h2 class="section_title">our key attributes</h2>
+                <span class="sub_title">{{ $section8->title }}</span>
+                <h2 class="section_title">{{ $section8->heading }}</h2>
                 <div class="img_border">
-                    <img src="assets/web/images/img_key.png" alt="key">
+                    <img src="{{ asset('assets/web/images/'.$section8->image) }}" alt="key">
                 </div>
             </div>
             <div class="col-md-4 col-lg-4">
+                @foreach($section8feature1 as $item)
                 <div class="key_box">
                     <div class="box_head">
-                        <img src="assets/web/images/marker.png" alt="mark" class="img-marker">
-                        <h3 class="key_title">Expanding Beyond Local Markets</h3>
+                        <img src="{{ asset('assets/web/images/marker.png') }}" alt="mark" class="img-marker">
+                        <h3 class="key_title">{{ $item->title }}</h3>
                     </div>
-                    <p class="key_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
+                    <p class="key_text">{{ $item->description }}</p>
                 </div>
-                <div class="key_box">
-                    <div class="box_head">
-                        <img src="assets/web/images/marker.png" alt="mark" class="img-marker">
-                        <h3 class="key_title">Sector&dash;Specific Focus</h3>
-                    </div>
-                    <p class="key_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
-                </div>
-                <div class="key_box">
-                    <div class="box_head">
-                        <img src="assets/web/images/marker.png" alt="mark" class="img-marker">
-                        <h3 class="key_title">Leveling the Playing Field</h3>
-                    </div>
-                    <p class="key_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
-                </div>
+                @endforeach
             </div>
             <div class="col-md-4 col-lg-4">
+                @foreach($section8feature2 as $item)
                 <div class="key_box">
                     <div class="box_head">
-                        <img src="assets/web/images/marker.png" alt="mark" class="img-marker">
-                        <h3 class="key_title">Real Professional Opportunities</h3>
+                        <img src="{{ asset('assets/web/images/marker.png') }}" alt="mark" class="img-marker">
+                        <h3 class="key_title">{{ $item->title }}</h3>
                     </div>
-                    <p class="key_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
+                    <p class="key_text">{{ $item->description }}</p>
                 </div>
-                <div class="key_box">
-                    <div class="box_head">
-                        <img src="assets/web/images/marker.png" alt="mark" class="img-marker">
-                        <h3 class="key_title">Digital Integration</h3>
-                    </div>
-                    <p class="key_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
-                </div>
-                <div class="key_box">
-                    <div class="box_head">
-                        <img src="assets/web/images/marker.png" alt="mark" class="img-marker">
-                        <h3 class="key_title">Expanding Beyond Local Markets:</h3>
-                    </div>
-                    <p class="key_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -496,30 +289,20 @@ $setting = appSetting();
     <div class="container">
         <div class="row">
             <div class="col-md-9 text-center mx-auto">
-                <span class="sub_title">the imapct</span>
-                <h2 class="section_title">Lorem Ipsum inquiriestment</h2>
-                <p class="impact_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
+                <span class="sub_title">{{ $section9->title }}</span>
+                <h2 class="section_title">{{ $section9->heading }}</h2>
+                <p class="impact_text">{{ $section9->description }}</p>
             </div>
         </div>
         <div class="row gy-4 gy-md-0 gx-md-5">
+            @foreach($section9feature as $item)
             <div class="col-md-4 col-lg-4">
                 <div class="impact_box blue_bd">
-                    <h3 class="box_title">650k</h3>
-                    <p class="box_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
+                    <h3 class="box_title">{{ $item->title }}</h3>
+                    <p class="box_text">{{ $item->description }}</p>
                 </div>
             </div>
-            <div class="col-md-4 col-lg-4">
-                <div class="impact_box second_bd">
-                    <h3 class="box_title">135yrs</h3>
-                    <p class="box_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-4">
-                <div class="impact_box blue_bd">
-                    <h3 class="box_title">244k+</h3>
-                    <p class="box_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
-                </div>
-            </div>
+            @endforeach
         </div>
         <div class="row">
             <div class="col-12 text-center">
@@ -539,9 +322,7 @@ $setting = appSetting();
                         <img src="{{ asset('assets/web/images/'.$setting->popup_logo) }}" alt="logo" class="img-logo">
                     </div>
                     <div class="col-lg-7">
-                        <h2 class="modal-title">castnet purpose</h2>
-                        <p class="modal-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        <p class="modal-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                       {!! $setting->popup_description !!}
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             <span>get started</span>
                             <img src="assets/web/images/icon_arrow_alt.png" alt="arrow">

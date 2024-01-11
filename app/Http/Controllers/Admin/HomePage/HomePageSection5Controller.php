@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Admin\HomePage;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
-use App\Models\HomeSection1;
-class HomePageSection1Controller extends Controller
+use App\Models\HomeSectionEvent;
+use App\Models\HomeSection5;
+class HomePageSection5Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,9 @@ class HomePageSection1Controller extends Controller
      */
     public function index()
     {
-        $section1 = HomeSection1::all();
-        return view('admin.pages.home_page.section1.index',compact('section1'));
+        $section5 = HomeSection5::first();
+        $event = HomeSectionEvent::get();
+        return view('admin.pages.home_page.section5.index',compact('section5','event'));
     }
 
     /**
@@ -26,7 +28,7 @@ class HomePageSection1Controller extends Controller
      */
     public function create()
     {
-        return view('admin.pages.home_page.section1.create');
+        return view('admin.pages.home_page.section5.create');
     }
 
     /**
@@ -37,21 +39,14 @@ class HomePageSection1Controller extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'image' => 'image|mimes:jpg,jpeg,png',
-            'heading' => 'required|string|max:255',
-            'description' => 'nullable|string',
-        ]);
-
         $file = time().'.'.$request->image->extension();  
         $request->image->move(public_path('assets/web/images'), $file);
 
-        HomeSection1::create([
+        HomeSectionEvent::create([
+            'title' => $request->title,
+            'date' => $request->date,
             'image' => $file,
-            'heading' => $request->heading,
             'description' => $request->description,
-            'button' => $request->button,
-            'buttonlink' => $request->buttonlink,
         ]);
     
         return redirect()->back()->with('success', 'Data saved successfully!');
@@ -76,11 +71,8 @@ class HomePageSection1Controller extends Controller
      */
     public function edit($id)
     {
-        $section1 = HomeSection1::findOrFail($id);
-        if ($section1 == null) {
-            return redirect()->back()->with('error', 'No records were found for editing.');
-        }
-        return view('admin.pages.home_page.section1.edit',compact('section1'));
+        $event = HomeSectionEvent::find($id);
+        return view('admin.pages.home_page.section5.edit',compact('event'));
     }
 
     /**
@@ -92,16 +84,10 @@ class HomePageSection1Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = HomeSection1::findOrFail($id);
+        $item = HomeSectionEvent::findOrFail($id);
         if ($item == null) {
             return redirect()->back()->with('error', 'No records were found for updating.');
         }
-
-        $request->validate([
-            'image' => 'image|mimes:jpg,jpeg,png',
-            'heading' => 'required|string|max:255',
-            'description' => 'nullable|string',
-        ]);
 
         if($request->image){
             $file = time().'.'.$request->image->extension();  
@@ -111,11 +97,10 @@ class HomePageSection1Controller extends Controller
         }
 
         $data = [
-            'heading' => $request->heading,
-            'button' => $request->button,
-            'buttonlink' => $request->buttonlink,
-            'description' => $request->description,
+            'title' => $request->title,
+            'date' => $request->date,
             'image' => $file,
+            'description' => $request->description,
         ];
         $item->update($data);
 
@@ -130,16 +115,33 @@ class HomePageSection1Controller extends Controller
      */
     public function destroy($id)
     {
-        $path = HomeSection1::where('id',$id)->first()->image;
+        $path = HomeSectionEvent::where('id',$id)->first()->image;
         if(isset($path)){
             $path = public_path().'/assets/web/images/'.$path;
             File::delete($path);
         }
-        HomeSection1::destroy($id);
+        HomeSectionEvent::destroy($id);
         return response()->json(array(
             'data' => true,
-            'message' => 'Item has been deleted.',
+            'message' => 'Event has been deleted.',
             'status' => 'success',
         ));
+    }
+
+    public function updation(Request $request,$id){
+        $item = HomeSection5::findOrFail($id);
+        if ($item == null) {
+            return redirect()->back()->with('error', 'No records were found for updating.');
+        }
+
+        $data = [
+            'title' => $request->title,
+            'heading' => $request->heading,
+            'sub_heading' => $request->sub_heading,
+            'description' => $request->description,
+        ];
+        $item->update($data);
+
+        return redirect()->back()->with('success', 'Item updated successfully.');
     }
 }
