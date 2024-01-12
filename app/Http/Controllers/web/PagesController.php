@@ -50,9 +50,9 @@ class PagesController extends Controller
     public function aboutUs(){
 
         $aboutBanner = PageBanner::where('type', '1')->first();
-        $section1Record = AboutPage::where('sectionname', 'section1')->first();
-        $section2Record = AboutPage::where('sectionname', 'section2')->first();
-        $section3Record = AboutPage::where('sectionname', 'section3')->first();
+        $section1Record = AboutPage::where('section', 'section1')->first();
+        $section2Record = AboutPage::where('section', 'section2')->first();
+        $section3Record = AboutPage::where('section', 'section3')->first();
 
 
         return view('web.pages.about',get_defined_vars());
@@ -90,8 +90,8 @@ class PagesController extends Controller
     }
 
     public function whoweare(){
-        $section4Record = AboutPage::where('sectionname', 'section4')->first();
-        $section5Record = AboutPage::where('sectionname', 'section5')->first();
+        $section4Record = AboutPage::where('section', 'section4')->first();
+        $section5Record = AboutPage::where('section', 'section5')->first();
         $section6 = HomeSection3::first();
         return view('web.pages.whoweare',get_defined_vars());
     }
