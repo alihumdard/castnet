@@ -6,20 +6,28 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
-        Schema::create('pages_banners', function (Blueprint $table) {
+        Schema::create('page_banners', function (Blueprint $table) {
             $table->id();
-            $table->string('pagename')->nullable();
-            $table->string('image_path')->nullable();
+            $table->string('image')->nullable();
             $table->integer('type')->nullable();
             $table->timestamps();
         });
     }
 
-
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::dropIfExists('pages_banners');
+        Schema::dropIfExists('page_banners');
     }
 };

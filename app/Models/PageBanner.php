@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class About_Page_Section extends Model
+class PageBanner extends Model
 {
     use HasFactory;
-
-    protected $table = 'about_page_sections';
+    protected $guarded = ['id']; 
 }

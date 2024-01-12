@@ -11,16 +11,11 @@ use App\Http\Controllers\Admin\HomePage\HomePageSection7Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageSection8Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageSection9Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageBannerController;
-use App\Http\Controllers\Admin\AboutPage\AboutPageBannerController;
-use App\Http\Controllers\Admin\AboutPage\AboutPageSection1Controller;
-use App\Http\Controllers\Admin\AboutPage\AboutPageSection2Controller;
-use App\Http\Controllers\Admin\AboutPage\AboutPageSection3Controller;
-use App\Http\Controllers\Admin\who_we_are\WhoWeArePageBannerController;
-use App\Http\Controllers\Admin\who_we_are\WhoWeArePageSection1Controller;
-use App\Http\Controllers\Admin\who_we_are\WhoWeArePageSection2Controller;
-use App\Http\Controllers\Admin\team\TeamPageBannerController;
-use App\Http\Controllers\Admin\team\TeamPageSection1Controller;
+use App\Http\Controllers\Admin\AboutPage\AboutPageController;
+use App\Http\Controllers\Admin\who_we_are\WhoWeArePageController;
+use App\Http\Controllers\Admin\Team\TeamSectionController;
 use App\Http\Controllers\Admin\SocialLinkController;
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\PagesController;
 
@@ -67,42 +62,28 @@ Route::prefix('admin')->group(function () {
 
 
     // --------- About Page Routes Start ------------
-    Route::get('/aboutUs-banner', [AboutPageBannerController::class, 'index'])->name('aboutUs.banner');
-    Route::put('/aboutUs-bannerUpdate', [AboutPageBannerController::class, 'updateBanner'])->name('aboutUs.bannerUpdate');
-    Route::get('/aboutUs-section1', [AboutPageSection1Controller::class, 'index'])->name('aboutUs.section1');
-    Route::put('/aboutUs-section1Update', [AboutPageSection1Controller::class, 'updateSection1'])->name('aboutUs.section1Update');
-    Route::get('/aboutUs-section2', [AboutPageSection2Controller::class, 'index'])->name('aboutUs.section2');
-    Route::put('/aboutUs-section2Update', [AboutPageSection2Controller::class, 'updateSection2'])->name('aboutUs.section2Update');
-    Route::get('/aboutUs-section3', [AboutPageSection3Controller::class, 'index'])->name('aboutUs.section3');
-    Route::put('/aboutUs-section3Update', [AboutPageSection3Controller::class, 'updateSection3'])->name('aboutUs.section3Update');
+    Route::get('/about-us-banner', [AboutPageController::class, 'index'])->name('aboutus.banner');
+    Route::get('/about-us-section1', [AboutPageController::class, 'section1'])->name('aboutus.section1');
+    Route::get('/about-us-section2', [AboutPageController::class, 'section2'])->name('aboutus.section2');
+    Route::get('/about-us-section3', [AboutPageController::class, 'section3'])->name('aboutus.section3');
+    Route::put('/about-us/{id}', [AboutPageController::class, 'update'])->name('aboutus.update');
     // --------- About Page Routes End --------------
 
 
     // --------- who_we_are Page Routes Start ------------
-    Route::get('/whoWeAre-banner', [WhoWeArePageBannerController::class, 'index'])->name('whoWeAre.banner');
-    Route::put('/whoweare-bannerUpdate', [WhoWeArePageBannerController::class, 'updateBanner'])->name('whoWeAre.bannerUpdate');
-    Route::get('/whoWeAre-section1', [WhoWeArePageSection1Controller::class, 'index'])->name('whoWeAre.section1');
-    Route::put('/whoWeAre-section1Update', [WhoWeArePageSection1Controller::class, 'updateSection1'])->name('whoweare.section1Update');
-    Route::get('/whoWeAre-section2', [WhoWeArePageSection2Controller::class, 'index'])->name('whoWeAre.section2');
-    Route::put('/whoWeAre-section2Update', [WhoWeArePageSection2Controller::class, 'updateSection2'])->name('whoweare.section2Update');
+    Route::get('/whoWeAre-banner', [WhoWeArePageController::class, 'index'])->name('whoWeAre.banner');
+    Route::get('/who-we-are-section1', [WhoWeArePageController::class, 'section1'])->name('whoweare.section1');
+    Route::get('/who-we-are-section2', [WhoWeArePageController::class, 'section2'])->name('whoweare.section2');
+    Route::put('/who-we-are/{id}', [WhoWeArePageController::class, 'update'])->name('whoweare.update');
     // --------- who_we_are Page Routes End --------------
 
-    // --------- OUR TEAM Page Routes Start ------------
-    Route::get('/ourTeam-banner', [TeamPageBannerController::class, 'index'])->name('ourTeam.banner');
-    Route::put('/ourteam-bannerUpdate', [TeamPageBannerController::class, 'updateBanner'])->name('ourTeam.bannerUpdate');
-
-    // backupof ourteam start
-
-    Route::get('/ourTeam-section1', [TeamPageSection1Controller::class, 'index'])->name('ourTeam.section1');
-    Route::get('/ourTeam-addmember', [TeamPageSection1Controller::class, 'addMember'])->name('ourTeam.addMember');
-    Route::put('/ourTeam-create', [TeamPageSection1Controller::class, 'createTeamMember'])->name('ourTeam.createTeamMember');
-    Route::delete('/ourTeam-delete/{id}', [TeamPageSection1Controller::class, 'deleteTeamMember'])->name('ourTeam.delete');
-    Route::get('/ourTeam-SectionUpdate/{id}', [TeamPageSection1Controller::class, 'teamUpdate'])->name('ourTeamsection1.edit');
-    Route::put('/ourTeam-Update/{id}', [TeamPageSection1Controller::class, 'updateTeamMember'])->name('ourTeam.updateTeamMember');
-    // backupof ourteam end
-
-
+    //---** Our team **---//
+    Route::resource('our-team', TeamSectionController::class);
+    Route::get('/ourTeam-banner', [TeamSectionController::class, 'banner'])->name('ourTeam.banner');
 
     // --------- OUR TEAM Page Routes End --------------
+
+
+    Route::put('/banner-update/{id}', [BannerController::class, 'update'])->name('banner.update');
 });
 

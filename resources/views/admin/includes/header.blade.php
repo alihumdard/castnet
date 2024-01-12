@@ -260,7 +260,7 @@
                         </ul>
                     </li>
                     {{--  About Us section start  --}}
-                    <li class="nav-item {{(request()->routeIs(['aboutUs.banner','aboutUs.section1','aboutUs.section2','aboutUs.section3'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['aboutus.banner','aboutus.section1','aboutus.section2','aboutus.section3'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -270,25 +270,25 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('aboutUs.banner') }}" class="nav-link {{(request()->routeIs('aboutUs.banner')) ? 'active' : ''}}">
+                                <a href="{{ route('aboutus.banner') }}" class="nav-link {{(request()->routeIs('aboutus.banner')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Banner</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('aboutUs.section1') }}" class="nav-link {{(request()->routeIs('aboutUs.section1')) ? 'active' : ''}}">
+                                <a href="{{ route('aboutus.section1') }}" class="nav-link {{(request()->routeIs('aboutus.section1')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 1</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('aboutUs.section2') }}" class="nav-link {{(request()->routeIs('aboutUs.section2')) ? 'active' : ''}}">
+                                <a href="{{ route('aboutus.section2') }}" class="nav-link {{(request()->routeIs('aboutus.section2')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 2</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('aboutUs.section3') }}" class="nav-link {{(request()->routeIs('aboutUs.section3')) ? 'active' : ''}}">
+                                <a href="{{ route('aboutus.section3') }}" class="nav-link {{(request()->routeIs('aboutus.section3')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 3</p>
                                 </a>
@@ -314,13 +314,13 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('whoWeAre.section1') }}" class="nav-link {{(request()->routeIs('whoWeAre.section1')) ? 'active' : ''}}">
+                                <a href="{{ route('whoweare.section1') }}" class="nav-link {{(request()->routeIs('whoweare.section1')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 1</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('whoWeAre.section2') }}" class="nav-link {{(request()->routeIs('whoWeAre.section2')) ? 'active' : ''}}">
+                                <a href="{{ route('whoweare.section2') }}" class="nav-link {{(request()->routeIs('whoweare.section2')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 2</p>
                                 </a>
@@ -330,7 +330,7 @@
                     {{--  Who We Are Page End  --}}
 
                     {{--  Our Team Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['ourTeam.banner','ourTeam.section1','ourTeam.addMember','ourTeamsection1.edit','ourTeam.updateTeamMember'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['ourTeam.banner','our-team*'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -346,9 +346,9 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('ourTeam.section1') }}" class="nav-link {{(request()->routeIs(['ourTeam.section1','ourTeam.addMember','ourTeamsection1.edit','ourTeam.updateTeamMember'])) ? 'active' : ''}}">
+                                <a href="{{ route('our-team.index') }}" class="nav-link {{(request()->routeIs('our-team*')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Section 1</p>
+                                    <p>Team Members</p>
                                 </a>
                             </li>
                         </ul>
