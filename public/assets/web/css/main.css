@@ -965,11 +965,11 @@ header .navbar .img-menu {
     .events .border-y {
         position: relative;
     }
-    
+
     .events .m-events {
         margin-top: -6rem;
     }
-    
+
     .events .m-upcoming {
         margin-top: -9rem;
     }
@@ -988,7 +988,7 @@ header .navbar .img-menu {
         right: 6rem;
         background: var(--primary);
     }
-    
+
     .events .border-y::after {
         content: '';
         display: block;
@@ -999,7 +999,7 @@ header .navbar .img-menu {
         bottom: 0;
         right: 6rem;
     }
-    
+
     .events .border-rt::after {
         position: absolute;
         top: 0;
@@ -1010,7 +1010,7 @@ header .navbar .img-menu {
         width: 0.2rem;
         background: var(--primary);
     }
-    
+
     .events .border-rb::after {
         position: absolute;
         bottom: 0;
@@ -1585,10 +1585,10 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
     padding: 8rem 0;
 }
 
-.section_breadcrumb.about_bg {
+/* .section_breadcrumb.about_bg {
     background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url('../images/business_brainstorming.png') center no-repeat;
     background-size: cover;
-}
+} */
 
 .section_breadcrumb.who_bg {
     background: linear-gradient(90deg, rgba(7, 27, 52, 0.90) 0%, rgba(7, 27, 52, 0.69) 51.46%, rgba(7, 27, 52, 0.47) 99.24%, rgba(7, 27, 52, 0.31) 99.7%, rgba(7, 27, 52, 0.00) 100%), url('../images/close_up_documents.png') center no-repeat;
@@ -1870,7 +1870,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
     .welcome {
         padding: 5rem 0 7rem;
     }
-    
+
     .welcome .img_border::before {
         position: absolute;
         content: "";
@@ -2172,7 +2172,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
     .why_join {
         padding: 5rem 0 7rem;
     }
-    
+
     .why_join .img_border::before {
         position: absolute;
         content: "";
@@ -2548,7 +2548,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
     .member_benefits .card .card-body {
         padding: 2rem 1.5rem;
     }
-    
+
     .member_benefits .card.vip_card .card-body {
         padding: 3rem 1.5rem;
     }
@@ -2607,7 +2607,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 .programs .card .card-body .card-text {
     color: var(--dark-gray);
     font-size: 1.4rem;
-    font-weight: 400;    
+    font-weight: 400;
 }
 
 @media screen and (min-width:768px) {
@@ -2851,7 +2851,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 @media screen and (min-width:992px) {
     .evaluation_form .form-label {
-        font-size: 2rem;   
+        font-size: 2rem;
     }
 
     .evaluation_form .checkbox-border {
@@ -3919,7 +3919,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 @media screen and (min-width:992px) {
     .request_form .form-label {
-        font-size: 2rem;   
+        font-size: 2rem;
     }
 
     .request_form .checkbox-border {
@@ -4270,8 +4270,8 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 .latest_jobs .box_job .box_body .desc {
     color: var(--dark-charcoal);
     font-size: 1.4rem;
-    font-weight: 400;   
-    margin-bottom: 2rem; 
+    font-weight: 400;
+    margin-bottom: 2rem;
     text-align: justify;
 }
 

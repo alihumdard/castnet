@@ -8,11 +8,15 @@ use App\Models\Our_Team;
 
 class TeamPageSection1Controller extends Controller
 {
-//    Create
+
 public function index(){
     $teams = Our_Team::all();
-    // dd($teams);
+
     return view('admin.pages.team.section1.index', compact('teams'));
+}
+
+public function addMember(){
+    return view('admin.pages.team.section1.create');
 }
 
 public function deleteTeamMember(Request $request, $id)
@@ -23,10 +27,16 @@ public function deleteTeamMember(Request $request, $id)
     return redirect()->back()->with('success', 'Team member deleted successfully');
 }
 
+public function teamUpdate(Request $request, $id){
+$team = Our_Team::findOrFail($id);
 
-public function createUpdateTeam(Request $request)
+return view('admin.pages.team.section1.edit', compact('team'));
+}
+
+
+public function createTeamMember(Request $request)
 {
-    // dd($request -> banner);
+
     $validatedData = $request->validate([
         'banner' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'name' => 'required|string|max:255',
@@ -34,33 +44,36 @@ public function createUpdateTeam(Request $request)
         'type' => 'required|in:0,1',
     ]);
 
-    // Check if an ID is provided in the request, indicating an update
-    $teamId = $request->input('team_id');
-
-    // Prepare data for create or update
     $teamData = [
         'image' => $request->file('banner')->store('banners', 'public'),
         'name' => $validatedData['name'],
         'profession' => $validatedData['profession'],
         'type' => $validatedData['type'],
     ];
-
-    // Create or update based on the presence of $teamId
-    if ($teamId) {
-        // Update the existing record
-        Our_Team::find($teamId)->update($teamData);
-        $message = 'Team member updated successfully';
-    } else {
-        // Create a new record
         Our_Team::create($teamData);
         $message = 'Team member added successfully';
+
+
+    return redirect()->route('ourTeam.section1')->with('success', $message);
+}
+public function updateTeamMember(Request $request, $id)
+{
+    $team = Our_Team::findOrFail($id);
+
+    $team->name = $request->input('name');
+    $team->profession = $request->input('profession');
+    $team->type = $request->input('type');
+
+    if ($request->hasFile('banner')) {
+
+        $team->image = $request->file('banner')->store('banners', 'public');
+    }else {
+        $team->image = $request->input('previousbanner');
     }
 
-    // Redirect or do something else after saving
-    return redirect()->back()->with('success', $message);
+    $team->save();
+
+    return redirect()->route('ourTeam.section1')->with('success', "Updated Successfully");
 }
 
-//    Read
-//    Update
-//    Delete
 }

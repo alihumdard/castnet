@@ -59,7 +59,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('homesection9', HomePageSection9Controller::class);
     Route::put('/homesection9-updation/{id}',[HomePageSection9Controller::class,'updation'])->name('homesection9.updataion');
 
-    
+
     Route::get('/allpages', [PagesController::class, 'allpages'])->name('admin.allpages');
     Route::get('/addpage', [PagesController::class, 'addpage'])->name('admin.addpage');
     Route::get('/menus', [apperenceController::class, 'menus'])->name('admin.menus');
@@ -90,9 +90,19 @@ Route::prefix('admin')->group(function () {
     // --------- OUR TEAM Page Routes Start ------------
     Route::get('/ourTeam-banner', [TeamPageBannerController::class, 'index'])->name('ourTeam.banner');
     Route::put('/ourteam-bannerUpdate', [TeamPageBannerController::class, 'updateBanner'])->name('ourTeam.bannerUpdate');
+
+    // backupof ourteam start
+
     Route::get('/ourTeam-section1', [TeamPageSection1Controller::class, 'index'])->name('ourTeam.section1');
-    Route::put('/ourTeam-createupdate', [TeamPageSection1Controller::class, 'createUpdateTeam'])->name('ourTeam.createUpdateTeam');
+    Route::get('/ourTeam-addmember', [TeamPageSection1Controller::class, 'addMember'])->name('ourTeam.addMember');
+    Route::put('/ourTeam-create', [TeamPageSection1Controller::class, 'createTeamMember'])->name('ourTeam.createTeamMember');
     Route::delete('/ourTeam-delete/{id}', [TeamPageSection1Controller::class, 'deleteTeamMember'])->name('ourTeam.delete');
+    Route::get('/ourTeam-SectionUpdate/{id}', [TeamPageSection1Controller::class, 'teamUpdate'])->name('ourTeamsection1.edit');
+    Route::put('/ourTeam-Update/{id}', [TeamPageSection1Controller::class, 'updateTeamMember'])->name('ourTeam.updateTeamMember');
+    // backupof ourteam end
+
+
+
     // --------- OUR TEAM Page Routes End --------------
 });
 

@@ -6,7 +6,7 @@
     word-wrap: break-word;
     overflow: auto;
     padding: 10px;
-    /* background-color: white; */
+    background-color: #0c2038;
     color: white;
 }
 </style>

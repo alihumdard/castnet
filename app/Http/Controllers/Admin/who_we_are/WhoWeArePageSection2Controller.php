@@ -18,6 +18,7 @@ class WhoWeArePageSection2Controller extends Controller
 
         if ($request->hasFile('banner')) {
             $file = $request->file('banner');
+
             $path = $file->store('public/images');
 
             $filename = basename($path);

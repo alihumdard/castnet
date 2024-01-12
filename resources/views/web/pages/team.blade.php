@@ -30,33 +30,18 @@
                 </div>
             </div>
             <div class="row gy-5 gy-md-0">
+                @foreach($executiveMembers as $executive)
                 <div class="col-md-4 col-lg-4 d-flex">
                     <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
-                        <img src="assets/web/images//team_1.png" alt="team" class="card-img-top">
+                        <img src="{{ asset('storage/' . $executive->image) }}" alt="team" class="card-img-top">
+                        {{-- image --}}
                         <div class="card-body">
-                            <h3 class="card-title">Erickson, Lars</h3>
-                            <p class="card-text">Policy Specialist</p>
+                            <h3 class="card-title">{{ $executive -> name }}</h3>
+                            <p class="card-text">{{ $executive -> profession }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-4 d-flex">
-                    <div class="card" data-aos="zoom-in" data-aos-duration="1000">
-                        <img src="assets/web/images//team_2.png" alt="team" class="card-img-top">
-                        <div class="card-body">
-                            <h3 class="card-title">Taylor, Vaughn</h3>
-                            <p class="card-text">Vice President of Economic Development</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-4 d-flex">
-                    <div class="card" data-aos="zoom-in-left" data-aos-duration="1000">
-                        <img src="assets/web/images//team_3.png" alt="team" class="card-img-top">
-                        <div class="card-body">
-                            <h3 class="card-title">Hutchins, Marie K.</h3>
-                            <p class="card-text">Executive Assistant & Board Liaison</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -71,60 +56,17 @@
                 </div>
             </div>
             <div class="row gy-5">
+                @foreach($staffMembers as $staff)
                 <div class="col-md-4 col-lg-4 d-flex">
                     <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
-                        <img src="assets/web/images//team_4.png" alt="team" class="card-img-top">
+                        <img src="{{ asset('storage/' . $staff->image) }}" alt="team" class="card-img-top">
                         <div class="card-body">
-                            <h3 class="card-title">Erickson, Lars</h3>
-                            <p class="card-text">Policy Specialist</p>
+                            <h3 class="card-title">{{ $staff -> name }}</h3>
+                            <p class="card-text">{{ $staff -> profession }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-4 d-flex">
-                    <div class="card" data-aos="zoom-in" data-aos-duration="1000">
-                        <img src="assets/web/images//team_5.png" alt="team" class="card-img-top">
-                        <div class="card-body">
-                            <h3 class="card-title">Taylor, Vaughn</h3>
-                            <p class="card-text">Vice President of Economic Development</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-4 d-flex">
-                    <div class="card" data-aos="zoom-in-left" data-aos-duration="1000">
-                        <img src="assets/web/images//team_6.png" alt="team" class="card-img-top">
-                        <div class="card-body">
-                            <h3 class="card-title">Hutchins, Marie K.</h3>
-                            <p class="card-text">Executive Assistant & Board Liaison</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-4 d-flex">
-                    <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
-                        <img src="assets/web/images//team_7.png" alt="team" class="card-img-top">
-                        <div class="card-body">
-                            <h3 class="card-title">Hutchins, Marie K.</h3>
-                            <p class="card-text">Executive Assistant & Board Liaison</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-4 d-flex">
-                    <div class="card" data-aos="zoom-in" data-aos-duration="1000">
-                        <img src="assets/web/images//team_8.png" alt="team" class="card-img-top">
-                        <div class="card-body">
-                            <h3 class="card-title">Hutchins, Marie K.</h3>
-                            <p class="card-text">Executive Assistant & Board Liaison</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-4 d-flex">
-                    <div class="card" data-aos="zoom-in-left" data-aos-duration="1000">
-                        <img src="assets/web/images//team_9.png" alt="team" class="card-img-top">
-                        <div class="card-body">
-                            <h3 class="card-title">Hutchins, Marie K.</h3>
-                            <p class="card-text">Executive Assistant & Board Liaison</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="row justify-content-center" data-aos="fade-up" data-aos-duration="1000">
                 <a href="#" class="btn btn-primary">see more team</a>

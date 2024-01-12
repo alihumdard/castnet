@@ -330,7 +330,7 @@
                     {{--  Who We Are Page End  --}}
 
                     {{--  Our Team Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['ourTeam.banner','ourTeam.section1'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['ourTeam.banner','ourTeam.section1','ourTeam.addMember','ourTeamsection1.edit','ourTeam.updateTeamMember'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -346,7 +346,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('ourTeam.section1') }}" class="nav-link {{(request()->routeIs('ourTeam.section1')) ? 'active' : ''}}">
+                                <a href="{{ route('ourTeam.section1') }}" class="nav-link {{(request()->routeIs(['ourTeam.section1','ourTeam.addMember','ourTeamsection1.edit','ourTeam.updateTeamMember'])) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 1</p>
                                 </a>
