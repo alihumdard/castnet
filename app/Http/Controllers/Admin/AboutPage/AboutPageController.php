@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\AboutPage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PageBanner;
+use App\Models\AboutPage;
 class AboutPageController extends Controller
 {
     public function index(){
