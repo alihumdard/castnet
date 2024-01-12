@@ -2,11 +2,14 @@
 @section('title', 'About Banner')
 @section('content')
 <style>
+<style>
+    .note-editor.note-airframe .note-editing-area .note-editable,.note-editor.note-frame .note-editing-area .note-editable{word-wrap:break-word;overflow:auto;padding:10px;background-color: #0c2038;}
     .note-editor.note-airframe .note-editing-area .note-editable, .note-editor.note-frame .note-editing-area .note-editable {
     word-wrap: break-word;
     overflow: auto;
     padding: 10px;
-    background-color: white;
+    background-color: #0c2038;
+    color: white;
 }
 </style>
     <!-- Content Wrapper. Contains page content -->

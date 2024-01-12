@@ -11,7 +11,7 @@
     @include('admin.includes.head')
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" style="background-color: #f4f6f9;">
     @include('admin.includes.header')
     @yield('content')
     @include('admin.includes.footer')

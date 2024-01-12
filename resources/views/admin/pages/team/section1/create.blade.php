@@ -23,10 +23,7 @@
 
         <!-- Main content start -->
 
-
-        {{-- create section data is below --}}
-
-        {{-- <div class="content">
+        <div class="content">
             <div class="container-fluid">
                 <div class="col-md-12">
                     <div class="card ">
@@ -35,14 +32,11 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="row mb-2">
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="prin_title">Image</label>
                                             <input type="file" name="banner" class="form-control" id="">
                                         </div>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <img src="" alt="Image" width="50" height="50">
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
@@ -77,70 +71,10 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
-
-        {{-- create section data end --}}
-
-
-
-        {{-- Table start here --}}
-
-        <div class="content">
-            <div class="container-fluid">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <a href="{{ route('ourTeam.addMember') }}" class="btn btn-sm btn-primary" style="float: right;">Add Section</a>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                          <table id="example1" class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
-                              <th>#</th>
-                              <th>Image</th>
-                              <th>Name</th>
-                              <th>Profession</th>
-                              <th>Type</th>
-                              <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($teams as $team)
-                                {{-- {{ dd($team->image) }} --}}
-                                                            <tr>
-                              <td>{{ $loop->iteration }}</td>
-                              <td>
-                                <img src="{{ asset('storage/' . $team->image) }}" alt="section img" height="50" width="50">
-
-                              </td>
-                              <td>{{ $team->name }}</td>
-                              <td>
-                                {{ $team->profession }}
-                              </td>
-                              <td>
-                               {{ $team->type == 0 ? 'EXECUTIVE' : 'STAFF' }}
-                              </td>
-                              <td>
-                                <a href="{{ route('ourTeamsection1.edit', ['id' => $team->id]) }}"><i class="fa fa-edit"></i></a>
-
-
-                                <button class="btn-outline-danger delete_btn" data-url="/admin/ourTeam-delete"
-                                    data-id="{{ $team->id }}" type="submit"><i class="fa fa-trash"></i></button>
-                              </td>
-                            </tr>
-                            @endforeach
-                                                        </tbody>
-                          </table>
-                        </div>
-                        <!-- /.card-body -->
-                      </div>
-
-                </div>
-            </div>
         </div>
 
-        {{-- Table end here --}}
+
+
         <!-- Main content end -->
         <!-- /.content-wrapper -->
     </div>
