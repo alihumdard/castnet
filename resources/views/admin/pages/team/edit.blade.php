@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('title', 'About Banner')
+@section('title', 'Our Team')
 @section('content')
  {{-- @dd($team); --}}
     <!-- Content Wrapper. Contains page content -->
@@ -9,12 +9,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Our Team Section 1</h1>
+                        <h1 class="m-0">Our Team</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Our Team</a></li>
-                            <li class="breadcrumb-item active">Section 1</li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
+                            <li class="breadcrumb-item active">Team</li>
                         </ol>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-body">
-                            <form action="{{ route('ourTeam.updateTeamMember', ['id' => $team->id]) }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('our-team.update',$team->id) }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="row mb-2">
