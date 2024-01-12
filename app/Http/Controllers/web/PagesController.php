@@ -18,9 +18,9 @@ use App\Models\HomeSection4Detail;
 use App\Models\HomeSectionSponser;
 use App\Models\HomeSectionFeature;
 use App\Models\HomeSection9Feature;
-use App\Models\About_Page_Section;
-use App\Models\AboutPageBanner;
-use App\Models\Our_Team;
+use App\Models\AboutPage;
+use App\Models\PageBanner;
+use App\Models\OurTeam;
 use App\Models\Banner;
 use Carbon\Carbon;
 // About Page Models start
@@ -49,10 +49,10 @@ class PagesController extends Controller
 
     public function aboutUs(){
 
-        $aboutBanner = AboutPageBanner::where('type', '1')->first();
-        $section1Record = About_Page_Section::where('sectionname', 'section1')->first();
-        $section2Record = About_Page_Section::where('sectionname', 'section2')->first();
-        $section3Record = About_Page_Section::where('sectionname', 'section3')->first();
+        $aboutBanner = PageBanner::where('type', '1')->first();
+        $section1Record = AboutPage::where('sectionname', 'section1')->first();
+        $section2Record = AboutPage::where('sectionname', 'section2')->first();
+        $section3Record = AboutPage::where('sectionname', 'section3')->first();
 
 
         return view('web.pages.about',get_defined_vars());
@@ -83,15 +83,15 @@ class PagesController extends Controller
     }
 
     public function team(){
-        $executiveMembers = Our_Team::where('type', 1)->get();
-        $staffMembers = Our_Team::where('type', 2)->get();
+        $executiveMembers = OurTeam::where('type', 1)->get();
+        $staffMembers = OurTeam::where('type', 2)->get();
 
         return view('web.pages.team',get_defined_vars());
     }
 
     public function whoweare(){
-        $section4Record = About_Page_Section::where('sectionname', 'section4')->first();
-        $section5Record = About_Page_Section::where('sectionname', 'section5')->first();
+        $section4Record = AboutPage::where('sectionname', 'section4')->first();
+        $section5Record = AboutPage::where('sectionname', 'section5')->first();
         $section6 = HomeSection3::first();
         return view('web.pages.whoweare',get_defined_vars());
     }
