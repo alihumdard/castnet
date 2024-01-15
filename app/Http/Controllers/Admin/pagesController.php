@@ -11,6 +11,11 @@ use App\Models\HomeSection2;
 
 class PagesController extends Controller
 {
+    public function login()
+    {
+        return view('admin.pages.login');
+    }
+
     public function index()
     {
         return view('admin.pages.dashboard');

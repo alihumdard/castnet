@@ -93,3 +93,4 @@ Route::get('/commandMigrate', function () {
     \Artisan::call('optimize:clear');
     return 'Commands executed successfully!';
 });
+Auth::routes();

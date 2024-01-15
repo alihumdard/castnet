@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Team;
+namespace App\Http\Controllers\Admin\Blog;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
-use App\Models\PageBanner;
-use App\Models\OurTeam;
-class TeamSectionController extends Controller
+use App\Models\MyBlog;
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class TeamSectionController extends Controller
      */
     public function index()
     {
-        $teams = OurTeam::all();
-        return view('admin.pages.team.index', compact('teams'));
+        $blogs = MyBlog::all();
+        return view('admin.pages.blog.section.index', compact('blogs'));
     }
 
     /**
@@ -27,7 +26,7 @@ class TeamSectionController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.team.create');
+        return view('admin.pages.blog.section.create');
     }
 
     /**
@@ -38,25 +37,19 @@ class TeamSectionController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'name' => 'required|string|max:255',
-            'profession' => 'required|string|max:255',
-            'type' => 'required|in:0,1',
-        ]);
-
         $file = time().'.'.$request->image->extension();  
         $request->image->move(public_path('assets/web/images'), $file);
 
-        $teamData = [
+        $blog = [
             'image' => $file,
-            'name' => $request->name,
-            'profession' => $request->profession,
-            'type' => $request->type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'category' => $request->category,
+            'description' => $request->description,
         ];
-        OurTeam::create($teamData);
-        $message = 'Team member added successfully';
-        return redirect()->route('our-team.index')->with('success', $message);
+        MyBlog::create($blog);
+        $message = 'Blog added successfully';
+        return redirect()->route('my-blog.index')->with('success', $message);
     }
 
     /**
@@ -78,8 +71,8 @@ class TeamSectionController extends Controller
      */
     public function edit($id)
     {
-        $team = OurTeam::findOrFail($id);
-        return view('admin.pages.team.edit',compact('team'));
+        $blog = MyBlog::findOrFail($id);
+        return view('admin.pages.blog.section.edit',compact('blog'));
     }
 
     /**
@@ -91,20 +84,21 @@ class TeamSectionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $team = OurTeam::findOrFail($id);
+        $blog = MyBlog::findOrFail($id);
         if($request->image){
             $file = time().'.'.$request->image->extension();  
             $request->image->move(public_path('assets/web/images'), $file);
         }else{
-            $file = $team->image;
+            $file = $blog->image;
         }
         $data = [
             'image' => $file,
-            'name' => $request->name,
-            'profession' => $request->profession,
-            'type' => $type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'category' => $request->category,
+            'description' => $request->description,
         ];
-        $team->update($data);
+        $blog->update($data);
 
         return redirect()->back()->with('success', "Data Updated Successfully");
     }
@@ -117,21 +111,21 @@ class TeamSectionController extends Controller
      */
     public function destroy($id)
     {
-        $path = OurTeam::where('id',$id)->first()->image;
+        $path = MyBlog::where('id',$id)->first()->image;
         if(isset($path)){
             $path = public_path().'/assets/web/images/'.$path;
             File::delete($path);
         }
-        OurTeam::destroy($id);
+        MyBlog::destroy($id);
         return response()->json(array(
             'data' => true,
-            'message' => 'Team member deleted successfully.',
+            'message' => 'Blog deleted successfully.',
             'status' => 'success',
         ));
     }
 
     public function banner(){
-        $banner = PageBanner::where('type',2)->first();
+        $banner = MyBlog::where('type',27)->first();
         return view('admin.pages.team.banner',compact('banner'));
     }
 }
