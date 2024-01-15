@@ -1,64 +1,62 @@
 @extends('admin.layouts.default')
-@section('title', 'Our Team')
+@section('title', 'My Blog')
 @section('content')
- {{-- @dd($teams); --}}
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Our Team</h1>
+                        <h1 class="m-0">My Blog</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Team</li>
+                            <li class="breadcrumb-item active">Blog</li>
                         </ol>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Main content start -->
-
         <div class="content">
             <div class="container-fluid">
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-body">
-                            <form action="{{ route('our-team.store') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('my-blog.store') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="prin_title">Image</label>
-                                            <input type="file" name="banner" class="form-control" id="">
+                                            <label for="prin_title">Title</label>
+                                            <input type="text" name="title" class="form-control" placeholder="Enter Title...">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
-                                            <label for="prin_title">Name</label>
-                                            <input type="text" name="name" class="form-control" placeholder="Enter Name">
+                                            <label for="prin_title">Image</label>
+                                            <input type="file" name="image" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
-                                        <div class="form-group errorshow">
-                                            <label for="prin_title">Profession</label>
-                                            <input type="text" name="profession" class="form-control" placeholder="Enter Profession">
+                                        <div class="form-group">
+                                            <label for="prin_title">Category</label>
+                                            <input type="text" name="category" class="form-control" placeholder="Enter Category...">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
-                                            <label for="prin_title">Type</label>
-                                                <select class="form-control" name="type">
-                                                    <option selected disabled hidden>SELECT TYPE</option>
-                                                    <option value="0">EXECUTIVE</option>
-                                                    <option value="1">STAFF</option>
-                                                </select>
+                                            <label for="prin_title">Date</label>
+                                            <input type="date" name="date" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-sm-12">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">Description</label>
+                                            <textarea name="description" class="form-control summernote"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -71,10 +69,5 @@
                 </div>
             </div>
         </div>
-
-
-
-        <!-- Main content end -->
-        <!-- /.content-wrapper -->
     </div>
 @stop

@@ -40,7 +40,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
-                                        <img src="{{ asset('storage/' . $team->image) }}" alt="" width="120" height="140">
+                                        <img src="{{ asset('assets/web/images/' . $team->image) }}" alt="" width="120" height="90">
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">

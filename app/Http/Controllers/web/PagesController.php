@@ -48,13 +48,10 @@ class PagesController extends Controller
     }
 
     public function aboutUs(){
-
         $aboutBanner = PageBanner::where('type', '1')->first();
         $section1Record = AboutPage::where('section', '1')->first();
         $section2Record = AboutPage::where('section', '2')->first();
         $section3Record = AboutPage::where('section', '3')->first();
-
-
         return view('web.pages.about',get_defined_vars());
     }
 
@@ -85,7 +82,6 @@ class PagesController extends Controller
     public function team(){
         $executiveMembers = OurTeam::where('type', 1)->get();
         $staffMembers = OurTeam::where('type', 2)->get();
-
         return view('web.pages.team',get_defined_vars());
     }
 
