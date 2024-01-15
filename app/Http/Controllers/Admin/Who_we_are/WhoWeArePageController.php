@@ -9,7 +9,7 @@ use App\Models\PageBanner;
 class WhoWeArePageController extends Controller
 {
     public function index(){
-        $banner = PageBanner::where('type',3)->first();
+        $banner = PageBanner::where('type',2)->first();
         return view('admin.pages.who_we_are.banner',compact('banner'));
     }
 
