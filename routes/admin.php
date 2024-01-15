@@ -35,7 +35,7 @@ Route::middleware('auth')->group(function() {
 
         //---** Social links **---//
         Route::get('/sociallinks', [SocialLinkController::class, 'index'])->name('admin.sociallinks');
-        Route::put('/sociallinks-update', [SocialLinkController::class,'update'])->name('sociallinks.update');
+        Route::put('/sociallinks-update/{id}', [SocialLinkController::class,'update'])->name('sociallinks.update');
 
         //---** Home page **---//
         Route::get('/homepage-banner', [HomePageBannerController::class,'index'])->name('homepage.banner');
