@@ -38,13 +38,6 @@ class TeamSectionController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'name' => 'required|string|max:255',
-            'profession' => 'required|string|max:255',
-            'type' => 'required|in:0,1',
-        ]);
-
         $file = time().'.'.$request->image->extension();
         $request->image->move(public_path('assets/web/images'), $file);
 
@@ -102,7 +95,7 @@ class TeamSectionController extends Controller
             'image' => $file,
             'name' => $request->name,
             'profession' => $request->profession,
-            'type' => $type,
+            'type' => $request->type,
         ];
         $team->update($data);
 

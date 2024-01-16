@@ -13,22 +13,22 @@ class AboutPageController extends Controller
         return view('admin.pages.about_page.banner',compact('banner'));
     }
 
-    public function section1()
-    {
+    public function section1(){
         $section = AboutPage::where('section',1)->first();
-        return view('admin.pages.about_page.index', compact('section'));
+        $title = "About Us Section 1";
+        return view('admin.pages.about_page.index', compact('section','title'));
     }
 
-    public function section2()
-    {
+    public function section2(){
         $section = AboutPage::where('section',2)->first();
-        return view('admin.pages.about_page.index', compact('section'));
+        $title = "About Us Section 2";
+        return view('admin.pages.about_page.index', compact('section','title'));
     }
 
-    public function section3()
-    {
+    public function section3(){
         $section = AboutPage::where('section',3)->first();
-        return view('admin.pages.about_page.index', compact('section'));
+        $title = "About Us Section 3";
+        return view('admin.pages.about_page.index', compact('section','title'));
     }
 
     public function update(Request $request,$id){

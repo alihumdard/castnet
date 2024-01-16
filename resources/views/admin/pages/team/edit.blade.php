@@ -35,8 +35,7 @@
                                     <div class="col-sm-3">
                                         <div class="form-group">
                                             <label for="prin_title">Image</label>
-                                            <input type="file" value="" name="banner" class="form-control" id="" placeholder="Update Image">
-                                            <input type="hidden" value="{{ $team -> image }}" name="previousbanner" class="form-control" id="">
+                                            <input type="file" name="image" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-sm-3">

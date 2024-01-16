@@ -34,7 +34,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="prin_title">Image</label>
-                                            <input type="file" name="banner" class="form-control" id="">
+                                            <input type="file" name="image" class="form-control" id="">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
