@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('title',{{ $title }})
+@section('title', $title )
 @section('content')
 <style>
     .note-editor.note-airframe .note-editing-area .note-editable, .note-editor.note-frame .note-editing-area .note-editable {

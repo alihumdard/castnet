@@ -31,9 +31,11 @@
             </div>
             <div class="row gy-5 gy-md-0">
                 @foreach($executiveMembers as $executive)
+                {{-- {{ dd($executive->image) }} --}}
                 <div class="col-md-4 col-lg-4 d-flex">
                     <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
-                        <img src="{{ asset('storage/' . $executive->image) }}" alt="team" class="card-img-top">
+                        <img src="{{ asset('assets/web/images/' . $executive->image) }}" alt="team" class="card-img-top">
+
                         {{-- image --}}
                         <div class="card-body">
                             <h3 class="card-title">{{ $executive -> name }}</h3>
@@ -59,7 +61,7 @@
                 @foreach($staffMembers as $staff)
                 <div class="col-md-4 col-lg-4 d-flex">
                     <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
-                        <img src="{{ asset('storage/' . $staff->image) }}" alt="team" class="card-img-top">
+                        <img src="{{ asset('assets/web/images/' . $staff->image) }}" alt="team" class="card-img-top">
                         <div class="card-body">
                             <h3 class="card-title">{{ $staff -> name }}</h3>
                             <p class="card-text">{{ $staff -> profession }}</p>
