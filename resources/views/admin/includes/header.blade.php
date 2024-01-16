@@ -433,12 +433,6 @@
                             {{-- <li class="nav-item">
                                 <a href="" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Section 3</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
                                     <p>Section 4</p>
                                 </a>
                             </li> --}}
@@ -1293,7 +1287,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
-                                My Blog
+                                BLOG
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -1313,6 +1307,29 @@
                         </ul>
                     </li>
                     {{--  BLOG Page End  --}}
+
+
+                    {{-- widgets section start  --}}
+                    <li class="nav-item {{(request()->routeIs(['joinWidget'])) ? 'menu-is-opening menu-open' : ''}}">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                WIDGETS
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('joinWidget') }}" class="nav-link {{(request()->routeIs('joinWidget')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Join Widget</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{-- widgets section end  --}}
+
+
 
                     {{--  FINANCIAL Page Start  --}}
                     {{-- <li class="nav-item {{(request()->routeIs(['aboutUs.banner','aboutUs.section1','aboutUs.section2','aboutUs.section3'])) ? 'menu-is-opening menu-open' : ''}}">
@@ -2204,6 +2221,7 @@
                                     <p>Footer</p>
                                 </a>
                             </li>
+
                         </ul>
                     </li> --}}
 

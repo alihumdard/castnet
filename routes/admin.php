@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\join\JoinSection1Controller;
 use App\Http\Controllers\Admin\evaluation\EvaluationSection1Controller;
 use App\Http\Controllers\Admin\rules_of_engagement\RulesOfEngagementSection1Controller;
 use App\Http\Controllers\Admin\membership\MembershipSection2Controller;
+use App\Http\Controllers\Admin\WidgetsController;
 
 use App\Http\Controllers\Admin\Team\TeamSectionController;
 use App\Http\Controllers\Admin\Events\OurEventController;
@@ -140,6 +141,13 @@ Route::middleware('auth')->group(function() {
         Route::get('/ROESection1/{sectionNumber}', [RulesOfEngagementSection1Controller::class, 'section1'])->name('ROE.section1');
         Route::put('/ROE/{id}', [AboutPageController::class, 'update'])->name('membershipSection1.update');
         // ---- RULES OF ENGAGEMENT page routes end ----
+
+
+        // ------- JOIN widget work start --------
+        Route::get('/joinWidget', [WidgetsController::class, 'index'])->name('joinWidget');
+        Route::put('/joinWidget-update/{id}', [WidgetsController::class, 'udpateJoinWidget'])->name('joinWidget.update');
+
+        // ------- JOIN widget work end --------
 
 
         Route::put('/banner-update/{id}', [BannerController::class, 'update'])->name('banner.update');
