@@ -102,7 +102,7 @@ Route::middleware('auth')->group(function() {
         Route::resource('my-blog', BlogController::class);
         Route::get('/myBlog-banner', [BlogController::class, 'banner'])->name('myBlog.banner');
         // ---------My blog Page Routes End --------------
-        
+
         //---** My Events **---//
         Route::get('/myEvent-banner', [EventSection1Controller::class, 'banner'])->name('myEvent.banner');
         Route::get('/myEvent-section1', [EventSection1Controller::class, 'section1'])->name('myEvent.section1');
@@ -118,7 +118,7 @@ Route::middleware('auth')->group(function() {
         // ---- Membership page routes start ----
         Route::get('/membershipsection1', [MembershipSection1Controller::class, 'section1'])->name('membership.section1');
         Route::put('/membership/{id}', [AboutPageController::class, 'update'])->name('membershipSection1.update');
-        Route::resource('/membership-section2', MembershipSection2Controller::class);
+        Route::resource('/membershipSection2', MembershipSection2Controller::class);
         // ---- Membership page routes end ----
 
         // ---- Join page routes start ----

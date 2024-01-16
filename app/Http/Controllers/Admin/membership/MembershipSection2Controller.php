@@ -15,7 +15,8 @@ class MembershipSection2Controller extends Controller
      */
     public function index()
     {
-        dd('working');
+        $membershipSection2 = MembershipSection2::all();
+        return view('admin.pages.membership.section2.index', compact('membershipSection2'));
     }
 
     /**
@@ -25,7 +26,7 @@ class MembershipSection2Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.membership.section2.create');
     }
 
     /**
@@ -36,7 +37,24 @@ class MembershipSection2Controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'heading' => 'required|string|max:255',
+        ]);
+        $file = time().'.'.$request->image->extension();
+        $request->image->move(public_path('assets/web/images'), $file);
+
+        $membershipSection2Data = [
+            'image' => $file,
+            'heading' => $request->heading,
+        ];
+
+
+        MembershipSection2::create($membershipSection2Data);
+        $message = 'Team member added successfully';
+        return redirect()->route('membershipSection2.index')->with('success', $message);
+
+
     }
 
     /**
@@ -56,9 +74,10 @@ class MembershipSection2Controller extends Controller
      * @param  \App\Models\MembershipSection2  $membershipSection2
      * @return \Illuminate\Http\Response
      */
-    public function edit(MembershipSection2 $membershipSection2)
+    public function edit($id)
     {
-        //
+        $item = MembershipSection2::findOrFail($id);
+        return view('admin.pages.membership.section2.edit',compact('item'));
     }
 
     /**
@@ -68,9 +87,22 @@ class MembershipSection2Controller extends Controller
      * @param  \App\Models\MembershipSection2  $membershipSection2
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MembershipSection2 $membershipSection2)
+    public function update(Request $request, $id)
     {
-        //
+        $item = MembershipSection2::findOrFail($id);
+        if($request->image){
+            $file = time().'.'.$request->image->extension();
+            $request->image->move(public_path('assets/web/images'), $file);
+        }else{
+            $file = $request->previousbanner;
+        }
+        $data = [
+            'image' => $file,
+            'heading' => $request->heading,
+        ];
+        $item->update($data);
+
+        return redirect('admin/membershipSection2')->with('success', "Data Updated Successfully");
     }
 
     /**

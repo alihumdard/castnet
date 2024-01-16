@@ -45,7 +45,7 @@ class TeamSectionController extends Controller
             'type' => 'required|in:0,1',
         ]);
 
-        $file = time().'.'.$request->image->extension();  
+        $file = time().'.'.$request->image->extension();
         $request->image->move(public_path('assets/web/images'), $file);
 
         $teamData = [
@@ -93,7 +93,7 @@ class TeamSectionController extends Controller
     {
         $team = OurTeam::findOrFail($id);
         if($request->image){
-            $file = time().'.'.$request->image->extension();  
+            $file = time().'.'.$request->image->extension();
             $request->image->move(public_path('assets/web/images'), $file);
         }else{
             $file = $team->image;
