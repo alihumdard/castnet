@@ -41,7 +41,12 @@ Route::get('/international_events', function(){ return view('web.pages.internati
 Route::get('/event_request', function(){ return view('web.pages.event_request'); })->name('web.event_request');
 Route::get('/event_calendar', function(){ return view('web.pages.event_calendar'); })->name('web.event_calendar');
 Route::get('/events', function(){ return view('web.pages.events'); })->name('web.events');
-Route::get('/blog', function(){ return view('web.pages.blog'); })->name('web.blog');
+// Route::get('/blog', function(){ return view('web.pages.blog'); })->name('web.blog');
+
+
+Route::get('/blog', [PagesController::class, 'blog'])->name('web.blog');
+
+
 Route::get('/financial', function(){ return view('web.pages.financial'); })->name('web.financial');
 Route::get('/grants', function(){ return view('web.pages.grants'); })->name('web.grants');
 Route::get('/funding', function(){ return view('web.pages.funding'); })->name('web.funding');
