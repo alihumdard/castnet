@@ -1,6 +1,8 @@
 @extends('web.layouts.default')
 @section('content')
 
+{{-- @dd($widget); --}}
+
 <!-- Breadcrumb Start -->
 <section class="section_breadcrumb membership_bg">
     <div class="container">
@@ -24,13 +26,11 @@
     <div class="container">
         <div class="row gy-5 gy-lg-0 gx-md-5">
             <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
-                <h2 class="section_title">why join the chamber?</h2>
-                <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
+                {!! $section1Record -> description !!}
             </div>
             <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
                 <div class="img_border">
-                    <img src="assets/web/images//why_join.png" alt="why-join">
+                    <img src="{{ asset('assets/web/images/' . ($section1Record->image ?? '')) }}" alt="why-join">
                 </div>
             </div>
         </div>
@@ -42,30 +42,16 @@
 <section class="section_block membership_values">
     <div class="container">
         <div class="row gy-5 gy-md-0 gx-lg-5">
+            @foreach ($section2Record as $section2)
             <div class="col-md-4 col-lg-4 d-flex">
                 <div class="card border_p" data-aos="zoom-in-right" data-aos-duration="1000">
                     <div class="card-body">
-                        <img src="assets/web/images//member_1.png" alt="member" class="img-icon">
-                        <p class="card-text">Gain VIP access to key decision makers</p>
+                        <img src="{{ asset('assets/web/images/' . ($section2 -> image ?? '')) }}" alt="value">
+                        <p class="card-text">{{ $section2 -> heading }}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-lg-4 d-flex">
-                <div class="card border_s" data-aos="zoom-in" data-aos-duration="1000">
-                    <div class="card-body">
-                        <img src="assets/web/images//member_2.png" alt="member" class="img-icon">
-                        <p class="card-text">Increase profit margins by saving retirement plans</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-4 d-flex">
-                <div class="card border_b" data-aos="zoom-in-left" data-aos-duration="1000">
-                    <div class="card-body">
-                        <img src="assets/web/images//member_3.png" alt="member" class="img-icon">
-                        <p class="card-text">Raise visibility of your brand among influential leaders</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -91,14 +77,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto" data-aos="fade-right" data-aos-duration="1000">
-                <h2 class="section_title">ready to join?</h2>
-                <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
+                <h2 class="section_title">{{ $widget -> title }}</h2>
+                <p class="text">{{ $widget -> description }}</p>
                 <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 gap-md-5">
-                    <a href="#" class="btn btn-primary">
-                        <span>join chamber</span>
+                    <a href="{{ $widget -> button1_link }}" class="btn btn-primary">
+                        <span>{{ $widget -> button1 }}</span>
                         <img src="assets/web/images//icon_log.png" alt="login" class="img-login">
                     </a>
-                    <a href="#" class="btn btn-contact">contact us</a>
+                    <a href="{{ $widget -> button2_link }}" class="btn btn-contact">{{ $widget -> button2 }}</a>
                 </div>
             </div>
         </div>

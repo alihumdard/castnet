@@ -22,6 +22,9 @@ use App\Models\AboutPage;
 use App\Models\PageBanner;
 use App\Models\OurTeam;
 use App\Models\Banner;
+use App\Models\MembershipSection2;
+use App\Models\JoinWidget;
+
 use Carbon\Carbon;
 // About Page Models start
 // About Page Models end
@@ -64,7 +67,11 @@ class PagesController extends Controller
     }
 
     public function evaluation(){
-        return view('web.pages.evaluation');
+        $section1Record = AboutPage::where('section', '8')->first();
+        $section2Record = AboutPage::where('section', '9')->first();
+        $section3Record = AboutPage::where('section', '10')->first();
+        $widget = JoinWidget::first();
+        return view('web.pages.evaluation',get_defined_vars());
     }
 
     public function join(){
@@ -72,7 +79,10 @@ class PagesController extends Controller
     }
 
     public function membership(){
-        return view('web.pages.membership');
+        $section1Record = AboutPage::where('section', '6')->first();
+        $section2Record = MembershipSection2::all();
+        $widget = JoinWidget::first();
+        return view('web.pages.membership',get_defined_vars());
     }
 
     public function programs(){
