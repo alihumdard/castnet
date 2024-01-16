@@ -407,13 +407,13 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
-                                BECOME A MEMBER
+                                MEMBERSHIP
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="{{ route('membershipSection2.banner') }}" class="nav-link {{(request()->routeIs('membershipSection2.banner')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Banner</p>
                                 </a>
@@ -430,12 +430,6 @@
                                     <p>Section 2</p>
                                 </a>
                             </li>
-                            {{-- <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Section 4</p>
-                                </a>
-                            </li> --}}
                         </ul>
                     </li>
                     {{--  Membership Page End  --}}

@@ -48,7 +48,7 @@
                                         <img src="{{ asset('assets/web/images/'.$section2->image) }}" alt="section img" height="50" width="50">
 
                                     </td>
-                                    <td>{{ $section2 -> heading }}</td>
+                                    <td>{{ $section2->heading }}</td>
                                     <td>
                                         <a href="{{ route('membershipSection2.edit',$section2->id) }}"><i class="fa fa-edit"></i></a>
                                         <button class="btn-outline-danger delete_btn" data-url="/admin/membershipSection2"
