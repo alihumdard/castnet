@@ -12,9 +12,13 @@ use App\Http\Controllers\Admin\HomePage\HomePageSection7Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageSection8Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageSection9Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageBannerController;
+use App\Http\Controllers\Admin\Event_calender\EventCalenderSection2Controller;
+use App\Http\Controllers\Admin\Event_calender\EventCalenderController;
+use App\Http\Controllers\Admin\Events\EventSection1Controller;
 use App\Http\Controllers\Admin\AboutPage\AboutPageController;
 use App\Http\Controllers\Admin\who_we_are\WhoWeArePageController;
 use App\Http\Controllers\Admin\Team\TeamSectionController;
+use App\Http\Controllers\Admin\Events\OurEventController;
 use App\Http\Controllers\Admin\Blog\BlogController;
 use App\Http\Controllers\Admin\SocialLinkController;
 use App\Http\Controllers\Admin\BannerController;
@@ -90,7 +94,19 @@ Route::middleware('auth')->group(function() {
         Route::resource('my-blog', BlogController::class);
         Route::get('/myBlog-banner', [BlogController::class, 'banner'])->name('myBlog.banner');
         // ---------My blog Page Routes End --------------
+        
+        //---** My Events **---//
+        Route::get('/myEvent-banner', [EventSection1Controller::class, 'banner'])->name('myEvent.banner');
+        Route::get('/myEvent-section1', [EventSection1Controller::class, 'section1'])->name('myEvent.section1');
+        Route::get('/myEvent-section3', [EventSection1Controller::class, 'section3'])->name('myEvent.section3');
+        Route::put('/myEvent-update/{id}', [EventSection1Controller::class, 'update'])->name('myEvent.update');
+        Route::resource('our-event', OurEventController::class);
 
+        Route::resource('event-calender', EventCalenderController::class);
+        Route::get('/event-calender-banner', [EventCalenderController::class, 'banner'])->name('event-calender.banner');
+        Route::get('/event-calender-section2-index', [EventCalenderSection2Controller::class, 'index'])->name('event-calender-section2.index');
+        Route::put('/event-calender-section2/{id}', [EventCalenderSection2Controller::class, 'update'])->name('event-calender-section2.update');
+        // ---------My Events Page Routes End --------------
 
         Route::put('/banner-update/{id}', [BannerController::class, 'update'])->name('banner.update');
     });

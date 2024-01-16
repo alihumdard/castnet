@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Blog;
+namespace App\Http\Controllers\Admin\Event_calender;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
+use App\Models\OurEventCalenderModel;
 use App\Models\PageBanner;
-use App\Models\MyBlog;
-class BlogController extends Controller
+class EventCalenderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = MyBlog::all();
-        return view('admin.pages.blog.section.index', compact('blogs'));
+        $events = OurEventCalenderModel::all();
+        return view('admin.pages.event_calender.section1.index', compact('events'));
     }
 
     /**
@@ -27,7 +26,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.blog.section.create');
+        return view('admin.pages.event_calender.section1.create');
     }
 
     /**
@@ -41,16 +40,14 @@ class BlogController extends Controller
         $file = time().'.'.$request->image->extension();  
         $request->image->move(public_path('assets/web/images'), $file);
 
-        $blog = [
-            'image' => $file,
+        $event = [
             'title' => $request->title,
-            'date' => $request->date,
-            'category' => $request->category,
+            'event_time' => $request->event_time,
             'description' => $request->description,
         ];
-        MyBlog::create($blog);
-        $message = 'Blog added successfully';
-        return redirect()->route('my-blog.index')->with('success', $message);
+        OurEventCalenderModel::create($event);
+        $message = 'Event calender added successfully';
+        return redirect()->route('event-calender.index')->with('success', $message);
     }
 
     /**
@@ -72,8 +69,8 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        $blog = MyBlog::findOrFail($id);
-        return view('admin.pages.blog.section.edit',compact('blog'));
+        $event = OurEventCalenderModel::findOrFail($id);
+        return view('admin.pages.event_calender.section1.edit',compact('event'));
     }
 
     /**
@@ -85,21 +82,19 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $blog = MyBlog::findOrFail($id);
+        $event = OurEventCalenderModel::findOrFail($id);
         if($request->image){
             $file = time().'.'.$request->image->extension();  
             $request->image->move(public_path('assets/web/images'), $file);
         }else{
-            $file = $blog->image;
+            $file = $event->image;
         }
         $data = [
-            'image' => $file,
             'title' => $request->title,
-            'date' => $request->date,
-            'category' => $request->category,
+            'event_time' => $request->event_time,
             'description' => $request->description,
         ];
-        $blog->update($data);
+        $event->update($data);
 
         return redirect()->back()->with('success', "Data Updated Successfully");
     }
@@ -112,21 +107,21 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        $path = MyBlog::where('id',$id)->first()->image;
+        $path = OurEventCalenderModel::where('id',$id)->first()->image;
         if(isset($path)){
             $path = public_path().'/assets/web/images/'.$path;
             File::delete($path);
         }
-        MyBlog::destroy($id);
+        OurEventCalenderModel::destroy($id);
         return response()->json(array(
             'data' => true,
-            'message' => 'Blog deleted successfully.',
+            'message' => 'Event calender has been deleted successfully.',
             'status' => 'success',
         ));
     }
 
     public function banner(){
-        $banner = PageBanner::where('type',28)->first();
-        return view('admin.pages.team.banner',compact('banner'));
+        $banner = PageBanner::where('type',25)->first();
+        return view('admin.pages.event_calender.banner',compact('banner'));
     }
 }

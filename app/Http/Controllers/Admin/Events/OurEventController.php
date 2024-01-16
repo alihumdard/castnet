@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Blog;
+namespace App\Http\Controllers\Admin\Events;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
-use App\Models\PageBanner;
-use App\Models\MyBlog;
-class BlogController extends Controller
+use App\Models\OurEventModel;
+
+class OurEventController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = MyBlog::all();
-        return view('admin.pages.blog.section.index', compact('blogs'));
+        $events = OurEventModel::all();
+        return view('admin.pages.events.section2.index', compact('events'));
     }
 
     /**
@@ -27,7 +27,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.blog.section.create');
+        return view('admin.pages.events.section2.create');
     }
 
     /**
@@ -41,16 +41,14 @@ class BlogController extends Controller
         $file = time().'.'.$request->image->extension();  
         $request->image->move(public_path('assets/web/images'), $file);
 
-        $blog = [
+        $event = [
             'image' => $file,
             'title' => $request->title,
             'date' => $request->date,
-            'category' => $request->category,
-            'description' => $request->description,
         ];
-        MyBlog::create($blog);
-        $message = 'Blog added successfully';
-        return redirect()->route('my-blog.index')->with('success', $message);
+        OurEventModel::create($event);
+        $message = 'Event added successfully';
+        return redirect()->route('our-event.index')->with('success', $message);
     }
 
     /**
@@ -72,8 +70,8 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        $blog = MyBlog::findOrFail($id);
-        return view('admin.pages.blog.section.edit',compact('blog'));
+        $event = OurEventModel::findOrFail($id);
+        return view('admin.pages.events.section2.edit',compact('event'));
     }
 
     /**
@@ -85,21 +83,19 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $blog = MyBlog::findOrFail($id);
+        $event = OurEventModel::findOrFail($id);
         if($request->image){
             $file = time().'.'.$request->image->extension();  
             $request->image->move(public_path('assets/web/images'), $file);
         }else{
-            $file = $blog->image;
+            $file = $event->image;
         }
         $data = [
             'image' => $file,
             'title' => $request->title,
             'date' => $request->date,
-            'category' => $request->category,
-            'description' => $request->description,
         ];
-        $blog->update($data);
+        $event->update($data);
 
         return redirect()->back()->with('success', "Data Updated Successfully");
     }
@@ -112,21 +108,16 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        $path = MyBlog::where('id',$id)->first()->image;
+        $path = OurEventModel::where('id',$id)->first()->image;
         if(isset($path)){
             $path = public_path().'/assets/web/images/'.$path;
             File::delete($path);
         }
-        MyBlog::destroy($id);
+        OurEventModel::destroy($id);
         return response()->json(array(
             'data' => true,
-            'message' => 'Blog deleted successfully.',
+            'message' => 'Event has been deleted successfully.',
             'status' => 'success',
         ));
-    }
-
-    public function banner(){
-        $banner = PageBanner::where('type',28)->first();
-        return view('admin.pages.team.banner',compact('banner'));
     }
 }

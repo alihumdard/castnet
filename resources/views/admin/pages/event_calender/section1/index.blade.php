@@ -1,17 +1,17 @@
 @extends('admin.layouts.default')
-@section('title', 'Our Events')
+@section('title', 'Event Calender')
 @section('content')
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Our Events Section 2</h1>
+                        <h1 class="m-0">Event Calender Section 1</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Events</li>
+                            <li class="breadcrumb-item active">Event calender</li>
                         </ol>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <a href="{{ route('our-event.create') }}" class="btn btn-sm btn-primary" style="float: right;">Add Event</a>
+                            <a href="{{ route('event-calender.create') }}" class="btn btn-sm btn-primary" style="float: right;">Add Event</a>
                         </div>
                         <div class="card-body">
                           <table id="example1" class="table table-bordered table-striped">
@@ -30,8 +30,7 @@
                             <tr>
                               <th>#</th>
                               <th>Title</th>
-                              <th>Image</th>
-                              <th>Date</th>
+                              <th>Event Time</th>
                               <th>Action</th>
                             </tr>
                             </thead>
@@ -39,14 +38,11 @@
                                 @foreach($events as $event)
                                <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>
-                                        <img src="{{ asset('assets/web/images/' . $event->image) }}" alt="section img" height="50" width="50">
-                                    </td>
                                     <td>{{ $event->title }}</td>
-                                    <td>{{ $event->date }}</td>
+                                    <td>{{ $event->event_time }}</td>
                                     <td>
-                                        <a href="{{ route('our-event.edit',$event->id) }}"><i class="fa fa-edit"></i></a>
-                                        <button class="btn-outline-danger delete_btn" data-url="/admin/our-event"
+                                        <a href="{{ route('event-calender.edit',$event->id) }}"><i class="fa fa-edit"></i></a>
+                                        <button class="btn-outline-danger delete_btn" data-url="/admin/event-calender"
                                             data-id="{{ $event->id }}" type="submit"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
