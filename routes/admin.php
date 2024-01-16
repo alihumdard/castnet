@@ -21,13 +21,6 @@ use App\Http\Controllers\Admin\Join\JoinSection1Controller;
 use App\Http\Controllers\Admin\Evaluation\EvaluationSection1Controller;
 use App\Http\Controllers\Admin\Rules_of_engagement\RulesOfEngagementSection1Controller;
 use App\Http\Controllers\Admin\Membership\MembershipSection2Controller;
-use App\Http\Controllers\Admin\who_we_are\WhoWeArePageController;
-
-use App\Http\Controllers\Admin\membership\MembershipSection1Controller;
-use App\Http\Controllers\Admin\join\JoinSection1Controller;
-use App\Http\Controllers\Admin\evaluation\EvaluationSection1Controller;
-use App\Http\Controllers\Admin\rules_of_engagement\RulesOfEngagementSection1Controller;
-use App\Http\Controllers\Admin\membership\MembershipSection2Controller;
 use App\Http\Controllers\Admin\WidgetsController;
 
 use App\Http\Controllers\Admin\Team\TeamSectionController;
@@ -116,7 +109,7 @@ Route::middleware('auth')->group(function() {
         Route::get('/event-calender-section2-index', [EventCalenderSection2Controller::class, 'index'])->name('event-calender-section2.index');
         Route::put('/event-calender-section2/{id}', [EventCalenderSection2Controller::class, 'update'])->name('event-calender-section2.update');
         // ---------My Events Page Routes End --------------
-        
+
         // ---- Membership page routes start ----
         Route::get('/membershipsection1', [MembershipSection1Controller::class, 'section1'])->name('membership.section1');
         Route::put('/membership/{id}', [AboutPageController::class, 'update'])->name('membershipSection1.update');
