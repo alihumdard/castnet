@@ -25,13 +25,11 @@
         <div class="container">
             <div class="row gy-5 gy-lg-0 gx-md-5">
                 <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title">Members Satisfaction</h2>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.</p>
+                    {!! $section1Record -> description !!}
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="assets/web/images/evaluation.png" alt="evaluation">
+                        <img src="{{ asset('assets/web/images/' . ($section1Record->image ?? '')) }}" alt="evaluation">
                     </div>
                 </div>
             </div>
@@ -92,13 +90,11 @@
             <div class="row gy-5 gy-md-0 gx-md-5">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="assets/web/images/accessibility.png" alt="accessibility">
+                        <img src="{{ asset('assets/web/images/' . ($section2Record->image ?? '')) }}" alt="accessibility">
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
-                    <h2 class="section_title">Accessibility and Inclusivity</h2>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    <p class="about_text">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+                    {!! $section2Record -> description !!}
                 </div>
             </div>
         </div>
@@ -128,33 +124,31 @@
         <div class="container">
             <div class="row gy-5 gy-lg-0 gx-md-5">
                 <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title">Benefits Assessment</h2>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.</p>
+                    {!! $section3Record -> description !!}
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="assets/web/images/benefit_assesment.png" alt="benefit-assesment">
+                        <img src="{{ asset('assets/web/images/' . ($section3Record->image ?? '')) }}" alt="benefit-assesment">
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Benefits Assessment End -->
-    
+
     <!-- Ready to Join Start -->
     <section class="section_block ready_to_join">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mx-auto" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title">ready to join?</h2>
-                    <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
+                    <h2 class="section_title">{{ $widget -> title }}</h2>
+                    <p class="text">{{ $widget -> description }}</p>
                     <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 gap-md-5">
-                        <a href="#" class="btn btn-primary">
-                            <span>join chamber</span>
-                            <img src="assets/web/images/icon_log.png" alt="login" class="img-login">
+                        <a href="{{ $widget -> button1_link }}" class="btn btn-primary">
+                            <span>{{ $widget -> button1 }}</span>
+                            <img src="assets/web/images//icon_log.png" alt="login" class="img-login">
                         </a>
-                        <a href="#" class="btn btn-contact">contact us</a>
+                        <a href="{{ $widget -> button2_link }}" class="btn btn-contact">{{ $widget -> button2 }}</a>
                     </div>
                 </div>
             </div>

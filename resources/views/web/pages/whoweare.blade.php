@@ -38,7 +38,8 @@
             <div class="row gy-5 gy-md-0 gx-md-5">
                 <div class="col-md-6 col-lg-6" data-aos="fade-right" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="{{ asset($section5Record->image ?? '') }}" alt="value">
+                        <img src="{{ asset('assets/web/images/' . ($section5Record->image ?? '')) }}" alt="value">
+
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6" data-aos="fade-left" data-aos-duration="1000">

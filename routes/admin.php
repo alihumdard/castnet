@@ -106,7 +106,7 @@ Route::middleware('auth')->group(function() {
         Route::get('/event-calender-section2-index', [EventCalenderSection2Controller::class, 'index'])->name('event-calender-section2.index');
         Route::put('/event-calender-section2/{id}', [EventCalenderSection2Controller::class, 'update'])->name('event-calender-section2.update');
         // ---------My Events Page Routes End --------------
-        
+
         // ---- Membership page routes start ----
         Route::resource('membershipSection2', MembershipSection2Controller::class);
         Route::get('/membershipSection2-banner', [MembershipSection2Controller::class, 'banner'])->name('membershipSection2.banner');
