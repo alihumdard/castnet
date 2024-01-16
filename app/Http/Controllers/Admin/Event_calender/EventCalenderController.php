@@ -37,9 +37,6 @@ class EventCalenderController extends Controller
      */
     public function store(Request $request)
     {
-        $file = time().'.'.$request->image->extension();  
-        $request->image->move(public_path('assets/web/images'), $file);
-
         $event = [
             'title' => $request->title,
             'event_time' => $request->event_time,
@@ -83,12 +80,6 @@ class EventCalenderController extends Controller
     public function update(Request $request, $id)
     {
         $event = OurEventCalenderModel::findOrFail($id);
-        if($request->image){
-            $file = time().'.'.$request->image->extension();  
-            $request->image->move(public_path('assets/web/images'), $file);
-        }else{
-            $file = $event->image;
-        }
         $data = [
             'title' => $request->title,
             'event_time' => $request->event_time,
@@ -107,11 +98,6 @@ class EventCalenderController extends Controller
      */
     public function destroy($id)
     {
-        $path = OurEventCalenderModel::where('id',$id)->first()->image;
-        if(isset($path)){
-            $path = public_path().'/assets/web/images/'.$path;
-            File::delete($path);
-        }
         OurEventCalenderModel::destroy($id);
         return response()->json(array(
             'data' => true,
