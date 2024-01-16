@@ -19,7 +19,8 @@ class MembershipSection2Controller extends Controller
 
     public function section1(){
         $section = AboutPage::where('section',6)->first();
-        return view('admin.pages.membershipSubPage1', compact('section'));
+        $title = "Membership Section 1";
+        return view('admin.pages.membership_common_section', compact('section','title'));
     }
 
     public function index()

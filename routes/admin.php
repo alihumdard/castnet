@@ -16,20 +16,11 @@ use App\Http\Controllers\Admin\Event_calender\EventCalenderController;
 use App\Http\Controllers\Admin\Events\EventSection1Controller;
 use App\Http\Controllers\Admin\AboutPage\AboutPageController;
 use App\Http\Controllers\Admin\Who_we_are\WhoWeArePageController;
-use App\Http\Controllers\Admin\Membership\MembershipSection1Controller;
 use App\Http\Controllers\Admin\Join\JoinSection1Controller;
 use App\Http\Controllers\Admin\Evaluation\EvaluationSection1Controller;
 use App\Http\Controllers\Admin\Rules_of_engagement\RulesOfEngagementSection1Controller;
 use App\Http\Controllers\Admin\Membership\MembershipSection2Controller;
-use App\Http\Controllers\Admin\who_we_are\WhoWeArePageController;
-
-use App\Http\Controllers\Admin\membership\MembershipSection1Controller;
-use App\Http\Controllers\Admin\join\JoinSection1Controller;
-use App\Http\Controllers\Admin\evaluation\EvaluationSection1Controller;
-use App\Http\Controllers\Admin\rules_of_engagement\RulesOfEngagementSection1Controller;
-use App\Http\Controllers\Admin\membership\MembershipSection2Controller;
 use App\Http\Controllers\Admin\WidgetsController;
-
 use App\Http\Controllers\Admin\Team\TeamSectionController;
 use App\Http\Controllers\Admin\Events\OurEventController;
 use App\Http\Controllers\Admin\Blog\BlogController;
@@ -84,7 +75,6 @@ Route::middleware('auth')->group(function() {
         Route::get('/about-us-section1', [AboutPageController::class, 'section1'])->name('aboutus.section1');
         Route::get('/about-us-section2', [AboutPageController::class, 'section2'])->name('aboutus.section2');
         Route::get('/about-us-section3', [AboutPageController::class, 'section3'])->name('aboutus.section3');
-        Route::put('/about-us/{id}', [AboutPageController::class, 'update'])->name('aboutus.update');
         // --------- About Page Routes End --------------
 
         // --------- who_we_are Page Routes Start ------------
@@ -118,38 +108,36 @@ Route::middleware('auth')->group(function() {
         // ---------My Events Page Routes End --------------
         
         // ---- Membership page routes start ----
-        Route::get('/membershipsection1', [MembershipSection1Controller::class, 'section1'])->name('membership.section1');
-        Route::put('/membership/{id}', [AboutPageController::class, 'update'])->name('membershipSection1.update');
         Route::resource('membershipSection2', MembershipSection2Controller::class);
         Route::get('/membershipSection2-banner', [MembershipSection2Controller::class, 'banner'])->name('membershipSection2.banner');
+        Route::get('/membership-section1', [MembershipSection2Controller::class, 'section1'])->name('membership.section1');
         // ---- Membership page routes end ----
 
         // ---- Join page routes start ----
         Route::get('/joinsection1', [JoinSection1Controller::class, 'section1'])->name('join.section1');
-        Route::put('/join/{id}', [AboutPageController::class, 'update'])->name('membershipSection1.update');
+        Route::get('/join-banner', [JoinSection1Controller::class, 'banner'])->name('join.banner');
         // ---- Join page routes end ----
 
         // ---- MEMBERSHIP EVALUATION page routes start ----
         Route::get('/evaluationsection1', [EvaluationSection1Controller::class, 'section1'])->name('evaluation.section1');
         Route::get('/evaluationsection3', [EvaluationSection1Controller::class, 'section3'])->name('evaluation.section3');
         // Route::get('/evaluationsection5', [EvaluationSection1Controller::class, 'section5'])->name('evaluation.section5');
-        Route::get('/evaluationsection5/{sectionNumber}', [EvaluationSection1Controller::class, 'section5'])->name('evaluation.section5');
-        Route::put('/evaluation/{id}', [AboutPageController::class, 'update'])->name('membershipSection1.update');
+        Route::get('/evaluationsection5', [EvaluationSection1Controller::class, 'section5'])->name('evaluation.section5');
+        Route::get('/evaluation-banner', [EvaluationSection1Controller::class, 'banner'])->name('evaluation.banner');
         // ---- MEMBERSHIP EVALUATION page routes end ----
 
         // ---- RULES OF ENGAGEMENT page routes start ----
-        Route::get('/ROESection1/{sectionNumber}', [RulesOfEngagementSection1Controller::class, 'section1'])->name('ROE.section1');
-        Route::put('/ROE/{id}', [AboutPageController::class, 'update'])->name('membershipSection1.update');
+        Route::get('/roe-section1', [RulesOfEngagementSection1Controller::class, 'section1'])->name('roe.section1');
+        Route::get('/roe-banner', [RulesOfEngagementSection1Controller::class, 'banner'])->name('roe.banner');
         // ---- RULES OF ENGAGEMENT page routes end ----
-
 
         // ------- JOIN widget work start --------
         Route::get('/joinWidget', [WidgetsController::class, 'index'])->name('joinWidget');
         Route::put('/joinWidget-update/{id}', [WidgetsController::class, 'udpateJoinWidget'])->name('joinWidget.update');
-
         // ------- JOIN widget work end --------
 
-
+        ///**-- Common Functions --**///
+        Route::put('/c-section1/{id}', [AboutPageController::class, 'update'])->name('c-section1.update');
         Route::put('/banner-update/{id}', [BannerController::class, 'update'])->name('banner.update');
     });
 });
