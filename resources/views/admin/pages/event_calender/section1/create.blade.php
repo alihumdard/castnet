@@ -1,7 +1,7 @@
 @extends('admin.layouts.default')
-@section('title', 'About Banner')
+@section('title', 'Event Calender')
 @section('content')
-{{--  @dd($record->banner)  --}}
+ {{-- @dd($teams); --}}
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -9,12 +9,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Update Banner</h1>
+                        <h1 class="m-0">Event Calender Section 1</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">About</a></li>
-                            <li class="breadcrumb-item active">Banner</li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
+                            <li class="breadcrumb-item active">Events</li>
                         </ol>
                     </div>
                 </div>
@@ -22,35 +22,36 @@
         </div>
 
         <!-- Main content start -->
+
         <div class="content">
             <div class="container-fluid">
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-body">
-                            <form action="" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('event-calender.store') }}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                @method('PUT')
                                 <div class="row mb-2">
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="prin_title">Banner Image</label>
-                                            <input type="file" name="banner" class="form-control" id="">
+                                            <label for="prin_title">Title</label>
+                                            <input type="text" name="title" class="form-control" placeholder="Enter Title...">
                                         </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <img src="" alt="banner" width="50" height="50">
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
-                                            <label for="prin_title">Page Name</label>
-                                                <input type="text" name="pagename" class="form-control" placeholder="Enter Page Name" value="">
-                                                {{--  below hidden field is for breadcrumb  --}}
-                                                <input type="hidden" name="type" placeholder="Enter Type" class="form-control" id="">
+                                            <label for="prin_title">Event time</label>
+                                            <input type="text" name="event_time" class="form-control" placeholder="Enter Event Date and Time...">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">Description</label>
+                                            <textarea name="description" class="form-control summernote"></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-footer" style="background:none;">
-                                    <button type="submit" class="btn btn-primary" style="float: right;">Save changes</button>
+                                    <button type="submit" class="btn btn-primary" style="float: right;">Save</button>
                                 </div>
                             </form>
                         </div>
@@ -58,6 +59,9 @@
                 </div>
             </div>
         </div>
+
+
+
         <!-- Main content end -->
         <!-- /.content-wrapper -->
     </div>
