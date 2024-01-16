@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\HomePage\HomePageSection1Controller;
@@ -16,6 +15,12 @@ use App\Http\Controllers\Admin\Event_calender\EventCalenderSection2Controller;
 use App\Http\Controllers\Admin\Event_calender\EventCalenderController;
 use App\Http\Controllers\Admin\Events\EventSection1Controller;
 use App\Http\Controllers\Admin\AboutPage\AboutPageController;
+use App\Http\Controllers\Admin\Who_we_are\WhoWeArePageController;
+use App\Http\Controllers\Admin\Membership\MembershipSection1Controller;
+use App\Http\Controllers\Admin\Join\JoinSection1Controller;
+use App\Http\Controllers\Admin\Evaluation\EvaluationSection1Controller;
+use App\Http\Controllers\Admin\Rules_of_engagement\RulesOfEngagementSection1Controller;
+use App\Http\Controllers\Admin\Membership\MembershipSection2Controller;
 use App\Http\Controllers\Admin\who_we_are\WhoWeArePageController;
 
 use App\Http\Controllers\Admin\membership\MembershipSection1Controller;
@@ -32,7 +37,6 @@ use App\Http\Controllers\Admin\SocialLinkController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\PagesController;
-
 use App\Http\Controllers\Admin\apperenceController;
 use App\Http\Controllers\Admin\PageController;
 
@@ -70,12 +74,10 @@ Route::middleware('auth')->group(function() {
         Route::resource('homesection9', HomePageSection9Controller::class);
         Route::put('/homesection9-updation/{id}',[HomePageSection9Controller::class,'updation'])->name('homesection9.updataion');
 
-
         Route::get('/allpages', [PagesController::class, 'allpages'])->name('admin.allpages');
         Route::get('/addpage', [PagesController::class, 'addpage'])->name('admin.addpage');
         Route::get('/menus', [apperenceController::class, 'menus'])->name('admin.menus');
         Route::get('pages/{id}/editor', [PageController::class,'editor'])->name('page.editor');
-
 
         // --------- About Page Routes Start ------------
         Route::get('/about-us-banner', [AboutPageController::class, 'index'])->name('aboutus.banner');
@@ -85,7 +87,6 @@ Route::middleware('auth')->group(function() {
         Route::put('/about-us/{id}', [AboutPageController::class, 'update'])->name('aboutus.update');
         // --------- About Page Routes End --------------
 
-
         // --------- who_we_are Page Routes Start ------------
         Route::get('/whoWeAre-banner', [WhoWeArePageController::class, 'index'])->name('whoWeAre.banner');
         Route::get('/who-we-are-section1', [WhoWeArePageController::class, 'section1'])->name('whoweare.section1');
@@ -94,7 +95,6 @@ Route::middleware('auth')->group(function() {
         // --------- who_we_are Page Routes End --------------
 
         //---** Our team **---//
-
         Route::resource('our-team', TeamSectionController::class);
         Route::get('/ourTeam-banner', [TeamSectionController::class, 'banner'])->name('ourTeam.banner');
         // --------- OUR TEAM Page Routes End --------------
@@ -116,17 +116,18 @@ Route::middleware('auth')->group(function() {
         Route::get('/event-calender-section2-index', [EventCalenderSection2Controller::class, 'index'])->name('event-calender-section2.index');
         Route::put('/event-calender-section2/{id}', [EventCalenderSection2Controller::class, 'update'])->name('event-calender-section2.update');
         // ---------My Events Page Routes End --------------
+        
         // ---- Membership page routes start ----
         Route::get('/membershipsection1', [MembershipSection1Controller::class, 'section1'])->name('membership.section1');
         Route::put('/membership/{id}', [AboutPageController::class, 'update'])->name('membershipSection1.update');
-        Route::resource('/membershipSection2', MembershipSection2Controller::class);
+        Route::resource('membershipSection2', MembershipSection2Controller::class);
+        Route::get('/membershipSection2-banner', [MembershipSection2Controller::class, 'banner'])->name('membershipSection2.banner');
         // ---- Membership page routes end ----
 
         // ---- Join page routes start ----
         Route::get('/joinsection1', [JoinSection1Controller::class, 'section1'])->name('join.section1');
         Route::put('/join/{id}', [AboutPageController::class, 'update'])->name('membershipSection1.update');
         // ---- Join page routes end ----
-
 
         // ---- MEMBERSHIP EVALUATION page routes start ----
         Route::get('/evaluationsection1', [EvaluationSection1Controller::class, 'section1'])->name('evaluation.section1');
@@ -135,7 +136,6 @@ Route::middleware('auth')->group(function() {
         Route::get('/evaluationsection5/{sectionNumber}', [EvaluationSection1Controller::class, 'section5'])->name('evaluation.section5');
         Route::put('/evaluation/{id}', [AboutPageController::class, 'update'])->name('membershipSection1.update');
         // ---- MEMBERSHIP EVALUATION page routes end ----
-
 
         // ---- RULES OF ENGAGEMENT page routes start ----
         Route::get('/ROESection1/{sectionNumber}', [RulesOfEngagementSection1Controller::class, 'section1'])->name('ROE.section1');

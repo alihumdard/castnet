@@ -15,10 +15,9 @@ class BannerController extends Controller
         }else{
             $file = $banner->image;
         }
-
-        PageBanner::where('type',$request->type)->update([
+        PageBanner::where('id',$banner->id)->update([
             'image' => $file,
-            'type' => $request->type,
+            'type' => $banner->type,
         ]);
 
         return redirect()->back()->with('success', 'Data updated successfully!');

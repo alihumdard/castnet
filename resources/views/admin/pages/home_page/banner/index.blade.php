@@ -33,7 +33,7 @@
                                 <div class="row mb-2">
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="prin_title">Banner Image</label>
+                                            <label for="prin_title">Banner Image <span class="text-danger">(1920 x 546 )</span></label>
                                             <input type="file" name="banner" class="form-control" id="">
                                         </div>
                                     </div>

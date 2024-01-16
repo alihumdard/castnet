@@ -31,14 +31,14 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="row mb-2">
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="prin_title">Banner Image</label>
+                                            <label for="prin_title">Banner Image <span class="text-danger">(1920 x 546 )</span></label>
                                             <input type="file" name="image" class="form-control" id="">
                                             <input type="hidden" name="type" value="2">
                                         </div>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-6">
                                         <img src="{{ asset('assets/web/images/'.$banner->image) }}" width="50" height="50">
                                     </div>
                                 </div>
