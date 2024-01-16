@@ -43,8 +43,8 @@ class HomePageSection9Controller extends Controller
             'heading' => $request->heading,
             'description' => $request->description,
         ]);
-    
-        return redirect()->back()->with('success', 'Data saved successfully!');
+
+        return redirect('admin/homesection9')->with('success', 'Data saved successfully!');
     }
 
     /**
@@ -91,7 +91,7 @@ class HomePageSection9Controller extends Controller
         ];
         $item->update($data);
 
-        return redirect()->back()->with('success', 'Item updated successfully.');
+        return redirect('admin/homesection9')->with('success', 'Item updated successfully.');
     }
 
     /**

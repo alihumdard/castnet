@@ -39,7 +39,7 @@ class HomePageSection5Controller extends Controller
      */
     public function store(Request $request)
     {
-        $file = time().'.'.$request->image->extension();  
+        $file = time().'.'.$request->image->extension();
         $request->image->move(public_path('assets/web/images'), $file);
 
         HomeSectionEvent::create([
@@ -48,8 +48,8 @@ class HomePageSection5Controller extends Controller
             'image' => $file,
             'description' => $request->description,
         ]);
-    
-        return redirect()->back()->with('success', 'Data saved successfully!');
+
+        return redirect('admin/homesection5')->with('success', 'Data saved successfully!');
     }
 
     /**
@@ -90,7 +90,7 @@ class HomePageSection5Controller extends Controller
         }
 
         if($request->image){
-            $file = time().'.'.$request->image->extension();  
+            $file = time().'.'.$request->image->extension();
             $request->image->move(public_path('assets/web/images'), $file);
         }else{
             $file = $item->image;
@@ -104,7 +104,7 @@ class HomePageSection5Controller extends Controller
         ];
         $item->update($data);
 
-        return redirect()->back()->with('success', 'Item updated successfully.');
+        return redirect('admin/homesection5')->with('success', 'Item updated successfully.');
     }
 
     /**

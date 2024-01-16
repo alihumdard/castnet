@@ -13,7 +13,7 @@ class EvaluationSection1Controller extends Controller
     {
         $section = AboutPage::where('section',8)->first();
         $title = "Evaluation 1";
-        return view('admin.pages.membershipSubPage1', compact('section','title'));
+        return view('admin.pages.membership_common_section', compact('section','title'));
     }
     public function section3()
     {

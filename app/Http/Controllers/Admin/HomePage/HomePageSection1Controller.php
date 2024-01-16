@@ -43,7 +43,7 @@ class HomePageSection1Controller extends Controller
             'description' => 'nullable|string',
         ]);
 
-        $file = time().'.'.$request->image->extension();  
+        $file = time().'.'.$request->image->extension();
         $request->image->move(public_path('assets/web/images'), $file);
 
         HomeSection1::create([
@@ -53,8 +53,8 @@ class HomePageSection1Controller extends Controller
             'button' => $request->button,
             'buttonlink' => $request->buttonlink,
         ]);
-    
-        return redirect()->back()->with('success', 'Data saved successfully!');
+
+        return redirect('admin/homesection1')->with('success', 'Data saved successfully!');
     }
 
     /**
@@ -104,7 +104,7 @@ class HomePageSection1Controller extends Controller
         ]);
 
         if($request->image){
-            $file = time().'.'.$request->image->extension();  
+            $file = time().'.'.$request->image->extension();
             $request->image->move(public_path('assets/web/images'), $file);
         }else{
             $file = $item->image;
@@ -119,7 +119,7 @@ class HomePageSection1Controller extends Controller
         ];
         $item->update($data);
 
-        return redirect()->back()->with('success', 'Item updated successfully.');
+        return redirect('admin/homesection1')->with('success', 'Item updated successfully.');
     }
 
     /**

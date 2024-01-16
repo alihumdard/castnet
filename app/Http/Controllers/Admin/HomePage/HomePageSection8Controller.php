@@ -42,8 +42,8 @@ class HomePageSection8Controller extends Controller
             'title' => $request->title,
             'description' => $request->description,
         ]);
-    
-        return redirect()->back()->with('success', 'Data saved successfully!');
+
+        return redirect('admin/homesection8')->with('success', 'Data saved successfully!');
     }
 
     /**
@@ -89,7 +89,7 @@ class HomePageSection8Controller extends Controller
         ];
         $item->update($data);
 
-        return redirect()->back()->with('success', 'Item updated successfully.');
+        return redirect('admin/homesection8')->with('success', 'Item updated successfully.');
     }
 
     /**
@@ -115,7 +115,7 @@ class HomePageSection8Controller extends Controller
         }
 
         if($request->image){
-            $file = time().'.'.$request->image->extension();  
+            $file = time().'.'.$request->image->extension();
             $request->image->move(public_path('assets/web/images'), $file);
         }else{
             $file = $item->image;
