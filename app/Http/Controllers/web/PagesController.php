@@ -25,6 +25,8 @@ use App\Models\Banner;
 use App\Models\MembershipSection2;
 use App\Models\JoinWidget;
 use App\Models\MyBlog;
+use App\Models\EventModel;
+use App\Models\OurEventModel;
 
 use Carbon\Carbon;
 // About Page Models start
@@ -74,6 +76,17 @@ class PagesController extends Controller
 
         return view('web.pages.blog',get_defined_vars());
     }
+    public function events(){
+        // $blogData = EventModel::all();
+        $section1Record = EventModel::where('section', '1')->first();
+        $section3Record = EventModel::where('section', '3')->first();
+
+        $events = OurEventModel::all();
+
+        return view('web.pages.events',get_defined_vars());
+    }
+
+
 
     public function evaluation(){
         $section1Record = AboutPage::where('section', '8')->first();

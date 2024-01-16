@@ -25,14 +25,14 @@
             <div class="row gx-md-5">
                 <div class="col-lg-6 order-1 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="assets/web/images/event_img.png" alt="event">
+                        <img src="{{ asset('assets/web/images/'.$section1Record->image) }}" alt="event">
+
                     </div>
                 </div>
                 <div class="col-lg-6 order-2 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
-                    <span class="event_date">may 2, 2023</span>
-                    <h2 class="section_title fw-bold">World Trade Week</h2>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                    <span class="event_date">{{ $section1Record -> date }}</span>
+                    <h2 class="section_title fw-bold">{{ $section1Record -> title }}</h2>
+                    {!! $section1Record -> description !!}
                 </div>
             </div>
         </div>
@@ -48,60 +48,17 @@
                 </div>
             </div>
             <div class="row gy-5 mt-5">
+                @foreach($events as $event)
                 <div class="col-md-6 col-lg-4">
                     <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
-                        <img src="assets/web/images/event1.png" alt="event" class="card-img-top">
+                        <img src="{{ asset('assets/web/images/'.$event->image) }}" class="card-img-top">
                         <div class="card-body">
-                            <p class="card-date">december 13, 2023</p>
-                            <p class="card-text">LTA’s 8th Annual Holiday Party</p>
+                            <p class="card-date">{{ $event -> date }}</p>
+                            <p class="card-text">{{ $event -> title }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card" data-aos="zoom-in" data-aos-duration="1000">
-                        <img src="assets/web/images/event2.png" alt="event" class="card-img-top">
-                        <div class="card-body">
-                            <p class="card-date">december 13, 2023</p>
-                            <p class="card-text">138th Annual Meeting</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card" data-aos="zoom-in-left" data-aos-duration="1000">
-                        <img src="assets/web/images/event3.png" alt="event" class="card-img-top">
-                        <div class="card-body">
-                            <p class="card-date">december 13, 2023</p>
-                            <p class="card-text">January Member Orientation</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
-                        <img src="assets/web/images/event4.png" alt="event" class="card-img-top">
-                        <div class="card-body">
-                            <p class="card-date">december 13, 2023</p>
-                            <p class="card-text">LTA’s 8th Annual Holiday Party</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card" data-aos="zoom-in" data-aos-duration="1000">
-                        <img src="assets/web/images/event5.png" alt="event" class="card-img-top">
-                        <div class="card-body">
-                            <p class="card-date">december 13, 2023</p>
-                            <p class="card-text">138th Annual Meeting</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card" data-aos="zoom-in-left" data-aos-duration="1000">
-                        <img src="assets/web/images/event6.png" alt="event" class="card-img-top">
-                        <div class="card-body">
-                            <p class="card-date">december 13, 2023</p>
-                            <p class="card-text">January Member Orientation</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -113,14 +70,13 @@
             <div class="row gx-md-5">
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="assets/web/images/advocacy_trips.png" alt="advocacy trips">
+                        <img src="{{ asset('assets/web/images/'.$section3Record->image) }}" alt="advocacy trips">
                     </div>
                 </div>
                 <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
-                    <span class="event_date">march 18, 2023</span>
-                    <h2 class="section_title fw-bold">Advocacy Trips</h2>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                    <span class="event_date">{{ $section3Record -> date }}</span>
+                    <h2 class="section_title fw-bold">{{ $section3Record -> title }}</h2>
+                    {!! $section3Record -> description !!}
                 </div>
             </div>
         </div>
