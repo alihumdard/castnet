@@ -403,7 +403,7 @@
                     {{--  Contact Us Page End  --}}
 
                     {{--  Membership Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['membership.section1'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['membership.section1','membershipSection2.index','membershipSection2.create','membershipSection2.edit','membershipSection2.update'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -425,7 +425,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('membership-section2.index') }}" class="nav-link">
+                                <a href="{{ route('membershipSection2.index') }}" class="nav-link {{(request()->routeIs('membershipSection2.index','membershipSection2.update','membershipSection2.create','membershipSection2.edit')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 2</p>
                                 </a>

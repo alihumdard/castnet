@@ -1,7 +1,7 @@
 @extends('admin.layouts.default')
 @section('title', 'About Banner')
 @section('content')
-{{--  @dd($record->banner)  --}}
+ {{-- @dd($membershipSection2->image) --}}
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -9,11 +9,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">AboutPage Section 2</h1>
+                        <h1 class="m-0">Membership Section 2</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">About</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Membership</a></li>
                             <li class="breadcrumb-item active">Section 2</li>
                         </ol>
                     </div>
@@ -25,37 +25,41 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="col-md-12">
-                    <div class="card ">
-                        <div class="card-body">
-                            <form action="" method="post" enctype="multipart/form-data">
-                                @csrf
-                                @method('PUT')
-                                <div class="row mb-2">
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label for="prin_title">Image</label>
-                                            <input type="file" name="banner" class="form-control" id="">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <img src="" alt="Image" width="50" height="50">
-                                    </div>
-                                </div>
-                                <div class="row mb-2">
-                                    <div class="col-md-12">
-                                        <!-- /.card-header -->
-                                        <div class="card-body" style="padding: 0px">
-                                            <textarea id="summernote" name="description">
-                                            {{ $section2->description ?? '' }}
-                                            </textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer" style="background:none;">
-                                    <button type="submit" class="btn btn-primary" style="float: right;">Save changes</button>
-                                </div>
-                            </form>
+                    <div class="card">
+                        <div class="card-header">
+                            <a href="{{ route('membershipSection2.create') }}" class="btn btn-sm btn-primary" style="float: right;">Add Member</a>
                         </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                          <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Image</th>
+                              <th>Heading</th>
+                              <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($membershipSection2 as $index => $section2)
+                                                               <tr>
+                                    <td>{{ $index + 1 }}</td>
+                                    <td>
+                                        <img src="{{ asset('assets/web/images/'.$section2->image) }}" alt="section img" height="50" width="50">
+
+                                    </td>
+                                    <td>{{ $section2 -> heading }}</td>
+                                    <td>
+                                        <a href="{{ route('membershipSection2.edit',$section2->id) }}"><i class="fa fa-edit"></i></a>
+                                        <button class="btn-outline-danger delete_btn" data-url="/admin/membershipSection2"
+                                            data-id="{{ $section2->id }}" type="submit"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                @endforeach
+                                                            </tbody>
+                          </table>
+                        </div>
+                        <!-- /.card-body -->
                     </div>
                 </div>
             </div>
