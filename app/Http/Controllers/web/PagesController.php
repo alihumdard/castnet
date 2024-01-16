@@ -67,11 +67,8 @@ class PagesController extends Controller
         return view('web.pages.contact_us');
     }
 
-
-
     public function blog(){
-        $blogData = MyBlog::all();
-
+        $blogs = MyBlog::all();
         return view('web.pages.blog',get_defined_vars());
     }
 
