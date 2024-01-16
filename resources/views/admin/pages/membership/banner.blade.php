@@ -1,17 +1,17 @@
 @extends('admin.layouts.default')
-@section('title', 'Who we are Page Banner')
+@section('title', 'Membership Page Banner')
 @section('content')
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Who we are Page Banner</h1>
+                        <h1 class="m-0">Membership Page Banner</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Banner</li>
+                            <li class="breadcrumb-item active">Membership</li>
                         </ol>
                     </div>
                 </div>
@@ -30,7 +30,6 @@
                                         <div class="form-group">
                                             <label for="prin_title">Banner Image <span class="text-danger">(1920 x 546 )</span></label>
                                             <input type="file" name="image" class="form-control" id="">
-                                            <input type="hidden" name="type" value="3">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">

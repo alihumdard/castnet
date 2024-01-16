@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Models\PageBanner;
 use App\Models\MyBlog;
-use App\Models\PageBanner;
 class BlogController extends Controller
 {
     /**
@@ -128,6 +127,6 @@ class BlogController extends Controller
 
     public function banner(){
         $banner = PageBanner::where('type',28)->first();
-        return view('admin.pages.team.banner',compact('banner'));
+        return view('admin.pages.blog.banner',compact('banner'));
     }
 }

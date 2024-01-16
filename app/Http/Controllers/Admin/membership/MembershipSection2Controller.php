@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin\membership;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use App\Models\MembershipSection2;
 use Illuminate\Http\Request;
+use App\Models\PageBanner;
+use App\Models\AboutPage;
 
 class MembershipSection2Controller extends Controller
 {
@@ -13,6 +16,12 @@ class MembershipSection2Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function section1(){
+        $section = AboutPage::where('section',6)->first();
+        return view('admin.pages.membershipSubPage1', compact('section'));
+    }
+
     public function index()
     {
         $membershipSection2 = MembershipSection2::all();
@@ -94,7 +103,7 @@ class MembershipSection2Controller extends Controller
             $file = time().'.'.$request->image->extension();
             $request->image->move(public_path('assets/web/images'), $file);
         }else{
-            $file = $request->previousbanner;
+            $file = $item->image;
         }
         $data = [
             'image' => $file,
@@ -111,8 +120,23 @@ class MembershipSection2Controller extends Controller
      * @param  \App\Models\MembershipSection2  $membershipSection2
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MembershipSection2 $membershipSection2)
+    public function destroy($id)
     {
-        //
+        $path = MembershipSection2::where('id',$id)->first()->image;
+        if(isset($path)){
+            $path = public_path().'/assets/web/images/'.$path;
+            File::delete($path);
+        }
+        MembershipSection2::destroy($id);
+        return response()->json(array(
+            'data' => true,
+            'message' => 'Membership deleted successfully.',
+            'status' => 'success',
+        ));
+    }
+
+    public function banner(){
+        $banner = PageBanner::where('type',5)->first();
+        return view('admin.pages.membership.banner',compact('banner'));
     }
 }
