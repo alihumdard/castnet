@@ -40,10 +40,10 @@ Route::get('/support_services', function(){ return view('web.pages.support_servi
 Route::get('/international_events', function(){ return view('web.pages.international_events'); })->name('web.international_events');
 Route::get('/event_request', function(){ return view('web.pages.event_request'); })->name('web.event_request');
 Route::get('/event_calendar', function(){ return view('web.pages.event_calendar'); })->name('web.event_calendar');
-Route::get('/events', function(){ return view('web.pages.events'); })->name('web.events');
-// Route::get('/blog', function(){ return view('web.pages.blog'); })->name('web.blog');
 
 
+
+Route::get('/events', [PagesController::class, 'events'])->name('web.events');
 Route::get('/blog', [PagesController::class, 'blog'])->name('web.blog');
 
 
