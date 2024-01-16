@@ -200,7 +200,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
-                                Home
+                                HOME
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -272,7 +272,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
-                                About Us
+                                ABOUT US
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -306,7 +306,7 @@
                     {{--  About Us section end  --}}
 
                     {{--  Who We Are Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['whoWeAre.banner','whoWeAre.section1','whoWeAre.section2'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['whoWeAre.banner','whoweare.section1','whoweare.section2'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -403,7 +403,7 @@
                     {{--  Contact Us Page End  --}}
 
                     {{--  Membership Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['membership.section1','membershipSection2.index','membershipSection2.create','membershipSection2.edit','membershipSection2.update'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['membershipSection2.banner','membership.section1','membershipSection2.index','membershipSection2.create','membershipSection2.edit','membershipSection2.update'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -450,18 +450,18 @@
                                     <p>Banner</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('join.section1') }}" class="nav-link {{(request()->routeIs('join.section1')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 1</p>
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </li>
                     {{--  Join Page End  --}}
 
                     {{--  Benefits Page Start  --}}
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -469,19 +469,19 @@
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
+                        <ul class="nav nav-treeview"> --}}
                             {{-- <li class="nav-item">
                                 <a href="{{ route('aboutUs.banner') }}" class="nav-link {{(request()->routeIs('aboutUs.banner')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Banner</p>
                                 </a>
                             </li> --}}
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 1</p>
                                 </a>
-                            </li>
+                            </li> --}}
                             {{-- <li class="nav-item">
                                 <a href="{{ route('aboutUs.section2') }}" class="nav-link {{(request()->routeIs('aboutUs.section2')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
@@ -494,8 +494,8 @@
                                     <p>Section 3</p>
                                 </a>
                             </li> --}}
-                        </ul>
-                    </li>
+                        {{-- </ul>
+                    </li> --}}
                     {{--  Benefits Page End  --}}
 
                     {{--  Programs Page Start  --}}
@@ -531,7 +531,7 @@
                     {{--  Programs Page End  --}}
 
                     {{--  Evaluation Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['evaluation.section1','evaluation.section3','evaluation.section5'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['evaluation.banner','evaluation.section1','evaluation.section3','evaluation.section5'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -1113,7 +1113,7 @@
                     {{--  SUPPORT SERVICES Page End  --}}
 
                     {{--  EVENTS Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['myEvent.banner','myEvent.section1','myEvent.section3'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['myEvent.banner','myEvent.section1','myEvent.section3','our-event.index'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -1129,7 +1129,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('myEvent.section1') }}" class="nav-link {{(request()->routeIs('aboutUs.section1')) ? 'active' : ''}}">
+                                <a href="{{ route('myEvent.section1') }}" class="nav-link {{(request()->routeIs('myEvent.section1')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 1</p>
                                 </a>
@@ -1167,7 +1167,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('event-calender.index') }}" class="nav-link {{(request()->routeIs('event-calender.index')) ? 'active' : ''}}">
+                                <a href="{{ route('event-calender.index') }}" class="nav-link {{(request()->routeIs('event-calender.index','event-calender.create','event-calender.edit','event-calender.udpate')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 1</p>
                                 </a>
@@ -2205,7 +2205,7 @@
                         <a href="{{ route('admin.sociallinks') }}" class="nav-link {{(request()->routeIs('admin.sociallinks')) ? 'active' :''}}">
                             <i class="nav-icon fas fa-globe"></i>
                             <p>
-                                Social links
+                                SOCIAL LINKS
                             </p>
                         </a>
                     </li>
@@ -2213,7 +2213,7 @@
                         <a href="{{ route('admin.setting') }}" class="nav-link {{(request()->routeIs('admin.setting')) ? 'active' :''}}">
                             <i class="nav-icon fas fa-cog"></i>
                             <p>
-                                Setting
+                                SETTING
                             </p>
                         </a>
                     </li>

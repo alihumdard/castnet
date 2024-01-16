@@ -87,7 +87,7 @@ class EventCalenderController extends Controller
         ];
         $event->update($data);
 
-        return redirect()->back()->with('success', "Data Updated Successfully");
+        return redirect()->route('event-calender.index')->with('success', "Data Updated Successfully");
     }
 
     /**

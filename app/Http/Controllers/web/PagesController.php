@@ -24,6 +24,7 @@ use App\Models\OurTeam;
 use App\Models\Banner;
 use App\Models\MembershipSection2;
 use App\Models\JoinWidget;
+use App\Models\MyBlog;
 
 use Carbon\Carbon;
 // About Page Models start
@@ -64,6 +65,14 @@ class PagesController extends Controller
 
     public function contactUs(){
         return view('web.pages.contact_us');
+    }
+
+
+
+    public function blog(){
+        $blogData = MyBlog::all();
+
+        return view('web.pages.blog',get_defined_vars());
     }
 
     public function evaluation(){
