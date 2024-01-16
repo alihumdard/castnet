@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Models\PageBanner;
 use App\Models\MyBlog;
+use App\Models\PageBanner;
 class BlogController extends Controller
 {
     /**
@@ -38,7 +39,7 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $file = time().'.'.$request->image->extension();  
+        $file = time().'.'.$request->image->extension();
         $request->image->move(public_path('assets/web/images'), $file);
 
         $blog = [
@@ -87,7 +88,7 @@ class BlogController extends Controller
     {
         $blog = MyBlog::findOrFail($id);
         if($request->image){
-            $file = time().'.'.$request->image->extension();  
+            $file = time().'.'.$request->image->extension();
             $request->image->move(public_path('assets/web/images'), $file);
         }else{
             $file = $blog->image;
