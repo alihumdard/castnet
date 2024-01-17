@@ -1,7 +1,5 @@
 @extends('web.layouts.default')
 @section('content')
-
-    <!-- Breadcrumb Start -->
     <section class="section_breadcrumb blog_bg">
         <div class="container">
             <div class="row">
@@ -17,9 +15,6 @@
             </div>
         </div>
     </section>
-    <!-- Breadcrumb End -->
-
-    <!-- Blogs Start -->
     <section class="section_block section_blogs_head py-5" data-aos="fade-up" data-aos-duration="1000">
         <div class="container">
             <div class="row">
@@ -29,11 +24,8 @@
             </div>
         </div>
     </section>
-    <!-- Blogs End -->
-    @php $count=0; @endphp
     @foreach($blogs as $key=>$blog)
-    <!-- Blog Items Start -->
-    @if($count%2 == 0)
+    @if($key % 2 == 0)
     <section class="section_blogs white_ghost_bg">
         <div class="container">
             <div class="row">
@@ -57,9 +49,7 @@
             </div>
         </div>
     </section>
-    <!-- Blog Items End -->
     @else
-    <!-- Blog Items Start -->
     <section class="section_blogs">
         <div class="container">
             <div class="row">
@@ -83,9 +73,7 @@
         </div>
     </section>
     @endif
-    <!-- Blog Items End -->
     @endforeach
-    <!-- See More Start -->
     <section class="section_block section_blogs_footer py-5">
         <div class="container">
             <div class="row">
@@ -95,9 +83,6 @@
             </div>
         </div>
     </section>
-    <!-- See More End -->
-
-    <!-- Ready to Join Start -->
     <section class="section_block ready_to_join">
         <div class="container">
             <div class="row">
@@ -115,5 +100,4 @@
             </div>
         </div>
     </section>
-    <!-- Ready to Join end -->
 @stop

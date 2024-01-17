@@ -1,14 +1,6 @@
 @extends('admin.layouts.default')
 @section('title', $title )
 @section('content')
-<style>
-    .note-editor.note-airframe .note-editing-area .note-editable, .note-editor.note-frame .note-editing-area .note-editable {
-    word-wrap: break-word;
-    overflow: auto;
-    padding: 10px;
-    background-color: white;
-}
-</style>
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
