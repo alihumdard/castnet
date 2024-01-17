@@ -27,6 +27,7 @@ use App\Models\JoinWidget;
 use App\Models\MyBlog;
 use App\Models\EventModel;
 use App\Models\OurEventModel;
+use App\Models\Membership_Level;
 
 use Carbon\Carbon;
 // About Page Models start
@@ -86,6 +87,7 @@ class PagesController extends Controller
 
 
     public function evaluation(){
+        $evaluationBanner = PageBanner::where('type', '9')->first();
         $section1Record = AboutPage::where('section', '8')->first();
         $section2Record = AboutPage::where('section', '9')->first();
         $section3Record = AboutPage::where('section', '10')->first();
@@ -212,12 +214,12 @@ class PagesController extends Controller
     public function careers(){
         return view('web.pages.careers',get_defined_vars());
     }
-
-
+    // *********************************************************************************************** working on below page ***********************************************************************
     public function join(){
-        return view('web.pages.join');
+        $joinBanner = PageBanner::where('type', '6')->first();
+        $joinLevels =  Membership_Level::all();
+        return view('web.pages.join',get_defined_vars());
     }
-
     public function membership(){
         $section1Record = AboutPage::where('section', '6')->first();
         $section2Record = MembershipSection2::all();
