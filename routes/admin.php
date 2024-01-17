@@ -11,10 +11,11 @@ use App\Http\Controllers\Admin\HomePage\HomePageSection7Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageSection8Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageSection9Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageBannerController;
-use App\Http\Controllers\Admin\Event_calender\EventCalenderSection2Controller;
 use App\Http\Controllers\Admin\Event_calender\EventCalenderController;
+use App\Http\Controllers\Admin\Sectors\SectorsCommonSection1Controller;
 use App\Http\Controllers\Admin\Events\EventSection1Controller;
 use App\Http\Controllers\Admin\AboutPage\AboutPageController;
+use App\Http\Controllers\Admin\Sectors\SectorController;
 use App\Http\Controllers\Admin\Who_we_are\WhoWeArePageController;
 use App\Http\Controllers\Admin\Join\JoinSection1Controller;
 use App\Http\Controllers\Admin\Evaluation\EvaluationSection1Controller;
@@ -103,8 +104,6 @@ Route::middleware('auth')->group(function() {
 
         Route::resource('event-calender', EventCalenderController::class);
         Route::get('/event-calender-banner', [EventCalenderController::class, 'banner'])->name('event-calender.banner');
-        Route::get('/event-calender-section2-index', [EventCalenderSection2Controller::class, 'index'])->name('event-calender-section2.index');
-        Route::put('/event-calender-section2/{id}', [EventCalenderSection2Controller::class, 'update'])->name('event-calender-section2.update');
         // ---------My Events Page Routes End --------------
 
         // ---- Membership page routes start ----
@@ -131,14 +130,56 @@ Route::middleware('auth')->group(function() {
         Route::get('/roe-banner', [RulesOfEngagementSection1Controller::class, 'banner'])->name('roe.banner');
         // ---- RULES OF ENGAGEMENT page routes end ----
 
-        // ------- JOIN widget work start --------
+        // ------- Widget work start --------
         Route::get('/joinWidget', [WidgetsController::class, 'index'])->name('joinWidget');
         Route::put('/joinWidget-update/{id}', [WidgetsController::class, 'udpateJoinWidget'])->name('joinWidget.update');
-        // ------- JOIN widget work end --------
+        Route::get('/eventWidget', [WidgetsController::class, 'commonEvent'])->name('eventWidget');
+        Route::put('/eventWidget-update/{id}', [WidgetsController::class, 'updateEventWidget'])->name('eventWidget.update');
+        // ------- Widget work end --------
+
+        // ------- Sectors page work start --------
+        Route::resource('sectors', SectorController::class);
+        Route::get('/sectors-banner', [SectorController::class, 'banner'])->name('sectors.banner');
+        // ------- Sectors page work end --------
+
+        // ------- Construction page work start --------
+        Route::get('/sector-c1cons-banner', [SectorsCommonSection1Controller::class, 'construction_banner'])->name('sector-c1cons.banner');
+        Route::get('/sector-c1cons-section1', [SectorsCommonSection1Controller::class, 'construction'])->name('sector-c1cons.section1');
+        // ------- Sectors page work end --------
+
+        // ------- Agriculture page work start --------
+        Route::get('/sector-c1agr-banner', [SectorsCommonSection1Controller::class, 'agriculture_banner'])->name('sector-c1agr.banner');
+        Route::get('/sector-c1agr-section1', [SectorsCommonSection1Controller::class, 'agriculture'])->name('sector-c1agr.section1');
+        // ------- Sectors page work end --------
+        
+        // ------- Supply Chain page work start --------
+        Route::get('/sector-c1sc-banner', [SectorsCommonSection1Controller::class, 'supply_banner'])->name('sector-c1sc.banner');
+        Route::get('/sector-c1sc-section1', [SectorsCommonSection1Controller::class, 'supply'])->name('sector-c1sc.section1');
+        // ------- Supply Chain page work end --------
+
+        // ------- Technology page work start --------
+        Route::get('/sector-c1tec-banner', [SectorsCommonSection1Controller::class, 'technology_banner'])->name('sector-c1tec.banner');
+        Route::get('/sector-c1tec-section1', [SectorsCommonSection1Controller::class, 'technology'])->name('sector-c1tec.section1');
+        // ------- Technology page work end --------
+
+        // ------- Natural Resources page work start --------
+        Route::get('/sector-c1nat-banner', [SectorsCommonSection1Controller::class, 'natural_banner'])->name('sector-c1nat.banner');
+        Route::get('/sector-c1nat-section1', [SectorsCommonSection1Controller::class, 'natural'])->name('sector-c1nat.section1');
+        // ------- Natural Resources page work end --------
+
+        // ------- Energy page work start --------
+        Route::get('/sector-c1energy-banner', [SectorsCommonSection1Controller::class, 'energy_banner'])->name('sector-c1energy.banner');
+        Route::get('/sector-c1energy-section1', [SectorsCommonSection1Controller::class, 'energy'])->name('sector-c1energy.section1');
+        // ------- Energy page work end --------
+
+        // ------- Natural Resources page work start --------
+        Route::get('/sector-c1text-banner', [SectorsCommonSection1Controller::class, 'textiles_banner'])->name('sector-c1text.banner');
+        Route::get('/sector-c1text-section1', [SectorsCommonSection1Controller::class, 'textiles'])->name('sector-c1text.section1');
+        // ------- Natural Resources page work end --------
 
         ///**-- Common Functions --**///
+        Route::put('/sector-c1-update/{id}', [SectorsCommonSection1Controller::class, 'update'])->name('sector-c1.update');
         Route::put('/c-section1/{id}', [AboutPageController::class, 'update'])->name('c-section1.update');
         Route::put('/banner-update/{id}', [BannerController::class, 'update'])->name('banner.update');
     });
 });
-
