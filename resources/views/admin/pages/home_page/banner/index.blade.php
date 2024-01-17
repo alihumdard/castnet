@@ -87,7 +87,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea class="form-control" name="description" rows="4" placeholder="Enter Description" style="resize: none;">{{ $banner->description }}</textarea>
+                                            <textarea class="form-control" name="description" id="summernote" rows="4" placeholder="Enter Description" style="resize: none;">{{ $banner->description }}</textarea>
                                         </div>
                                     </div>
                                 </div>

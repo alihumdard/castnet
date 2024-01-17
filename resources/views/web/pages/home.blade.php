@@ -9,7 +9,7 @@ $setting = appSetting();
             <div class="col-md-8 col-lg-8 mt-50">
                 <span class="hero_tagline">{{ $banner->short_heading ?? '' }}</span>
                 <h1 class="hero_title">{{ $banner->heading ?? '' }}</h1>
-                <p class="hero_text">{{ $banner->description ?? '' }}</p>
+                <p class="hero_text">{!! $banner->description ?? '' !!}</p>
                 <div class="d-flex flex-column flex-md-row gap-4">
                     <a href="#" class="btn btn-primary">{{ $banner->button1 ?? ''}} <img src="assets/web/images/icon_log.png" alt="icon login" class="icon-login"></a>
                     <a href="#" class="btn btn-sponsor">{{ $banner->button2 ?? ''}} <img src="assets/web/images/icon_arrow.png" alt="icon login" class="icon-login"></a>

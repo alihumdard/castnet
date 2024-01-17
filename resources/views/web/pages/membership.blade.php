@@ -4,7 +4,9 @@
 {{-- @dd($widget); --}}
 
 <!-- Breadcrumb Start -->
-<section class="section_breadcrumb membership_bg">
+<section class="section_breadcrumb membership_bg" style="
+background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $membershipBanner->image) }}) center no-repeat;
+background-size: cover;">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
