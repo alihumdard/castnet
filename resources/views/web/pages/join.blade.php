@@ -1,8 +1,10 @@
 @extends('web.layouts.default')
 @section('content')
-
+{{-- @dd($joinLevels); --}}
 <!-- Breadcrumb Start -->
-<section class="section_breadcrumb membership_bg">
+<section class="section_breadcrumb membership_bg" style="
+background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $joinBanner->image) }}) center no-repeat;
+background-size: cover;">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
@@ -29,54 +31,16 @@
             </div>
         </div>
         <div class="row gy-4">
+            @foreach($joinLevels as $joinLevel)
             <div class="col-md-4 col-lg-4 d-flex">
                 <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
                     <div class="card-body">
-                        <h3 class="card-title">Entrepreneur - $500/year</h3>
-                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                        <h3 class="card-title">{{ $joinLevel->title }}</h3>
+                        <p class="card-text">{{ $joinLevel->description }}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-lg-4 d-flex">
-                <div class="card" data-aos="zoom-in" data-aos-duration="1000">
-                    <div class="card-body">
-                        <h3 class="card-title">Corporate - $1,250/year</h3>
-                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-4 d-flex">
-                <div class="card" data-aos="zoom-in-left" data-aos-duration="1000">
-                    <div class="card-body">
-                        <h3 class="card-title">Executive - $2,500/year</h3>
-                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-4 d-flex">
-                <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
-                    <div class="card-body">
-                        <h3 class="card-title">Silver - $5,000/year</h3>
-                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-4 d-flex">
-                <div class="card" data-aos="zoom-in" data-aos-duration="1000">
-                    <div class="card-body">
-                        <h3 class="card-title">Gold</h3>
-                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-4 d-flex">
-                <div class="card" data-aos="zoom-in-left" data-aos-duration="1000">
-                    <div class="card-body">
-                        <h3 class="card-title">Emerald & Platinum</h3>
-                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
