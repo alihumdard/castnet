@@ -16,8 +16,11 @@ use App\Http\Controllers\Admin\Sectors\SectorsCommonSection1Controller;
 use App\Http\Controllers\Admin\Events\EventSection1Controller;
 use App\Http\Controllers\Admin\AboutPage\AboutPageController;
 use App\Http\Controllers\Admin\Sectors\SectorController;
+use App\Http\Controllers\Admin\advocacy\AdvocacySection1Controller;
 use App\Http\Controllers\Admin\Who_we_are\WhoWeArePageController;
 use App\Http\Controllers\Admin\Join\JoinSection1Controller;
+use App\Http\Controllers\Admin\benefits\BenefitsSection1Controller;
+use App\Http\Controllers\Admin\Join\JoinSection1LevelController;
 use App\Http\Controllers\Admin\Evaluation\EvaluationSection1Controller;
 use App\Http\Controllers\Admin\Rules_of_engagement\RulesOfEngagementSection1Controller;
 use App\Http\Controllers\Admin\Membership\MembershipSection2Controller;
@@ -31,6 +34,11 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\apperenceController;
 use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\programs\ProgramsSection1Controller;
+use App\Http\Controllers\Admin\small_businesses\SmallBusinessesSection1Controller;
+use App\Http\Controllers\Admin\support_services\SupportServicesSection1Controller;
+use App\Http\Controllers\Admin\veterans\VeteransSection1Controller;
+use App\Http\Controllers\Admin\women\WomenSection1Controller;
 
 Route::middleware('auth')->group(function() {
     Route::prefix('admin')->group(function () {
@@ -113,7 +121,8 @@ Route::middleware('auth')->group(function() {
         // ---- Membership page routes end ----
 
         // ---- Join page routes start ----
-        Route::get('/joinsection1', [JoinSection1Controller::class, 'section1'])->name('join.section1');
+
+        Route::resource('joinSection1', JoinSection1LevelController::class);
         Route::get('/join-banner', [JoinSection1Controller::class, 'banner'])->name('join.banner');
         // ---- Join page routes end ----
 
@@ -181,5 +190,41 @@ Route::middleware('auth')->group(function() {
         Route::put('/sector-c1-update/{id}', [SectorsCommonSection1Controller::class, 'update'])->name('sector-c1.update');
         Route::put('/c-section1/{id}', [AboutPageController::class, 'update'])->name('c-section1.update');
         Route::put('/banner-update/{id}', [BannerController::class, 'update'])->name('banner.update');
+
+
+        // benefits page routes start
+        Route::get('/benefits-banner', [BenefitsSection1Controller::class, 'banner'])->name('benefits.banner');
+        // benefits page routes end
+
+
+        // ADVOCACY page routes start
+        Route::get('/advocacy-banner', [AdvocacySection1Controller::class, 'banner'])->name('advocacy.banner');
+        // ADVOCACY page routes end
+
+
+
+        //Small Business routes start
+        Route::get('/smallBusiness-banner', [SmallBusinessesSection1Controller::class, 'banner'])->name('smallBusiness.banner');
+        //Small Business routes end
+
+
+        //WOMEN ADVOCACY page routes start
+        Route::get('/womenAdvocacy-banner', [WomenSection1Controller::class, 'banner'])->name('womenAdvocacy-banner');
+        //WOMEN ADVOCACY page routes end
+
+
+        //VETERANS ADVOCACY page routes start
+        Route::get('/veterans-banner', [VeteransSection1Controller::class, 'banner'])->name('veterans-banner');
+        //VETERANS ADVOCACY page routes end
+
+
+
+        //SUPPORT SERVICES page routes start
+        Route::get('/supportServices-banner', [SupportServicesSection1Controller::class, 'banner'])->name('supportServices-banner');
+        //SUPPORT SERVICES page routes end
+
+
+
+        Route::get('programs-banner',[ProgramsSection1Controller::class,'banner'])->name('programs.banner');
     });
 });
