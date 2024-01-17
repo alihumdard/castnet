@@ -6,11 +6,12 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="breadcrumb_title">become a member</h2>
+                <h2 class="breadcrumb_title">join our membership</h2>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center">
                         <li class="breadcrumb-item"><a href="index.html">home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">membership</li>
+                        <li class="breadcrumb-item"><a href="membership.html">membership</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">join</li>
                     </ol>
                 </nav>
             </div>
@@ -19,91 +20,199 @@
 </section>
 <!-- Breadcrumb End -->
 
-<!-- Why Join Start -->
-<section class="section_block why_join">
+<!-- Membership Cards Start -->
+<section class="section_block section_membership_cards">
     <div class="container">
-        <div class="row gy-5 gy-lg-0 gx-md-5">
-            <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
-                <h2 class="section_title">why join the chamber?</h2>
-                <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
+        <div class="row mb-50">
+            <div class="col-12">
+                <h2 class="section_title" data-aos="fade-up" data-aos-duration="1000">membership levels</h2>
             </div>
-            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
-                <div class="img_border">
-                    <img src="assets/web/images//why_join.png" alt="why-join">
+        </div>
+        <div class="row gy-4">
+            <div class="col-md-4 col-lg-4 d-flex">
+                <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
+                    <div class="card-body">
+                        <h3 class="card-title">Entrepreneur - $500/year</h3>
+                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 d-flex">
+                <div class="card" data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="card-body">
+                        <h3 class="card-title">Corporate - $1,250/year</h3>
+                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 d-flex">
+                <div class="card" data-aos="zoom-in-left" data-aos-duration="1000">
+                    <div class="card-body">
+                        <h3 class="card-title">Executive - $2,500/year</h3>
+                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 d-flex">
+                <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
+                    <div class="card-body">
+                        <h3 class="card-title">Silver - $5,000/year</h3>
+                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 d-flex">
+                <div class="card" data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="card-body">
+                        <h3 class="card-title">Gold</h3>
+                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 d-flex">
+                <div class="card" data-aos="zoom-in-left" data-aos-duration="1000">
+                    <div class="card-body">
+                        <h3 class="card-title">Emerald & Platinum</h3>
+                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- Why Join End -->
+<!-- Membership Cards end -->
 
-<!-- Membership Values Start -->
-<section class="section_block membership_values">
-    <div class="container">
-        <div class="row gy-5 gy-md-0 gx-lg-5">
-            <div class="col-md-4 col-lg-4 d-flex">
-                <div class="card border_p" data-aos="zoom-in-right" data-aos-duration="1000">
-                    <div class="card-body">
-                        <img src="assets/web/images//member_1.png" alt="member" class="img-icon">
-                        <p class="card-text">Gain VIP access to key decision makers</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-4 d-flex">
-                <div class="card border_s" data-aos="zoom-in" data-aos-duration="1000">
-                    <div class="card-body">
-                        <img src="assets/web/images//member_2.png" alt="member" class="img-icon">
-                        <p class="card-text">Increase profit margins by saving retirement plans</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-4 d-flex">
-                <div class="card border_b" data-aos="zoom-in-left" data-aos-duration="1000">
-                    <div class="card-body">
-                        <img src="assets/web/images//member_3.png" alt="member" class="img-icon">
-                        <p class="card-text">Raise visibility of your brand among influential leaders</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Membership Values end -->
-
-<!-- Membership Levels Start -->
-<section class="section_block">
+<!-- Membership Form Start -->
+<section class="section_block membership_form">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <h2 class="section_title text-center" data-aos="fade-up" data-aos-duration="1000">chamber membership levels</h2>
-            </div>
-            <div class="col-12">
-                <img src="assets/web/images//membership_levels.png" alt="membership-levels" class="img-fluid" data-aos="fade-right" data-aos-duration="1000">
+            <div class="col-md-12">
+                <form action="#">
+                    <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
+                        <h2 class="section_title">company information</h2>
+                        <div class="row gy-4">
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="form-control" placeholder="Organization Name">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="form-control" placeholder="Phone Number">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="form-control" placeholder="Website Address">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="form-control" placeholder="Number of Employees">
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <input type="email" class="form-control" placeholder="Billing Email">
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <input type="text" class="form-control" placeholder="Billing Address">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="form-control" placeholder="Billing City">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="form-control" placeholder="Billing State">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="form-control" placeholder="Billing Zip (Billing zip code must match credit card billing address)">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="form-control" placeholder="Billing Country">
+                            </div>
+                            <div class="col-12">
+                                <div class="checkbox-border">
+                                    <h3 class="checkbox-title">Is the billing address the same as the Physical Address?</h3>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="yes">
+                                        <label class="form-check-label" for="yes">Yes</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="no">
+                                        <label class="form-check-label" for="no">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
+                        <h2 class="section_title">primary contact information</h2>
+                        <div class="row gy-4">
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="form-control" placeholder="First Name">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="form-control" placeholder="Last Number">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="form-control" placeholder="Title">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="form-control" placeholder="Phone">
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <input type="email" class="form-control" placeholder="Email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
+                        <h2 class="section_title">membership level</h2>
+                        <div class="row gy-4">
+                            <div class="col-12 col-md-12">
+                                <select class="form-select">
+                                    <option selected>Please Select A Member Level</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
+                        <h2 class="section_title">about your organization</h2>
+                        <div class="row gy-4">
+                            <div class="col-12 col-md-12">
+                                <select class="form-select">
+                                    <option selected>Please select a category that best describes your business</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <select class="form-select">
+                                    <option selected>Ownership Structure</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
+                        <h2 class="section_title m-0">reasons for joining</h2>
+                        <p class="col-md-7 mx-auto joining_text">What are your reasons for joining the CASTNET Chamber? You may select as many options as you would like.</p>
+                        <div class="row gy-4">
+                            <div class="col-12 col-md-12">
+                                <select class="form-select">
+                                    <option selected>Select Options</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center" data-aos="fade-right" data-aos-duration="1000">
+                        <button type="submit" class="btn btn-submit">submit</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </section>
-<!-- Membership Levels end -->
+<!-- Membership Form end -->
 
-<!-- Ready to Join Start -->
-<section class="section_block ready_to_join">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 mx-auto" data-aos="fade-right" data-aos-duration="1000">
-                <h2 class="section_title">ready to join?</h2>
-                <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
-                <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 gap-md-5">
-                    <a href="#" class="btn btn-primary">
-                        <span>join chamber</span>
-                        <img src="assets/web/images//icon_log.png" alt="login" class="img-login">
-                    </a>
-                    <a href="#" class="btn btn-contact">contact us</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Ready to Join end -->
 
 @stop

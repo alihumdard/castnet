@@ -174,14 +174,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mx-auto" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title">ready to join?</h2>
-                    <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
+                    <h2 class="section_title">{{ joinWidget()->title }}</h2>
+                    <p class="text">{{ joinWidget()->description }}</p>
                     <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 gap-md-5">
-                        <a href="#" class="btn btn-primary">
-                            <span>join chamber</span>
+                        <a href="{{ joinWidget()->button1_link }}" class="btn btn-primary">
+                            <span>{{ joinWidget()->button1 }}</span>
                             <img src="assets/web/images/icon_log.png" alt="login" class="img-login">
                         </a>
-                        <a href="#" class="btn btn-contact">contact us</a>
+                        <a href="{{ joinWidget()->button2_link }}" class="btn btn-contact">{{ joinWidget()->button2 }}</a>
                     </div>
                 </div>
             </div>
