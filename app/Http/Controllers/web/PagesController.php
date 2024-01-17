@@ -93,6 +93,127 @@ class PagesController extends Controller
         return view('web.pages.evaluation',get_defined_vars());
     }
 
+    public function rules_of_engagement(){
+        return view('web.pages.rules_of_engagement',get_defined_vars());
+    }
+
+    public function sectors(){
+        return view('web.pages.sectors',get_defined_vars());
+    }
+    public function construction(){
+        return view('web.pages.construction',get_defined_vars());
+    }
+    public function agriculture(){
+        return view('web.pages.agriculture',get_defined_vars());
+    }
+    public function supply_chain(){
+        return view('web.pages.supply_chain',get_defined_vars());
+    }
+    public function technology(){
+        return view('web.pages.technology',get_defined_vars());
+    }
+    public function natural_resources(){
+        return view('web.pages.natural_resources',get_defined_vars());
+    }
+    public function energy(){
+        return view('web.pages.energy',get_defined_vars());
+    }
+    public function textiles(){
+        return view('web.pages.textiles',get_defined_vars());
+    }
+    public function advocacy(){
+        return view('web.pages.advocacy',get_defined_vars());
+    }
+    public function small_businesses(){
+        return view('web.pages.small_businesses',get_defined_vars());
+    }
+    public function women(){
+        return view('web.pages.women',get_defined_vars());
+    }
+    public function veterans(){
+        return view('web.pages.veterans',get_defined_vars());
+    }
+    public function support_services(){
+        return view('web.pages.support_services',get_defined_vars());
+    }
+    public function international_events(){
+        return view('web.pages.international_events',get_defined_vars());
+    }
+    public function event_request(){
+        return view('web.pages.event_request',get_defined_vars());
+    }
+    public function event_calendar(){
+        return view('web.pages.event_calendar',get_defined_vars());
+    }
+
+    public function financial(){
+        return view('web.pages.financial',get_defined_vars());
+    }
+    public function grants(){
+        return view('web.pages.grants',get_defined_vars());
+    }
+    public function funding(){
+        return view('web.pages.funding',get_defined_vars());
+    }
+    public function partners_sponsors(){
+        return view('web.pages.partners_sponsors',get_defined_vars());
+    }
+    public function become_partner(){
+        return view('web.pages.become_partner',get_defined_vars());
+    }
+    public function become_sponsor(){
+        return view('web.pages.become_sponsor',get_defined_vars());
+    }
+    public function outreach(){
+        return view('web.pages.outreach',get_defined_vars());
+    }
+    public function chad(){
+        return view('web.pages.chad',get_defined_vars());
+    }
+    public function ghana(){
+        return view('web.pages.ghana',get_defined_vars());
+    }
+    public function south_africa(){
+        return view('web.pages.south_africa',get_defined_vars());
+    }
+    public function zimbabwe(){
+        return view('web.pages.zimbabwe',get_defined_vars());
+    }
+    public function cameroon(){
+        return view('web.pages.cameroon',get_defined_vars());
+    }
+    public function drc(){
+        return view('web.pages.drc',get_defined_vars());
+    }
+    public function cote_divoire(){
+        return view('web.pages.cote_divoire',get_defined_vars());
+    }
+    public function usa(){
+        return view('web.pages.usa',get_defined_vars());
+    }
+    public function opportunities(){
+        return view('web.pages.opportunities',get_defined_vars());
+    }
+    public function opportunities_agriculture(){
+        return view('web.pages.opportunities_agriculture',get_defined_vars());
+    }
+    public function opportunities_construction(){
+        return view('web.pages.opportunities_construction',get_defined_vars());
+    }
+    public function mining(){
+        return view('web.pages.mining',get_defined_vars());
+    }
+    public function rfx(){
+        return view('web.pages.rfx',get_defined_vars());
+    }
+    public function job_openings(){
+        return view('web.pages.job_openings',get_defined_vars());
+    }
+    public function careers(){
+        return view('web.pages.careers',get_defined_vars());
+    }
+
+
     public function join(){
         return view('web.pages.join');
     }
@@ -101,6 +222,7 @@ class PagesController extends Controller
         $section1Record = AboutPage::where('section', '6')->first();
         $section2Record = MembershipSection2::all();
         $widget = JoinWidget::first();
+        $membershipBanner = PageBanner::where('type', '5')->first();
         return view('web.pages.membership',get_defined_vars());
     }
 
@@ -111,6 +233,7 @@ class PagesController extends Controller
     public function team(){
         $executiveMembers = OurTeam::where('type', 1)->get();
         $staffMembers = OurTeam::where('type', 2)->get();
+        $teamBanner = PageBanner::where('type', '3')->first();
         return view('web.pages.team',get_defined_vars());
     }
 
@@ -118,6 +241,7 @@ class PagesController extends Controller
         $section4Record = AboutPage::where('section', '4')->first();
         $section5Record = AboutPage::where('section', '5')->first();
         $section6 = HomeSection3::first();
+        $whoWeAreBanner = PageBanner::where('type', '2')->first();
         return view('web.pages.whoweare',get_defined_vars());
     }
 }

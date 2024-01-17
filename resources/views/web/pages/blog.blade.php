@@ -31,9 +31,10 @@
     </section>
     <!-- Blogs End -->
 
+    @php $count=0; @endphp
     @foreach($blogs as $key=>$blog)
     <!-- Blog Items Start -->
-    @if($key/2 == 0)
+    @if($count%2 == 0)
     <section class="section_blogs white_ghost_bg">
         <div class="container">
             <div class="row">
