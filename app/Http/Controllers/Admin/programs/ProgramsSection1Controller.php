@@ -10,6 +10,7 @@ class ProgramsSection1Controller extends Controller
 {
     public function banner(){
         $banner = PageBanner::where('type',8)->first();
-        return view('admin.pages.programs.banner.index',compact('banner'));
+        $page = "Programs";
+        return view('admin.pages.banner',compact('banner','page'));
     }
 }

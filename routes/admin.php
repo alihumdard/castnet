@@ -17,12 +17,12 @@ use App\Http\Controllers\Admin\Sectors\SectorsCommonSection2Controller;
 use App\Http\Controllers\Admin\Events\EventSection1Controller;
 use App\Http\Controllers\Admin\AboutPage\AboutPageController;
 use App\Http\Controllers\Admin\Sectors\SectorController;
-use App\Http\Controllers\Admin\advocacy\AdvocacySection1Controller;
+use App\Http\Controllers\Admin\Advocacy\AdvocacySection1Controller;
 use App\Http\Controllers\Admin\AdvocacyCSection;
 use App\Http\Controllers\Admin\AdvocacySServicesController;
 use App\Http\Controllers\Admin\AdvocacyWomenController;
 use App\Http\Controllers\Admin\Who_we_are\WhoWeArePageController;
-use App\Http\Controllers\Admin\benefits\BenefitsSection1Controller;
+use App\Http\Controllers\Admin\Benefits\BenefitsSection1Controller;
 use App\Http\Controllers\Admin\Join\JoinSection1LevelController;
 use App\Http\Controllers\Admin\Evaluation\EvaluationSection1Controller;
 use App\Http\Controllers\Admin\Rules_of_engagement\RulesOfEngagementSection1Controller;
@@ -37,11 +37,11 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\apperenceController;
 use App\Http\Controllers\Admin\PageController;
-use App\Http\Controllers\Admin\programs\ProgramsSection1Controller;
-use App\Http\Controllers\Admin\small_businesses\SmallBusinessesSection1Controller;
-use App\Http\Controllers\Admin\support_services\SupportServicesSection1Controller;
-use App\Http\Controllers\Admin\veterans\VeteransSection1Controller;
-use App\Http\Controllers\Admin\women\WomenSection1Controller;
+use App\Http\Controllers\Admin\Programs\ProgramsSection1Controller;
+use App\Http\Controllers\Admin\Small_businesses\SmallBusinessesSection1Controller;
+use App\Http\Controllers\Admin\Support_services\SupportServicesSection1Controller;
+use App\Http\Controllers\Admin\Veterans\VeteransSection1Controller;
+use App\Http\Controllers\Admin\Women\WomenSection1Controller;
 
 Route::middleware('auth')->group(function() {
     Route::prefix('admin')->group(function () {

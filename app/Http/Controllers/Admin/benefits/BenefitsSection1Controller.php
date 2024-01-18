@@ -10,6 +10,7 @@ class BenefitsSection1Controller extends Controller
 {
     public function banner(){
         $banner = PageBanner::where('type',7)->first();
-        return view('admin.pages.benefits.banner.index',compact('banner'));
+        $page = "Benefits";
+        return view('admin.pages.banner',compact('banner','page'));
     }
 }
