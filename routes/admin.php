@@ -37,7 +37,10 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\apperenceController;
+use App\Http\Controllers\Admin\benefits\BenefitsSection2Controller;
+use App\Http\Controllers\Admin\benefits\BenefitsSection3Controller;
 use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\programs\ProgramsController;
 use App\Http\Controllers\Admin\Programs\ProgramsSection1Controller;
 use App\Http\Controllers\Admin\Small_businesses\SmallBusinessesSection1Controller;
 use App\Http\Controllers\Admin\Support_services\SupportServicesSection1Controller;
@@ -209,7 +212,12 @@ Route::middleware('auth')->group(function() {
 
         // benefits page routes start
         Route::get('/benefits-banner', [BenefitsSection1Controller::class, 'banner'])->name('benefits.banner');
+        Route::resource('benefits-section2', BenefitsSection2Controller::class);
+        Route::resource('benefits-section3', BenefitsSection3Controller::class);
+        Route::put('/benefitsSection1/{id}',[BenefitsSection1Controller::class,'updateSection1'])->name('benefitsSection1.udpate');
+        Route::put('/benefitsSection2/{id}',[BenefitsSection1Controller::class,'updateSection1'])->name('benefitsSection2.udpate');
         // benefits page routes end
+
 
         // ADVOCACY page routes start
         Route::get('/advocacy-banner', [AdvocacySection1Controller::class, 'banner'])->name('advocacy.banner');
@@ -236,5 +244,7 @@ Route::middleware('auth')->group(function() {
         //SUPPORT SERVICES page routes end
 
         Route::get('programs-banner',[ProgramsSection1Controller::class,'banner'])->name('programs.banner');
+        Route::resource('programs', ProgramsController::class);
+        Route::put('/programSection1/{id}',[ProgramsSection1Controller::class,'updateSection1'])->name('programsSection1.udpate');
     });
 });

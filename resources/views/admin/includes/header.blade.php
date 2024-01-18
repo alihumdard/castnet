@@ -462,7 +462,7 @@
                     {{--  Join Page End  --}}
 
                     {{--  Benefits Page Start  --}}
-                    <li class="nav-item  {{(request()->routeIs(['benefits.banner'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item  {{(request()->routeIs(['benefits.banner','benefits-section2.index','benefits-section3.index','benefits-section2.create','benefits-section3.create','benefits-section2.edit','benefits-section3.edit'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -478,13 +478,13 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="{{ route('benefits-section2.index') }}" class="nav-link {{(request()->routeIs('benefits-section2.index','benefits-section2.create','benefits-section2.edit')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 1</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="{{ route('benefits-section3.index') }}" class="nav-link {{(request()->routeIs('benefits-section3.index','benefits-section3.create','benefits-section3.edit')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 2</p>
                                 </a>
@@ -494,7 +494,7 @@
                     {{--  Benefits Page End  --}}
 
                     {{--  Programs Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['programs.banner'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['programs.banner','programs.index','programs.create','programs.edit'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -510,7 +510,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('programs.banner') }}" class="nav-link {{(request()->routeIs('programs.banner')) ? 'active' : ''}}">
+                                <a href="{{ route('programs.index') }}" class="nav-link {{(request()->routeIs('programs.index','programs.create','programs.edit')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 1</p>
                                 </a>
