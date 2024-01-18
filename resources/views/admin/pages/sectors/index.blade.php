@@ -31,6 +31,7 @@
                               <th>#</th>
                               <th>Title</th>
                               <th>Image</th>
+                              <th>link</th>
                               <th>Action</th>
                             </tr>
                             </thead>
@@ -42,6 +43,7 @@
                                     <td>
                                         <img src="{{ asset('assets/web/images/' . $sector->image) }}" height="50" width="50">
                                     </td>
+                                    <td>{{ $sector->link }}</td>
                                     <td>
                                         <a href="{{ route('sectors.edit',$sector->id) }}"><i class="fa fa-edit"></i></a>
                                         <button class="btn-outline-danger delete_btn" data-url="/admin/sectors"

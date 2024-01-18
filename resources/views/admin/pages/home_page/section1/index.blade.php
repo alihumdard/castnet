@@ -1,9 +1,7 @@
 @extends('admin.layouts.default')
 @section('title', 'Section 1')
 @section('content')
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -19,8 +17,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
                 <div class="col-md-12">
@@ -28,7 +24,6 @@
                         <div class="card-header">
                             <a href="{{ route('homesection1.create') }}" class="btn btn-sm btn-primary" style="float: right;">Add Section</a>
                         </div>
-                        <!-- /.card-header -->
                         <div class="card-body">
                           <table id="example1" class="table table-bordered table-striped">
                             <thead>
@@ -61,9 +56,7 @@
                             </tbody>
                           </table>
                         </div>
-                        <!-- /.card-body -->
-                      </div>
-          
+                    </div>
                 </div>
             </div>
         </div>

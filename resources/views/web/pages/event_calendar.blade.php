@@ -76,30 +76,14 @@
                             </div>
                         </div>
                     </form>
+                    @foreach($items as $item)
                     <div class="event_box">
-                        <h3 class="event_title">CHiPs for Kids Toy Drive at Plaza West Covina</h3>
-                        <p class="event_meta">01 December 2023 at 11:00 am - 7:00 pm PT</p>
-                        <p class="event_desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        <h3 class="event_title">{{ $item->title }}</h3>
+                        <p class="event_meta">{{ $item->event_time }}</p>
+                        <p class="event_desc">{!! $item->description !!}</p>
                         <a href="#" class="btn btn-primary">Community Events</a>
                     </div>
-                    <div class="event_box">
-                        <h3 class="event_title">Holiday VIP Reception</h3>
-                        <p class="event_meta">01 December 2023 at 11:00 am - 7:00 pm PT</p>
-                        <p class="event_desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                        <a href="#" class="btn btn-primary">Community Events</a>
-                    </div>
-                    <div class="event_box">
-                        <h3 class="event_title">Women in Leadership</h3>
-                        <p class="event_meta">01 December 2023 at 11:00 am - 7:00 pm PT</p>
-                        <p class="event_desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                        <a href="#" class="btn btn-primary">Community Events</a>
-                    </div>
-                    <div class="event_box">
-                        <h3 class="event_title">Social Media Essentials For Business</h3>
-                        <p class="event_meta">01 December 2023 at 11:00 am - 7:00 pm PT</p>
-                        <p class="event_desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                        <a href="#" class="btn btn-primary">Community Events</a>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -111,14 +95,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 mx-auto" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title">Would you like to submit an event to our calendar?</h2>
-                    <p class="text col-md-10 mx-auto">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
+                    <h2 class="section_title">{{ $widget->title }}</h2>
+                    <p class="text col-md-10 mx-auto">{{ $widget->description }}</p>
                     <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3">
-                        <a href="#" class="btn btn-primary">
-                            <span>Global Event Calendar Request</span>
+                        <a href="{{ $widget->button1_link }}" class="btn btn-primary">
+                            <span>{{ $widget->button1 }}</span>
                         </a>
-                        <a href="#" class="btn btn-primary">
-                            <span>Community Calendar Request</span>
+                        <a href="{{ $widget->button2_link }}" class="btn btn-primary">
+                            <span>{{ $widget->button2 }}</span>
                         </a>
                     </div>
                 </div>

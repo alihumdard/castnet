@@ -22,7 +22,7 @@
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-body">
-                            <form action="{{ route('sectors.store') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('sectors.store') }}" id="sectors" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
@@ -32,9 +32,15 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="form-group">
+                                        <div class="form-group errorshow">
                                             <label for="prin_title">Image</label>
                                             <input type="file" name="image" class="form-control" id="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">Link</label>
+                                            <input type="link" name="link" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -49,3 +55,28 @@
         </div>
     </div>
 @stop
+@push('scripts')
+<script>
+    $('#sectors').validate({ 
+        rules: {
+            title: {
+                required: true,
+            },
+            image: {
+                required: true,
+            },
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.errorshow').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        }
+    });
+</script>
+@endpush

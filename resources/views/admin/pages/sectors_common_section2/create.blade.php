@@ -26,7 +26,7 @@
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-body">
-                            <form action="{{ route('sector-c2.store')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('sector-c2.store')}}" id="common" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-2">
                                     <div class="col-sm-8">
@@ -61,3 +61,31 @@
         </div>
     </div>
 @stop
+@push('scripts')
+<script>
+    $('#common').validate({ 
+        rules: {
+            title: {
+                required: true,
+            },
+            image: {
+                required: true,
+            },
+            description: {
+                required: true,
+            },
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.errorshow').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        }
+    });
+</script>
+@endpush

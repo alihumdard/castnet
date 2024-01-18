@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('title', 'About Banner')
+@section('title', 'Membership')
 @section('content')
     <div class="content-wrapper">
         <div class="content-header">
@@ -53,3 +53,25 @@
         </div>
     </div>
 @stop
+@push('scripts')
+<script>
+    $('#membership').validate({ 
+        rules: {
+            heading: {
+                required: true,
+            },
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.errorshow').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        }
+    });
+</script>
+@endpush

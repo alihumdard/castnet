@@ -45,7 +45,7 @@ class SectorsCommonSection2Controller extends Controller
         return view('admin.pages.sectors_common_section2.index',get_defined_vars());
     }
 
-    public function enery(){
+    public function energy(){
         $section2 = SectorCommonSection2::where('type',6)->first();
         $page = "Energy";
         $sn = "Section 2";

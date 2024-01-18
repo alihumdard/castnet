@@ -19,9 +19,9 @@ class WidgetsController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'button1' => $request->button1,
-            'button1_link' => $request->button1link,
+            'button1_link' => $request->button1_link,
             'button2' => $request->button2,
-            'button2_link' => $request->button2link,
+            'button2_link' => $request->button2_link,
         ];
         $joinWidget->update($data);
         return redirect()->back()->with('success', "Data Updated Successfully");
@@ -37,10 +37,10 @@ class WidgetsController extends Controller
         $data = [
             'title' => $request->title,
             'description' => $request->description,
-            'button1' => $event->button1,
-            'button1_link' => $event->button1_link,
-            'button2' => $event->button2,
-            'button2_link' => $event->button2_link,
+            'button1' => $request->button1,
+            'button1_link' => $request->button1_link,
+            'button2' => $request->button2,
+            'button2_link' => $request->button2_link,
         ];
         $event->update($data);
         return redirect()->back()->with('success', "Data Updated Successfully");

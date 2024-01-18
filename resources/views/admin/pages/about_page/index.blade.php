@@ -39,7 +39,7 @@
                                 <div class="row mb-2">
                                     <div class="col-md-12">
                                         <div class="card-body" style="padding: 0px">
-                                            <textarea id="summernote" name="description">{!! $section->description !!}</textarea>
+                                            <textarea class="summernote" name="description">{!! $section->description !!}</textarea>
                                         </div>
                                     </div>
                                 </div>

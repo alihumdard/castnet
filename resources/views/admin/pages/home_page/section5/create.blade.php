@@ -1,9 +1,7 @@
 @extends('admin.layouts.default')
 @section('title', 'Home Section 5')
 @section('content')
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -19,14 +17,12 @@
                 </div>
             </div>
         </div>
-
-        <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-body">
-                            <form action="{{ route('homesection5.store')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('homesection5.store')}}" id="section5" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-2">
                                     <div class="col-sm-12">
@@ -48,7 +44,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
-                                        <div class="form-group errorshow">
+                                        <div class="form-group">
                                             <label for="prin_title">Description</label>
                                             <textarea name="description" class="summernote form-control"></textarea>
                                         </div>
@@ -66,3 +62,31 @@
         </div>
     </div>
 @stop
+@push('scripts')
+<script>
+    $('#section5').validate({ 
+        rules: {
+            title: {
+                required: true,
+            },
+            date: {
+                required: true,
+            },
+            image: {
+                required: true,
+            },
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.errorshow').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        }
+    });
+</script>
+@endpush

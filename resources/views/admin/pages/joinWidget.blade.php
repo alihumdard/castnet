@@ -55,7 +55,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group errorshow">
                                         <label>Button 1 Link</label>
-                                        <input type="text" name="button1link" placeholder="Enter Button1 Link" pattern="^#|https?://\S+$" class="form-control" id="" value="{{ $joinWidgetData -> button1_link }}">
+                                        <input type="text" name="button1_link" placeholder="Enter Button1 Link" pattern="^#|https?://\S+$" class="form-control" id="" value="{{ $joinWidgetData -> button1_link }}">
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group errorshow">
                                         <label>Button 2 Link</label>
-                                        <input type="text" name="button2link" placeholder="Enter Button2 Link" pattern="^#|https?://\S+$" class="form-control" id="" value="{{ $joinWidgetData -> button2_link }}">
+                                        <input type="text" name="button2_link" placeholder="Enter Button2 Link" pattern="^#|https?://\S+$" class="form-control" id="" value="{{ $joinWidgetData -> button2_link }}">
                                     </div>
                                 </div>
                             </div>

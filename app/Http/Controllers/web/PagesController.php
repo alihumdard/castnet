@@ -18,11 +18,17 @@ use App\Models\HomeSection4Detail;
 use App\Models\HomeSectionSponser;
 use App\Models\HomeSectionFeature;
 use App\Models\HomeSection9Feature;
+use App\Models\InternationalEvent;
+use App\Models\OurEventCalenderModel;
+use App\Models\SectorCommonSection1;
+use App\Models\SectorCommonSection2;
+use App\Models\SectorModel;
 use App\Models\AboutPage;
 use App\Models\PageBanner;
 use App\Models\OurTeam;
 use App\Models\Banner;
 use App\Models\MembershipSection2;
+use App\Models\CommonEventSection;
 use App\Models\JoinWidget;
 use App\Models\MyBlog;
 use App\Models\EventModel;
@@ -55,10 +61,10 @@ class PagesController extends Controller
     }
 
     public function aboutUs(){
-        $aboutBanner = PageBanner::where('type', '1')->first();
-        $section1Record = AboutPage::where('section', '1')->first();
-        $section2Record = AboutPage::where('section', '2')->first();
-        $section3Record = AboutPage::where('section', '3')->first();
+        $aboutBanner = PageBanner::where('type',1)->first();
+        $section1Record = AboutPage::where('section',1)->first();
+        $section2Record = AboutPage::where('section',2)->first();
+        $section3Record = AboutPage::where('section',3)->first();
         return view('web.pages.about',get_defined_vars());
     }
 
@@ -71,20 +77,18 @@ class PagesController extends Controller
     }
 
     public function blog(){
+        $blogBanner = PageBanner::where('type',28)->first();
         $blogs = MyBlog::all();
         return view('web.pages.blog',get_defined_vars());
     }
     public function events(){
-        // $blogData = EventModel::all();
-        $section1Record = EventModel::where('section', '1')->first();
-        $section3Record = EventModel::where('section', '3')->first();
-
+        $eventsBanner = PageBanner::where('type',24)->first();
+        $section1Record = EventModel::where('section',1)->first();
+        $section3Record = EventModel::where('section',3)->first();
         $events = OurEventModel::all();
 
         return view('web.pages.events',get_defined_vars());
     }
-
-
 
     public function evaluation(){
         $evaluationBanner = PageBanner::where('type', '9')->first();
@@ -100,27 +104,50 @@ class PagesController extends Controller
     }
 
     public function sectors(){
+        $sectorBanner = PageBanner::where('type', 11)->first();
+        $sectors = SectorModel::get();
         return view('web.pages.sectors',get_defined_vars());
     }
     public function construction(){
+        $consBanner = PageBanner::where('type', 12)->first();
+        $section1 = SectorCommonSection1::where('type',1)->first();
+        $section2 = SectorCommonSection2::where('type',1)->first();
         return view('web.pages.construction',get_defined_vars());
     }
     public function agriculture(){
+        $agriBanner = PageBanner::where('type', 13)->first();
+        $section1 = SectorCommonSection1::where('type',2)->first();
+        $section2 = SectorCommonSection2::where('type',2)->first();
         return view('web.pages.agriculture',get_defined_vars());
     }
     public function supply_chain(){
+        $supplyBanner = PageBanner::where('type', 14)->first();
+        $section1 = SectorCommonSection1::where('type',3)->first();
+        $section2 = SectorCommonSection2::where('type',3)->first();
         return view('web.pages.supply_chain',get_defined_vars());
     }
     public function technology(){
+        $tecBanner = PageBanner::where('type', 15)->first();
+        $section1 = SectorCommonSection1::where('type',4)->first();
+        $section2 = SectorCommonSection2::where('type',4)->first();
         return view('web.pages.technology',get_defined_vars());
     }
     public function natural_resources(){
+        $natBanner = PageBanner::where('type', 16)->first();
+        $section1 = SectorCommonSection1::where('type',5)->first();
+        $section2 = SectorCommonSection2::where('type',5)->first();
         return view('web.pages.natural_resources',get_defined_vars());
     }
     public function energy(){
+        $energyBanner = PageBanner::where('type', 17)->first();
+        $section1 = SectorCommonSection1::where('type',6)->first();
+        $section2 = SectorCommonSection2::where('type',6)->first();
         return view('web.pages.energy',get_defined_vars());
     }
     public function textiles(){
+        $textBanner = PageBanner::where('type', 18)->first();
+        $section1 = SectorCommonSection1::where('type',7)->first();
+        $section2 = SectorCommonSection2::where('type',7)->first();
         return view('web.pages.textiles',get_defined_vars());
     }
     public function advocacy(){
@@ -139,18 +166,26 @@ class PagesController extends Controller
         return view('web.pages.support_services',get_defined_vars());
     }
     public function international_events(){
+        $interBanner = PageBanner::where('type', 27)->first();
+        $events = InternationalEvent::get();
+        $widget = CommonEventSection::first();
         return view('web.pages.international_events',get_defined_vars());
     }
     public function event_request(){
+        $erBanner = PageBanner::where('type', 26)->first();
         return view('web.pages.event_request',get_defined_vars());
     }
     public function event_calendar(){
+        $ecBanner = PageBanner::where('type', 25)->first();
+        $widget = CommonEventSection::first();
+        $items = OurEventCalenderModel::get();
         return view('web.pages.event_calendar',get_defined_vars());
     }
 
     public function financial(){
         return view('web.pages.financial',get_defined_vars());
     }
+    
     public function grants(){
         return view('web.pages.grants',get_defined_vars());
     }

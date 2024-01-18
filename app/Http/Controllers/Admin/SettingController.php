@@ -43,7 +43,6 @@ class SettingController extends Controller
             'header_logo' => $header_logo,
             'popup_logo' => $popup_logo,
             'popup_description' => $request->description,
-            'popup_link' => $request->popup_link,
             'footer_logo' => $footer_logo,
             'email' => $request->email,
             'phone' => $request->phone,

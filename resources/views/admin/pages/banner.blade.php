@@ -22,12 +22,12 @@
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-body">
-                            <form action="{{ route('banner.update',$banner->id) }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('banner.update',$banner->id) }}" method="post" id="banner" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
-                                        <div class="form-group">
+                                        <div class="form-group errorshow">
                                             <label for="prin_title">Banner Image <span class="text-danger">(1920 x 546 )</span></label>
                                             <input type="file" name="image" class="form-control" id="">
                                             <input type="hidden" name="type" value="1">
@@ -48,3 +48,25 @@
         </div>
     </div>
 @stop
+@push('scripts')
+<script>
+    $('#banner').validate({ 
+        rules: {
+            image: {
+                required: true,
+            },
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.errorshow').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        }
+    });
+</script>
+@endpush

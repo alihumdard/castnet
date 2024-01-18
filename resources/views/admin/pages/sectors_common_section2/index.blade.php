@@ -1,6 +1,9 @@
 @extends('admin.layouts.default')
 @section('title',$page)
 @section('content')
+<style>
+    .note-editor.note-airframe .note-editing-area .note-editable,.note-editor.note-frame .note-editing-area .note-editable{word-wrap:break-word;overflow:auto;padding:10px;background-color: #0c2038;}
+</style>
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
@@ -29,7 +32,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="prin_title">Title</label>
-                                            <input type="text" name="title" class="form-control" placeholder="Enter Title...">
+                                            <input type="text" name="title" class="form-control" value="{{$section2->title}}" placeholder="Enter Title...">
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
