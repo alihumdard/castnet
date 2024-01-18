@@ -1,33 +1,30 @@
 <?php
 
-namespace App\Http\Controllers\Admin\benefits;
+namespace App\Http\Controllers\Admin\programs;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\ProgramSection1;
+use App\Models\ProgramSection2;
 use Illuminate\Support\Facades\File;
-use App\Models\benefits_page_section;
-use App\Models\benefits_pagetop_section;
 
-
-class BenefitsSection2Controller extends Controller
+class ProgramsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
-{
-    $section1Benefits = benefits_pagetop_section::where('type', 'section1')->first();
-    $section2Benefits = benefits_page_section::where('type', 'section1')->get();
+    {
+        $programsSection1 = ProgramSection1::first();
+        $programsSection2 = ProgramSection2::all();
 
-    return view('admin.pages.benefits.section2.index', [
-        'section1Benefits' => $section1Benefits,
-        'section2Benefits' => $section2Benefits,
-    ]);
-}
-
+        return view('admin.pages.programs.section1.index', [
+            'programsSection1' => $programsSection1,
+            'programsSection2' => $programsSection2,
+        ]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -36,7 +33,7 @@ class BenefitsSection2Controller extends Controller
      */
     public function create()
     {
-        return view('admin.pages.benefits.section2.create');
+        return view('admin.pages.programs.section1.create');
     }
 
     /**
@@ -56,14 +53,13 @@ class BenefitsSection2Controller extends Controller
         $file = time().'.'.$request->image->extension();
         $request->image->move(public_path('assets/web/images'), $file);
 
-        benefits_page_section::create([
+        ProgramSection2::create([
             'image' => $file,
             'title' => $request->input('title'),
             'description' => $request->input('description'),
-            'type' =>'section1',
         ]);
 
-        return redirect()->route('benefits-section2.index');
+        return redirect()->route('programs.index');
     }
 
     /**
@@ -85,8 +81,8 @@ class BenefitsSection2Controller extends Controller
      */
     public function edit($id)
     {
-        $section2 = benefits_page_section::findOrFail($id);
-        return view('admin.pages.benefits.section2.edit',compact('section2'));
+        $section2 = ProgramSection2::findOrFail($id);
+        return view('admin.pages.programs.section1.edit',compact('section2'));
     }
 
     /**
@@ -98,7 +94,7 @@ class BenefitsSection2Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = benefits_page_section::findOrFail($id);
+        $item = ProgramSection2::findOrFail($id);
 
 
         $request->validate([
@@ -118,12 +114,13 @@ class BenefitsSection2Controller extends Controller
             'image' => $file,
             'title' => $request->title,
             'description' => $request->description,
-            'type' => 'section1',
+            'type' => 'SSAdvocacy',
         ];
         $item->update($data);
 
-        return redirect()->route('benefits-section2.index')->with('success', 'Item updated successfully.');
+        return redirect()->route('programs.index')->with('success', 'Item updated successfully.');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -133,12 +130,12 @@ class BenefitsSection2Controller extends Controller
      */
     public function destroy($id)
     {
-        $path = benefits_page_section::where('id',$id)->first()->image;
+        $path = ProgramSection2::where('id',$id)->first()->image;
         if(isset($path)){
             $path = public_path().'/assets/web/images/'.$path;
             File::delete($path);
         }
-        benefits_page_section::destroy($id);
+        ProgramSection2::destroy($id);
         return response()->json(array(
             'data' => true,
             'message' => 'Item has been deleted.',
