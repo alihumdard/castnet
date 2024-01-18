@@ -31,6 +31,7 @@ class EvaluationSection1Controller extends Controller
 
     public function banner(){
         $banner = PageBanner::where('type',10)->first();
-        return view('admin.pages.evaluation.banner',compact('banner'));
+        $page = "Evaluation";
+        return view('admin.pages.banner',compact('banner','page'));
     }
 }

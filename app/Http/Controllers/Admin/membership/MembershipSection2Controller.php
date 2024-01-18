@@ -138,6 +138,7 @@ class MembershipSection2Controller extends Controller
 
     public function banner(){
         $banner = PageBanner::where('type',5)->first();
-        return view('admin.pages.membership.banner',compact('banner'));
+        $page = "Membership";
+        return view('admin.pages.banner',compact('banner','page'));
     }
 }

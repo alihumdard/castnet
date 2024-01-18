@@ -13,12 +13,12 @@ use App\Http\Controllers\Admin\HomePage\HomePageSection9Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageBannerController;
 use App\Http\Controllers\Admin\Event_calender\EventCalenderController;
 use App\Http\Controllers\Admin\Sectors\SectorsCommonSection1Controller;
+use App\Http\Controllers\Admin\Sectors\SectorsCommonSection2Controller;
 use App\Http\Controllers\Admin\Events\EventSection1Controller;
 use App\Http\Controllers\Admin\AboutPage\AboutPageController;
 use App\Http\Controllers\Admin\Sectors\SectorController;
 use App\Http\Controllers\Admin\advocacy\AdvocacySection1Controller;
 use App\Http\Controllers\Admin\Who_we_are\WhoWeArePageController;
-use App\Http\Controllers\Admin\Join\JoinSection1Controller;
 use App\Http\Controllers\Admin\benefits\BenefitsSection1Controller;
 use App\Http\Controllers\Admin\Join\JoinSection1LevelController;
 use App\Http\Controllers\Admin\Evaluation\EvaluationSection1Controller;
@@ -123,7 +123,7 @@ Route::middleware('auth')->group(function() {
         // ---- Join page routes start ----
 
         Route::resource('joinSection1', JoinSection1LevelController::class);
-        Route::get('/join-banner', [JoinSection1Controller::class, 'banner'])->name('join.banner');
+        Route::get('/join-banner', [JoinSection1LevelController::class, 'banner'])->name('join.banner');
         // ---- Join page routes end ----
 
         // ---- MEMBERSHIP EVALUATION page routes start ----
@@ -154,76 +154,75 @@ Route::middleware('auth')->group(function() {
         // ------- Construction page work start --------
         Route::get('/sector-c1cons-banner', [SectorsCommonSection1Controller::class, 'construction_banner'])->name('sector-c1cons.banner');
         Route::get('/sector-c1cons-section1', [SectorsCommonSection1Controller::class, 'construction'])->name('sector-c1cons.section1');
+        Route::get('/sector-c2cons-section2', [SectorsCommonSection2Controller::class, 'construction'])->name('sector-c2cons.section2');
         // ------- Sectors page work end --------
 
         // ------- Agriculture page work start --------
         Route::get('/sector-c1agr-banner', [SectorsCommonSection1Controller::class, 'agriculture_banner'])->name('sector-c1agr.banner');
         Route::get('/sector-c1agr-section1', [SectorsCommonSection1Controller::class, 'agriculture'])->name('sector-c1agr.section1');
+        Route::get('/sector-c2agr-section2', [SectorsCommonSection2Controller::class, 'agriculture'])->name('sector-c2agr.section2');
         // ------- Sectors page work end --------
         
         // ------- Supply Chain page work start --------
         Route::get('/sector-c1sc-banner', [SectorsCommonSection1Controller::class, 'supply_banner'])->name('sector-c1sc.banner');
         Route::get('/sector-c1sc-section1', [SectorsCommonSection1Controller::class, 'supply'])->name('sector-c1sc.section1');
+        Route::get('/sector-c2sc-section2', [SectorsCommonSection2Controller::class, 'supply'])->name('sector-c2sc.section2');
         // ------- Supply Chain page work end --------
 
         // ------- Technology page work start --------
         Route::get('/sector-c1tec-banner', [SectorsCommonSection1Controller::class, 'technology_banner'])->name('sector-c1tec.banner');
         Route::get('/sector-c1tec-section1', [SectorsCommonSection1Controller::class, 'technology'])->name('sector-c1tec.section1');
+        Route::get('/sector-c2tec-section2', [SectorsCommonSection2Controller::class, 'technology'])->name('sector-c2tec.section2');
         // ------- Technology page work end --------
 
         // ------- Natural Resources page work start --------
         Route::get('/sector-c1nat-banner', [SectorsCommonSection1Controller::class, 'natural_banner'])->name('sector-c1nat.banner');
         Route::get('/sector-c1nat-section1', [SectorsCommonSection1Controller::class, 'natural'])->name('sector-c1nat.section1');
+        Route::get('/sector-c2nat-section2', [SectorsCommonSection2Controller::class, 'natural'])->name('sector-c2nat.section2');
         // ------- Natural Resources page work end --------
 
         // ------- Energy page work start --------
         Route::get('/sector-c1energy-banner', [SectorsCommonSection1Controller::class, 'energy_banner'])->name('sector-c1energy.banner');
         Route::get('/sector-c1energy-section1', [SectorsCommonSection1Controller::class, 'energy'])->name('sector-c1energy.section1');
+        Route::get('/sector-c2energy-section2', [SectorsCommonSection2Controller::class, 'energy'])->name('sector-c2energy.section2');
         // ------- Energy page work end --------
 
         // ------- Natural Resources page work start --------
         Route::get('/sector-c1text-banner', [SectorsCommonSection1Controller::class, 'textiles_banner'])->name('sector-c1text.banner');
         Route::get('/sector-c1text-section1', [SectorsCommonSection1Controller::class, 'textiles'])->name('sector-c1text.section1');
+        Route::get('/sector-c2text-section2', [SectorsCommonSection2Controller::class, 'textiles'])->name('sector-c2text.section2');
         // ------- Natural Resources page work end --------
 
         ///**-- Common Functions --**///
         Route::put('/sector-c1-update/{id}', [SectorsCommonSection1Controller::class, 'update'])->name('sector-c1.update');
         Route::put('/c-section1/{id}', [AboutPageController::class, 'update'])->name('c-section1.update');
         Route::put('/banner-update/{id}', [BannerController::class, 'update'])->name('banner.update');
-
+        Route::resource('sector-c2', SectorsCommonSection2Controller::class);
+        Route::put('/sector-c2-updation/{id}', [SectorsCommonSection2Controller::class, 'updation'])->name('sector-c2.updation');
 
         // benefits page routes start
         Route::get('/benefits-banner', [BenefitsSection1Controller::class, 'banner'])->name('benefits.banner');
         // benefits page routes end
 
-
         // ADVOCACY page routes start
         Route::get('/advocacy-banner', [AdvocacySection1Controller::class, 'banner'])->name('advocacy.banner');
         // ADVOCACY page routes end
-
-
 
         //Small Business routes start
         Route::get('/smallBusiness-banner', [SmallBusinessesSection1Controller::class, 'banner'])->name('smallBusiness.banner');
         //Small Business routes end
 
-
         //WOMEN ADVOCACY page routes start
         Route::get('/womenAdvocacy-banner', [WomenSection1Controller::class, 'banner'])->name('womenAdvocacy-banner');
         //WOMEN ADVOCACY page routes end
-
 
         //VETERANS ADVOCACY page routes start
         Route::get('/veterans-banner', [VeteransSection1Controller::class, 'banner'])->name('veterans-banner');
         //VETERANS ADVOCACY page routes end
 
-
-
         //SUPPORT SERVICES page routes start
         Route::get('/supportServices-banner', [SupportServicesSection1Controller::class, 'banner'])->name('supportServices-banner');
         //SUPPORT SERVICES page routes end
-
-
 
         Route::get('programs-banner',[ProgramsSection1Controller::class,'banner'])->name('programs.banner');
     });

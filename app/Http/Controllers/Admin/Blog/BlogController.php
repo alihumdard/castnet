@@ -127,6 +127,7 @@ class BlogController extends Controller
 
     public function banner(){
         $banner = PageBanner::where('type',28)->first();
-        return view('admin.pages.blog.banner',compact('banner'));
+        $page = "Blog";
+        return view('admin.pages.banner',compact('banner','page'));
     }
 }

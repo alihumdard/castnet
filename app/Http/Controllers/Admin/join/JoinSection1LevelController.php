@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\join;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Membership_Level;
+use App\Models\PageBanner;
 
 class JoinSection1LevelController extends Controller
 {
@@ -109,5 +110,11 @@ class JoinSection1LevelController extends Controller
             'message' => 'Feature has been deleted.',
             'status' => 'success',
         ));
+    }
+
+    public function banner(){
+        $banner = PageBanner::where('type',6)->first();
+        $page = "Join";
+        return view('admin.pages.banner',compact('banner','page'));
     }
 }

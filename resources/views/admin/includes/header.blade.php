@@ -466,7 +466,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
-                                MEMBERSHIP BENEFITS
+                                MEMBERSHIP BENE..
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -498,7 +498,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
-                                MEMBERSHIP PROGRAMS
+                                MEMBERSHIP PROG..
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -622,7 +622,7 @@
                     {{--  Sectors Page End  --}}
 
                     {{--  Construction Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['sector-c1cons*'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['sector-c1cons*','sector-c2cons.section2'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -643,12 +643,18 @@
                                     <p>Section 1</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('sector-c2cons.section2') }}" class="nav-link {{(request()->routeIs('sector-c2cons.section2')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 2</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     {{--  Construction Page End  --}}
 
                     {{--  Agriculture Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['sector-c1agr*'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['sector-c1agr*','sector-c2agr.section2'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -669,12 +675,18 @@
                                     <p>Section 1</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('sector-c2agr.section2') }}" class="nav-link {{(request()->routeIs('sector-c2agr.section2')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 2</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     {{--  Agriculture Page End  --}}
 
                     {{--  supply chain Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['sector-c1sc*'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['sector-c1sc*','sector-c2sc.section2'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -695,12 +707,18 @@
                                     <p>Section 1</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('sector-c2sc.section2') }}" class="nav-link {{(request()->routeIs('sector-c2sc.section2')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 2</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     {{--  supply chain Page End  --}}
 
                     {{--  Technology Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['sector-c1tec*'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['sector-c1tec*','sector-c2tec.section2'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -721,12 +739,18 @@
                                     <p>Section 1</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('sector-c2tec.section2') }}" class="nav-link {{(request()->routeIs('sector-c2tec.section2')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 2</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     {{--  Technology Page End  --}}
 
                     {{--  Natural Resources Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['sector-c1nat*'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['sector-c1nat*','sector-c2nat.section2'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -747,12 +771,18 @@
                                     <p>Section 1</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('sector-c2nat.section2') }}" class="nav-link {{(request()->routeIs('sector-c2nat.section2')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 2</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     {{--  Natural Resources Page End  --}}
 
                     {{--  Energy Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['sector-c1energy*'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['sector-c1energy*','sector-c2energy.section2'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -773,12 +803,18 @@
                                     <p>Section 1</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('sector-c2energy.section2') }}" class="nav-link {{(request()->routeIs('sector-c2energy.section2')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 2</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     {{--  Energy Page End  --}}
 
                     {{--  Textiles Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['sector-c1text*'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['sector-c1text*','sector-c2text.section2'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -797,6 +833,12 @@
                                 <a href="{{ route('sector-c1text.section1') }}" class="nav-link {{(request()->routeIs('sector-c1text.section1')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 1</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('sector-c2text.section2') }}" class="nav-link {{(request()->routeIs('sector-c2text.section2')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 2</p>
                                 </a>
                             </li>
                         </ul>

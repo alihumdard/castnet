@@ -16,6 +16,7 @@ class RulesOfEngagementSection1Controller extends Controller
 
     public function banner(){
         $banner = PageBanner::where('type',9)->first();
-        return view('admin.pages.rules_of_engagement.banner',compact('banner'));
+        $page = "Rules Of Engagement";
+        return view('admin.pages.banner',compact('banner','page'));
     }
 }

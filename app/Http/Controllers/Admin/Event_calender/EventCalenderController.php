@@ -108,6 +108,7 @@ class EventCalenderController extends Controller
 
     public function banner(){
         $banner = PageBanner::where('type',25)->first();
-        return view('admin.pages.event_calender.banner',compact('banner'));
+        $page = "Event Calender";
+        return view('admin.pages.banner',compact('banner','page'));
     }
 }
