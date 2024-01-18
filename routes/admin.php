@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\HomePage\HomePageBannerController;
 use App\Http\Controllers\Admin\Event_calender\EventCalenderController;
 use App\Http\Controllers\Admin\Sectors\SectorsCommonSection1Controller;
 use App\Http\Controllers\Admin\Sectors\SectorsCommonSection2Controller;
+use App\Http\Controllers\Admin\international_events\InternationalEventsController;
 use App\Http\Controllers\Admin\Events\EventSection1Controller;
 use App\Http\Controllers\Admin\AboutPage\AboutPageController;
 use App\Http\Controllers\Admin\Sectors\SectorController;
@@ -106,7 +107,7 @@ Route::middleware('auth')->group(function() {
         Route::get('/myBlog-banner', [BlogController::class, 'banner'])->name('myBlog.banner');
         // ---------My blog Page Routes End --------------
 
-        //---** My Events **---//
+        //---** Events **---//
         Route::get('/myEvent-banner', [EventSection1Controller::class, 'banner'])->name('myEvent.banner');
         Route::get('/myEvent-section1', [EventSection1Controller::class, 'section1'])->name('myEvent.section1');
         Route::get('/myEvent-section3', [EventSection1Controller::class, 'section3'])->name('myEvent.section3');
@@ -115,7 +116,10 @@ Route::middleware('auth')->group(function() {
 
         Route::resource('event-calender', EventCalenderController::class);
         Route::get('/event-calender-banner', [EventCalenderController::class, 'banner'])->name('event-calender.banner');
-        // ---------My Events Page Routes End --------------
+        
+        Route::resource('international_events', InternationalEventsController::class);
+        Route::get('/international_events-banner', [InternationalEventsController::class, 'banner'])->name('international_events.banner');
+        // --------- Events Page Routes End --------------
 
         // ---- Membership page routes start ----
         Route::resource('membershipSection2', MembershipSection2Controller::class);

@@ -1,10 +1,10 @@
 @extends('admin.layouts.default')
 @section('title', 'Home Banner')
 @section('content')
-{{--  @dd($record->banner)  --}}
-    <!-- Content Wrapper. Contains page content -->
+<style>
+    .note-editor.note-airframe .note-editing-area .note-editable,.note-editor.note-frame .note-editing-area .note-editable{word-wrap:break-word;overflow:auto;padding:10px;background-color: #0c2038;}
+</style>
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -20,8 +20,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
                 <div class="col-md-12">
@@ -100,6 +98,5 @@
                 </div>
             </div>
         </div>
-        <!-- /.content-wrapper -->
     </div>
 @stop

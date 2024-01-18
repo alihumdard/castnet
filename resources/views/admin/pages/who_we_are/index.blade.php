@@ -14,10 +14,7 @@
     .note-editor.note-airframe .note-editing-area .note-editable,.note-editor.note-frame .note-editing-area .note-editable{word-wrap:break-word;overflow:auto;padding:10px;background-color: #0c2038;}
 </style>
 @endif
-{{--  @dd($record->banner)  --}}
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -33,8 +30,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Main content start -->
         <div class="content">
             <div class="container-fluid">
                 <div class="col-md-12">
@@ -58,9 +53,8 @@
                                 @endif
                                 <div class="row mb-2">
                                     <div class="col-md-12">
-                                        <!-- /.card-header -->
                                         <div class="card-body" style="padding: 0px">
-                                            <textarea id="summernote" name="description">{!! $section->description !!}</textarea>
+                                            <textarea class="summernote" name="description">{!! $section->description !!}</textarea>
                                         </div>
                                     </div>
                                 </div>

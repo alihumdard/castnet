@@ -1,9 +1,7 @@
 @extends('admin.layouts.default')
 @section('title', 'Edit Section 1')
 @section('content')
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -19,14 +17,12 @@
                 </div>
             </div>
         </div>
-
-        <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-body">
-                            <form action="{{ route('homesection1.update',$section1->id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('homesection1.update',$section1->id)}}" id="section1" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="row mb-2">
@@ -65,7 +61,7 @@
                                 </div>
                                 <div class="row mb-2">
                                     <div class="col-sm-12">
-                                        <div class="form-group">
+                                        <div class="form-group errorshow">
                                             <label>Description</label>
                                             <textarea class="form-control" name="description" rows="3" placeholder="Enter Description" style="resize: none;">{{ $section1->description }}
                                             </textarea>
@@ -83,3 +79,34 @@
         </div>
     </div>
 @stop
+@push('scripts')
+<script>
+    $('#section1').validate({ 
+        rules: {
+            heading: {
+                required: true,
+            },
+            description: {
+                required: true,
+            },
+            button: {
+                required: true,
+            },
+            buttonlink: {
+                required: true,
+            },
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.errorshow').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        }
+    });
+</script>
+@endpush

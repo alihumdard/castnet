@@ -22,7 +22,7 @@
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-body">
-                            <form action="{{ route('sectors.update',$sector->id) }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('sectors.update',$sector->id) }}" id="sectors" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="row mb-2">
@@ -41,6 +41,12 @@
                                     <div class="col-sm-3">
                                         <img src="{{ asset('assets/web/images/' . $sector->image) }}" alt="" width="120" height="90">
                                     </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">Link</label>
+                                            <input type="link" name="link" value="{{$sector->link}}" class="form-control">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-footer" style="background:none;">
                                     <button type="submit" class="btn btn-primary" style="float: right;">Save changes</button>
@@ -53,3 +59,25 @@
         </div>
     </div>
 @stop
+@push('scripts')
+<script>
+    $('#sectors').validate({ 
+        rules: {
+            title: {
+                required: true,
+            },
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.errorshow').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        }
+    });
+</script>
+@endpush

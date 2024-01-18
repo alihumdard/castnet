@@ -1,15 +1,12 @@
-{{--  @dd($settings[0]['header_logo']);  --}}
 @extends('admin.layouts.default')
-@section('title', 'settings')
+@section('title', 'Web Setting')
 @section('content')
 <div class="content-wrapper">
-  <!-- Content Header (Page header) -->
   <div class="content-header">
       <div class="container-fluid">
           <div class="row mb-2">
               <div class="col-sm-6">
-                  <h1 class="m-0">Update Web Setting</h1>
-                  
+                  <h1 class="m-0">Web Setting</h1>
               </div>
               <div class="col-sm-6">
                   <ol class="breadcrumb float-sm-right">
@@ -20,7 +17,6 @@
           </div>
       </div>
   </div>
-  <!-- Main content -->
   <div class="content">
       <div class="container-fluid">
         <div class="col-md-12">
@@ -72,19 +68,13 @@
                                 <textarea name="description" class="summernote form-control">{!! $setting->popup_description !!}</textarea>
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="form-group errorshow">
-                                <label>Popup Button link:</label>
-                                <input type="link" name="popup_link" placeholder="Enter Button link..." class="form-control" value="{{ $setting->popup_link }}">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <div class="form-group errorshow">
                                 <label>Email:</label>
                                 <input type="text" name="email" placeholder="Enter Email..." class="form-control" value="{{ $setting->email }}">
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <div class="form-group errorshow">
                                 <label>Phone:</label>
                                 <input type="text" name="phone" placeholder="Enter Phone..." class="form-control" value="{{ $setting->phone }}">

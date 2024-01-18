@@ -44,6 +44,7 @@ class SectorController extends Controller
         $data = [
             'title' => $request->title,
             'image' => $file,
+            'link' => $request->link,
         ];
         SectorModel::create($data);
         $message = 'Sector added successfully';
@@ -92,6 +93,7 @@ class SectorController extends Controller
         $data = [
             'title' => $request->title,
             'image' => $file,
+            'link' => $request->link,
         ];
         $sector->update($data);
         return redirect()->route('sectors.index')->with('success', "Data Updated Successfully");

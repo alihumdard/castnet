@@ -73,14 +73,14 @@ class SectorsCommonSection1Controller extends Controller
         return view('admin.pages.banner',get_defined_vars());
     }
 
-    public function enery(){
+    public function energy(){
         $section1 = SectorCommonSection1::where('type',6)->first();
         $page = "Energy";
         $sn = "Section 1";
         return view('admin.pages.sectors_common_section1.index',get_defined_vars());
     }
 
-    public function enery_banner(){
+    public function energy_banner(){
         $banner = PageBanner::where('type',17)->first();
         $page = "Energy";
         return view('admin.pages.banner',get_defined_vars());

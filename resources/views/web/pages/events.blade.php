@@ -53,8 +53,8 @@
                     <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
                         <img src="{{ asset('assets/web/images/'.$event->image) }}" class="card-img-top">
                         <div class="card-body">
-                            <p class="card-date">{{ $event -> date }}</p>
-                            <p class="card-text">{{ $event -> title }}</p>
+                            <p class="card-date">{{ $event->date }}</p>
+                            <p class="card-text">{{ $event->title }}</p>
                         </div>
                     </div>
                 </div>

@@ -24,11 +24,6 @@ $result = socialLinks();
                     <a href="{{ !empty($result->instagram) ? $result->instagram : '#' }}" class="social_link">
                         <img src="assets/web/images/icon_ig.png" alt="social icons" class="img-icon">
                     </a>
-                    {{--  @foreach ($socialmedia ?? [] as $link)
-                    <a href="{{ $link['link'] }}">
-                        <img class="img-circle" src="{{ Storage::url($link['img_url']) }}" alt="{{ $link['type'] }}" height="32" width="32" style="border-radius: 50%" alt="Your Image Alt Text">
-                    </a>
-                @endforeach   --}}
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 mt-lg-5">

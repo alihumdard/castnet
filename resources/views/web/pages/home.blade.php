@@ -334,5 +334,4 @@ $setting = appSetting();
     </div>
 </div>
 <!-- Modal End -->
-
 @stop

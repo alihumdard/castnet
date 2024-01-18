@@ -1,36 +1,32 @@
 @extends('admin.layouts.default')
-@section('title', 'Create Section 1')
+@section('title', 'Home Page Section 1')
 @section('content')
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Create Section 1</h1>
+                        <h1 class="m-0">HomePage Section 1</h1>
                     </div> 
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Create</li>
+                            <li class="breadcrumb-item active">HomePage</li>
                         </ol>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-body">
-                            <form action="{{ route('homesection1.store')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('homesection1.store')}}" id="section1" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
-                                        <div class="form-group">
+                                        <div class="form-group errorshow">
                                             <label for="prin_title">Image</label>
                                             <input type="file" name="image" class="form-control" id="">
                                         </div>
@@ -58,7 +54,7 @@
                                 </div>
                                 <div class="row mb-2">
                                     <div class="col-sm-12">
-                                        <div class="form-group">
+                                        <div class="form-group errorshow">
                                             <label>Description</label>
                                             <textarea class="form-control" name="description" rows="3" placeholder="Enter Description" style="resize: none;"></textarea>
                                         </div>
@@ -75,3 +71,37 @@
         </div>
     </div>
 @stop
+@push('scripts')
+<script>
+    $('#section1').validate({ 
+        rules: {
+            image: {
+                required: true,
+            },
+            heading: {
+                required: true,
+            },
+            description: {
+                required: true,
+            },
+            button: {
+                required: true,
+            },
+            buttonlink: {
+                required: true,
+            },
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.errorshow').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        }
+    });
+</script>
+@endpush
