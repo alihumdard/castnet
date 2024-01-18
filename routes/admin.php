@@ -18,6 +18,9 @@ use App\Http\Controllers\Admin\Events\EventSection1Controller;
 use App\Http\Controllers\Admin\AboutPage\AboutPageController;
 use App\Http\Controllers\Admin\Sectors\SectorController;
 use App\Http\Controllers\Admin\advocacy\AdvocacySection1Controller;
+use App\Http\Controllers\Admin\AdvocacyCSection;
+use App\Http\Controllers\Admin\AdvocacySServicesController;
+use App\Http\Controllers\Admin\AdvocacyWomenController;
 use App\Http\Controllers\Admin\Who_we_are\WhoWeArePageController;
 use App\Http\Controllers\Admin\benefits\BenefitsSection1Controller;
 use App\Http\Controllers\Admin\Join\JoinSection1LevelController;
@@ -162,7 +165,7 @@ Route::middleware('auth')->group(function() {
         Route::get('/sector-c1agr-section1', [SectorsCommonSection1Controller::class, 'agriculture'])->name('sector-c1agr.section1');
         Route::get('/sector-c2agr-section2', [SectorsCommonSection2Controller::class, 'agriculture'])->name('sector-c2agr.section2');
         // ------- Sectors page work end --------
-        
+
         // ------- Supply Chain page work start --------
         Route::get('/sector-c1sc-banner', [SectorsCommonSection1Controller::class, 'supply_banner'])->name('sector-c1sc.banner');
         Route::get('/sector-c1sc-section1', [SectorsCommonSection1Controller::class, 'supply'])->name('sector-c1sc.section1');
@@ -206,6 +209,8 @@ Route::middleware('auth')->group(function() {
 
         // ADVOCACY page routes start
         Route::get('/advocacy-banner', [AdvocacySection1Controller::class, 'banner'])->name('advocacy.banner');
+        Route::get('/advocacySection1', [AdvocacySection1Controller::class, 'section1'])->name('advocacy.section1');
+        Route::resource('advocacyCSection', AdvocacyCSection::class);
         // ADVOCACY page routes end
 
         //Small Business routes start
@@ -214,6 +219,7 @@ Route::middleware('auth')->group(function() {
 
         //WOMEN ADVOCACY page routes start
         Route::get('/womenAdvocacy-banner', [WomenSection1Controller::class, 'banner'])->name('womenAdvocacy-banner');
+        Route::resource('advocacyWomenSection', AdvocacyWomenController::class);
         //WOMEN ADVOCACY page routes end
 
         //VETERANS ADVOCACY page routes start
@@ -222,6 +228,7 @@ Route::middleware('auth')->group(function() {
 
         //SUPPORT SERVICES page routes start
         Route::get('/supportServices-banner', [SupportServicesSection1Controller::class, 'banner'])->name('supportServices-banner');
+        Route::resource('advocacySSCSection', AdvocacySServicesController::class);
         //SUPPORT SERVICES page routes end
 
         Route::get('programs-banner',[ProgramsSection1Controller::class,'banner'])->name('programs.banner');
