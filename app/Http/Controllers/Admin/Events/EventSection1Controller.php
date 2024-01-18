@@ -42,6 +42,7 @@ class EventSection1Controller extends Controller
 
     public function banner(){
         $banner = PageBanner::where('type',24)->first();
-        return view('admin.pages.events.banner',compact('banner'));
+        $page = "Events";
+        return view('admin.pages.banner',compact('banner','page'));
     }
 }

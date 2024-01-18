@@ -18,7 +18,7 @@ class SectorsCommonSection1Controller extends Controller
     public function construction_banner(){
         $banner = PageBanner::where('type',12)->first();
         $page = "Construction Banner";
-        return view('admin.pages.sectors_common_section1.banner',get_defined_vars());
+        return view('admin.pages.banner',get_defined_vars());
     }
 
     public function agriculture(){
@@ -31,7 +31,7 @@ class SectorsCommonSection1Controller extends Controller
     public function agriculture_banner(){
         $banner = PageBanner::where('type',13)->first();
         $page = "Agriculture Banner";
-        return view('admin.pages.sectors_common_section1.banner',get_defined_vars());
+        return view('admin.pages.banner',get_defined_vars());
     }
 
     public function supply(){
@@ -44,7 +44,7 @@ class SectorsCommonSection1Controller extends Controller
     public function supply_banner(){
         $banner = PageBanner::where('type',14)->first();
         $page = "Supply Chain Banner";
-        return view('admin.pages.sectors_common_section1.banner',get_defined_vars());
+        return view('admin.pages.banner',get_defined_vars());
     }
 
     public function technology(){
@@ -57,7 +57,7 @@ class SectorsCommonSection1Controller extends Controller
     public function technology_banner(){
         $banner = PageBanner::where('type',15)->first();
         $page = "Technology Banner";
-        return view('admin.pages.sectors_common_section1.banner',get_defined_vars());
+        return view('admin.pages.banner',get_defined_vars());
     }
 
     public function natural(){
@@ -70,7 +70,7 @@ class SectorsCommonSection1Controller extends Controller
     public function natural_banner(){
         $banner = PageBanner::where('type',16)->first();
         $page = "Natural Resources";
-        return view('admin.pages.sectors_common_section1.banner',get_defined_vars());
+        return view('admin.pages.banner',get_defined_vars());
     }
 
     public function enery(){
@@ -83,7 +83,7 @@ class SectorsCommonSection1Controller extends Controller
     public function enery_banner(){
         $banner = PageBanner::where('type',17)->first();
         $page = "Energy";
-        return view('admin.pages.sectors_common_section1.banner',get_defined_vars());
+        return view('admin.pages.banner',get_defined_vars());
     }
 
     public function textiles(){
@@ -96,7 +96,7 @@ class SectorsCommonSection1Controller extends Controller
     public function textiles_banner(){
         $banner = PageBanner::where('type',18)->first();
         $page = "Textiles";
-        return view('admin.pages.sectors_common_section1.banner',get_defined_vars());
+        return view('admin.pages.banner',get_defined_vars());
     }
 
     public function update(Request $request,$id){

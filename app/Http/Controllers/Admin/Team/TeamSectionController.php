@@ -125,6 +125,7 @@ class TeamSectionController extends Controller
 
     public function banner(){
         $banner = PageBanner::where('type',3)->first();
-        return view('admin.pages.team.banner',compact('banner'));
+        $page = "Team";
+        return view('admin.pages.banner',compact('banner','page'));
     }
 }

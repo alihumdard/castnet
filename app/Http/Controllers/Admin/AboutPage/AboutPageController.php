@@ -10,7 +10,8 @@ class AboutPageController extends Controller
 {
     public function index(){
         $banner = PageBanner::where('type',1)->first();
-        return view('admin.pages.about_page.banner',compact('banner'));
+        $page = "About Us";
+        return view('admin.pages.banner',compact('banner','page'));
     }
 
     public function section1(){
