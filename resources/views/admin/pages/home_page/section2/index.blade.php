@@ -2,11 +2,9 @@
 @section('title', 'About us')
 @section('content')
 <style>
-    .note-editor.note-airframe .note-editing-area .note-editable,.note-editor.note-frame .note-editing-area .note-editable{word-wrap:break-word;overflow:auto;padding:10px;background-color: #0c2038;}
+    .note-editor.note-airframe .note-editing-area .note-editable,.note-editor.note-frame .note-editing-area .note-editable{word-wrap:break-word;overflow:auto;padding:10px;background-color: #0c2038;color:white;}
 </style>
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -22,8 +20,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
                     <div class="col-md-12">
@@ -82,6 +78,5 @@
                 </div>
             </div>
         </div>
-        <!-- /.content-wrapper -->
     </div>
 @stop

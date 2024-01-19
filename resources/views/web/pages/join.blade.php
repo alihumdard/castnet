@@ -3,7 +3,7 @@
 {{-- @dd($joinLevels); --}}
 <!-- Breadcrumb Start -->
 <section class="section_breadcrumb membership_bg" style="
-background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $joinBanner->image) }}) center no-repeat;
+background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $banner->image) }}) center no-repeat;
 background-size: cover;">
     <div class="container">
         <div class="row">
@@ -31,12 +31,12 @@ background-size: cover;">
             </div>
         </div>
         <div class="row gy-4">
-            @foreach($joinLevels as $joinLevel)
+            @foreach($joins as $join)
             <div class="col-md-4 col-lg-4 d-flex">
                 <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
                     <div class="card-body">
-                        <h3 class="card-title">{{ $joinLevel->title }}</h3>
-                        <p class="card-text">{{ $joinLevel->description }}</p>
+                        <h3 class="card-title">{{ $join->title }}</h3>
+                        <p class="card-text">{{ $join->description }}</p>
                     </div>
                 </div>
             </div>
@@ -177,6 +177,5 @@ background-size: cover;">
     </div>
 </section>
 <!-- Membership Form end -->
-
 
 @stop

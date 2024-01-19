@@ -1,10 +1,7 @@
 @extends('admin.layouts.default')
 @section('title', 'About Banner')
 @section('content')
-{{--  @dd($record->banner)  --}}
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">

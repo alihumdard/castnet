@@ -3,7 +3,9 @@
 
 
     <!-- Breadcrumb Start -->
-    <section class="section_breadcrumb sectors_tech_bg">
+    <section class="section_breadcrumb sectors_tech_bg" style="
+    background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $banner->image) }}) center no-repeat;
+    background-size: cover;">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
@@ -27,7 +29,7 @@
             <div class="row gy-5 gy-md-0 gx-md-5">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="{{ asset('assets/web/images/'.$section1->image)}}" alt="technology">
+                        <img src="{{ asset('assets/web/images/'.$section1->image)}}">
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
@@ -70,7 +72,7 @@
                             <h3 class="blog_title">
                                 {{ $item->title }}
                             </h3>
-                            <p class="blog_meta">{{ \Carbon\Carbon::parse($$item->created_at)->format('l, F j, Y') }}</p>
+                            <p class="blog_meta">{{ \Carbon\Carbon::parse($item->created_at)->format('l, F j, Y') }}</p>
                             <p class="blog_desc">{{ $item->description }}</p>
                         </div>
                     </div>

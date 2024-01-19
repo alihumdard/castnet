@@ -11,49 +11,49 @@ use App\Models\SectorCommonSection2Details;
 class SectorsCommonSection2Controller extends Controller
 {
     public function construction(){
-        $section2 = SectorCommonSection2::where('type',1)->first();
+        $section2 = SectorCommonSection2::where('type',1)->with('details')->first();
         $page = "Construction";
         $sn = "Section 2";
         return view('admin.pages.sectors_common_section2.index',get_defined_vars());
     }
 
     public function agriculture(){
-        $section2 = SectorCommonSection2::where('type',2)->first();
+        $section2 = SectorCommonSection2::where('type',2)->with('details')->first();
         $page = "Agriculture";
         $sn = "Section 2";
         return view('admin.pages.sectors_common_section2.index',get_defined_vars());
     }
 
     public function supply(){
-        $section2 = SectorCommonSection2::where('type',3)->first();
+        $section2 = SectorCommonSection2::where('type',3)->with('details')->first();
         $page = "Supply Chain";
         $sn = "Section 2";
         return view('admin.pages.sectors_common_section2.index',get_defined_vars());
     }
 
     public function technology(){
-        $section2 = SectorCommonSection2::where('type',4)->first();
+        $section2 = SectorCommonSection2::where('type',4)->with('details')->first();
         $page = "Technology";
         $sn = "Section 2";
         return view('admin.pages.sectors_common_section2.index',get_defined_vars());
     }
 
     public function natural(){
-        $section2 = SectorCommonSection2::where('type',5)->first();
+        $section2 = SectorCommonSection2::where('type',5)->with('details')->first();
         $page = "Natural Resources";
         $sn = "Section 2";
         return view('admin.pages.sectors_common_section2.index',get_defined_vars());
     }
 
     public function energy(){
-        $section2 = SectorCommonSection2::where('type',6)->first();
+        $section2 = SectorCommonSection2::where('type',6)->with('details')->first();
         $page = "Energy";
         $sn = "Section 2";
         return view('admin.pages.sectors_common_section2.index',get_defined_vars());
     }
 
     public function textiles(){
-        $section2 = SectorCommonSection2::where('type',7)->first();
+        $section2 = SectorCommonSection2::where('type',7)->with('details')->first();
         $page = "Textiles";
         $sn = "Section 2";
         return view('admin.pages.sectors_common_section2.index',get_defined_vars());

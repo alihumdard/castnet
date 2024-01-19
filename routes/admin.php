@@ -23,11 +23,11 @@ use App\Http\Controllers\Admin\AdvocacyCSection;
 use App\Http\Controllers\Admin\AdvocacySServicesController;
 use App\Http\Controllers\Admin\AdvocacyWomenController;
 use App\Http\Controllers\Admin\Who_we_are\WhoWeArePageController;
-use App\Http\Controllers\Admin\Benefits\BenefitsSection1Controller;
-use App\Http\Controllers\Admin\Join\JoinSection1LevelController;
-use App\Http\Controllers\Admin\Evaluation\EvaluationSection1Controller;
-use App\Http\Controllers\Admin\Rules_of_engagement\RulesOfEngagementSection1Controller;
-use App\Http\Controllers\Admin\Membership\MembershipSection2Controller;
+use App\Http\Controllers\Admin\Benefits\BenefitsController;
+use App\Http\Controllers\Admin\Join\JoinController;
+use App\Http\Controllers\Admin\Evaluation\EvaluationController;
+use App\Http\Controllers\Admin\Rules_of_engagement\RulesOfEngagementController;
+use App\Http\Controllers\Admin\Membership\MembershipController;
 use App\Http\Controllers\Admin\WidgetsController;
 use App\Http\Controllers\Admin\Team\TeamSectionController;
 use App\Http\Controllers\Admin\Events\OurEventController;
@@ -37,11 +37,8 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\apperenceController;
-use App\Http\Controllers\Admin\benefits\BenefitsSection2Controller;
-use App\Http\Controllers\Admin\benefits\BenefitsSection3Controller;
 use App\Http\Controllers\Admin\PageController;
-use App\Http\Controllers\Admin\programs\ProgramsController;
-use App\Http\Controllers\Admin\Programs\ProgramsSection1Controller;
+use App\Http\Controllers\Admin\Programs\ProgramsController;
 use App\Http\Controllers\Admin\Small_businesses\SmallBusinessesSection1Controller;
 use App\Http\Controllers\Admin\Support_services\SupportServicesSection1Controller;
 use App\Http\Controllers\Admin\Veterans\VeteransSection1Controller;
@@ -125,28 +122,32 @@ Route::middleware('auth')->group(function() {
         // --------- Events Page Routes End --------------
 
         // ---- Membership page routes start ----
-        Route::resource('membershipSection2', MembershipSection2Controller::class);
-        Route::get('/membershipSection2-banner', [MembershipSection2Controller::class, 'banner'])->name('membershipSection2.banner');
-        Route::get('/membership-section1', [MembershipSection2Controller::class, 'section1'])->name('membership.section1');
+        Route::resource('membership', MembershipController::class);
+        Route::get('/membership-banner', [MembershipController::class, 'banner'])->name('membership.banner');
+        Route::get('/membership-section1', [MembershipController::class, 'section1'])->name('membership.section1');
+        Route::get('/membership-section3', [MembershipController::class, 'section3'])->name('membership.section3');
+        Route::put('/membership-updation/{id}', [MembershipController::class, 'updation'])->name('membership.updation');
         // ---- Membership page routes end ----
 
         // ---- Join page routes start ----
 
-        Route::resource('joinSection1', JoinSection1LevelController::class);
-        Route::get('/join-banner', [JoinSection1LevelController::class, 'banner'])->name('join.banner');
+        Route::resource('join', JoinController::class);
+        Route::get('/join-banner', [JoinController::class, 'banner'])->name('join.banner');
         // ---- Join page routes end ----
 
-        // ---- MEMBERSHIP EVALUATION page routes start ----
-        Route::get('/evaluationsection1', [EvaluationSection1Controller::class, 'section1'])->name('evaluation.section1');
-        Route::get('/evaluationsection3', [EvaluationSection1Controller::class, 'section3'])->name('evaluation.section3');
-        // Route::get('/evaluationsection5', [EvaluationSection1Controller::class, 'section5'])->name('evaluation.section5');
-        Route::get('/evaluationsection5', [EvaluationSection1Controller::class, 'section5'])->name('evaluation.section5');
-        Route::get('/evaluation-banner', [EvaluationSection1Controller::class, 'banner'])->name('evaluation.banner');
-        // ---- MEMBERSHIP EVALUATION page routes end ----
+        // ---- EVALUATION page routes start ----
+        Route::get('/evaluation-section', [EvaluationController::class, 'section1'])->name('evaluation.section');
+        Route::get('/evaluation-section3', [EvaluationController::class, 'section3'])->name('evaluation.section3');
+        Route::get('/evaluation-section4', [EvaluationController::class, 'section4'])->name('evaluation.section4');
+        Route::get('/evaluation-section1', [EvaluationController::class, 'section5'])->name('evaluation.section5');
+        Route::put('/evaluation-update/{id}', [EvaluationController::class, 'update'])->name('evaluation.update');
+        Route::get('/evaluation-banner', [EvaluationController::class, 'banner'])->name('evaluation.banner');
+        // ---- EVALUATION page routes end ----
 
         // ---- RULES OF ENGAGEMENT page routes start ----
-        Route::get('/roe-section1', [RulesOfEngagementSection1Controller::class, 'section1'])->name('roe.section1');
-        Route::get('/roe-banner', [RulesOfEngagementSection1Controller::class, 'banner'])->name('roe.banner');
+        Route::resource('roe', RulesOfEngagementController::class);
+        Route::get('/roe-section1', [RulesOfEngagementController::class, 'section1'])->name('roe.section1');
+        Route::get('/roe-banner', [RulesOfEngagementController::class, 'banner'])->name('roe.banner');
         // ---- RULES OF ENGAGEMENT page routes end ----
 
         // ------- Widget work start --------
@@ -210,12 +211,12 @@ Route::middleware('auth')->group(function() {
         Route::resource('sector-c2', SectorsCommonSection2Controller::class);
         Route::put('/sector-c2-updation/{id}', [SectorsCommonSection2Controller::class, 'updation'])->name('sector-c2.updation');
 
-        // benefits page routes start
-        Route::get('/benefits-banner', [BenefitsSection1Controller::class, 'banner'])->name('benefits.banner');
-        Route::resource('benefits-section2', BenefitsSection2Controller::class);
-        Route::resource('benefits-section3', BenefitsSection3Controller::class);
-        Route::put('/benefitsSection1/{id}',[BenefitsSection1Controller::class,'updateSection1'])->name('benefitsSection1.udpate');
-        Route::put('/benefitsSection2/{id}',[BenefitsSection1Controller::class,'updateSection1'])->name('benefitsSection2.udpate');
+        // benefits page routes start        
+        Route::resource('benefits', BenefitsController::class);
+        Route::get('/benefits-section1',[BenefitsController::class,'section1'])->name('benefits.section1');
+        Route::get('/benefits-section2',[BenefitsController::class,'section2'])->name('benefits.section2');
+        Route::get('/benefits-banner',[BenefitsController::class,'banner'])->name('benefits.banner');
+        Route::put('/benefits-updation/{id}',[BenefitsController::class,'updation'])->name('benefits.updation');
         // benefits page routes end
 
 
@@ -243,8 +244,8 @@ Route::middleware('auth')->group(function() {
         Route::resource('advocacySSCSection', AdvocacySServicesController::class);
         //SUPPORT SERVICES page routes end
 
-        Route::get('programs-banner',[ProgramsSection1Controller::class,'banner'])->name('programs.banner');
         Route::resource('programs', ProgramsController::class);
-        Route::put('/programSection1/{id}',[ProgramsSection1Controller::class,'updateSection1'])->name('programsSection1.udpate');
+        Route::get('programs-banner',[ProgramsController::class,'banner'])->name('programs.banner');
+        Route::put('/programs-updation/{id}',[ProgramsController::class,'updation'])->name('programs.updation');
     });
 });

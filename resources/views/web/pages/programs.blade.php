@@ -3,7 +3,9 @@
 
 
 <!-- Breadcrumb Start -->
-<section class="section_breadcrumb membership_bg">
+<section class="section_breadcrumb membership_bg" style="
+background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $banner->image) }}) center no-repeat;
+background-size: cover;">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
@@ -26,47 +28,22 @@
     <div class="container">
         <div class="row mb-50">
             <div class="col-md-9 mx-auto" data-aos="fade-up" data-aos-duration="1000">
-                <h2 class="section_title">CASTnet OFFERING discount programs</h2>
-                <p class="section_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                <h2 class="section_title">{{ $section1->title }}</h2>
+                <p class="section_text">{{ $section1->description }}</p>
             </div>
         </div>
         <div class="row gy-5">
+            @foreach($section2 as $item)
             <div class="col-md-12">
                 <div class="card primary_border" data-aos="fade-right" data-aos-duration="1000">
                     <div class="card-body">
-                        <img src="assets/web/images/alaska_logo.png" alt="logo" class="logo">
-                        <h3 class="card-title">Alaska airlines</h3>
-                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <img src="{{ asset('assets/web/images/'.$item->image)}}" alt="logo" class="logo">
+                        <h3 class="card-title">{{ $item->title }}</h3>
+                        <p class="card-text">{!! $item->description !!}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-12">
-                <div class="card secondary_border" data-aos="fade-left" data-aos-duration="1000">
-                    <div class="card-body">
-                        <img src="assets/web/images/parking_spot_logo.png" alt="logo" class="logo">
-                        <h3 class="card-title">the parking spot</h3>
-                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="card primary_border" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="card-body">
-                        <img src="assets/web/images/office_depot_logo.png" alt="logo" class="logo">
-                        <h3 class="card-title">office depot office max</h3>
-                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="card secondary_border" data-aos="fade-left" data-aos-duration="1000">
-                    <div class="card-body">
-                        <img src="assets/web/images/swiftdox_logo.png" alt="logo" class="logo">
-                        <h3 class="card-title">swiftdox</h3>
-                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

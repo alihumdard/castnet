@@ -122,6 +122,7 @@ class SectorController extends Controller
 
     public function banner(){
         $banner = PageBanner::where('type',11)->first();
-        return view('admin.pages.sectors.banner',compact('banner'));
+        $page = "Programs";
+        return view('admin.pages.banner',compact('banner','page'));
     }
 }

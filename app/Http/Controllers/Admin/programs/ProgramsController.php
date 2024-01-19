@@ -3,27 +3,29 @@
 namespace App\Http\Controllers\Admin\programs;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Models\ProgramSection1;
 use App\Models\ProgramSection2;
-use Illuminate\Support\Facades\File;
+use App\Models\PageBanner;
 
 class ProgramsController extends Controller
 {
+    public function banner(){
+        $banner = PageBanner::where('type',8)->first();
+        $page = "Programs";
+        return view('admin.pages.banner',compact('banner','page'));
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $programsSection1 = ProgramSection1::first();
-        $programsSection2 = ProgramSection2::all();
-
-        return view('admin.pages.programs.section1.index', [
-            'programsSection1' => $programsSection1,
-            'programsSection2' => $programsSection2,
-        ]);
+    public function index(){
+        $section1 = ProgramSection1::first();
+        $section2 = ProgramSection2::all();
+        return view('admin.pages.programs.index',compact('section1','section2'));
     }
 
     /**
@@ -33,7 +35,7 @@ class ProgramsController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.programs.section1.create');
+        return view('admin.pages.programs.create');
     }
 
     /**
@@ -44,22 +46,16 @@ class ProgramsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-        ]);
-
         $file = time().'.'.$request->image->extension();
         $request->image->move(public_path('assets/web/images'), $file);
 
         ProgramSection2::create([
             'image' => $file,
-            'title' => $request->input('title'),
-            'description' => $request->input('description'),
+            'title' => $request->title,
+            'description' => $request->description,
         ]);
 
-        return redirect()->route('programs.index');
+        return redirect()->route('programs.index')->with('success', 'Data created successfully.');
     }
 
     /**
@@ -79,10 +75,9 @@ class ProgramsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        $section2 = ProgramSection2::findOrFail($id);
-        return view('admin.pages.programs.section1.edit',compact('section2'));
+    public function edit($id){
+        $section = ProgramSection2::findOrFail($id);
+        return view('admin.pages.programs.edit',compact('section'));
     }
 
     /**
@@ -95,14 +90,6 @@ class ProgramsController extends Controller
     public function update(Request $request, $id)
     {
         $item = ProgramSection2::findOrFail($id);
-
-
-        $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'title' => 'string|max:255',
-            'description' => 'string',
-        ]);
-
         if($request->image){
             $file = time().'.'.$request->image->extension();
             $request->image->move(public_path('assets/web/images'), $file);
@@ -114,11 +101,10 @@ class ProgramsController extends Controller
             'image' => $file,
             'title' => $request->title,
             'description' => $request->description,
-            'type' => 'SSAdvocacy',
         ];
         $item->update($data);
 
-        return redirect()->route('programs.index')->with('success', 'Item updated successfully.');
+        return redirect()->route('programs.index')->with('success', 'Data updated successfully.');
     }
 
 
@@ -138,8 +124,17 @@ class ProgramsController extends Controller
         ProgramSection2::destroy($id);
         return response()->json(array(
             'data' => true,
-            'message' => 'Item has been deleted.',
+            'message' => 'Data deleted successfully.',
             'status' => 'success',
         ));
+    }
+
+    public function updation(Request $request, $id){
+        $section = ProgramSection1::findOrFail($id);
+        $section->update([
+            'title' => $request->title,
+            'description' => $request->description,
+        ]);
+        return redirect()->back()->with('success', 'Data updated successfully');
     }
 }

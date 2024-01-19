@@ -1,11 +1,7 @@
 @extends('admin.layouts.default')
 @section('title', 'Home Section 6')
 @section('content')
-
-
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -21,8 +17,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
                 <div class="col-md-12">
