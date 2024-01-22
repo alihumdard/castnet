@@ -197,7 +197,7 @@ class PagesController extends Controller
     public function financial(){
         return view('web.pages.financial',get_defined_vars());
     }
-    
+
     public function grants(){
         return view('web.pages.grants',get_defined_vars());
     }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\PageBanner;
 use App\Models\AboutPage;
 
+
 class AdvocacySection1Controller extends Controller
 {
     public function banner(){

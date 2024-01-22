@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\Sectors\SectorsCommonSection2Controller;
 use App\Http\Controllers\Admin\international_events\InternationalEventsController;
 use App\Http\Controllers\Admin\Events\EventSection1Controller;
 use App\Http\Controllers\Admin\AboutPage\AboutPageController;
+use App\Http\Controllers\Admin\advocacy\AdvocacyController;
 use App\Http\Controllers\Admin\Sectors\SectorController;
 use App\Http\Controllers\Admin\Advocacy\AdvocacySection1Controller;
 use App\Http\Controllers\Admin\AdvocacyCSection;
@@ -39,9 +40,13 @@ use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\apperenceController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\Programs\ProgramsController;
+use App\Http\Controllers\Admin\small_businesses\SmallBusinessController;
 use App\Http\Controllers\Admin\Small_businesses\SmallBusinessesSection1Controller;
+use App\Http\Controllers\Admin\support_services\SupportServicesCommon;
 use App\Http\Controllers\Admin\Support_services\SupportServicesSection1Controller;
+use App\Http\Controllers\Admin\veterans\VeteransCommonController;
 use App\Http\Controllers\Admin\Veterans\VeteransSection1Controller;
+use App\Http\Controllers\Admin\women\WomenCommonController;
 use App\Http\Controllers\Admin\Women\WomenSection1Controller;
 
 Route::middleware('auth')->group(function() {
@@ -116,7 +121,7 @@ Route::middleware('auth')->group(function() {
 
         Route::resource('event-calender', EventCalenderController::class);
         Route::get('/event-calender-banner', [EventCalenderController::class, 'banner'])->name('event-calender.banner');
-        
+
         Route::resource('international_events', InternationalEventsController::class);
         Route::get('/international_events-banner', [InternationalEventsController::class, 'banner'])->name('international_events.banner');
         // --------- Events Page Routes End --------------
@@ -211,7 +216,7 @@ Route::middleware('auth')->group(function() {
         Route::resource('sector-c2', SectorsCommonSection2Controller::class);
         Route::put('/sector-c2-updation/{id}', [SectorsCommonSection2Controller::class, 'updation'])->name('sector-c2.updation');
 
-        // benefits page routes start        
+        // benefits page routes start
         Route::resource('benefits', BenefitsController::class);
         Route::get('/benefits-section1',[BenefitsController::class,'section1'])->name('benefits.section1');
         Route::get('/benefits-section2',[BenefitsController::class,'section2'])->name('benefits.section2');
@@ -222,26 +227,45 @@ Route::middleware('auth')->group(function() {
 
         // ADVOCACY page routes start
         Route::get('/advocacy-banner', [AdvocacySection1Controller::class, 'banner'])->name('advocacy.banner');
-        Route::get('/advocacySection1', [AdvocacySection1Controller::class, 'section1'])->name('advocacy.section1');
+        Route::get('/advocacySection1', [AdvocacyController::class, 'section1'])->name('advocacy.section1');
+        Route::put('/advocacyCommon/{id}', [AdvocacyController::class, 'updation'])->name('advocacyCommon.update');
         Route::resource('advocacyCSection', AdvocacyCSection::class);
         // ADVOCACY page routes end
 
         //Small Business routes start
         Route::get('/smallBusiness-banner', [SmallBusinessesSection1Controller::class, 'banner'])->name('smallBusiness.banner');
+        Route::get('/smallBusinessSection1', [SmallBusinessController::class, 'section1'])->name('smallBusiness.section1');
+        Route::get('/smallBusinessSection2', [SmallBusinessController::class, 'section2'])->name('smallBusiness.section2');
+        Route::get('/smallBusinessSection3', [SmallBusinessController::class, 'section3'])->name('smallBusiness.section3');
+        Route::get('/smallBusinessSection4', [SmallBusinessController::class, 'section4'])->name('smallBusiness.section4');
+        Route::get('/smallBusinessSection5', [SmallBusinessController::class, 'section5'])->name('smallBusiness.section5');
+        Route::put('/smallBusinessCommon/{id}', [SmallBusinessController::class, 'updation'])->name('smallBusinessCommon.update');
         //Small Business routes end
 
         //WOMEN ADVOCACY page routes start
         Route::get('/womenAdvocacy-banner', [WomenSection1Controller::class, 'banner'])->name('womenAdvocacy-banner');
         Route::resource('advocacyWomenSection', AdvocacyWomenController::class);
+        Route::get('/womenSection1', [WomenCommonController::class, 'section1'])->name('women.section1');
+        Route::get('/womenSection2', [WomenCommonController::class, 'section2'])->name('women.section2');
+        Route::get('/womenSection3', [WomenCommonController::class, 'section3'])->name('women.section3');
+        Route::get('/womenSection4', [WomenCommonController::class, 'section4'])->name('women.section4');
+        Route::get('/womenSection5', [WomenCommonController::class, 'section5'])->name('women.section5');
+        Route::put('/womenCommon/{id}', [WomenCommonController::class, 'updation'])->name('womenCommon.update');
         //WOMEN ADVOCACY page routes end
 
         //VETERANS ADVOCACY page routes start
         Route::get('/veterans-banner', [VeteransSection1Controller::class, 'banner'])->name('veterans-banner');
+        Route::get('/veteransSection1', [VeteransCommonController::class, 'section1'])->name('veterans.section1');
+        Route::get('/veteransSection2', [VeteransCommonController::class, 'section2'])->name('veterans.section2');
+        Route::put('/veteransCommon/{id}', [VeteransCommonController::class, 'updation'])->name('veteransCommon.update');
         //VETERANS ADVOCACY page routes end
 
         //SUPPORT SERVICES page routes start
         Route::get('/supportServices-banner', [SupportServicesSection1Controller::class, 'banner'])->name('supportServices-banner');
         Route::resource('advocacySSCSection', AdvocacySServicesController::class);
+        Route::get('/supportServicesSection1', [SupportServicesCommon::class, 'section1'])->name('supportServices.section1');
+        Route::get('/supportServicesSection2', [SupportServicesCommon::class, 'section2'])->name('supportServices.section2');
+        Route::put('/supportServicesCommon/{id}', [SupportServicesCommon::class, 'updation'])->name('supportServices.update');
         //SUPPORT SERVICES page routes end
 
         Route::resource('programs', ProgramsController::class);

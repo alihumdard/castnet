@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('membership_common_models', function (Blueprint $table) {
+        Schema::create('advocacy_common_models', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
             $table->text('image')->nullable();
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('membership_common_models');
+        Schema::dropIfExists('advocacy_common_models');
     }
 };
