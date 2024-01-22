@@ -3,7 +3,7 @@
 
 <!-- Breadcrumb Start -->
     <section class="section_breadcrumb membership_bg" style="
-    background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $evaluationBanner->image) }}) center no-repeat;
+    background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $banner->image) }}) center no-repeat;
     background-size: cover;">
         <div class="container">
             <div class="row">
@@ -27,11 +27,12 @@
         <div class="container">
             <div class="row gy-5 gy-lg-0 gx-md-5">
                 <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
-                    {!! $section1Record -> description !!}
+                    <h2 class="section_title">{{ $section1->title }}</h2>
+                    {!! $section1->description !!}
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="{{ asset('assets/web/images/' . ($section1Record->image ?? '')) }}" alt="evaluation">
+                        <img src="{{ asset('assets/web/images/'.$section1->image) }}" alt="evaluation">
                     </div>
                 </div>
             </div>
@@ -92,11 +93,12 @@
             <div class="row gy-5 gy-md-0 gx-md-5">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="{{ asset('assets/web/images/' . ($section2Record->image ?? '')) }}" alt="accessibility">
+                        <img src="{{ asset('assets/web/images/'.$section3->image) }}" alt="accessibility">
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
-                    {!! $section2Record -> description !!}
+                    <h2 class="section_title">{{ $section3->title }}</h2>
+                    {!! $section3->description !!}
                 </div>
             </div>
         </div>
@@ -108,13 +110,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9 mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
-                    <h2 class="section_title">Financial Performance</h2>
-                    <p class="section_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                    <h2 class="section_title">{{ $section4->title }}</h2>
+                    <p class="section_text">{!! $section4->description !!}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-10 mx-auto">
-                    <img src="assets/web/images/performance_graph.png" alt="graph" class="img-fluid" data-aos="zoom-in" data-aos-duration="1000">
+                    <img src="{{ asset('assets/web/images/'.$section4->image) }}" alt="graph" class="img-fluid" data-aos="zoom-in" data-aos-duration="1000">
                 </div>
             </div>
         </div>
@@ -126,11 +128,12 @@
         <div class="container">
             <div class="row gy-5 gy-lg-0 gx-md-5">
                 <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
-                    {!! $section3Record -> description !!}
+                    <h2 class="section_title">{{ $section5->title }}</h2>
+                    {!! $section5->description !!}
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="{{ asset('assets/web/images/' . ($section3Record->image ?? '')) }}" alt="benefit-assesment">
+                        <img src="{{ asset('assets/web/images/'.$section5->image) }}" alt="benefit-assesment">
                     </div>
                 </div>
             </div>
@@ -143,19 +146,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mx-auto" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title">{{ $widget -> title }}</h2>
-                    <p class="text">{{ $widget -> description }}</p>
+                    <h2 class="section_title">{{ joinWidget()->title }}</h2>
+                    <p class="text">{{ joinWidget()->description }}</p>
                     <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 gap-md-5">
-                        <a href="{{ $widget -> button1_link }}" class="btn btn-primary">
-                            <span>{{ $widget -> button1 }}</span>
-                            <img src="assets/web/images//icon_log.png" alt="login" class="img-login">
+                        <a href="{{ joinWidget()->button1_link }}" class="btn btn-primary">
+                            <span>{{ joinWidget()->button1 }}</span>
+                            <img src="assets/web/images/icon_log.png" alt="login" class="img-login">
                         </a>
-                        <a href="{{ $widget -> button2_link }}" class="btn btn-contact">{{ $widget -> button2 }}</a>
+                        <a href="{{ joinWidget()->button2_link }}" class="btn btn-contact">{{ joinWidget()->button2 }}</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Ready to Join end -->
-
 @stop

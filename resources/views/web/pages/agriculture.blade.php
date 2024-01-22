@@ -2,7 +2,9 @@
 @section('content')
 
     <!-- Breadcrumb Start -->
-    <section class="section_breadcrumb sectors_agriculture_bg">
+    <section class="section_breadcrumb sectors_agriculture_bg" style="
+    background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $banner->image) }}) center no-repeat;
+    background-size: cover;">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
@@ -26,13 +28,12 @@
             <div class="row gy-5 gy-md-0 gx-md-5">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="assets/web/images/intro_agriculture.png" alt="agriculture">
+                        <img src="{{ asset('assets/web/images/'.$section1->image)}}">
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
-                    <h2 class="section_title">Lorem Ipsum is simply dummy text of the printing </h2>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                    <h2 class="section_title">{{ $section1->title }}</h2>
+                    <p class="about_text">{!! $section1->description !!}</p>
                 </div>
             </div>
         </div>
@@ -45,18 +46,15 @@
             <div class="row gy-5 gy-lg-0">
                 <div class="col-lg-5" data-aos="fade-right" data-aos-duration="1000">
                     <div class="card">
-                        <img src="assets/web/images/main_featured_image.png" alt="main" class="card-img-top">
+                        <img src="{{ asset('assets/web/images/'.$section2->image)}}" alt="main" class="card-img-top">
                         <div class="card-header">
-                            <p class="card-meta">1 month ago</p>
+                            <p class="card-meta">{{ $section2->created_at->diffForHumans() }}</p>
                             <h3 class="card-title">
-                                <a href="#">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                </a>
+                                {{ $section2->title }}
                             </h3>
                         </div>
                         <div class="card-body">
-                            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <p class="card-text">{!! $section2->description !!}</p>
                         </div>
                         <div class="card-footer">
                             <a href="#" class="btn btn-secondary">read more</a>
@@ -64,42 +62,20 @@
                     </div>
                 </div>
                 <div class="col-lg-7" data-aos="fade-left" data-aos-duration="1000">
+                    @foreach($section2->details as $item)
                     <div class="blog_item">
                         <div class="featured_image">
-                            <img src="assets/web/images/featured_image1.png" alt="featured image">
+                            <img src="{{ asset('assets/web/images/'.$item->image)}}" alt="featured image">
                         </div>
                         <div class="content">
                             <h3 class="blog_title">
-                                <a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+                                {{ $item->title }}
                             </h3>
-                            <p class="blog_meta">Friday, December 1, 2023</p>
-                            <p class="blog_desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <p class="blog_meta">{{ \Carbon\Carbon::parse($item->created_at)->format('l, F j, Y') }}</p>
+                            <p class="blog_desc">{{ $item->description }}</p>
                         </div>
                     </div>
-                    <div class="blog_item">
-                        <div class="featured_image">
-                            <img src="assets/web/images/featured_image2.png" alt="featured image">
-                        </div>
-                        <div class="content">
-                            <h3 class="blog_title">
-                                <a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-                            </h3>
-                            <p class="blog_meta">Friday, December 1, 2023</p>
-                            <p class="blog_desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        </div>
-                    </div>
-                    <div class="blog_item">
-                        <div class="featured_image">
-                            <img src="assets/web/images/featured_image3.png" alt="featured image">
-                        </div>
-                        <div class="content">
-                            <h3 class="blog_title">
-                                <a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-                            </h3>
-                            <p class="blog_meta">Friday, December 1, 2023</p>
-                            <p class="blog_desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
