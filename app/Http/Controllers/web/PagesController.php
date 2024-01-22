@@ -24,10 +24,12 @@ use App\Models\SectorCommonSection1;
 use App\Models\SectorCommonSection2;
 use App\Models\MembershipCommonModel;
 use App\Models\RulesOfEngagementModel;
+use App\Models\OutreachCommonSectionModel;
 use App\Models\BenefitsModel;
 use App\Models\ProgramSection1;
 use App\Models\ProgramSection2;
 use App\Models\BenefitsDetailModel;
+use App\Models\ContactUsModel;
 use App\Models\SectorModel;
 use App\Models\AboutPage;
 use App\Models\PageBanner;
@@ -83,6 +85,7 @@ class PagesController extends Controller
 
     public function contactUs(){
         $banner = PageBanner::where('type',4)->first();
+        $contact = ContactUsModel::first();
         return view('web.pages.contact_us',get_defined_vars());
     }
 
@@ -214,30 +217,58 @@ class PagesController extends Controller
         return view('web.pages.become_sponsor',get_defined_vars());
     }
     public function outreach(){
+        $banner = PageBanner::where('type', 35)->first();
+        $section1 = OutreachCommonSectionModel::where(['page'=>'outreach','section'=>1])->first();
+        $section2 = OutreachCommonSectionModel::where(['page'=>'outreach','section'=>2])->first();
+        $section3 = OutreachCommonSectionModel::where(['page'=>'outreach','section'=>3])->first();
         return view('web.pages.outreach',get_defined_vars());
     }
     public function chad(){
+        $banner = PageBanner::where('type', 36)->first();
+        $section1 = OutreachCommonSectionModel::where(['page'=>'chad','section'=>1])->first();
+        $section2 = OutreachCommonSectionModel::where(['page'=>'chad','section'=>2])->first();
         return view('web.pages.chad',get_defined_vars());
     }
     public function ghana(){
+        $banner = PageBanner::where('type', 37)->first();
+        $section1 = OutreachCommonSectionModel::where(['page'=>'ghana','section'=>1])->first();
+        $section2 = OutreachCommonSectionModel::where(['page'=>'ghana','section'=>2])->first();
         return view('web.pages.ghana',get_defined_vars());
     }
     public function south_africa(){
+        $banner = PageBanner::where('type', 38)->first();
+        $section1 = OutreachCommonSectionModel::where(['page'=>'southafrica','section'=>1])->first();
+        $section2 = OutreachCommonSectionModel::where(['page'=>'southafrica','section'=>2])->first();
         return view('web.pages.south_africa',get_defined_vars());
     }
     public function zimbabwe(){
+        $banner = PageBanner::where('type', 39)->first();
+        $section1 = OutreachCommonSectionModel::where(['page'=>'zimbabwe','section'=>1])->first();
+        $section2 = OutreachCommonSectionModel::where(['page'=>'zimbabwe','section'=>2])->first();
         return view('web.pages.zimbabwe',get_defined_vars());
     }
     public function cameroon(){
+        $banner = PageBanner::where('type', 40)->first();
+        $section1 = OutreachCommonSectionModel::where(['page'=>'cameroon','section'=>1])->first();
+        $section2 = OutreachCommonSectionModel::where(['page'=>'cameroon','section'=>2])->first();
         return view('web.pages.cameroon',get_defined_vars());
     }
     public function drc(){
+        $banner = PageBanner::where('type', 41)->first();
+        $section1 = OutreachCommonSectionModel::where(['page'=>'drc','section'=>1])->first();
+        $section2 = OutreachCommonSectionModel::where(['page'=>'drc','section'=>2])->first();
         return view('web.pages.drc',get_defined_vars());
     }
     public function cote_divoire(){
+        $banner = PageBanner::where('type', 42)->first();
+        $section1 = OutreachCommonSectionModel::where(['page'=>'cotedivoire','section'=>1])->first();
+        $section2 = OutreachCommonSectionModel::where(['page'=>'cotedivoire','section'=>2])->first();
         return view('web.pages.cote_divoire',get_defined_vars());
     }
     public function usa(){
+        $banner = PageBanner::where('type', 43)->first();
+        $section1 = OutreachCommonSectionModel::where(['page'=>'usa','section'=>1])->first();
+        $section2 = OutreachCommonSectionModel::where(['page'=>'usa','section'=>2])->first();
         return view('web.pages.usa',get_defined_vars());
     }
     public function opportunities(){

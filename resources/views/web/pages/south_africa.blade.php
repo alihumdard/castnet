@@ -25,7 +25,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <img src="assets/web/images/map_sa.png" alt="map" class="img-map">
+                    <img src="{{ asset('assets/web/images/'.$section1->image) }}" alt="map" class="img-map">
                 </div>
             </div>
         </div>
@@ -37,8 +37,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mx-auto" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title">Country Introduction</h2>
-                    <p class="text col-md-10 mx-auto">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <h2 class="section_title">{{$section1->title}}</h2>
+                    <p class="text col-md-10 mx-auto">{!! $section1->description !!}</p>
                 </div>
             </div>
         </div>
@@ -51,13 +51,12 @@
             <div class="row gx-md-5">
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="assets/web/images/culture_southafrica.png" alt="culture_southafrica">
+                        <img src="{{ asset('assets/web/images/'.$section2->image)}}" alt="culture_chad">
                     </div>
                 </div>
                 <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title fw-bold">Cultural Relevance</h2>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                    <h2 class="section_title fw-bold">{{$section2->title}}</h2>
+                    <p class="about_text">{!! $section2->description !!}</p>
                 </div>
             </div>
         </div>
