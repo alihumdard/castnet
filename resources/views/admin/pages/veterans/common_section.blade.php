@@ -1,17 +1,17 @@
 @extends('admin.layouts.default')
-@section('title', $title )
+@section('title',$page)
 @section('content')
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">{{ $title }}</h1>
+                        <h1 class="m-0">{{ $page.' '.$sn }}</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ $title }}</a></li>
-                            <li class="breadcrumb-item active">Section 1</li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
+                            <li class="breadcrumb-item active">{{$page}}</li>
                         </ol>
                     </div>
                 </div>
@@ -22,10 +22,9 @@
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-body">
-                            <form action="{{ route('advocacyCommon.update',$section->id) }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('veteransCommon.update',$section->id) }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
-
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
                                         <div class="form-group">
@@ -39,19 +38,19 @@
                                             <input type="file" name="image" class="form-control" id="">
                                         </div>
                                     </div>
-                                    @if(isset($section->image))
                                     <div class="col-sm-3">
                                         <img src="{{ asset('assets/web/images/'.$section->image) }}" width="50" height="50">
                                     </div>
-                                    @endif
                                 </div>
+                                @if(isset($section->description))
                                 <div class="row mb-2">
                                     <div class="col-md-12">
                                         <div class="card-body" style="padding: 0px">
-                                            <textarea id="summernote" name="description">{!! $section->description !!}</textarea>
+                                            <textarea class="summernote" name="description">{!! $section->description !!}</textarea>
                                         </div>
                                     </div>
                                 </div>
+                                @endif
                                 <div class="card-footer" style="background:none;">
                                     <button type="submit" class="btn btn-primary" style="float: right;">Save changes</button>
                                 </div>
