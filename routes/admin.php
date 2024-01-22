@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\Events\EventSection1Controller;
 use App\Http\Controllers\Admin\AboutPage\AboutPageController;
 use App\Http\Controllers\Admin\advocacy\AdvocacyController;
 use App\Http\Controllers\Admin\Sectors\SectorController;
+use App\Http\Controllers\Admin\Contact_us\ContactController;
 use App\Http\Controllers\Admin\Advocacy\AdvocacySection1Controller;
 use App\Http\Controllers\Admin\AdvocacyCSection;
 use App\Http\Controllers\Admin\AdvocacySServicesController;
@@ -31,6 +32,15 @@ use App\Http\Controllers\Admin\Rules_of_engagement\RulesOfEngagementController;
 use App\Http\Controllers\Admin\Membership\MembershipController;
 use App\Http\Controllers\Admin\WidgetsController;
 use App\Http\Controllers\Admin\Team\TeamSectionController;
+use App\Http\Controllers\Admin\Outreach\OutreachController;
+use App\Http\Controllers\Admin\Chad\ChadController;
+use App\Http\Controllers\Admin\Cote_divoire\CotedController;
+use App\Http\Controllers\Admin\Cameroon\CameroonController;
+use App\Http\Controllers\Admin\Zimbabwe\ZimbabweController;
+use App\Http\Controllers\Admin\South_africa\SouthAfricaController;
+use App\Http\Controllers\Admin\Ghana\GhanaController;
+use App\Http\Controllers\Admin\Drc\DrcController;
+use App\Http\Controllers\Admin\Usa\UsaController;
 use App\Http\Controllers\Admin\Events\OurEventController;
 use App\Http\Controllers\Admin\Blog\BlogController;
 use App\Http\Controllers\Admin\SocialLinkController;
@@ -105,6 +115,12 @@ Route::middleware('auth')->group(function() {
         //---** Our team **---//
         Route::resource('our-team', TeamSectionController::class);
         Route::get('/ourTeam-banner', [TeamSectionController::class, 'banner'])->name('ourTeam.banner');
+        // --------- OUR TEAM Page Routes End --------------
+
+        //---** Our team **---//
+        Route::get('/contactus-banner', [ContactController::class, 'banner'])->name('contactus.banner');
+        Route::get('/contactus-info', [ContactController::class, 'info'])->name('contactus.info');
+        Route::put('/contactus-update/{id}', [ContactController::class, 'update'])->name('contactus.update');
         // --------- OUR TEAM Page Routes End --------------
 
         //---** My Blog **---//
@@ -224,7 +240,6 @@ Route::middleware('auth')->group(function() {
         Route::put('/benefits-updation/{id}',[BenefitsController::class,'updation'])->name('benefits.updation');
         // benefits page routes end
 
-
         // ADVOCACY page routes start
         Route::get('/advocacy-banner', [AdvocacySection1Controller::class, 'banner'])->name('advocacy.banner');
         Route::get('/advocacySection1', [AdvocacyController::class, 'section1'])->name('advocacy.section1');
@@ -271,5 +286,61 @@ Route::middleware('auth')->group(function() {
         Route::resource('programs', ProgramsController::class);
         Route::get('programs-banner',[ProgramsController::class,'banner'])->name('programs.banner');
         Route::put('/programs-updation/{id}',[ProgramsController::class,'updation'])->name('programs.updation');
+
+        // ---- Outreach page routes start ----
+        Route::get('/outreach-banner', [OutreachController::class, 'banner'])->name('outreach.banner');
+        Route::get('/outreach-section1', [OutreachController::class, 'section1'])->name('outreach.section1');
+        Route::get('/outreach-section2', [OutreachController::class, 'section2'])->name('outreach.section2');
+        Route::get('/outreach-section3', [OutreachController::class, 'section3'])->name('outreach.section3');
+        Route::put('/outreach-update/{id}', [OutreachController::class, 'update'])->name('outreach.update');
+        // ---- Outreach page routes end ----
+
+        // ---- Chad page routes start ----
+        Route::get('/chad-banner', [ChadController::class, 'banner'])->name('chad.banner');
+        Route::get('/chad-section1', [ChadController::class, 'section1'])->name('chad.section1');
+        Route::get('/chad-section2', [ChadController::class, 'section2'])->name('chad.section2');
+        // ---- Chad page routes end ----
+
+        // ---- Ghana page routes start ----
+        Route::get('/ghana-banner', [GhanaController::class, 'banner'])->name('ghana.banner');
+        Route::get('/ghana-section1', [GhanaController::class, 'section1'])->name('ghana.section1');
+        Route::get('/ghana-section2', [GhanaController::class, 'section2'])->name('ghana.section2');
+        // ---- Ghana page routes end ----
+
+        // ---- South Africa page routes start ----
+        Route::get('/southafrica-banner', [SouthAfricaController::class, 'banner'])->name('southafrica.banner');
+        Route::get('/southafrica-section1', [SouthAfricaController::class, 'section1'])->name('southafrica.section1');
+        Route::get('/southafrica-section2', [SouthAfricaController::class, 'section2'])->name('southafrica.section2');
+        // ---- South Africa page routes end ----
+
+        // ---- Zimbabwe page routes start ----
+        Route::get('/zimbabwe-banner', [ZimbabweController::class, 'banner'])->name('zimbabwe.banner');
+        Route::get('/zimbabwe-section1', [ZimbabweController::class, 'section1'])->name('zimbabwe.section1');
+        Route::get('/zimbabwe-section2', [ZimbabweController::class, 'section2'])->name('zimbabwe.section2');
+        // ---- Zimbabwe page routes end ----
+
+        // ---- Cameroon page routes start ----
+        Route::get('/cameroon-banner', [CameroonController::class, 'banner'])->name('cameroon.banner');
+        Route::get('/cameroon-section1', [CameroonController::class, 'section1'])->name('cameroon.section1');
+        Route::get('/cameroon-section2', [CameroonController::class, 'section2'])->name('cameroon.section2');
+        // ---- Cameroon page routes end ----
+
+        // ---- DRC page routes start ----
+        Route::get('/drc-banner', [DrcController::class, 'banner'])->name('drc.banner');
+        Route::get('/drc-section1', [DrcController::class, 'section1'])->name('drc.section1');
+        Route::get('/drc-section2', [DrcController::class, 'section2'])->name('drc.section2');
+        // ---- DRC page routes end ----
+
+        // ---- Cote Divoire page routes start ----
+        Route::get('/cotedivoire-banner', [CotedController::class, 'banner'])->name('cotedivoire.banner');
+        Route::get('/cotedivoire-section1', [CotedController::class, 'section1'])->name('cotedivoire.section1');
+        Route::get('/cotedivoire-section2', [CotedController::class, 'section2'])->name('cotedivoire.section2');
+        // ---- Cote Divoire page routes end ----
+
+        // ---- USA page routes start ----
+        Route::get('/usa-banner', [UsaController::class, 'banner'])->name('usa.banner');
+        Route::get('/usa-section1', [UsaController::class, 'section1'])->name('usa.section1');
+        Route::get('/usa-section2', [UsaController::class, 'section2'])->name('usa.section2');
+        // ---- USA page routes end ----
     });
 });
