@@ -31,8 +31,8 @@ background-size: cover;">
                     <div class="card-body">
                         <img src="assets/web/images//contact_phone.png" alt="phone" class="img-icon">
                         <h3 class="card-title">give us a call</h3>
-                        <p class="card-text"><a href="tel:+1400630123">(+1) 400-630 123</a></p>
-                        <p class="card-text"><a href="tel:+1560630123">(+1) 560-630 123</a></p>
+                        <p class="card-text"><a href="tel:+1400630123">{{ $contact->phone1 }}</a></p>
+                        <p class="card-text"><a href="tel:+1560630123">{{ $contact->phone2 }}</a></p>
                     </div>
                 </div>
             </div>
@@ -41,8 +41,8 @@ background-size: cover;">
                     <div class="card-body">
                         <img src="assets/web/images//contact_email.png" alt="phone" class="img-icon">
                         <h3 class="card-title text-uppercase">drop us a line</h3>
-                        <p class="card-text"><a href="mailto:info@castnet.com">info@castnet.com</a></p>
-                        <p class="card-text"><a href="mailto:info@castnet11chamber.com">info@castnet11chamber.com</a></p>
+                        <p class="card-text"><a href="mailto:info@castnet.com">{{ $contact->email1 }}</a></p>
+                        <p class="card-text"><a href="mailto:info@castnet11chamber.com">{{ $contact->email2 }}</a></p>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@ background-size: cover;">
                     <div class="card-body">
                         <img src="assets/web/images//contact_map.png" alt="phone" class="img-icon">
                         <h3 class="card-title">visit our office</h3>
-                        <p class="card-text">New York, 112 W 34th St<br>Caroline, USA</p>
+                        <p class="card-text">{{ $contact->address }}</p>
                     </div>
                 </div>
             </div>

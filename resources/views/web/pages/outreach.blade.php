@@ -25,13 +25,12 @@
             <div class="row gx-md-5">
                 <div class="col-lg-6 order-1 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="assets/web/images/outreach_intro.png" alt="outreach">
+                        <img src="{{ asset('assets/web/images/'.$section1->image) }}" alt="outreach">
                     </div>
                 </div>
                 <div class="col-lg-6 order-2 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
-                    <h2 class="section_title fw-bold">introduction</h2>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                    <h2 class="section_title fw-bold">{{$section1->title}}</h2>
+                    <p class="about_text">{!! $section1->description !!}</p>
                 </div>
             </div>
         </div>
@@ -44,34 +43,37 @@
             <div class="row gx-md-5">
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="assets/web/images/target_audience.png" alt="target_audience">
+                        <img src="{{ asset('assets/web/images/'.$section2->image)}}" alt="target_audience">
                     </div>
                 </div>
                 <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title fw-bold">Target Audience Identification</h2>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                    <h2 class="section_title fw-bold">{{$section2->title}}</h2>
+                    <p class="about_text">{!! $section2->description !!}</p>
                 </div>
             </div>
         </div>
     </section>
     <!-- Section Alt End -->
 
-    <!-- Outreach CTA Start -->
-    <section class="section_block outreach_cta">
+    <!-- Ready to Join Start -->
+    <section class="section_block ready_to_join">
         <div class="container">
             <div class="row">
-                <div class="col-md-10 mx-auto" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title">Lorem Ipsum is simply dummy text of the printing</h2>
-                    <p class="text col-md-10 mx-auto">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
-                    <div class="d-flex justify-content-center">
-                        <a href="#" class="btn btn-secondary">join us</a>
+                <div class="col-md-8 mx-auto" data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="section_title">{{ joinWidget()->title }}</h2>
+                    <p class="text">{{ joinWidget()->description }}</p>
+                    <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 gap-md-5">
+                        <a href="{{ joinWidget()->button1_link }}" class="btn btn-primary">
+                            <span>{{ joinWidget()->button1 }}</span>
+                            <img src="assets/web/images/icon_log.png" alt="login" class="img-login">
+                        </a>
+                        <a href="{{ joinWidget()->button2_link }}" class="btn btn-contact">{{ joinWidget()->button2 }}</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Outreach CTA End -->
+    <!-- Ready to Join end -->
 
     <!-- Section Alt Start -->
     <section class="section_block section_block_alt">
@@ -79,13 +81,12 @@
             <div class="row gx-md-5">
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="assets/web/images/outreach_campaign.png" alt="outreach campaign">
+                        <img src="{{ asset('assets/web/images/'.$section3->image) }}" alt="outreach campaign">
                     </div>
                 </div>
                 <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title fw-bold">Outreach Campaign Description</h2>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                    <h2 class="section_title fw-bold">{{ $section3->title }}</h2>
+                    <p class="about_text">{!! $section3->description !!}</p>
                 </div>
             </div>
         </div>
