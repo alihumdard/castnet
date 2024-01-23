@@ -11,8 +11,8 @@
                     <h2 class="breadcrumb_title">membership evaluation</h2>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a href="index.html">home</a></li>
-                            <li class="breadcrumb-item"><a href="membership.html">membership</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('web.index') }}">home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('web.membership') }}">membership</a></li>
                             <li class="breadcrumb-item active" aria-current="page">evaluation</li>
                         </ol>
                     </nav>

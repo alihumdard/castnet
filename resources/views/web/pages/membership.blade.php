@@ -13,7 +13,7 @@ background-size: cover;">
                 <h2 class="breadcrumb_title">become a member</h2>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center">
-                        <li class="breadcrumb-item"><a href="index.html">home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('web.index') }}l">home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">membership</li>
                     </ol>
                 </nav>

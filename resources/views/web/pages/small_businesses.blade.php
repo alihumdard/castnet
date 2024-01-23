@@ -2,15 +2,17 @@
 @section('content')
 
     <!-- Breadcrumb Start -->
-    <section class="section_breadcrumb advocacy_bg">
+    <section class="section_breadcrumb advocacy_bg" style="
+    background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $banner->image) }}) center no-repeat;
+    background-size: cover;">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
                     <h2 class="breadcrumb_title">small business</h2>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a href="index.html">home</a></li>
-                            <li class="breadcrumb-item"><a href="advocacy.html">advocacy</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('web.index') }}">home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('web.advocacy') }}">advocacy</a></li>
                             <li class="breadcrumb-item active" aria-current="page">small business</li>
                         </ol>
                     </nav>
@@ -25,8 +27,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-11 mx-auto">
-                    <h2 class="section_title" data-aos="fade-left" data-aos-duration="1000">Be a Small Business Advocacy</h2>
-                    <p class="section_text" data-aos="fade-right" data-aos-duration="1000">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
+                    <h2 class="section_title" data-aos="fade-left" data-aos-duration="1000">{{$section1->title}}</h2>
+                    <p class="section_text" data-aos="fade-right" data-aos-duration="1000">{!! $section1->description !!}</p>
                 </div>
             </div>
         </div>
@@ -39,13 +41,12 @@
             <div class="row gx-md-5">
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="assets/web/images/plan_builder.png" alt="plan builder">
+                        <img src="{{ asset('assets/web/images/'.$section2->image)}}" alt="plan builder">
                     </div>
                 </div>
                 <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title fw-bold">Plan builder</h2>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen. Lorem Ipsum has been the industry's standard dummy text.</p>
+                    <h2 class="section_title fw-bold">{{$section2->title}}</h2>
+                    <p class="about_text">{!! $section2->description !!}</p>
                 </div>
             </div>
         </div>
@@ -58,13 +59,12 @@
             <div class="row gx-md-5">
                 <div class="col-lg-6 order-1 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="assets/web/images/demographics_now.png" alt="demographics">
+                        <img src="{{ asset('assets/web/images/'.$section3->image)}}" alt="demographics">
                     </div>
                 </div>
                 <div class="col-lg-6 order-2 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
-                    <h2 class="section_title fw-bold">demographics now</h2>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen. Lorem Ipsum has been the industry's standard dummy text.</p>
+                    <h2 class="section_title fw-bold">{{$section3->title}}</h2>
+                    <p class="about_text">{!! $section3->description !!}</p>
                 </div>
             </div>
         </div>
@@ -77,13 +77,12 @@
             <div class="row gx-md-5">
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="assets/web/images/entrepreneurship.png" alt="entrepreneurship">
+                        <img src="{{ asset('assets/web/images/'.$section4->image)}}" alt="entrepreneurship">
                     </div>
                 </div>
                 <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title fw-bold">entrepreneurship</h2>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen. Lorem Ipsum has been the industry's standard dummy text.</p>
+                    <h2 class="section_title fw-bold">{{$section4->title}}</h2>
+                    <p class="about_text">{!! $section4->description !!}</p>
                 </div>
             </div>
         </div>
@@ -96,13 +95,12 @@
             <div class="row gx-md-5">
                 <div class="col-lg-6 order-1 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="assets/web/images/legal_forms.png" alt="legal forms">
+                        <img src="{{ asset('assets/web/images/'.$section5->image)}}" alt="legal forms">
                     </div>
                 </div>
                 <div class="col-lg-6 order-2 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
-                    <h2 class="section_title fw-bold">legal forms</h2>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen. Lorem Ipsum has been the industry's standard dummy text.</p>
+                    <h2 class="section_title fw-bold">{{$section5->title}}</h2>
+                    <p class="about_text">{!! $section5->description !!}</p>
                 </div>
             </div>
         </div>

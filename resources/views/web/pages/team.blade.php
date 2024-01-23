@@ -12,8 +12,8 @@
                     <h2 class="breadcrumb_title">our team</h2>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a href="index.html">home</a></li>
-                            <li class="breadcrumb-item"><a href="about_us.html">about us</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('web.index') }}">home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('web.about') }}">about us</a></li>
                             <li class="breadcrumb-item active" aria-current="page">our team</li>
                         </ol>
                     </nav>

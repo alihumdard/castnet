@@ -11,8 +11,8 @@ background-size: cover;">
                 <h2 class="breadcrumb_title">contact us</h2>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center mb-0">
-                        <li class="breadcrumb-item"><a href="index.html">home</a></li>
-                        <li class="breadcrumb-item"><a href="about_us.html">about us</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('web.index') }}">home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('web.about') }}">about us</a></li>
                         <li class="breadcrumb-item active" aria-current="page">contact us</li>
                     </ol>
                 </nav>
