@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Outreach;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Models\OutreachCommonSectionModel;
 use App\Models\PageBanner;
@@ -80,6 +81,12 @@ class OutreachController extends Controller
             $route = "southafrica.section2";
         }
         if($request->image){
+            $path = $outreach->image;
+            if(isset($path)){
+                $path = public_path().'/assets/web/images/'.$path;
+                File::delete($path);
+            }
+
             $file = time().'.'.$request->image->extension();  
             $request->image->move(public_path('assets/web/images'), $file);
         }else{

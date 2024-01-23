@@ -14,16 +14,15 @@ use App\Http\Controllers\Admin\HomePage\HomePageBannerController;
 use App\Http\Controllers\Admin\Event_calender\EventCalenderController;
 use App\Http\Controllers\Admin\Sectors\SectorsCommonSection1Controller;
 use App\Http\Controllers\Admin\Sectors\SectorsCommonSection2Controller;
-use App\Http\Controllers\Admin\international_events\InternationalEventsController;
+use App\Http\Controllers\Admin\International_events\InternationalEventsController;
 use App\Http\Controllers\Admin\Events\EventSection1Controller;
 use App\Http\Controllers\Admin\AboutPage\AboutPageController;
-use App\Http\Controllers\Admin\advocacy\AdvocacyController;
+use App\Http\Controllers\Admin\Advocacy\AdvocacyController;
 use App\Http\Controllers\Admin\Sectors\SectorController;
 use App\Http\Controllers\Admin\Contact_us\ContactController;
 use App\Http\Controllers\Admin\Advocacy\AdvocacySection1Controller;
 use App\Http\Controllers\Admin\AdvocacyCSection;
 use App\Http\Controllers\Admin\AdvocacySServicesController;
-use App\Http\Controllers\Admin\AdvocacyWomenController;
 use App\Http\Controllers\Admin\Who_we_are\WhoWeArePageController;
 use App\Http\Controllers\Admin\Benefits\BenefitsController;
 use App\Http\Controllers\Admin\Join\JoinController;
@@ -50,14 +49,10 @@ use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\apperenceController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\Programs\ProgramsController;
-use App\Http\Controllers\Admin\small_businesses\SmallBusinessController;
-use App\Http\Controllers\Admin\Small_businesses\SmallBusinessesSection1Controller;
-use App\Http\Controllers\Admin\support_services\SupportServicesCommon;
-use App\Http\Controllers\Admin\Support_services\SupportServicesSection1Controller;
-use App\Http\Controllers\Admin\veterans\VeteransCommonController;
-use App\Http\Controllers\Admin\Veterans\VeteransSection1Controller;
-use App\Http\Controllers\Admin\women\WomenCommonController;
-use App\Http\Controllers\Admin\Women\WomenSection1Controller;
+use App\Http\Controllers\Admin\Small_businesses\SmallBusinessController;
+use App\Http\Controllers\Admin\Support_services\SupportServicesController;
+use App\Http\Controllers\Admin\Veterans\VeteransController;
+use App\Http\Controllers\Admin\Women\WomenController;
 
 Route::middleware('auth')->group(function() {
     Route::prefix('admin')->group(function () {
@@ -241,46 +236,46 @@ Route::middleware('auth')->group(function() {
         // benefits page routes end
 
         // ADVOCACY page routes start
-        Route::get('/advocacy-banner', [AdvocacySection1Controller::class, 'banner'])->name('advocacy.banner');
-        Route::get('/advocacySection1', [AdvocacyController::class, 'section1'])->name('advocacy.section1');
-        Route::put('/advocacyCommon/{id}', [AdvocacyController::class, 'updation'])->name('advocacyCommon.update');
-        Route::resource('advocacyCSection', AdvocacyCSection::class);
+        Route::resource('advocacy', AdvocacyController::class);
+        Route::get('/advocacy-banner', [AdvocacyController::class, 'banner'])->name('advocacy.banner');
+        Route::get('/advocacy-section1', [AdvocacyController::class, 'section1'])->name('advocacy.section1');
+        Route::get('/advocacy-section2', [AdvocacyController::class, 'section2'])->name('advocacy.section2');
+        Route::get('/advocacy-section3', [AdvocacyController::class, 'section3'])->name('advocacy.section3');
+        Route::get('/advocacy-section4', [AdvocacyController::class, 'section4'])->name('advocacy.section4');
+        Route::put('/advocacy-updation/{id}', [AdvocacyController::class, 'updation'])->name('advocacy.updation');
         // ADVOCACY page routes end
 
         //Small Business routes start
-        Route::get('/smallBusiness-banner', [SmallBusinessesSection1Controller::class, 'banner'])->name('smallBusiness.banner');
-        Route::get('/smallBusinessSection1', [SmallBusinessController::class, 'section1'])->name('smallBusiness.section1');
-        Route::get('/smallBusinessSection2', [SmallBusinessController::class, 'section2'])->name('smallBusiness.section2');
-        Route::get('/smallBusinessSection3', [SmallBusinessController::class, 'section3'])->name('smallBusiness.section3');
-        Route::get('/smallBusinessSection4', [SmallBusinessController::class, 'section4'])->name('smallBusiness.section4');
-        Route::get('/smallBusinessSection5', [SmallBusinessController::class, 'section5'])->name('smallBusiness.section5');
-        Route::put('/smallBusinessCommon/{id}', [SmallBusinessController::class, 'updation'])->name('smallBusinessCommon.update');
+        Route::get('/small_business-banner', [SmallBusinessController::class, 'banner'])->name('small_business.banner');
+        Route::get('/small_business-section1', [SmallBusinessController::class, 'section1'])->name('small_business.section1');
+        Route::get('/small_business-section2', [SmallBusinessController::class, 'section2'])->name('small_business.section2');
+        Route::get('/small_business-section3', [SmallBusinessController::class, 'section3'])->name('small_business.section3');
+        Route::get('/small_business-section4', [SmallBusinessController::class, 'section4'])->name('small_business.section4');
+        Route::get('/small_business-section5', [SmallBusinessController::class, 'section5'])->name('small_business.section5');
         //Small Business routes end
 
         //WOMEN ADVOCACY page routes start
-        Route::get('/womenAdvocacy-banner', [WomenSection1Controller::class, 'banner'])->name('womenAdvocacy-banner');
-        Route::resource('advocacyWomenSection', AdvocacyWomenController::class);
-        Route::get('/womenSection1', [WomenCommonController::class, 'section1'])->name('women.section1');
-        Route::get('/womenSection2', [WomenCommonController::class, 'section2'])->name('women.section2');
-        Route::get('/womenSection3', [WomenCommonController::class, 'section3'])->name('women.section3');
-        Route::get('/womenSection4', [WomenCommonController::class, 'section4'])->name('women.section4');
-        Route::get('/womenSection5', [WomenCommonController::class, 'section5'])->name('women.section5');
-        Route::put('/womenCommon/{id}', [WomenCommonController::class, 'updation'])->name('womenCommon.update');
+        Route::get('/women-banner', [WomenController::class, 'banner'])->name('women-banner');
+        Route::get('/women-section1', [WomenController::class, 'section1'])->name('women.section1');
+        Route::get('/women-section2', [WomenController::class, 'section2'])->name('women.section2');
+        Route::get('/women-section3', [WomenController::class, 'section3'])->name('women.section3');
+        Route::get('/women-section4', [WomenController::class, 'section4'])->name('women.section4');
+        Route::get('/women-section5', [WomenController::class, 'section5'])->name('women.section5');
+        Route::get('/women-section6', [WomenController::class, 'section6'])->name('women.section6');
         //WOMEN ADVOCACY page routes end
 
         //VETERANS ADVOCACY page routes start
-        Route::get('/veterans-banner', [VeteransSection1Controller::class, 'banner'])->name('veterans-banner');
-        Route::get('/veteransSection1', [VeteransCommonController::class, 'section1'])->name('veterans.section1');
-        Route::get('/veteransSection2', [VeteransCommonController::class, 'section2'])->name('veterans.section2');
-        Route::put('/veteransCommon/{id}', [VeteransCommonController::class, 'updation'])->name('veteransCommon.update');
+        Route::get('/veterans-banner', [VeteransController::class, 'banner'])->name('veterans.banner');
+        Route::get('/veterans-section1', [VeteransController::class, 'section1'])->name('veterans.section1');
+        Route::get('/veterans-section2', [VeteransController::class, 'section2'])->name('veterans.section2');
+        Route::get('/veterans-section3', [VeteransController::class, 'section3'])->name('veterans.section3');
         //VETERANS ADVOCACY page routes end
 
         //SUPPORT SERVICES page routes start
-        Route::get('/supportServices-banner', [SupportServicesSection1Controller::class, 'banner'])->name('supportServices-banner');
-        Route::resource('advocacySSCSection', AdvocacySServicesController::class);
-        Route::get('/supportServicesSection1', [SupportServicesCommon::class, 'section1'])->name('supportServices.section1');
-        Route::get('/supportServicesSection2', [SupportServicesCommon::class, 'section2'])->name('supportServices.section2');
-        Route::put('/supportServicesCommon/{id}', [SupportServicesCommon::class, 'updation'])->name('supportServices.update');
+        Route::get('/supportser-banner', [SupportServicesController::class, 'banner'])->name('supportser.banner');
+        Route::get('/supportser-section1', [SupportServicesController::class, 'section1'])->name('supportser.section1');
+        Route::get('/supportser-section2', [SupportServicesController::class, 'section2'])->name('supportser.section2');
+        Route::get('/supportser-section3', [SupportServicesController::class, 'section3'])->name('supportser.section3');
         //SUPPORT SERVICES page routes end
 
         Route::resource('programs', ProgramsController::class);

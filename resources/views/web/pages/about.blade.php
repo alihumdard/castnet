@@ -1,9 +1,5 @@
 @extends('web.layouts.default')
 @section('content')
-
-{{-- @dd($aboutBanner); --}}
-<!-- Breadcrumb Start -->
-
 <section class="section_breadcrumb about_bg" style="
     background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $banner->image) }}) center no-repeat;
     background-size: cover;">
@@ -14,7 +10,7 @@
                 <h2 class="breadcrumb_title">About us</h2>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center">
-                        <li class="breadcrumb-item"><a href="index.html">home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('web.index') }}">home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">about us</li>
                     </ol>
                 </nav>
@@ -29,11 +25,11 @@
     <div class="container">
         <div class="row gy-5 gy-md-0 gx-md-5">
             <div class="col-md-6 col-lg-6 order-2 order-md-1" data-aos="fade-right" data-aos-duration="1000">
-                {!! $section1Record -> description !!}
+                {!! $section1->description !!}
             </div>
             <div class="col-md-6 col-lg-6 order-1 order-md-2" data-aos="fade-left" data-aos-duration="1000">
                 <div class="img_border">
-                    <img src="{{ asset('assets/web/images/' . ($section1Record->image ?? '')) }}" alt="value">
+                    <img src="{{ asset('assets/web/images/' . ($section1->image ?? '')) }}" alt="value">
 
                 </div>
             </div>
@@ -48,11 +44,11 @@
         <div class="row gy-5 gy-md-0 gx-md-5">
             <div class="col-md-6 col-lg-6" data-aos="fade-right" data-aos-duration="1000">
                 <div class="img_border">
-                    <img src="{{ asset('assets/web/images/' . ($section2Record->image ?? '')) }}" alt="value">
+                    <img src="{{ asset('assets/web/images/' . ($section2->image ?? '')) }}" alt="value">
                 </div>
             </div>
             <div class="col-md-6 col-lg-6" data-aos="fade-left" data-aos-duration="1000">
-                {!! $section2Record -> description !!}
+                {!! $section2->description !!}
             </div>
         </div>
     </div>
@@ -64,16 +60,15 @@
     <div class="container">
         <div class="row gy-5 gy-md-0 gx-md-5">
             <div class="col-md-6 col-lg-6 order-2 order-md-1" data-aos="fade-right" data-aos-duration="1000">
-                {!! $section3Record -> description !!}
+                {!! $section3->description !!}
             </div>
             <div class="col-md-6 col-lg-6 order-1 order-md-2" data-aos="fade-left" data-aos-duration="1000">
                 <div class="img_border">
-                    <img src="{{ asset('assets/web/images/' . ($section3Record->image ?? '')) }}" alt="value">
+                    <img src="{{ asset('assets/web/images/' . ($section3->image ?? '')) }}" alt="value">
                 </div>
             </div>
         </div>
     </div>
 </section>
 <!-- Sourcing End -->
-
 @stop

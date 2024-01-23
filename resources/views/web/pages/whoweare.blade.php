@@ -11,8 +11,8 @@
                     <h2 class="breadcrumb_title">who we are</h2>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a href="index.html">home</a></li>
-                            <li class="breadcrumb-item"><a href="about_us.html">about us</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('web.index') }}">home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('web.about') }}">about us</a></li>
                             <li class="breadcrumb-item active" aria-current="page">who we are</li>
                         </ol>
                     </nav>
@@ -27,7 +27,7 @@
         <div class="container">
             <div class="row gy-5 gy-md-0 gx-md-5">
                 <div class="col-md-12 col-lg-12" data-aos="zoom-in" data-aos-duration="1000">
-                    {!! $section4Record -> description !!}
+                    {!! $section4->description !!}
                 </div>
             </div>
         </div>
@@ -40,12 +40,12 @@
             <div class="row gy-5 gy-md-0 gx-md-5">
                 <div class="col-md-6 col-lg-6" data-aos="fade-right" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="{{ asset('assets/web/images/' . ($section5Record->image ?? '')) }}" alt="value">
+                        <img src="{{ asset('assets/web/images/' . ($section5->image ?? '')) }}" alt="value">
 
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6" data-aos="fade-left" data-aos-duration="1000">
-                    {!! $section5Record -> description !!}
+                    {!! $section5->description !!}
                 </div>
             </div>
         </div>
@@ -57,7 +57,7 @@
         <div class="container" data-aos="zoom-in" data-aos-duration="1000">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h2 class="section_title">{{ $section6 -> heading }}</h2>
+                    <h2 class="section_title">{{ $section6->heading }}</h2>
                 </div>
             </div>
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">

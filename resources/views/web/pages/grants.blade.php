@@ -9,8 +9,8 @@
                     <h2 class="breadcrumb_title">grants</h2>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a href="index.html">home</a></li>
-                            <li class="breadcrumb-item"><a href="financial.html">financial</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('web.index') }}">home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('web.financial') }}">financial</a></li>
                             <li class="breadcrumb-item active" aria-current="page">grants</li>
                         </ol>
                     </nav>

@@ -840,7 +840,7 @@
                     {{--  Textiles Page End  --}}
 
                     {{--  Advocacy Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['advocacy.banner','advocacy.section1','advocacyCSection.create','advocacyCSection.index','advocacyCSection.edit'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['advocacy*'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -862,9 +862,21 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('advocacyCSection.index') }}" class="nav-link {{ request()->routeIs('advocacyCSection.index','advocacyCSection.create','advocacyCSection.edit') ? 'active' : '' }}">
+                                <a href="{{ route('advocacy.section2') }}" class="nav-link {{(request()->routeIs('advocacy.section2')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 2</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('advocacy.section3') }}" class="nav-link {{(request()->routeIs('advocacy.section3')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 3</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('advocacy.section4') }}" class="nav-link {{(request()->routeIs('advocacy.section4')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 4</p>
                                 </a>
                             </li>
                         </ul>
@@ -872,7 +884,7 @@
                     {{--  Advocacy Page End  --}}
 
                     {{--  Small Businesses Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['smallBusiness.banner','smallBusiness.section1','smallBusiness.section2','smallBusiness.section3','smallBusiness.section4','smallBusiness.section5'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['small_business*'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -882,37 +894,37 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('smallBusiness.banner') }}" class="nav-link {{(request()->routeIs('smallBusiness.banner')) ? 'active' : ''}}">
+                                <a href="{{ route('small_business.banner') }}" class="nav-link {{(request()->routeIs('small_business.banner')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Banner</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('smallBusiness.section1') }}" class="nav-link {{ (request()->routeIs('smallBusiness.section1')) ? 'active' : ''}}">
+                                <a href="{{ route('small_business.section1') }}" class="nav-link {{ (request()->routeIs('small_business.section1')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 1</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('smallBusiness.section2') }}" class="nav-link {{ (request()->routeIs('smallBusiness.section2')) ? 'active' : ''}}">
+                                <a href="{{ route('small_business.section2') }}" class="nav-link {{ (request()->routeIs('small_business.section2')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 2</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('smallBusiness.section3') }}" class="nav-link {{ (request()->routeIs('smallBusiness.section3')) ? 'active' : ''}}">
+                                <a href="{{ route('small_business.section3') }}" class="nav-link {{ (request()->routeIs('small_business.section3')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 3</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('smallBusiness.section4') }}" class="nav-link {{ (request()->routeIs('smallBusiness.section4')) ? 'active' : ''}}">
+                                <a href="{{ route('small_business.section4') }}" class="nav-link {{ (request()->routeIs('small_business.section4')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 4</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('smallBusiness.section5') }}" class="nav-link {{ (request()->routeIs('smallBusiness.section5')) ? 'active' : ''}}">
+                                <a href="{{ route('small_business.section5') }}" class="nav-link {{ (request()->routeIs('small_business.section5')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 5</p>
                                 </a>
@@ -921,18 +933,18 @@
                     </li>
                     {{--  Small Businesses Page End  --}}
 
-                    {{--  women Advocacy Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['womenAdvocacy-banner','women.section1','women.section2','women.section3','women.section4','women.section5','womenCommon.update'])) ? 'menu-is-opening menu-open' : ''}}">
+                    {{--  Women Page Start  --}}
+                    <li class="nav-item {{(request()->routeIs(['women*'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
-                                WOMEN ADVOCACY
+                                WOMEN
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('womenAdvocacy-banner') }}" class="nav-link {{(request()->routeIs('womenAdvocacy-banner')) ? 'active' : ''}}">
+                                <a href="{{ route('women-banner') }}" class="nav-link {{(request()->routeIs('women-banner')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Banner</p>
                                 </a>
@@ -967,22 +979,28 @@
                                     <p>Section 5</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('women.section6') }}" class="nav-link {{(request()->routeIs('women.section6')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 6</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
-                    {{--  women Advocacy Page End  --}}
+                    {{--  Women Page End  --}}
 
                     {{--  VETERANS Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['veterans-banner','veterans.section1','veterans.section2','veteransCommon.update'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['veterans*'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
-                                VETERANS ADVOCACY
+                                VETERANS
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('veterans-banner') }}" class="nav-link {{(request()->routeIs('veterans-banner')) ? 'active' : ''}}">
+                                <a href="{{ route('veterans.banner') }}" class="nav-link {{(request()->routeIs('veterans.banner')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Banner</p>
                                 </a>
@@ -999,12 +1017,18 @@
                                     <p>Section 2</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('veterans.section3') }}" class="nav-link {{(request()->routeIs('veterans.section3')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 3</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     {{--  VETERANS Page End  --}}
 
                     {{--  SUPPORT SERVICES Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['supportServices-banner','advocacySSCSection*','supportServices.section1','supportServices.section2','supportServices.update'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['supportser*'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -1014,25 +1038,25 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('supportServices-banner') }}" class="nav-link {{(request()->routeIs('supportServices-banner')) ? 'active' : ''}}">
+                                <a href="{{ route('supportser.banner') }}" class="nav-link {{(request()->routeIs('supportser.banner')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Banner</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('supportServices.section1') }}" class="nav-link {{(request()->routeIs('supportServices.section1')) ? 'active' : ''}}">
+                                <a href="{{ route('supportser.section1') }}" class="nav-link {{(request()->routeIs('supportser.section1')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 1</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('advocacySSCSection.index') }}" class="nav-link {{(request()->routeIs('advocacySSCSection.index','advocacySSCSection.create','advocacySSCSection.edit')) ? 'active' : ''}}">
+                                <a href="{{ route('supportser.section2') }}" class="nav-link {{(request()->routeIs('supportser.section2')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 2</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('supportServices.section1') }}" class="nav-link {{(request()->routeIs('supportServices.section3')) ? 'active' : ''}}">
+                                <a href="{{ route('supportser.section3') }}" class="nav-link {{(request()->routeIs('supportser.section3')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 3</p>
                                 </a>

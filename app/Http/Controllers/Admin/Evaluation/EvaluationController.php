@@ -15,16 +15,18 @@ class EvaluationController extends Controller
         $sn = "Section 1";
         return view('admin.pages.membership.common_section',get_defined_vars());
     }
+
     public function section3(){
         $section = MembershipCommonModel::where(['section'=>3,'page'=>'evaluation'])->first();
         $page = "Evaluation";
         $sn = "Section 3";
         return view('admin.pages.membership.common_section',get_defined_vars());
     }
+
     public function section4(){
         $section = MembershipCommonModel::where(['section'=>4,'page'=>'evaluation'])->first();
         $page = "Evaluation";
-        $sn = "Section 3";
+        $sn = "Section 4";
         return view('admin.pages.membership.common_section',get_defined_vars());
     }
 

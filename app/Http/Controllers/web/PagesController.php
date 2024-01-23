@@ -42,6 +42,8 @@ use App\Models\MyBlog;
 use App\Models\EventModel;
 use App\Models\OurEventModel;
 use App\Models\Membership_Level;
+use App\Models\AdvocacyCommonModel1;
+use App\Models\AdvocacyCommonModel;
 
 use Carbon\Carbon;
 // About Page Models start
@@ -70,9 +72,9 @@ class PagesController extends Controller
 
     public function aboutUs(){
         $banner = PageBanner::where('type',1)->first();
-        $section1Record = AboutPage::where('section',1)->first();
-        $section2Record = AboutPage::where('section',2)->first();
-        $section3Record = AboutPage::where('section',3)->first();
+        $section1 = AboutPage::where('section',1)->first();
+        $section2 = AboutPage::where('section',2)->first();
+        $section3 = AboutPage::where('section',3)->first();
         return view('web.pages.about',get_defined_vars());
     }
 
@@ -166,18 +168,44 @@ class PagesController extends Controller
         return view('web.pages.textiles',get_defined_vars());
     }
     public function advocacy(){
+        $banner = PageBanner::where('type',19)->first();
+        $section1 = AdvocacyCommonModel::where(['page'=>'advocacy','section'=>1])->first();
+        $section2 = AdvocacyCommonModel1::where(['page'=>'advocacy','section'=>2])->get();
+        $section3 = AdvocacyCommonModel1::where(['page'=>'advocacy','section'=>3])->get();
+        $section4 = AdvocacyCommonModel1::where(['page'=>'advocacy','section'=>4])->get();
         return view('web.pages.advocacy',get_defined_vars());
     }
     public function small_businesses(){
+        $banner = PageBanner::where('type',20)->first();
+        $section1 = AdvocacyCommonModel::where(['page'=>'small_business','section'=>1])->first();
+        $section2 = AdvocacyCommonModel::where(['page'=>'small_business','section'=>2])->first();
+        $section3 = AdvocacyCommonModel::where(['page'=>'small_business','section'=>3])->first();
+        $section4 = AdvocacyCommonModel::where(['page'=>'small_business','section'=>4])->first();
+        $section5 = AdvocacyCommonModel::where(['page'=>'small_business','section'=>5])->first();
         return view('web.pages.small_businesses',get_defined_vars());
     }
     public function women(){
+        $banner = PageBanner::where('type',21)->first();
+        $section1 = AdvocacyCommonModel::where(['page'=>'women','section'=>1])->first();
+        $section2 = AdvocacyCommonModel1::where(['page'=>'women','section'=>2])->get();
+        $section3 = AdvocacyCommonModel::where(['page'=>'women','section'=>3])->first();
+        $section4 = AdvocacyCommonModel::where(['page'=>'women','section'=>4])->first();
+        $section5 = AdvocacyCommonModel::where(['page'=>'women','section'=>5])->first();
+        $section6 = AdvocacyCommonModel::where(['page'=>'women','section'=>6])->first();
         return view('web.pages.women',get_defined_vars());
     }
     public function veterans(){
+        $banner = PageBanner::where('type',22)->first();
+        $section1 = AdvocacyCommonModel::where(['page'=>'veterans','section'=>1])->first();
+        $section2 = AdvocacyCommonModel1::where(['page'=>'veterans','section'=>2])->get();
+        $section3 = AdvocacyCommonModel::where(['page'=>'veterans','section'=>3])->first();
         return view('web.pages.veterans',get_defined_vars());
     }
     public function support_services(){
+        $banner = PageBanner::where('type',23)->first();
+        $section1 = AdvocacyCommonModel::where(['page'=>'support_services','section'=>1])->first();
+        $section2 = AdvocacyCommonModel1::where(['page'=>'support_services','section'=>2])->get();
+        $section3 = AdvocacyCommonModel::where(['page'=>'support_services','section'=>3])->first();
         return view('web.pages.support_services',get_defined_vars());
     }
     public function international_events(){
@@ -322,8 +350,8 @@ class PagesController extends Controller
 
     public function whoweare(){
         $banner = PageBanner::where('type',2)->first();
-        $section4Record = AboutPage::where('section',4)->first();
-        $section5Record = AboutPage::where('section',5)->first();
+        $section4 = AboutPage::where('section',4)->first();
+        $section5 = AboutPage::where('section',5)->first();
         $section6 = HomeSection3::first();
         return view('web.pages.whoweare',get_defined_vars());
     }
