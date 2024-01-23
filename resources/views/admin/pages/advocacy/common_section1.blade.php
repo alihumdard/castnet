@@ -37,12 +37,12 @@
                         <div class="card-body">
                           <table id="example1" class="table table-bordered table-striped">
                             <thead>
-                            <tr>
-                              <th>#</th>
-                              <th>Title</th>
-                              <th>Image</th>
-                              <th>Action</th>
-                            </tr>
+                                <tr>
+                                <th>#</th>
+                                <th>Title</th>
+                                <th>Image</th>
+                                <th>Action</th>
+                                </tr>
                             </thead>
                             <tbody>
                                 @foreach($section as $index => $item)
