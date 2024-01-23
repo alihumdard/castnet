@@ -76,18 +76,18 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="{{ route('advocacy.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('advocacy.store') }}" id="advocacy" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="modal-body">
                             <div class="row mb-2">
                                 <div class="col-sm-6">
-                                    <div class="form-group">
+                                    <div class="form-group errorshow">
                                         <label for="prin_title">Title</label>
                                         <input type="text" name="title" class="form-control" placeholder="Enter Title...">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="form-group">
+                                    <div class="form-group errorshow">
                                         <label for="prin_title">Image</label>
                                         <input type="file" name="image" class="form-control" id="">
                                     </div>
@@ -138,3 +138,28 @@
         </div>
     </div>
 @stop
+@push('scripts')
+<script>
+    $('#advocacy').validate({ 
+        rules: {
+            title: {
+                required: true,
+            },
+            image: {
+                required: true,
+            },
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.errorshow').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        }
+    });
+</script>
+@endpush
