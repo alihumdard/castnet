@@ -323,12 +323,124 @@ $setting = appSetting();
                     </div>
                     <div class="col-lg-7">
                        {!! $setting->popup_description !!}
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" class="btn-close" data-bs-target="#ModalForm" data-bs-toggle="modal">
                             <span>get started</span>
                             <img src="assets/web/images/icon_arrow_alt.png" alt="arrow">
                         </button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade secondModal" id="ModalForm" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true" aria-labelledby="ModalForm" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+                <h1 class="modal-title">We'd love your feedback!</h1>
+            </div>
+            <div class="modal-body">
+                <form action="#">
+                    <div class="checkboxes mb-5">
+                        <p class="query-text">Overall, how satisfied are you with the website?</p>
+                        <div class="d-flex justify-content-between">
+                            <div class="form-check">
+                                <input type="radio" id="inputRating0" name="radioNumber" class="form-check-input">
+                                <label for="inputRating0" class="form-check-label">0</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="inputRating1" name="radioNumber" class="form-check-input">
+                                <label for="inputRating1" class="form-check-label">1</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="inputRating2" name="radioNumber" class="form-check-input">
+                                <label for="inputRating2" class="form-check-label">2</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="inputRating3" name="radioNumber" class="form-check-input">
+                                <label for="inputRating3" class="form-check-label">3</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="inputRating4" name="radioNumber" class="form-check-input">
+                                <label for="inputRating4" class="form-check-label">4</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="inputRating5" name="radioNumber" class="form-check-input">
+                                <label for="inputRating5" class="form-check-label">5</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="inputRating6" name="radioNumber" class="form-check-input">
+                                <label for="inputRating6" class="form-check-label">6</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="inputRating7" name="radioNumber" class="form-check-input">
+                                <label for="inputRating7" class="form-check-label">7</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="inputRating8" name="radioNumber" class="form-check-input">
+                                <label for="inputRating8" class="form-check-label">8</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="inputRating9" name="radioNumber" class="form-check-input">
+                                <label for="inputRating9" class="form-check-label">9</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" id="inputRating10" name="radioNumber" class="form-check-input">
+                                <label for="inputRating10" class="form-check-label">10</label>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <p class="checkboxes_text">Not at all satisfied</p>
+                            <p class="checkboxes_text">Extremely satisfied</p>
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <p class="query-text">What was the main purpose for your visit today?</p>
+                        <select class="form-select">
+                            <option selected>Please Select Option</option>
+                            <option value="one">One</option>
+                            <option value="two">Two</option>
+                            <option value="three">Three</option>
+                        </select>
+                    </div>
+                    <div class="mb-5">
+                        <p class="query-text">Were you able to complete your primary purpose for today's visit?</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="yes">
+                            <label class="form-check-label fs-14" for="yes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="no">
+                            <label class="form-check-label fs-14" for="no">No</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="notYet">
+                            <label class="form-check-label fs-14" for="notYet">I'm not yet done</label>
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <p class="query-text">Please share your feedback:</p>
+                        <textarea cols="30" rows="7" class="form-control" placeholder="Please do not enter personal information."></textarea>
+                    </div>
+                    <div class="mb-5">
+                        <p class="query-text">If we need clarification on your responses, may we contact you?</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="yesTwo">
+                            <label class="form-check-label fs-14" for="yesTwo">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="not">
+                            <label class="form-check-label fs-14" for="not">Please do not contact me</label>
+                        </div>
+                    </div>
+                    <p class="acknowledge-text">You acknowledge that any personal data collected here will be processed in accordance with the <a href="#" target="_blank">NortanLifeLock Global Privacy Statement.</a></p>
+                    <div class="d-flex justify-content-end gap-4">
+                        <button type="button" class="btn-modal" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn-submit">submit</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
