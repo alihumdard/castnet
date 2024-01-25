@@ -342,53 +342,57 @@ $setting = appSetting();
                 <h1 class="modal-title">We'd love your feedback!</h1>
             </div>
             <div class="modal-body">
-                <form action="#">
+                <form action="{{ route('feedbacks') }}" method="post">
+                    @csrf
+
                     <div class="checkboxes mb-5">
                         <p class="query-text">Overall, how satisfied are you with the website?</p>
                         <div class="d-flex justify-content-between">
+
+
                             <div class="form-check">
-                                <input type="radio" id="inputRating0" name="radioNumber" class="form-check-input">
-                                <label for="inputRating0" class="form-check-label">0</label>
+                                <input type="radio" id="inputRating0" value="0" name="radioNumber" class="form-check-input" required>
+                                <label for="inputRating0" class="form-check-label fs-14">0</label>
                             </div>
                             <div class="form-check">
-                                <input type="radio" id="inputRating1" name="radioNumber" class="form-check-input">
-                                <label for="inputRating1" class="form-check-label">1</label>
+                                <input type="radio" id="inputRating1" value="1" name="radioNumber" class="form-check-input" required>
+                                <label for="inputRating1" class="form-check-label fs-14">1</label>
                             </div>
                             <div class="form-check">
-                                <input type="radio" id="inputRating2" name="radioNumber" class="form-check-input">
-                                <label for="inputRating2" class="form-check-label">2</label>
+                                <input type="radio" id="inputRating2" value="2" name="radioNumber" class="form-check-input" required>
+                                <label for="inputRating2" class="form-check-label fs-14">2</label>
                             </div>
                             <div class="form-check">
-                                <input type="radio" id="inputRating3" name="radioNumber" class="form-check-input">
-                                <label for="inputRating3" class="form-check-label">3</label>
+                                <input type="radio" id="inputRating3" value="3" name="radioNumber" class="form-check-input" required>
+                                <label for="inputRating3" class="form-check-label fs-14">3</label>
                             </div>
                             <div class="form-check">
-                                <input type="radio" id="inputRating4" name="radioNumber" class="form-check-input">
-                                <label for="inputRating4" class="form-check-label">4</label>
+                                <input type="radio" id="inputRating4" value="4" name="radioNumber" class="form-check-input" required>
+                                <label for="inputRating4" class="form-check-label fs-14">4</label>
                             </div>
                             <div class="form-check">
-                                <input type="radio" id="inputRating5" name="radioNumber" class="form-check-input">
-                                <label for="inputRating5" class="form-check-label">5</label>
+                                <input type="radio" id="inputRating5" value="5" name="radioNumber" class="form-check-input" required>
+                                <label for="inputRating5" class="form-check-label fs-14">5</label>
                             </div>
                             <div class="form-check">
-                                <input type="radio" id="inputRating6" name="radioNumber" class="form-check-input">
-                                <label for="inputRating6" class="form-check-label">6</label>
+                                <input type="radio" id="inputRating6" value="6" name="radioNumber" class="form-check-input" required>
+                                <label for="inputRating6" class="form-check-label fs-14">6</label>
                             </div>
                             <div class="form-check">
-                                <input type="radio" id="inputRating7" name="radioNumber" class="form-check-input">
-                                <label for="inputRating7" class="form-check-label">7</label>
+                                <input type="radio" id="inputRating7" value="7" name="radioNumber" class="form-check-input" required>
+                                <label for="inputRating7" class="form-check-label fs-14">7</label>
                             </div>
                             <div class="form-check">
-                                <input type="radio" id="inputRating8" name="radioNumber" class="form-check-input">
-                                <label for="inputRating8" class="form-check-label">8</label>
+                                <input type="radio" id="inputRating8" value="8" name="radioNumber" class="form-check-input" required>
+                                <label for="inputRating8" class="form-check-label fs-14">8</label>
                             </div>
                             <div class="form-check">
-                                <input type="radio" id="inputRating9" name="radioNumber" class="form-check-input">
-                                <label for="inputRating9" class="form-check-label">9</label>
+                                <input type="radio" id="inputRating9" value="9" name="radioNumber" class="form-check-input" required>
+                                <label for="inputRating9" class="form-check-label fs-14">9</label>
                             </div>
                             <div class="form-check">
-                                <input type="radio" id="inputRating10" name="radioNumber" class="form-check-input">
-                                <label for="inputRating10" class="form-check-label">10</label>
+                                <input type="radio" id="inputRating10" value="10" name="radioNumber" class="form-check-input" required>
+                                <label for="inputRating10" class="form-check-label fs-14">10</label>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between">
@@ -398,8 +402,8 @@ $setting = appSetting();
                     </div>
                     <div class="mb-5">
                         <p class="query-text">What was the main purpose for your visit today?</p>
-                        <select class="form-select">
-                            <option selected>Please Select Option</option>
+                        <select class="form-select" name="selected_option" required>
+                            <option value="" selected disabled>Please Select Option</option>
                             <option value="one">One</option>
                             <option value="two">Two</option>
                             <option value="three">Three</option>
@@ -408,30 +412,30 @@ $setting = appSetting();
                     <div class="mb-5">
                         <p class="query-text">Were you able to complete your primary purpose for today's visit?</p>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="yes">
+                            <input class="form-check-input" type="radio" value="yes" name="flexRadioDefault" id="yes" required>
                             <label class="form-check-label fs-14" for="yes">Yes</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="no">
+                            <input class="form-check-input" type="radio" value="no" name="flexRadioDefault" id="no" required>
                             <label class="form-check-label fs-14" for="no">No</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="notYet">
+                            <input class="form-check-input" type="radio" value="im not done yet" name="flexRadioDefault" id="notYet" required>
                             <label class="form-check-label fs-14" for="notYet">I'm not yet done</label>
                         </div>
                     </div>
                     <div class="mb-5">
                         <p class="query-text">Please share your feedback:</p>
-                        <textarea cols="30" rows="7" class="form-control" placeholder="Please do not enter personal information."></textarea>
+                        <textarea cols="30" rows="7" class="form-control" required placeholder="Please do not enter personal information." name="feedback"></textarea>
                     </div>
                     <div class="mb-5">
                         <p class="query-text">If we need clarification on your responses, may we contact you?</p>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="yesTwo">
+                            <input class="form-check-input" type="radio" required value="yes" name="flexRadioDefault1" id="yesTwo">
                             <label class="form-check-label fs-14" for="yesTwo">Yes</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="not">
+                            <input class="form-check-input" type="radio" required value="no" name="flexRadioDefault1" id="not">
                             <label class="form-check-label fs-14" for="not">Please do not contact me</label>
                         </div>
                     </div>

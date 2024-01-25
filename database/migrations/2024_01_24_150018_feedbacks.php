@@ -11,16 +11,15 @@ return new class extends Migration
      *
      * @return void
      */
-
     public function up()
     {
         Schema::create('feedbacks', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->text('image')->nullable();
-            $table->longText('description')->nullable();
-            $table->string('page')->nullable();
-            $table->integer('section')->nullable();
+            $table->integer('ratting')->nullable();
+            $table->string('purpose')->nullable();
+            $table->string('primary_purpose')->nullable();
+            $table->longText('feedback')->nullable();
+            $table->string('clarification')->nullable();
             $table->timestamps();
         });
     }
