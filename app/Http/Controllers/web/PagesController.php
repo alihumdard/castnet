@@ -43,7 +43,12 @@ use App\Models\EventModel;
 use App\Models\OurEventModel;
 use App\Models\Membership_Level;
 use App\Models\AdvocacyCommonModel1;
+use App\Models\OpportunitiesModel;
 use App\Models\AdvocacyCommonModel;
+use App\Models\PartnersModel;
+use App\Models\PartnerSponsorPageTitleModel;
+use App\Models\PartnerCommonSection1;
+use App\Models\PartnerCommonSection2;
 use App\Models\FinancialCommonModel;
 use App\Models\FinancialCommonModel1;
 
@@ -248,12 +253,29 @@ class PagesController extends Controller
         return view('web.pages.funding',get_defined_vars());
     }
     public function partners_sponsors(){
+        $banner = PageBanner::where('type', 32)->first();
+        $section1 = PartnersModel::where('section',1)->get();
+        $title1 = PartnerSponsorPageTitleModel::where(['page'=>'partners_sponsors','section'=>1])->first();
+        $section2 = PartnersModel::where('section',2)->get();
+        $title2 = PartnerSponsorPageTitleModel::where(['page'=>'partners_sponsors','section'=>2])->first();
         return view('web.pages.partners_sponsors',get_defined_vars());
     }
     public function become_partner(){
+        $banner = PageBanner::where('type', 33)->first();
+        $section1 = PartnerCommonSection1::where(['section'=>1,'page'=>'become_partner'])->first();
+        $section1s = PartnerCommonSection2::where(['section'=>1,'page'=>'become_partner'])->get();
+        $section2 = PartnerCommonSection1::where(['section'=>2,'page'=>'become_partner'])->first();
+        $title = PartnerSponsorPageTitleModel::where(['page'=>'become_partner','section'=>3])->first();
+        $section3 = PartnerCommonSection2::where(['section'=>3,'page'=>'become_partner'])->get();
+        $partners = PartnersModel::where('section',1)->get();
         return view('web.pages.become_partner',get_defined_vars());
     }
     public function become_sponsor(){
+        $banner = PageBanner::where('type', 34)->first();
+        $section1 = PartnerCommonSection1::where(['section'=>1,'page'=>'become_sponsor'])->first();
+        $title = PartnerSponsorPageTitleModel::where(['page'=>'become_sponsor','section'=>2])->first();
+        $section2 = PartnerCommonSection2::where(['section'=>2,'page'=>'become_sponsor'])->get();
+        $partners = PartnersModel::where('section',2)->get();
         return view('web.pages.become_sponsor',get_defined_vars());
     }
     public function outreach(){
@@ -312,18 +334,33 @@ class PagesController extends Controller
         return view('web.pages.usa',get_defined_vars());
     }
     public function opportunities(){
+        $banner = PageBanner::where('type',44)->first();
+        $section1 = OpportunitiesModel::where(['section'=>1,'page'=>'oppor'])->first();
+        $section2 = OpportunitiesModel::where(['section'=>1,'page'=>'oppor'])->first();
         return view('web.pages.opportunities',get_defined_vars());
     }
     public function opportunities_agriculture(){
+        $banner = PageBanner::where('type',45)->first();
+        $section1 = OpportunitiesModel::where(['section'=>1,'page'=>'agri'])->first();
+        $section2 = OpportunitiesModel::where(['section'=>1,'page'=>'agri'])->first();
         return view('web.pages.opportunities_agriculture',get_defined_vars());
     }
     public function opportunities_construction(){
+        $banner = PageBanner::where('type',46)->first();
+        $section1 = OpportunitiesModel::where(['section'=>1,'page'=>'cons'])->first();
+        $section2 = OpportunitiesModel::where(['section'=>1,'page'=>'cons'])->first();
         return view('web.pages.opportunities_construction',get_defined_vars());
     }
     public function mining(){
+        $banner = PageBanner::where('type',47)->first();
+        $section1 = OpportunitiesModel::where(['section'=>1,'page'=>'mining'])->first();
+        $section2 = OpportunitiesModel::where(['section'=>1,'page'=>'mining'])->first();
         return view('web.pages.mining',get_defined_vars());
     }
     public function rfx(){
+        $banner = PageBanner::where('type',48)->first();
+        $section1 = OpportunitiesModel::where(['section'=>1,'page'=>'rfx'])->first();
+        $section2 = OpportunitiesModel::where(['section'=>1,'page'=>'rfx'])->first();
         return view('web.pages.rfx',get_defined_vars());
     }
     public function job_openings(){

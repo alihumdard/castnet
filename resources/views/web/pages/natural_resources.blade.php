@@ -27,7 +27,7 @@
             <div class="row gy-5 gy-md-0 gx-md-5">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="{{ asset('assets/web/images/'.$section1->image)}}">
+                        <img src="{{ asset('assets/web/images/'.$section1->image) }}">
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
@@ -45,7 +45,7 @@
             <div class="row gy-5 gy-lg-0">
                 <div class="col-lg-5" data-aos="fade-right" data-aos-duration="1000">
                     <div class="card">
-                        <img src="{{ asset('assets/web/images/'.$section2->image)}}" alt="main" class="card-img-top">
+                        <img src="{{ asset('assets/web/images/'.$section2->image) }}" alt="main" class="card-img-top">
                         <div class="card-header">
                             <p class="card-meta">{{ $section2->created_at->diffForHumans() }}</p>
                             <h3 class="card-title">
@@ -64,7 +64,7 @@
                     @foreach($section2->details as $item)
                     <div class="blog_item">
                         <div class="featured_image">
-                            <img src="{{ asset('assets/web/images/'.$item->image)}}" alt="featured image">
+                            <img src="{{ asset('assets/web/images/'.$item->image) }}" alt="featured image">
                         </div>
                         <div class="content">
                             <h3 class="blog_title">
