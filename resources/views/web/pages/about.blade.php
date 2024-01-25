@@ -30,7 +30,6 @@
             <div class="col-md-6 col-lg-6 order-1 order-md-2" data-aos="fade-left" data-aos-duration="1000">
                 <div class="img_border">
                     <img src="{{ asset('assets/web/images/' . ($section1->image ?? '')) }}" alt="value">
-
                 </div>
             </div>
         </div>

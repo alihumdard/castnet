@@ -30,12 +30,12 @@ $result = socialLinks();
                 <div class="ms-lg-5">
                     <div class="footer_heading">main links</div>
                     <div class="footer_links">
-                        <a href="index.html" class="footer_link">home</a>
-                        <a href="#" class="footer_link">membership</a>
-                        <a href="#" class="footer_link">volunteers</a>
-                        <a href="#" class="footer_link">sectors</a>
-                        <a href="#" class="footer_link">impact page</a>
-                        <a href="#" class="footer_link">financial support</a>
+                        <a href="{{route('web.index')}}" class="footer_link">Home</a>
+                        <a href="{{route('web.about')}}" class="footer_link">About us</a>
+                        <a href="{{route('web.membership')}}" class="footer_link">membership</a>
+                        <a href="{{route('web.sectors')}}" class="footer_link">Sectors</a>
+                        <a href="{{route('web.advocacy')}}" class="footer_link">Advocacy</a>
+                        <a href="{{route('web.financial')}}" class="footer_link">Financial</a>
                     </div>
                 </div>
             </div>
@@ -88,8 +88,5 @@ $result = socialLinks();
         </div>
     </div>
 </footer>
-
-
 <!-- REQUIRED SCRIPTS -->
-
 @include('web.includes.script')
