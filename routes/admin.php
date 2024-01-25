@@ -47,9 +47,11 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\apperenceController;
+use App\Http\Controllers\Admin\careers\CareersController;
 use App\Http\Controllers\Admin\financial\FinancialController;
 use App\Http\Controllers\Admin\funding\FundingController;
 use App\Http\Controllers\Admin\grants\GrantsController;
+use App\Http\Controllers\Admin\job_openings\JobOpeningController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\Partners_sponsors\PartnerSponsorController;
 use App\Http\Controllers\Admin\Partners_sponsors\BecomePartnerController;
@@ -421,5 +423,23 @@ Route::middleware('auth')->group(function() {
         Route::get('/funding-section1', [FundingController::class, 'section1'])->name('funding.section1');
         Route::get('/funding-section2', [FundingController::class, 'section2'])->name('funding.section2');
         // --------------------- funding page routes end -----------------------------
+
+
+        // ------------------------ careers page route start -------------------------------
+        Route::resource('careers', CareersController::class);
+        Route::get('/careers-banner', [CareersController::class, 'banner'])->name('careers.banner');
+        Route::get('/careers-section1', [CareersController::class, 'section1'])->name('careers.section1');
+        Route::put('/careers-updation/{id}',[CareersController::class,'updation'])->name('careers.updation');
+        // ------------------------ careers page route end -------------------------------
+
+
+        // ----------------------------------job opining route start-----------------------------------------
+        Route::resource('Jobs', JobOpeningController::class);
+        Route::get('/JOB-banner', [JobOpeningController::class, 'banner'])->name('JOB.banner');
+        Route::get('/JOB-section1', [JobOpeningController::class, 'section1'])->name('JOB.section1');
+        Route::get('/create-job', [JobOpeningController::class, 'createJob'])->name('create.job');
+        Route::get('/eidt-job', [JobOpeningController::class, 'editJob'])->name('edit.job');
+        Route::put('/JOB-updation/{id}',[JobOpeningController::class,'updation'])->name('JOB.updation');
+        // ----------------------------------job opining route end-----------------------------------------
     });
 });
