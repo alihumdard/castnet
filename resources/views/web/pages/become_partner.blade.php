@@ -2,7 +2,9 @@
 @section('content')
 
     <!-- Breadcrumb Start -->
-    <section class="section_breadcrumb partners_sponsors_bg">
+    <section class="section_breadcrumb partners_sponsors_bg" style="
+    background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $banner->image) }}) center no-repeat;
+    background-size: cover;">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
@@ -25,47 +27,22 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md-10 mx-auto">
-                    <h2 class="section_title" data-aos="fade-up" data-aos-duration="1000">Ways to partner with castnet chamber</h2>
-                    <p class="section_text" data-aos="fade-up" data-aos-duration="1000">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
+                    <h2 class="section_title" data-aos="fade-up" data-aos-duration="1000">{{$section1->title}}</h2>
+                    <p class="section_text" data-aos="fade-up" data-aos-duration="1000">{!! $section1->description !!}</p>
                 </div>
             </div>
             <div class="row gy-4 gy-lg-0 gx-lg-4">
+                @foreach($section1s as $item)
                 <div class="col-md-6 col-lg-3 d-flex">
                     <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
                         <div class="card-body">
-                            <img src="assets/web/images/icon_employement.png" alt="icon" class="img-icon">
-                            <h3 class="card-title">Agency Partners</h3>
-                            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing.</p>
+                            <img src="{{ asset('assets/web/images/'.$item->image) }}" alt="icon" class="img-icon">
+                            <h3 class="card-title">{{$item->title}}</h3>
+                            <p class="card-text">{!! $item->description !!}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3 d-flex">
-                    <div class="card" data-aos="zoom-in" data-aos-duration="1000">
-                        <div class="card-body">
-                            <img src="assets/web/images/icon_edu.png" alt="icon" class="img-icon">
-                            <h3 class="card-title">company partner</h3>
-                            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 d-flex">
-                    <div class="card" data-aos="zoom-in" data-aos-duration="1000">
-                        <div class="card-body">
-                            <img src="assets/web/images/icon_healthcare_services.png" alt="icon" class="img-icon">
-                            <h3 class="card-title">Consulting Partners</h3>
-                            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 d-flex">
-                    <div class="card" data-aos="zoom-in-left" data-aos-duration="1000">
-                        <div class="card-body">
-                            <img src="assets/web/images/icon_housing_assistance.png" alt="icon" class="img-icon">
-                            <h3 class="card-title">Technology Partners</h3>
-                            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -76,13 +53,12 @@
         <div class="container">
             <div class="row gy-5 gy-lg-0 gx-md-5">
                 <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title fw-bold">lets partner with castnet international chamber</h2>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text.</p>
+                    <h2 class="section_title fw-bold">{{$section2->title}}</h2>
+                    <p class="about_text">{!! $section2->description !!}</p>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="assets/web/images/startup.png" alt="startup">
+                        <img src="{{ asset('assets/web/images/'.$section2->image) }}" alt="startup">
                     </div>
                 </div>
             </div>
@@ -95,43 +71,23 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md-9 mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
-                    <h2 class="section_title mb-0">A partnership that helps you scale</h2>
+                    <h2 class="section_title mb-0">{{$title->title}}</h2>
                 </div>
             </div>
             <div class="row gy-4">
+                @foreach($section3 as $item)
                 <div class="col-md-4 col-lg-4 d-flex">
                     <div class="card vip_card flex-grow-1 border-radius-0" data-aos="fade-right" data-aos-duration="1000">
                         <div class="card-body">
                             <div class="text-center">
-                                <img src="assets/web/images/icon_dollar.png" alt="icon" class="img-icon">
+                                <img src="{{ asset('assets/web/images/'.$item->image) }}" alt="icon" class="img-icon">
                             </div>
-                            <h3 class="card-text">New revenue streams</h3>
-                            <p class="card-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
+                            <h3 class="card-text">{{$item->title}}</h3>
+                            <p class="card-desc">{!! $item->description !!}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-4 d-flex">
-                    <div class="card vip_card flex-grow-1 border-radius-0" data-aos="zoom-in" data-aos-duration="1000">
-                        <div class="card-body">
-                            <div class="text-center">
-                                <img src="assets/web/images/training_support.png" alt="icon" class="img-icon">
-                            </div>
-                            <h3 class="card-text">Training and Support</h3>
-                            <p class="card-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-4 d-flex">
-                    <div class="card vip_card flex-grow-1 border-radius-0" data-aos="fade-left" data-aos-duration="1000">
-                        <div class="card-body">
-                            <div class="text-center">
-                                <img src="assets/web/images/icon_network.png" alt="icon" class="img-icon">
-                            </div>
-                            <h3 class="card-text">Expanded network</h3>
-                            <p class="card-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -149,31 +105,13 @@
                 <div class="col-12" data-aos="zoom-in" data-aos-duration="1000">
                     <div class="swiper sponsorSwiper">
                         <div class="swiper-wrapper">
+                            @foreach($partners as $partner)
                             <div class="swiper-slide">
                                 <div class="img-box">
-                                    <img src="assets/web/images/sponsor_1.png" alt="sponsor" class="img-fluid">
+                                    <img src="{{ asset('assets/web/images/'.$partner->image)}}" title="{{$partner->title}}" alt="{{$partner->title}}" class="img-fluid">
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="img-box">
-                                    <img src="assets/web/images/sponsor_2.png" alt="sponsor" class="img-fluid">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="img-box">
-                                    <img src="assets/web/images/sponsor_3.png" alt="sponsor" class="img-fluid">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="img-box">
-                                    <img src="assets/web/images/sponsor_4.png" alt="sponsor" class="img-fluid">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="img-box">
-                                    <img src="assets/web/images/sponsor_5.png" alt="sponsor" class="img-fluid">
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -187,14 +125,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mx-auto" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title">ready to join?</h2>
-                    <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
+                    <h2 class="section_title">{{ joinWidget()->title }}</h2>
+                    <p class="text">{{ joinWidget()->description }}</p>
                     <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 gap-md-5">
-                        <a href="#" class="btn btn-primary">
-                            <span>join chamber</span>
+                        <a href="{{ joinWidget()->button1_link }}" class="btn btn-primary">
+                            <span>{{ joinWidget()->button1 }}</span>
                             <img src="assets/web/images/icon_log.png" alt="login" class="img-login">
                         </a>
-                        <a href="#" class="btn btn-contact">contact us</a>
+                        <a href="{{ joinWidget()->button2_link }}" class="btn btn-contact">{{ joinWidget()->button2 }}</a>
                     </div>
                 </div>
             </div>
