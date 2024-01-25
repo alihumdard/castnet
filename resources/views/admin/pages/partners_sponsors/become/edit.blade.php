@@ -63,7 +63,6 @@
                                     </div>
                                     @endif
                                 </div>
-                                @if(isset($section->description))
                                 <div class="row mb-2">
                                     <div class="col-md-12">
                                         <div class="card-body" style="padding: 0px">
@@ -71,7 +70,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                @endif
                                 <div class="card-footer" style="background:none;">
                                     <button type="submit" class="btn btn-primary" style="float: right;">Save changes</button>
                                 </div>
