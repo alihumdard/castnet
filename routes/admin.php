@@ -47,6 +47,9 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\apperenceController;
+use App\Http\Controllers\Admin\financial\FinancialController;
+use App\Http\Controllers\Admin\funding\FundingController;
+use App\Http\Controllers\Admin\grants\GrantsController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\Partners_sponsors\PartnerSponsorController;
 use App\Http\Controllers\Admin\Partners_sponsors\BecomePartnerController;
@@ -397,5 +400,26 @@ Route::middleware('auth')->group(function() {
         Route::get('/opporrfx-section1', [OpporRfxController::class, 'section1'])->name('opporrfx.section1');
         Route::get('/opporrfx-section2', [OpporRfxController::class, 'section2'])->name('opporrfx.section2');
         // ---- Oppor Rfx page routes end ----
+
+        // ------------- FINANCIAL page routes start -----------------
+        Route::resource('financial', FinancialController::class);
+        Route::get('/financial-banner', [FinancialController::class, 'banner'])->name('financial.banner');
+        Route::get('/financial-section1', [FinancialController::class, 'section1'])->name('financial.section1');
+        Route::get('/financial-section2', [FinancialController::class, 'section2'])->name('financial.section2');
+        Route::get('/financial-section3', [FinancialController::class, 'section3'])->name('financial.section3');
+        Route::put('/financial-updation/{id}',[FinancialController::class,'updation'])->name('financial.updation');
+        // ------------- FINANCIAL page routes end -------------------
+
+        // --------------------- grants page routes start ---------------------------
+        Route::get('/grants-banner', [GrantsController::class, 'banner'])->name('grants.banner');
+        Route::get('/grants-section1', [GrantsController::class, 'section1'])->name('grants.section1');
+        Route::get('/grants-section2', [GrantsController::class, 'section2'])->name('grants.section2');
+        // --------------------- grants page routes end -----------------------------
+
+        // --------------------- funding page routes start ---------------------------
+        Route::get('/funding-banner', [FundingController::class, 'banner'])->name('funding.banner');
+        Route::get('/funding-section1', [FundingController::class, 'section1'])->name('funding.section1');
+        Route::get('/funding-section2', [FundingController::class, 'section2'])->name('funding.section2');
+        // --------------------- funding page routes end -----------------------------
     });
 });

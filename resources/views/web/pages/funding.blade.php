@@ -3,7 +3,9 @@
 
 
     <!-- Breadcrumb Start -->
-    <section class="section_breadcrumb financial_bg">
+    <section class="section_breadcrumb financial_bg" style="
+    background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $banner->image) }}) center no-repeat;
+    background-size: cover;">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
@@ -26,13 +28,12 @@
         <div class="container">
             <div class="row gy-5 gy-lg-0 gx-md-5">
                 <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title fw-bold">supporting business growth &amp; innovation</h2>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text.</p>
+                    <h2 class="section_title fw-bold">{{$section1->title}}</h2>
+                    <p class="about_text">{!! $section1->description !!}</p>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="assets/web/images/support_business_growth.png" alt="support_business_growth">
+                        <img src="{{ asset('assets/web/images/'.$section1->image)}}" alt="support_business_growth">
                     </div>
                 </div>
             </div>
@@ -44,33 +45,17 @@
     <section class="section_block membership_values">
         <div class="container">
             <div class="row gy-5 gy-md-0 gx-lg-5">
+                @foreach($section2 as $item)
                 <div class="col-md-4 col-lg-4 d-flex">
                     <div class="card border_p" data-aos="zoom-in-right" data-aos-duration="1000">
                         <div class="card-body p-4">
-                            <img src="assets/web/images/debt_financing.png" alt="debt_financing" class="img-icon">
-                            <p class="card-text fw-bold">Debt Financing</p>
-                            <p class="card-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
+                            <img src="{{ asset('assets/web/images/'.$item->images)}}" alt="debt_financing" class="img-icon">
+                            <p class="card-text fw-bold">{{ $item->title }}</p>
+                            <p class="card-desc">{!! $item->description !!}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-4 d-flex">
-                    <div class="card border_s" data-aos="zoom-in" data-aos-duration="1000">
-                        <div class="card-body p-4">
-                            <img src="assets/web/images/equity_financing.png" alt="equity_financing" class="img-icon">
-                            <p class="card-text fw-bold">Equity Financing</p>
-                            <p class="card-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-4 d-flex">
-                    <div class="card border_p" data-aos="zoom-in-left" data-aos-duration="1000">
-                        <div class="card-body p-4">
-                            <img src="assets/web/images/govt_grants.png" alt="govt_grants" class="img-icon">
-                            <p class="card-text fw-bold">Government Grants</p>
-                            <p class="card-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

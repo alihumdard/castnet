@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\web\FeedbackController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\PagesController;
 
@@ -45,6 +47,7 @@ Route::get('/blog', [PagesController::class, 'blog'])->name('web.blog');
 Route::get('/financial', [PagesController::class, 'financial'])->name('web.financial');
 Route::get('/grants', [PagesController::class, 'grants'])->name('web.grants');
 Route::get('/funding', [PagesController::class, 'funding'])->name('web.funding');
+Route::post('/feedback', [FeedbackController::class, 'feedback'])->name('feedbacks');
 Route::get('/partners_sponsors', [PagesController::class, 'partners_sponsors'])->name('web.partners_sponsors');
 Route::get('/become_partner', [PagesController::class, 'become_partner'])->name('web.become_partner');
 Route::get('/become_sponsor', [PagesController::class, 'become_sponsor'])->name('web.become_sponsor');

@@ -49,6 +49,8 @@ use App\Models\PartnersModel;
 use App\Models\PartnerSponsorPageTitleModel;
 use App\Models\PartnerCommonSection1;
 use App\Models\PartnerCommonSection2;
+use App\Models\FinancialCommonModel;
+use App\Models\FinancialCommonModel1;
 
 use Carbon\Carbon;
 // About Page Models start
@@ -231,13 +233,23 @@ class PagesController extends Controller
     }
 
     public function financial(){
+        $banner = PageBanner::where('type', 29)->first();
+        $section1 = FinancialCommonModel1::where(['page'=>'financial','section'=>1])->get();
+        $section2 = FinancialCommonModel::where(['page'=>'financial','section'=>2])->first();
+        $section3 = FinancialCommonModel1::where(['page'=>'financial','section'=>3])->get();
         return view('web.pages.financial',get_defined_vars());
     }
 
     public function grants(){
+        $banner = PageBanner::where('type', 30)->first();
+        $section1 = FinancialCommonModel::where(['page'=>'grants','section'=>1])->first();
+        $section2 = FinancialCommonModel1::where(['page'=>'grants','section'=>2])->get();
         return view('web.pages.grants',get_defined_vars());
     }
     public function funding(){
+        $banner = PageBanner::where('type', 31)->first();
+        $section1 = FinancialCommonModel::where(['page'=>'funding','section'=>1])->first();
+        $section2 = FinancialCommonModel1::where(['page'=>'funding','section'=>2])->get();
         return view('web.pages.funding',get_defined_vars());
     }
     public function partners_sponsors(){
@@ -357,7 +369,6 @@ class PagesController extends Controller
     public function careers(){
         return view('web.pages.careers',get_defined_vars());
     }
-    // *********************************************************************************************** working on below page ***********************************************************************
     public function join(){
         $banner = PageBanner::where('type',6)->first();
         $joins =  Membership_Level::all();
