@@ -332,7 +332,6 @@ class PagesController extends Controller
     public function careers(){
         return view('web.pages.careers',get_defined_vars());
     }
-    // *********************************************************************************************** working on below page ***********************************************************************
     public function join(){
         $banner = PageBanner::where('type',6)->first();
         $joins =  Membership_Level::all();
