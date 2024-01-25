@@ -48,9 +48,17 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\apperenceController;
 use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\Partners_sponsors\PartnerSponsorController;
+use App\Http\Controllers\Admin\Partners_sponsors\BecomePartnerController;
+use App\Http\Controllers\Admin\Partners_sponsors\BecomeSponsorController;
 use App\Http\Controllers\Admin\Programs\ProgramsController;
 use App\Http\Controllers\Admin\Small_businesses\SmallBusinessController;
 use App\Http\Controllers\Admin\Support_services\SupportServicesController;
+use App\Http\Controllers\Admin\Oppor\OpporController;
+use App\Http\Controllers\Admin\Oppor_agriculture\OpporAgricultureController;
+use App\Http\Controllers\Admin\Oppor_construction\OpporConstructionController;
+use App\Http\Controllers\Admin\Oppor_mining\OpporMiningController;
+use App\Http\Controllers\Admin\Oppor_rfx\OpporRfxController;
 use App\Http\Controllers\Admin\Veterans\VeteransController;
 use App\Http\Controllers\Admin\Women\WomenController;
 
@@ -337,5 +345,57 @@ Route::middleware('auth')->group(function() {
         Route::get('/usa-section1', [UsaController::class, 'section1'])->name('usa.section1');
         Route::get('/usa-section2', [UsaController::class, 'section2'])->name('usa.section2');
         // ---- USA page routes end ----
+
+        // ---- Partners Sponsor page routes start ----
+        Route::resource('partnersponsor', PartnerSponsorController::class);
+        Route::get('/partnersponsor-banner', [PartnerSponsorController::class, 'banner'])->name('partnersponsor.banner');
+        Route::get('/partnersponsor-section2', [PartnerSponsorController::class, 'section2'])->name('partnersponsor.section2');
+        Route::post('/partnersponsor-title', [PartnerSponsorController::class, 'titleSave'])->name('partnersponsor.title');
+        // ---- Partners Sponsor page routes end ----
+
+        // ---- Become Partner page routes start ----
+        Route::resource('becomepartner', BecomePartnerController::class);
+        Route::get('/becomepartner-banner', [BecomePartnerController::class, 'banner'])->name('becomepartner.banner');
+        Route::get('/becomepartner-section2', [BecomePartnerController::class, 'section2'])->name('becomepartner.section2');
+        Route::get('/becomepartner-section3', [BecomePartnerController::class, 'section3'])->name('becomepartner.section3');
+        Route::put('/becomepartner-updation/{id}', [BecomePartnerController::class, 'updation'])->name('becomepartner.updation');
+        // ---- Become Partner page routes end ----
+
+        // ---- Become Sponsor page routes start ----
+        Route::get('/becomesponsor-banner', [BecomeSponsorController::class, 'banner'])->name('becomesponsor.banner');
+        Route::get('/becomesponsor-section1', [BecomeSponsorController::class, 'section1'])->name('becomesponsor.section1');
+        Route::get('/becomesponsor-section2', [BecomeSponsorController::class, 'section2'])->name('becomesponsor.section2');
+        // ---- Become Sponsor page routes end ----
+
+        // ---- Opportunities page routes start ----
+        Route::get('/opportunities-banner', [OpporController::class, 'banner'])->name('opportunities.banner');
+        Route::get('/opportunities-section1', [OpporController::class, 'section1'])->name('opportunities.section1');
+        Route::get('/opportunities-section2', [OpporController::class, 'section2'])->name('opportunities.section2');
+        Route::put('/opportunities-update/{id}', [OpporController::class, 'update'])->name('opportunities.update');
+        // ---- Opportunities page routes end ----
+
+        // ---- Oppor Agriculture page routes start ----
+        Route::get('/opporagr-banner', [OpporAgricultureController::class, 'banner'])->name('opporagr.banner');
+        Route::get('/opporagr-section1', [OpporAgricultureController::class, 'section1'])->name('opporagr.section1');
+        Route::get('/opporagr-section2', [OpporAgricultureController::class, 'section2'])->name('opporagr.section2');
+        // ---- Oppor Agriculture page routes end ----
+
+        // ---- Oppor Construction page routes start ----
+        Route::get('/opporcons-banner', [OpporConstructionController::class, 'banner'])->name('opporcons.banner');
+        Route::get('/opporcons-section1', [OpporConstructionController::class, 'section1'])->name('opporcons.section1');
+        Route::get('/opporcons-section2', [OpporConstructionController::class, 'section2'])->name('opporcons.section2');
+        // ---- Oppor Construction page routes end ----
+
+        // ---- Oppor Mining page routes start ----
+        Route::get('/oppormining-banner', [OpporMiningController::class, 'banner'])->name('oppormining.banner');
+        Route::get('/oppormining-section1', [OpporMiningController::class, 'section1'])->name('oppormining.section1');
+        Route::get('/oppormining-section2', [OpporMiningController::class, 'section2'])->name('oppormining.section2');
+        // ---- Oppor Mining page routes end ----
+
+        // ---- Oppor Rfx page routes start ----
+        Route::get('/opporrfx-banner', [OpporRfxController::class, 'banner'])->name('opporrfx.banner');
+        Route::get('/opporrfx-section1', [OpporRfxController::class, 'section1'])->name('opporrfx.section1');
+        Route::get('/opporrfx-section2', [OpporRfxController::class, 'section2'])->name('opporrfx.section2');
+        // ---- Oppor Rfx page routes end ----
     });
 });
