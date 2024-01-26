@@ -44,7 +44,6 @@
                                         <img src="{{ asset('assets/web/images/'.$item->image) }}" class="bgchange" height="50" width="50">
                                     </td>
                                     <td>{{ $item->title }}</td>
-
                                     <td>
                                         <a href="{{ route('careers.edit',$item->id) }}"><i class="fa fa-edit"></i></a>
                                         <button class="btn-outline-danger delete_btn" data-url="/admin/careers"
