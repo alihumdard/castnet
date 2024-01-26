@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\web;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\HomeSection1;
 use App\Models\HomeSection2;
@@ -36,6 +37,7 @@ use App\Models\OurTeam;
 use App\Models\Banner;
 use App\Models\MembershipSection2;
 use App\Models\CommonEventSection;
+use App\Models\EventRequestForm;
 use App\Models\JoinWidget;
 use App\Models\MyBlog;
 use App\Models\EventModel;
@@ -53,6 +55,7 @@ use App\Models\PartnerCommonSection2;
 use App\Models\FinancialCommonModel;
 use App\Models\FinancialCommonModel1;
 use App\Models\Job;
+
 
 class PagesController extends Controller
 {
@@ -219,6 +222,31 @@ class PagesController extends Controller
         $events = InternationalEvent::get();
         $widget = CommonEventSection::first();
         return view('web.pages.international_events',get_defined_vars());
+    }
+    public function event_request_form(Request $request){
+
+        $event = [
+            'event_title' => $request->title,
+            'event_category' => $request->event_category,
+            'event_info' => $request->event_info,
+            'start_date' => $request->startDate,
+            'end_date' => $request->endDate,
+            'start_time' => $request->startTime,
+            'end_time' => $request->endTime,
+            'event_cost' => $request->event_cost,
+            'event_fee' => $request->fee,
+            'event_contact_FN' => $request->firstName,
+            'event_contact_LN' => $request->lastName,
+            'event_contact_email' => $request->email,
+            'telephone' => $request->telephone,
+            'area_chamber' => $request->area,
+        ];
+
+
+
+        EventRequestForm::create($event);
+        $message = 'Event Request added successfully';
+        return redirect()->back();
     }
     public function event_request(){
         $banner = PageBanner::where('type', 26)->first();
