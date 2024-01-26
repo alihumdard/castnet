@@ -57,11 +57,10 @@ class JobOpeningController extends Controller
      */
     public function store(Request $request){
         Job::create([
-            'job_title' => $request->name,
+            'job_title' => $request->title,
             'salary_detail' => $request->salary,
             'job_description' => $request->description,
             'duration_detail' => implode(",",$request->duration),
-            'status' => $request->status,
         ]);
         return redirect()->route('jobs.index')->with('success', 'Data saved successfully!');
     }
@@ -109,7 +108,7 @@ class JobOpeningController extends Controller
         }
 
         $data = [
-            'job_title' => $request->heading,
+            'job_title' => $request->title,
             'salary_detail' => $request->salary,
             'job_description' => $request->description,
             'duration_detail' => implode(",",$request->duration),
@@ -165,5 +164,19 @@ class JobOpeningController extends Controller
         $job->update($data);
 
         return redirect()->route('jobs.section1')->with('success', "Data Updated Successfully.");
+    }
+    
+    public function statusChange(Request $request){
+        $job = Job::findOrFail($request->id);
+        if ($job == null) {
+            return redirect()->back()->with('error', 'No records were found.');
+        }
+        $job->update(['status'=> $request->status]);
+
+        return response()->json(array(
+            'data' => true,
+            'message' => 'The status has been changed.',
+            'status' => 'success',
+        ));
     }
 }
