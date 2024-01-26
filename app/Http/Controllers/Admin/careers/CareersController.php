@@ -30,7 +30,7 @@ class CareersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $section = CareersCommonModel1::where(['page'=>'careers','section'=>2])->get();
+        $section = CareersCommonModel1::get();
         $page = "Careers";
         $sn = "Section 2";
         return view('admin.pages.careers.index',get_defined_vars());
