@@ -39,7 +39,9 @@ class EventCalenderController extends Controller
     {
         $event = [
             'title' => $request->title,
-            'event_time' => $request->event_time,
+            'event_date' => $request->event_date,
+            'from_time' => $request->from_time,
+            'to_time' => $request->to_time,
             'description' => $request->description,
         ];
         OurEventCalenderModel::create($event);
@@ -82,7 +84,9 @@ class EventCalenderController extends Controller
         $event = OurEventCalenderModel::findOrFail($id);
         $data = [
             'title' => $request->title,
-            'event_time' => $request->event_time,
+            'event_date' => $request->event_date,
+            'from_time' => $request->from_time,
+            'to_time' => $request->to_time,
             'description' => $request->description,
         ];
         $event->update($data);

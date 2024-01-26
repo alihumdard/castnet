@@ -48,7 +48,7 @@ class OurEventController extends Controller
         ];
         OurEventModel::create($event);
         $message = 'Event added successfully';
-        return redirect()->route('our-event.index')->with('success', $message);
+        return redirect()->route('myEvent.index')->with('success', $message);
     }
 
     /**

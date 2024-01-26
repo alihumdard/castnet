@@ -22,7 +22,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <a href="{{ route('our-event.create') }}" class="btn btn-sm btn-primary" style="float: right;">Add Event</a>
+                            <a href="{{ route('myEvent.create') }}" class="btn btn-sm btn-primary" style="float: right;">Add Event</a>
                         </div>
                         <div class="card-body">
                           <table id="example1" class="table table-bordered table-striped">
@@ -45,8 +45,8 @@
                                     <td>{{ $event->title }}</td>
                                     <td>{{ $event->date }}</td>
                                     <td>
-                                        <a href="{{ route('our-event.edit',$event->id) }}"><i class="fa fa-edit"></i></a>
-                                        <button class="btn-outline-danger delete_btn" data-url="/admin/our-event"
+                                        <a href="{{ route('myEvent.edit',$event->id) }}"><i class="fa fa-edit"></i></a>
+                                        <button class="btn-outline-danger delete_btn" data-url="/admin/myEvent"
                                             data-id="{{ $event->id }}" type="submit"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>

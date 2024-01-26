@@ -30,16 +30,22 @@
                             <tr>
                               <th>#</th>
                               <th>Title</th>
-                              <th>Event Time</th>
+                              <th>Description</th>
+                              <th>Event Date</th>
                               <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
                                 @foreach($events as $event)
+                                @php 
+                                    $words = str_word_count($event->description, 1);
+                                    $showwords = implode(' ', array_slice($words, 0, 20));
+                                @endphp
                                <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $event->title }}</td>
-                                    <td>{{ $event->event_time }}</td>
+                                    <td>{{ $showwords }}@if(count($words)>20)...@endif</td>
+                                    <td>{{ $event->event_date }}</td>
                                     <td>
                                         <a href="{{ route('event-calender.edit',$event->id) }}"><i class="fa fa-edit"></i></a>
                                         <button class="btn-outline-danger delete_btn" data-url="/admin/event-calender"

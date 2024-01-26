@@ -110,10 +110,10 @@ Route::middleware('auth')->group(function() {
         // --------- About Page Routes End --------------
 
         // --------- who_we_are Page Routes Start ------------
-        Route::get('/whoWeAre-banner', [WhoWeArePageController::class, 'index'])->name('whoWeAre.banner');
-        Route::get('/who-we-are-section1', [WhoWeArePageController::class, 'section1'])->name('whoweare.section1');
-        Route::get('/who-we-are-section2', [WhoWeArePageController::class, 'section2'])->name('whoweare.section2');
-        Route::put('/who-we-are/{id}', [WhoWeArePageController::class, 'update'])->name('whoweare.update');
+        Route::get('/whoweare-banner', [WhoWeArePageController::class, 'index'])->name('whoweare.banner');
+        Route::get('/whoweare-section1', [WhoWeArePageController::class, 'section1'])->name('whoweare.section1');
+        Route::get('/whoweare-section2', [WhoWeArePageController::class, 'section2'])->name('whoweare.section2');
+        Route::put('/whoweare/{id}', [WhoWeArePageController::class, 'update'])->name('whoweare.update');
         // --------- who_we_are Page Routes End --------------
 
         //---** Our team **---//
@@ -129,15 +129,15 @@ Route::middleware('auth')->group(function() {
 
         //---** My Blog **---//
         Route::resource('my-blog', BlogController::class);
-        Route::get('/myBlog-banner', [BlogController::class, 'banner'])->name('myBlog.banner');
+        Route::get('/my-blog-banner', [BlogController::class, 'banner'])->name('my-blog.banner');
         // ---------My blog Page Routes End --------------
 
         //---** Events **---//
         Route::get('/myEvent-banner', [EventSection1Controller::class, 'banner'])->name('myEvent.banner');
         Route::get('/myEvent-section1', [EventSection1Controller::class, 'section1'])->name('myEvent.section1');
         Route::get('/myEvent-section3', [EventSection1Controller::class, 'section3'])->name('myEvent.section3');
-        Route::put('/myEvent-update/{id}', [EventSection1Controller::class, 'update'])->name('myEvent.update');
-        Route::resource('our-event', OurEventController::class);
+        Route::put('/myEvent-updation/{id}', [EventSection1Controller::class, 'updation'])->name('myEvent.updation');
+        Route::resource('myEvent', OurEventController::class);
 
         Route::resource('event-calender', EventCalenderController::class);
         Route::get('/event-calender-banner', [EventCalenderController::class, 'banner'])->name('event-calender.banner');
