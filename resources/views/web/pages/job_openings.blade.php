@@ -27,13 +27,12 @@
         <div class="container">
             <div class="row gx-md-5">
                 <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title fw-bold">Lorem Ipsum is simply dummy text of the printing</h2>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text.</p>
+                    <h2 class="section_title fw-bold">{{ $section1->title }}</h2>
+                    {!! $section1->description !!}
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="assets/web/images/job_opening_intro.png" alt="job_opening_intro">
+                        <img src="{{ asset('assets/web/images/'.$section1->image) }}" alt="job_opening_intro">
                     </div>
                 </div>
             </div>
@@ -50,7 +49,9 @@
                 </div>
             </div>
             <div class="row gy-5 mt-5" data-aos="zoom-in" data-aos-duration="1000">
-                <div class="col-md-12 mt-0">
+                @foreach($section2 as $job)
+                @if($job->status == 0)
+                <div class="col-md-12 {{ $loop->first ? 'mt-0' : '' }}">
                     <div class="box_job">
                         <div class="row gy-4 gy-lg-0">
                             <div class="col-lg-1 text-center text-lg-start">
@@ -58,15 +59,17 @@
                             </div>
                             <div class="col-lg-11">
                                 <div class="box_header">
-                                    <h3 class="title">Senior software enginer</h3>
-                                    <p class="text">&dollar;50k &dash; &dollar;60k  <span>/ year</span></p>
+                                    <h3 class="title">{{ $job->job_title }}</h3>
+                                    <p class="text">{{ $job->salary_detail}}</span></p>
                                 </div>
                                 <div class="box_body">
-                                    <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                    {{ $job->job_description}}
                                     <div class="d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-lg-start gap-4">
-                                        <span class="tag">Fulltime</span>
-                                        <span class="tag">Engineering</span>
-                                        <span class="tag">Onsite</span>
+                                        @foreach(explode(',',$job->duration_detail) as $item)
+                                        <span class="tag">{{ $item }}</span>
+                                        {{-- <span class="tag">Engineering</span>
+                                        <span class="tag">Onsite</span> --}}
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="box_footer">
@@ -79,93 +82,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="box_job">
-                        <div class="row gy-4 gy-lg-0">
-                            <div class="col-lg-1 text-center text-lg-start">
-                                <img src="assets/web/images/icon_job.png" alt="job icon" class="img-job">
-                            </div>
-                            <div class="col-lg-11">
-                                <div class="box_header">
-                                    <h3 class="title">Business developer</h3>
-                                    <p class="text">&dollar;50k &dash; &dollar;60k  <span>/ year</span></p>
-                                </div>
-                                <div class="box_body">
-                                    <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                    <div class="d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-lg-start gap-4">
-                                        <span class="tag">Fulltime</span>
-                                        <span class="tag">Engineering</span>
-                                        <span class="tag">Onsite</span>
-                                    </div>
-                                </div>
-                                <div class="box_footer">
-                                    <a href="#" class="btn btn-primary">
-                                        <span>apply now</span>
-                                        <img src="assets/web/images/icon_arrow.png" alt="arrow">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="box_job">
-                        <div class="row gy-4 gy-lg-0">
-                            <div class="col-lg-1 text-center text-lg-start">
-                                <img src="assets/web/images/icon_job.png" alt="job icon" class="img-job">
-                            </div>
-                            <div class="col-lg-11">
-                                <div class="box_header">
-                                    <h3 class="title">digital marketing</h3>
-                                    <p class="text">&dollar;50k &dash; &dollar;60k  <span>/ year</span></p>
-                                </div>
-                                <div class="box_body">
-                                    <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                    <div class="d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-lg-start gap-4">
-                                        <span class="tag">Fulltime</span>
-                                        <span class="tag">Engineering</span>
-                                        <span class="tag">Onsite</span>
-                                    </div>
-                                </div>
-                                <div class="box_footer">
-                                    <a href="#" class="btn btn-primary">
-                                        <span>apply now</span>
-                                        <img src="assets/web/images/icon_arrow.png" alt="arrow">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="box_job">
-                        <div class="row gy-4 gy-lg-0">
-                            <div class="col-lg-1 text-center text-lg-start">
-                                <img src="assets/web/images/icon_job.png" alt="job icon" class="img-job">
-                            </div>
-                            <div class="col-lg-11">
-                                <div class="box_header">
-                                    <h3 class="title">SEo specialist</h3>
-                                    <p class="text">&dollar;50k &dash; &dollar;60k  <span>/ year</span></p>
-                                </div>
-                                <div class="box_body">
-                                    <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                    <div class="d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-lg-start gap-4">
-                                        <span class="tag">Fulltime</span>
-                                        <span class="tag">Engineering</span>
-                                        <span class="tag">Onsite</span>
-                                    </div>
-                                </div>
-                                <div class="box_footer">
-                                    <a href="#" class="btn btn-primary">
-                                        <span>apply now</span>
-                                        <img src="assets/web/images/icon_arrow.png" alt="arrow">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endif
+                @endforeach
             </div>
         </div>
     </section>

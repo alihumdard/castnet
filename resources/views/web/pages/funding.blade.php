@@ -49,7 +49,7 @@
                 <div class="col-md-4 col-lg-4 d-flex">
                     <div class="card border_p" data-aos="zoom-in-right" data-aos-duration="1000">
                         <div class="card-body p-4">
-                            <img src="{{ asset('assets/web/images/'.$item->images)}}" alt="debt_financing" class="img-icon">
+                            <img src="{{ asset('assets/web/images/'.$item->image)}}" alt="debt_financing" class="img-icon">
                             <p class="card-text fw-bold">{{ $item->title }}</p>
                             <p class="card-desc">{!! $item->description !!}</p>
                         </div>
