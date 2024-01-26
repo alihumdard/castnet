@@ -29,77 +29,79 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <form action="#" data-aos="zoom-in" data-aos-duration="1000">
+                    <form action="{{ route('event.request') }}" data-aos="zoom-in" method="post" data-aos-duration="1000">
+                        @csrf
                         <div class="row gy-4">
                             <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Event Title">
+                                <input type="text" name="title" class="form-control" placeholder="Event Title">
                             </div>
                             <div class="col-md-6">
-                                <select class="form-select">
-                                    <option selected="">Event Category</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <select name="event_category" class="form-select">
+                                    <option selected>Event Category</option>
+                                    <option value="One">One</option>
+                                    <option value="Two">Two</option>
+                                    <option value="Three">Three</option>
                                 </select>
                             </div>
                             <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="Event Information">
+                                <input type="text" name="event_info" class="form-control" placeholder="Event Information">
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Start Date" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                <input type="text" class="form-control" name="startDate" placeholder="Start Date" onfocus="(this.type='date')" onblur="(this.type='text')">
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Start Time" onfocus="(this.type='time')" onblur="(this.type='text')">
+                                <input type="text" class="form-control" name="startTime" placeholder="Start Time" onfocus="(this.type='time')" onblur="(this.type='text')">
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="End Date" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                <input type="text" class="form-control" name="endDate" placeholder="End Date" onfocus="(this.type='date')" onblur="(this.type='text')">
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="End Time" onfocus="(this.type='time')" onblur="(this.type='text')">
+                                <input type="text" class="form-control" name="endTime" placeholder="End Time" onfocus="(this.type='time')" onblur="(this.type='text')">
                             </div>
                             <div class="col-md-12">
                                 <div class="checkbox-border">
                                     <h3 class="checkbox-title">event cost</h3>
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="yes">
-                                        <label class="form-check-label" for="yes">FREE</label>
+                                        <input type="radio" class="form-check-input" id="free" name="event_cost" value="free">
+                                        <label class="form-check-label" for="free">FREE</label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="no">
-                                        <label class="form-check-label" for="no">FEE</label>
+                                        <input type="radio" class="form-check-input" id="fee" name="event_cost" value="fee">
+                                        <label class="form-check-label" for="fee">FEE</label>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Fee">
+                                <input type="text" name="fee" class="form-control" placeholder="Fee">
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Event Contact - First Name">
+                                <input type="text" name="firstName" class="form-control" placeholder="Event Contact - First Name">
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Event Contact - Last Name">
+                                <input type="text" name="lastName" class="form-control" placeholder="Event Contact - Last Name">
                             </div>
                             <div class="col-md-6">
-                                <input type="email" class="form-control" placeholder="Email">
+                                <input type="email" name="email" class="form-control" placeholder="Email">
                             </div>
                             <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="Telephone">
+                                <input type="text" name="telephone" class="form-control" placeholder="Telephone">
                             </div>
                             <div class="col-md-12">
                                 <div class="checkbox-border">
                                     <h3 class="checkbox-title">Are you a current Area Chamber Member</h3>
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="yes">
+                                        <input type="radio" name="area" class="form-check-input" id="yes" value="yes">
                                         <label class="form-check-label" for="yes">Yes</label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="no">
+                                        <input type="radio" name="area" class="form-check-input" id="no" value="no">
                                         <label class="form-check-label" for="no">No</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 text-center">
-                                <a href="#" class="btn btn-primary">submit</a>
+                                <button type="submit" class="btn btn-primary">submit</button>
                             </div>
                         </div>
                     </form>

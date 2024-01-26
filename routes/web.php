@@ -71,6 +71,12 @@ Route::get('/careers', [PagesController::class, 'careers'])->name('web.careers')
 
 
 
+// ******************************************* Event request page form below
+Route::post('/event_request', [PagesController::class, 'event_request_form'])->name('event.request');
+
+
+
+
 include __DIR__.'/admin.php';
 
 Route::get('/commands', function () {
