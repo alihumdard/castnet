@@ -460,7 +460,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
-                                Benefits
+                                BENEFITS
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -1206,34 +1206,6 @@
                         </ul>
                     </li>
                     {{--  BLOG Page End  --}}
-
-
-                    {{-- widgets section start  --}}
-                    <li class="nav-item {{(request()->routeIs(['joinWidget*','eventWidget*'])) ? 'menu-is-opening menu-open' : ''}}">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-book"></i>
-                            <p>
-                                WIDGETS
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('joinWidget') }}" class="nav-link {{(request()->routeIs('joinWidget')) ? 'active' : ''}}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Join Widget</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('eventWidget') }}" class="nav-link {{(request()->routeIs('eventWidget*')) ? 'active' : ''}}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Event Widget</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    {{-- widgets section end  --}}
-
 
 
                     {{--  FINANCIAL Page Start  --}}
@@ -1986,6 +1958,31 @@
 
                         </ul>
                     </li> --}}
+                        {{-- widgets section start  --}}
+                        <li class="nav-item {{(request()->routeIs(['joinWidget*','eventWidget*'])) ? 'menu-is-opening menu-open' : ''}}">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>
+                                    WIDGETS
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('joinWidget') }}" class="nav-link {{(request()->routeIs('joinWidget')) ? 'active' : ''}}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Join Widget</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('eventWidget') }}" class="nav-link {{(request()->routeIs('eventWidget*')) ? 'active' : ''}}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Event Widget</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        {{-- widgets section end  --}}
 
                     <li class="nav-item">
                         <a href="{{ route('admin.sociallinks') }}" class="nav-link {{(request()->routeIs('admin.sociallinks')) ? 'active' :''}}">

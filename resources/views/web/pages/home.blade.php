@@ -344,7 +344,6 @@ $setting = appSetting();
             <div class="modal-body">
                 <form action="{{ route('feedbacks') }}" method="post">
                     @csrf
-
                     <div class="checkboxes mb-5">
                         <p class="query-text">Overall, how satisfied are you with the website?</p>
                         <div class="d-flex justify-content-between">

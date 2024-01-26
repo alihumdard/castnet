@@ -33,12 +33,9 @@
             </div>
             <div class="row gy-5 gy-md-0">
                 @foreach($executiveMembers as $executive)
-                {{-- {{ dd($executive->image) }} --}}
                 <div class="col-md-4 col-lg-4 d-flex">
                     <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
                         <img src="{{ asset('assets/web/images/' . $executive->image) }}" alt="team" class="card-img-top">
-
-                        {{-- image --}}
                         <div class="card-body">
                             <h3 class="card-title">{{ $executive -> name }}</h3>
                             <p class="card-text">{{ $executive -> profession }}</p>

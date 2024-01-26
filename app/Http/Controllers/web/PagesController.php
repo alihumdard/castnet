@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\HomeSection1;
 use App\Models\HomeSection2;
 use App\Models\HomeSection3;
@@ -45,6 +44,8 @@ use App\Models\Membership_Level;
 use App\Models\AdvocacyCommonModel1;
 use App\Models\OpportunitiesModel;
 use App\Models\AdvocacyCommonModel;
+use App\Models\CareersCommonModel1;
+use App\Models\CareersModel;
 use App\Models\PartnersModel;
 use App\Models\PartnerSponsorPageTitleModel;
 use App\Models\PartnerCommonSection1;
@@ -52,9 +53,7 @@ use App\Models\PartnerCommonSection2;
 use App\Models\FinancialCommonModel;
 use App\Models\FinancialCommonModel1;
 
-use Carbon\Carbon;
-// About Page Models start
-// About Page Models end
+
 class PagesController extends Controller
 {
     public function index(){
@@ -363,12 +362,23 @@ class PagesController extends Controller
         $section2 = OpportunitiesModel::where(['section'=>1,'page'=>'rfx'])->first();
         return view('web.pages.rfx',get_defined_vars());
     }
+
+    // ******************************************* just these 2 pages work remaining
     public function job_openings(){
+        $banner = PageBanner::where('type',50)->first();
+        $section1 = CareersModel::where(['page'=>'job','section'=>1])->first();
+        // $section2 = PartnersModel::where('section',1)->get();
         return view('web.pages.job_openings',get_defined_vars());
     }
     public function careers(){
+        $banner = PageBanner::where('type',49)->first();
+        $section1 = CareersModel::where(['page'=>'careers','section'=>1])->first();
+        $section2 = CareersCommonModel1::where(['page'=>'careers','section'=>2])->get();
         return view('web.pages.careers',get_defined_vars());
     }
+    // ******************************************* just these 2 pages work remaining
+
+
     public function join(){
         $banner = PageBanner::where('type',6)->first();
         $joins =  Membership_Level::all();
