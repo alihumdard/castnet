@@ -880,6 +880,11 @@ header .navbar .img-menu {
     position: relative;
 }
 
+.events .card .card-img-top {
+    min-height: 27.5rem;
+    object-fit: cover;
+}
+
 .events .card .card-body {
     background: var(--white);
     border-radius: 0 0 1rem 1rem;
