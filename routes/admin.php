@@ -46,13 +46,11 @@ use App\Http\Controllers\Admin\SocialLinkController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\PagesController;
-use App\Http\Controllers\Admin\apperenceController;
-use App\Http\Controllers\Admin\careers\CareersController;
-use App\Http\Controllers\Admin\financial\FinancialController;
-use App\Http\Controllers\Admin\funding\FundingController;
-use App\Http\Controllers\Admin\grants\GrantsController;
-use App\Http\Controllers\Admin\job_openings\JobOpeningController;
-use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\Careers\CareersController;
+use App\Http\Controllers\Admin\Financial\FinancialController;
+use App\Http\Controllers\Admin\Funding\FundingController;
+use App\Http\Controllers\Admin\Grants\GrantsController;
+use App\Http\Controllers\Admin\Job_openings\JobOpeningController;
 use App\Http\Controllers\Admin\Partners_sponsors\PartnerSponsorController;
 use App\Http\Controllers\Admin\Partners_sponsors\BecomePartnerController;
 use App\Http\Controllers\Admin\Partners_sponsors\BecomeSponsorController;
@@ -103,8 +101,6 @@ Route::middleware('auth')->group(function() {
 
         Route::get('/allpages', [PagesController::class, 'allpages'])->name('admin.allpages');
         Route::get('/addpage', [PagesController::class, 'addpage'])->name('admin.addpage');
-        Route::get('/menus', [apperenceController::class, 'menus'])->name('admin.menus');
-        Route::get('pages/{id}/editor', [PageController::class,'editor'])->name('page.editor');
 
         // --------- About Page Routes Start ------------
         Route::get('/about-us-banner', [AboutPageController::class, 'index'])->name('aboutus.banner');
@@ -424,7 +420,6 @@ Route::middleware('auth')->group(function() {
         Route::get('/funding-section2', [FundingController::class, 'section2'])->name('funding.section2');
         // --------------------- funding page routes end -----------------------------
 
-
         // ------------------------ careers page route start -------------------------------
         Route::resource('careers', CareersController::class);
         Route::get('/careers-banner', [CareersController::class, 'banner'])->name('careers.banner');
@@ -432,14 +427,11 @@ Route::middleware('auth')->group(function() {
         Route::put('/careers-updation/{id}',[CareersController::class,'updation'])->name('careers.updation');
         // ------------------------ careers page route end -------------------------------
 
-
         // ----------------------------------job opining route start-----------------------------------------
-        Route::resource('Jobs', JobOpeningController::class);
-        Route::get('/JOB-banner', [JobOpeningController::class, 'banner'])->name('JOB.banner');
-        Route::get('/JOB-section1', [JobOpeningController::class, 'section1'])->name('JOB.section1');
-        Route::get('/create-job', [JobOpeningController::class, 'createJob'])->name('create.job');
-        Route::get('/eidt-job', [JobOpeningController::class, 'editJob'])->name('edit.job');
-        Route::put('/JOB-updation/{id}',[JobOpeningController::class,'updation'])->name('JOB.updation');
+        Route::resource('jobs', JobOpeningController::class);
+        Route::get('/jobs-banner', [JobOpeningController::class, 'banner'])->name('jobs.banner');
+        Route::get('/jobs-section1', [JobOpeningController::class, 'section1'])->name('jobs.section1');
+        Route::put('/jobs-updation/{id}',[JobOpeningController::class,'updation'])->name('jobs.updation');
         // ----------------------------------job opining route end-----------------------------------------
     });
 });

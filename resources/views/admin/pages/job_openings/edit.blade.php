@@ -1,12 +1,13 @@
 @extends('admin.layouts.default')
 @section('title', 'Home Page Section 1')
 @section('content')
+
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Create Job</h1>
+                        <h1 class="m-0">Edit Job</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -22,19 +23,20 @@
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-body">
-                            <form action="{{ route('Jobs.store')}}" id="section1" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('jobs.update',$section->id)}}" id="section1" method="post" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
-                                            <label for="prin_title">Job Title</label>
-                                                <input type="text" name="name" class="form-control" placeholder="Enter Job Title...">
+                                            <label for="prin_title">Job Name</label>
+                                                <input type="text" name="heading" value="{{ $section->job_title }}" class="form-control" placeholder="Enter Job Title...">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
                                             <label for="prin_title">Salary</label>
-                                                <input type="text" name="salary" class="form-control" placeholder="Enter Salary...">
+                                                <input type="text" name="salary" value="{{ $section->salary_detail}}" class="form-control" placeholder="Enter Salary...">
                                         </div>
                                     </div>
                                 </div>
@@ -43,40 +45,40 @@
                                     <div class="col-sm-12">
                                         <div class="form-group errorshow">
                                             <label>Description</label>
-                                            <textarea class="form-control" name="description" rows="3" placeholder="Job Description" style="resize: none;"></textarea>
+                                            <textarea class="form-control" name="description" rows="3" placeholder="Job Description" style="resize: none;">{{ $section->job_description }}</textarea>
                                         </div>
                                     </div>
                                 </div>
 
 
-
+                                {{-- @dd($decodedDetail[0]) --}}
                                 <div class="row">
                                     <div class="col-sm-6">
 
                                     <div class="form-group clearfix">
                                     <div class="icheck-primary d-inline">
-                                    <input type="checkbox" id="checkboxPrimary1" name="fulltime" value="Fulltime">
+                                    <input type="checkbox" id="checkboxPrimary1" name="duration[]" value="Fulltime" {{ (in_array('Fulltime', explode(",", $section->duration_detail))) ? 'checked' : '' }}>
                                     <label for="checkboxPrimary1">
                                         Fulltime
                                     </label>
                                     </div>
                                     <div class="icheck-primary d-inline">
-                                    <input type="checkbox" id="checkboxPrimary2" name="engineering" value="Engineering">
+                                    <input type="checkbox" id="checkboxPrimary2" name="duration[]" value="Engineering" {{ (in_array('Engineering', explode(",", $section->duration_detail))) ? 'checked' : '' }}>
                                     <label for="checkboxPrimary2">
                                         Engineering
                                     </label>
                                     </div>
                                     <div class="icheck-primary d-inline">
-                                    <input type="checkbox" id="checkboxPrimary3" name="onsite" value="Onsite">
+                                    <input type="checkbox" id="checkboxPrimary3" name="duration[]" value="Onsite" {{ (in_array('Onsite', explode(",", $section->duration_detail))) ? 'checked' : '' }}>
                                     <label for="checkboxPrimary3">
                                         Onsite
                                     </label>
-                                    <input type="hidden" name="status" value="1" class="form-control">
+                                    <input type="hidden" name="status" value="{{ $section->status }}" class="form-control">
                                     </div>
                                     </div>
                                     </div>
 
-                                    </div>
+                                </div>
                                 <div class="card-footer" style="background:none;">
                                     <button id="sectionslist" type="submit" class="btn btn-sm btn-primary" style="float: right;">Save</button>
                                 </div>

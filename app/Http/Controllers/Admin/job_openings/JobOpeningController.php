@@ -14,44 +14,39 @@ class JobOpeningController extends Controller
 {
     public function banner(){
         $banner = PageBanner::where('type',50)->first();
-        $page = "JOB OPENINGS";
+        $page = "Job Openings";
         return view('admin.pages.banner',compact('banner','page'));
     }
+
     public function section1(){
-        $section = CareersModel::where(['page'=>'JOB','section'=>1])->first();
-        $page = "JOB OPENINGS";
+        $section = CareersModel::where(['page'=>'job','section'=>1])->first();
+        $page = "Job Openings";
         $sn = "Section 1";
         return view('admin.pages.careers.common_section',get_defined_vars());
     }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
         $section = Job::all();
-        $page = "JOB OPENINGS";
-        $sn = "Section 1";
+        $page = "Job Openings";
+        $sn = "Section 2";
         return view('admin.pages.job_openings.common_section1',get_defined_vars());
     }
-    public function createJob(){
-        $page = "JOB OPENINGS";
-        $sn = "Create Job";
-        return view('admin.pages.job_openings.create_job',get_defined_vars());
-    }
-    public function editJob(){
 
-    }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(){
+        $page = "Job Openings";
+        $sn = "Section 2";
+        return view('admin.pages.job_openings.create',get_defined_vars());
     }
 
     /**
@@ -60,26 +55,15 @@ class JobOpeningController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-
-    $checkboxValues = [];
-
-    $checkboxValues[] = $request->has('fulltime') ? $request->input('fulltime') : '';
-    $checkboxValues[] = $request->has('engineering') ? $request->input('engineering') : '';
-    $checkboxValues[] = $request->has('onsite') ? $request->input('onsite') : '';
-
-
-
+    public function store(Request $request){
         Job::create([
             'job_title' => $request->name,
             'salary_detail' => $request->salary,
             'job_description' => $request->description,
-            'duration_detail' => json_encode($checkboxValues),
+            'duration_detail' => implode(",",$request->duration),
             'status' => $request->status,
         ]);
-
-        return redirect('admin/Jobs')->with('success', 'Data saved successfully!');
+        return redirect()->route('jobs.index')->with('success', 'Data saved successfully!');
     }
 
     /**
@@ -106,9 +90,9 @@ class JobOpeningController extends Controller
             return redirect()->back()->with('error', 'No records were found for editing.');
         }
         $decodedDetail = json_decode($section->duration_detail);
-        $page = "JOB OPENINGS";
-        $sn = "Edit Job";
-        return view('admin.pages.job_openings.edit_job',get_defined_vars());
+        $page = "Job Openings";
+        $sn = "Section 2";
+        return view('admin.pages.job_openings.edit',get_defined_vars());
     }
 
     /**
@@ -118,33 +102,21 @@ class JobOpeningController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        $advocacy = Job::findOrFail($id);
-        $decodedDetail = json_decode($advocacy->duration_detail);
+    public function update(Request $request, $id){
+        $job = Job::findOrFail($id);
+        if ($job == null) {
+            return redirect()->back()->with('error', 'No records were found for updation.');
+        }
 
-
-        $checkboxValues = [];
-
-        $checkboxValues[] = $request->has('fulltime') ? $request->input('fulltime') : '';
-        $checkboxValues[] = $request->has('engineering') ? $request->input('engineering') : '';
-        $checkboxValues[] = $request->has('onsite') ? $request->input('onsite') : '';
-
-            if ($advocacy == null) {
-                return redirect()->back()->with('error', 'No records were found for updation.');
-            }
-
-
-            $data = [
-                'job_title' => $request->heading,
-                'salary_detail' => $request->salary,
-                'job_description' => $request->description,
-                'duration_detail' => json_encode($checkboxValues),
-                'status' => $request->status,
-            ];
-            $advocacy->update($data);
-            return redirect('admin/Jobs')->with('success', 'Data saved successfully!');
-
+        $data = [
+            'job_title' => $request->heading,
+            'salary_detail' => $request->salary,
+            'job_description' => $request->description,
+            'duration_detail' => implode(",",$request->duration),
+            'status' => $request->status,
+        ];
+        $job->update($data);
+        return redirect('admin/jobs')->with('success', 'Data saved successfully!');
     }
 
     /**
@@ -153,8 +125,7 @@ class JobOpeningController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id){
         $path = Job::where('id',$id)->first()->image;
         if(isset($path)){
             $path = public_path().'/assets/web/images/'.$path;
@@ -167,20 +138,15 @@ class JobOpeningController extends Controller
             'status' => 'success',
         ));
     }
-    public function updation(Request $request,$id){
 
-        $JOB = CareersModel::findOrFail($id);
-        if ($JOB == null) {
+    public function updation(Request $request,$id){
+        $job = CareersModel::findOrFail($id);
+        if ($job == null) {
             return redirect()->back()->with('error', 'No records were found for updation.');
         }
-        elseif($JOB->page=='JOB' && $JOB->section==1){
-            $route = "JOB.section1";
-        }elseif($JOB->page=='grants' && $JOB->section==1){
-            $route = "grants.section1";
-        }
-
+       
         if($request->image){
-            $path = $JOB->image;
+            $path = $job->image;
             if(isset($path)){
                 $path = public_path().'/assets/web/images/'.$path;
                 File::delete($path);
@@ -188,7 +154,7 @@ class JobOpeningController extends Controller
             $file = time().'.'.$request->image->extension();
             $request->image->move(public_path('assets/web/images'), $file);
         }else{
-            $file = $JOB->image;
+            $file = $job->image;
         }
 
         $data = [
@@ -196,8 +162,8 @@ class JobOpeningController extends Controller
             'image' => $file,
             'description' => $request->description,
         ];
-        $JOB->update($data);
+        $job->update($data);
 
-        return redirect()->route($route)->with('success', "Data Updated Successfully.");
+        return redirect()->route('jobs.section1')->with('success', "Data Updated Successfully.");
     }
 }

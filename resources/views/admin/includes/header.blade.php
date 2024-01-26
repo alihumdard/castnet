@@ -1929,7 +1929,7 @@
                     {{--  CAREERS Page End  --}}
 
                     {{--  JOB OPENINGS Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['JOB.banner','JOB.section1','Jobs*','create.job','edit.job'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['jobs*'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -1939,29 +1939,23 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('JOB.banner') }}" class="nav-link {{(request()->routeIs('JOB.banner')) ? 'active' : ''}}">
+                                <a href="{{ route('jobs.banner') }}" class="nav-link {{(request()->routeIs('jobs.banner')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Banner</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('JOB.section1') }}" class="nav-link {{(request()->routeIs('JOB.section1')) ? 'active' : ''}}">
+                                <a href="{{ route('jobs.section1') }}" class="nav-link {{(request()->routeIs('jobs.section1')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 1</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('Jobs.index') }}" class="nav-link {{(request()->routeIs('Jobs.index','Jobs*','create.job','edit.job')) ? 'active' : ''}}">
+                                <a href="{{ route('jobs.index') }}" class="nav-link {{(request()->routeIs('jobs.index','jobs.create','jobs.edit')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Section 2</p>
                                 </a>
                             </li>
-                            {{-- <li class="nav-item">
-                                <a href="{{ route('aboutUs.section1') }}" class="nav-link {{(request()->routeIs('aboutUs.section1')) ? 'active' : ''}}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Section 3</p>
-                                </a>
-                            </li> --}}
                         </ul>
                     </li>
                     {{--  JOB OPENINGS Page End  --}}

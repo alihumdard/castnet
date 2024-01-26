@@ -1,14 +1,6 @@
 @extends('admin.layouts.default')
 @section('title',$page)
 @section('content')
-@if(strtolower($page)=='advocacy' && $sn=='Section 4')
-<style>
-    .bgchange{
-        background-color:blue;
-        padding:10px;
-    }
-</style>
-@endif
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
@@ -30,7 +22,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <a href="{{route('create.job')}}" class="btn btn-sm btn-primary" style="float: right;">
+                            <a href="{{route('jobs.create')}}" class="btn btn-sm btn-primary" style="float: right;">
                                 Add Job
                             </a>
                         </div>
@@ -61,16 +53,13 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('Jobs.edit',$item->id) }}"><i class="fa fa-edit"></i></a>
-                                        {{-- <a href="{{route('Jobs.edit')}}"><i class="fa fa-edit"></i></a> --}}
-                                        <button class="btn-outline-danger delete_btn" type="submit" data-url="/admin/Jobs" data-id="{{ $item->id }}"><i class="fa fa-trash"></i></button>
+                                        <a href="{{ route('jobs.edit',$item->id) }}"><i class="fa fa-edit"></i></a>
+                                        <button class="btn-outline-danger delete_btn" type="submit" data-url="/admin/jobs" data-id="{{ $item->id }}"><i class="fa fa-trash"></i></button>
                                         @if($item->status == 0)
                                         <button class="btn btn-sm bg-gradient-success">Active</button>
                                         @elseif ($item->status == 1)
                                         <button class="btn btn-sm bg-gradient-danger">InActive</button>
                                         @endif
-                                        {{-- <button class="btn-outline-danger delete_btn" data-url="/admin/Jobs"
-                                            data-id="{{ $item->id }}" type="submit"><i class="fa fa-trash"></i></button> --}}
                                     </td>
                                 </tr>
                                 @endforeach
@@ -108,7 +97,6 @@
                                     </div>
                                 </div>
                             </div>
-                            @if(strtolower($page)!='advocacy' && $sn!='Section 4')
                             <div class="row mb-2">
                                 <div class="col-md-12">
                                     <div class="card-body" style="padding: 0px">
@@ -116,7 +104,6 @@
                                     </div>
                                 </div>
                             </div>
-                            @endif
                         </div>
                         @if(strtolower($page)=='careers')
                             <input type="hidden" name="page" value="careers">
@@ -126,21 +113,6 @@
                                 <input type="hidden" name="section" value="3">
                             @elseif($sn=='Section 4')
                                 <input type="hidden" name="section" value="4">
-                            @endif
-                        @elseif($page=='Women Advocacy')
-                            <input type="hidden" name="page" value="women">
-                            @if($sn=='Section 2')
-                                <input type="hidden" name="section" value="2">
-                            @endif
-                        @elseif($page=='Veterans')
-                            <input type="hidden" name="page" value="veterans">
-                            @if($sn=='Section 2')
-                                <input type="hidden" name="section" value="2">
-                            @endif
-                        @elseif($page=='Support Services')
-                            <input type="hidden" name="page" value="support_services">
-                            @if($sn=='Section 2')
-                                <input type="hidden" name="section" value="2">
                             @endif
                         @endif
                         <div class="modal-footer">
