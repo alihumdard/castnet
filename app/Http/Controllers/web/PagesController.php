@@ -52,7 +52,7 @@ use App\Models\PartnerCommonSection1;
 use App\Models\PartnerCommonSection2;
 use App\Models\FinancialCommonModel;
 use App\Models\FinancialCommonModel1;
-
+use App\Models\Job;
 
 class PagesController extends Controller
 {
@@ -367,13 +367,14 @@ class PagesController extends Controller
     public function job_openings(){
         $banner = PageBanner::where('type',50)->first();
         $section1 = CareersModel::where(['page'=>'job','section'=>1])->first();
-        // $section2 = PartnersModel::where('section',1)->get();
+        $section2 = Job::all();
         return view('web.pages.job_openings',get_defined_vars());
     }
     public function careers(){
         $banner = PageBanner::where('type',49)->first();
         $section1 = CareersModel::where(['page'=>'careers','section'=>1])->first();
-        $section2 = CareersCommonModel1::where(['page'=>'careers','section'=>2])->get();
+        $section2 = CareersCommonModel1::get();
+        $section3 = Job::take(3)->get();
         return view('web.pages.careers',get_defined_vars());
     }
     // ******************************************* just these 2 pages work remaining
