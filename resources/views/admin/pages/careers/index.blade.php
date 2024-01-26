@@ -1,14 +1,6 @@
 @extends('admin.layouts.default')
 @section('title',$page)
 @section('content')
-@if(strtolower($page)=='advocacy' && $sn=='Section 4')
-<style>
-    .bgchange{
-        background-color:blue;
-        padding:10px;
-    }
-</style>
-@endif
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
@@ -77,7 +69,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="{{ route('careers.store') }}" id="advocacy" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('careers.store') }}" id="careers" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="modal-body">
                             <div class="row mb-2">
@@ -94,7 +86,6 @@
                                     </div>
                                 </div>
                             </div>
-                            @if(strtolower($page)!='advocacy' && $sn!='Section 4')
                             <div class="row mb-2">
                                 <div class="col-md-12">
                                     <div class="card-body" style="padding: 0px">
@@ -102,33 +93,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @endif
                         </div>
-                        @if(strtolower($page)=='careers')
-                            <input type="hidden" name="page" value="careers">
-                            @if($sn=='Section 2')
-                                <input type="hidden" name="section" value="2">
-                            @elseif($sn=='Section 3')
-                                <input type="hidden" name="section" value="3">
-                            @elseif($sn=='Section 4')
-                                <input type="hidden" name="section" value="4">
-                            @endif
-                        @elseif($page=='Women Advocacy')
-                            <input type="hidden" name="page" value="women">
-                            @if($sn=='Section 2')
-                                <input type="hidden" name="section" value="2">
-                            @endif
-                        @elseif($page=='Veterans')
-                            <input type="hidden" name="page" value="veterans">
-                            @if($sn=='Section 2')
-                                <input type="hidden" name="section" value="2">
-                            @endif
-                        @elseif($page=='Support Services')
-                            <input type="hidden" name="page" value="support_services">
-                            @if($sn=='Section 2')
-                                <input type="hidden" name="section" value="2">
-                            @endif
-                        @endif
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Save</button>

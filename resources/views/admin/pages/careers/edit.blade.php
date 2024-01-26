@@ -1,14 +1,6 @@
 @extends('admin.layouts.default')
 @section('title',$page)
 @section('content')
-@if(strtolower($page)=='advocacy' && $sn=='Section 4')
-<style>
-    .bgchange{
-        background-color:blue;
-        padding:10px;
-    }
-</style>
-@endif
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
@@ -49,9 +41,7 @@
                                             <input type="text" name="title" class="form-control" placeholder="Enter Title..." value="{{ $section->title }}">
                                         </div>
                                     </div>
-
                                 </div>
-                                @if(isset($section->description))
                                 <div class="row mb-2">
                                     <div class="col-md-12">
                                         <div class="card-body" style="padding: 0px">
@@ -59,7 +49,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                @endif
                                 <div class="card-footer" style="background:none;">
                                     <button type="submit" class="btn btn-primary" style="float: right;">Save changes</button>
                                 </div>

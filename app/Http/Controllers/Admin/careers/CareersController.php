@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Admin\careers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use App\Models\CareersCommonModel1;
 use Illuminate\Http\Request;
 use App\Models\PageBanner;
 use App\Models\CareersModel;
-use Illuminate\Support\Facades\File;
-
 
 class CareersController extends Controller
 {
@@ -17,6 +16,7 @@ class CareersController extends Controller
         $page = "Careers";
         return view('admin.pages.banner',compact('banner','page'));
     }
+
     public function section1(){
         $section = CareersModel::where(['page'=>'careers','section'=>1])->first();
         $page = "Careers";
@@ -29,12 +29,11 @@ class CareersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
         $section = CareersCommonModel1::where(['page'=>'careers','section'=>2])->get();
-        $page = "CAREERS";
+        $page = "Careers";
         $sn = "Section 2";
-        return view('admin.pages.careers.common_section1',get_defined_vars());
+        return view('admin.pages.careers.index',get_defined_vars());
     }
 
 
@@ -55,20 +54,6 @@ class CareersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        if($request->page=='careers' && $request->section==2){
-            $route = "careers.index";
-        }elseif($request->page=='advocacy' && $request->section==3){
-            $route = "advocacy.section3";
-        }elseif($request->page=='advocacy' && $request->section==4){
-            $route = "advocacy.section4";
-        }elseif($request->page=='women' && $request->section==2){
-            $route = "women.section2";
-        }elseif($request->page=='veterans' && $request->section==2){
-            $route = "veterans.section2";
-        }elseif($request->page=='support_services' && $request->section==2){
-            $route = "supportser.section2";
-        }
-
         if($request->image){
             $file = time().'.'.$request->image->extension();
             $request->image->move(public_path('assets/web/images'), $file);
@@ -86,11 +71,9 @@ class CareersController extends Controller
             'title' => $request->title,
             'image' => $file,
             'description' => $description,
-            'page' => $request->page,
-            'section' => $request->section,
         ]);
 
-        return redirect()->route($route)->with('success', "Data added successfully.");
+        return redirect()->route('careers.index')->with('success', "Data added successfully.");
     }
 
     /**
@@ -133,19 +116,6 @@ class CareersController extends Controller
         if ($advocacy == null) {
             return redirect()->back()->with('error', 'No records were found for updation.');
         }
-        if($advocacy->page=='careers' && $advocacy->section==2){
-            $route = "careers.index";
-        }elseif($advocacy->page=='advocacy' && $advocacy->section==3){
-            $route = "advocacy.section3";
-        }elseif($advocacy->page=='advocacy' && $advocacy->section==4){
-            $route = "advocacy.section4";
-        }elseif($advocacy->page=='women' && $advocacy->section==2){
-            $route = "women.section2";
-        }elseif($advocacy->page=='veterans' && $advocacy->section==2){
-            $route = "veterans.section2";
-        }elseif($advocacy->page=='support_services' && $advocacy->section==2){
-            $route = "supportser.section2";
-        }
 
         if($request->image){
             $path = $advocacy->image;
@@ -166,7 +136,7 @@ class CareersController extends Controller
         ];
         $advocacy->update($data);
 
-        return redirect()->route($route)->with('success', "Data Updated Successfully.");
+        return redirect()->route('careers.index')->with('success', "Data Updated Successfully.");
     }
 
     /**
@@ -196,11 +166,6 @@ class CareersController extends Controller
         if ($careers == null) {
             return redirect()->back()->with('error', 'No records were found for updation.');
         }
-        if($careers->page=='careers' && $careers->section==1){
-            $route = "careers.section1";
-        }elseif($careers->page=='grants' && $careers->section==1){
-            $route = "grants.section1";
-        }
 
         if($request->image){
             $path = $careers->image;
@@ -221,6 +186,6 @@ class CareersController extends Controller
         ];
         $careers->update($data);
 
-        return redirect()->route($route)->with('success', "Data Updated Successfully.");
+        return redirect()->route('careers.section1')->with('success', "Data Updated Successfully.");
     }
 }
