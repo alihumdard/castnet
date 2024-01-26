@@ -432,6 +432,7 @@ Route::middleware('auth')->group(function() {
         Route::get('/jobs-banner', [JobOpeningController::class, 'banner'])->name('jobs.banner');
         Route::get('/jobs-section1', [JobOpeningController::class, 'section1'])->name('jobs.section1');
         Route::put('/jobs-updation/{id}',[JobOpeningController::class,'updation'])->name('jobs.updation');
+        Route::post('/change-status',[JobOpeningController::class,'statusChange'])->name('jobs.status');
         // ----------------------------------job opining route end-----------------------------------------
     });
 });

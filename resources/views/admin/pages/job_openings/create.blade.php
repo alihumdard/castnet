@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('title', 'Home Page Section 1')
+@section('title', 'Job Openings')
 @section('content')
     <div class="content-wrapper">
         <div class="content-header">
@@ -11,7 +11,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
-                            <li class="breadcrumb-item active">JOB OPENINGS</li>
+                            <li class="breadcrumb-item active">Job Openings</li>
                         </ol>
                     </div>
                 </div>
@@ -22,13 +22,13 @@
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-body">
-                            <form action="{{ route('jobs.store')}}" id="section1" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('jobs.store')}}" id="jobs" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
                                             <label for="prin_title">Job Title</label>
-                                                <input type="text" name="name" class="form-control" placeholder="Enter Job Title...">
+                                            <input type="text" name="title" class="form-control" placeholder="Enter Job Title...">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -48,31 +48,23 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
-
-                                    <div class="form-group clearfix">
-                                    <div class="icheck-primary d-inline">
-                                    <input type="checkbox" id="checkboxPrimary1" name="duration[]" value="Fulltime">
-                                    <label for="checkboxPrimary1">
-                                        Fulltime
-                                    </label>
+                                        <label>Job Detail</label>
+                                        <div class="form-group clearfix">
+                                            <div class="icheck-primary d-inline">
+                                                <input type="checkbox" id="checkboxPrimary1" name="duration[]" value="Fulltime">
+                                                <label for="checkboxPrimary1">Fulltime</label>
+                                            </div>
+                                            <div class="icheck-primary d-inline">
+                                                <input type="checkbox" id="checkboxPrimary2" name="duration[]" value="Engineering">
+                                                <label for="checkboxPrimary2">Engineering</label>
+                                            </div>
+                                            <div class="icheck-primary d-inline">
+                                                <input type="checkbox" id="checkboxPrimary3" name="duration[]" value="Onsite">
+                                                <label for="checkboxPrimary3">Onsite</label>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="icheck-primary d-inline">
-                                    <input type="checkbox" id="checkboxPrimary2" name="duration[]" value="Engineering">
-                                    <label for="checkboxPrimary2">
-                                        Engineering
-                                    </label>
-                                    </div>
-                                    <div class="icheck-primary d-inline">
-                                    <input type="checkbox" id="checkboxPrimary3" name="duration[]" value="Onsite">
-                                    <label for="checkboxPrimary3">
-                                        Onsite
-                                    </label>
-                                    <input type="hidden" name="status" value="1" class="form-control">
-                                    </div>
-                                    </div>
-                                    </div>
-
-                                    </div>
+                                </div>
                                 <div class="card-footer" style="background:none;">
                                     <button id="sectionslist" type="submit" class="btn btn-sm btn-primary" style="float: right;">Save</button>
                                 </div>
@@ -86,22 +78,24 @@
 @stop
 @push('scripts')
 <script>
-    $('#section1').validate({
+    $('#jobs').validate({
         rules: {
-            image: {
+            title: {
                 required: true,
             },
-            heading: {
+            salary: {
                 required: true,
             },
             description: {
                 required: true,
             },
-            button: {
+            'duration[]':{
                 required: true,
             },
-            buttonlink: {
-                required: true,
+        },
+        messages: {
+            'duration[]': {
+                required: "You must check at least 1 checkbox"
             },
         },
         errorElement: 'span',

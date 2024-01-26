@@ -45,20 +45,15 @@
                                         {{ $item->job_title }}
                                     </td>
                                     <td>{{ $item->salary_detail }}</td>
-                                    <td>
-                                        @if($item->status == 1)
-                                        <p class="btn btn-sm bg-gradient-success">Active</p>
-                                        @elseif ($item->status == 0)
-                                        <p class="btn btn-sm bg-gradient-danger">InActive</p>
-                                        @endif
-                                    </td>
+                                    <td>@if($item->status == 0)<span class='badge bg-secondary bg-success'>Active</span>@else<span class='badge bg-secondary bg-danger'>Inactive</span>@endif</td>
                                     <td>
                                         <a href="{{ route('jobs.edit',$item->id) }}"><i class="fa fa-edit"></i></a>
                                         <button class="btn-outline-danger delete_btn" type="submit" data-url="/admin/jobs" data-id="{{ $item->id }}"><i class="fa fa-trash"></i></button>
+                                        @if($item->status == 1)
+                                            <a onclick="changeStatus({{$item->id}},0,'change-status')" href="javascript:;" class="btn btn-sm btn-outline-info">Active</a>
+                                        @endif
                                         @if($item->status == 0)
-                                        <button class="btn btn-sm bg-gradient-success">Active</button>
-                                        @elseif ($item->status == 1)
-                                        <button class="btn btn-sm bg-gradient-danger">InActive</button>
+                                            <a  onclick="changeStatus({{$item->id}},1,'change-status')" href="javascript:;" class="btn btn-sm btn-outline-info">Inactive</a>
                                         @endif
                                     </td>
                                 </tr>
@@ -80,7 +75,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="{{ route('careers.store') }}" id="advocacy" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('careers.store') }}" id="careers" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="modal-body">
                             <div class="row mb-2">
@@ -127,7 +122,7 @@
 @stop
 @push('scripts')
 <script>
-    $('#advocacy').validate({
+    $('#careers').validate({
         rules: {
             title: {
                 required: true,
