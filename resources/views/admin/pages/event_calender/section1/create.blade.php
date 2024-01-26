@@ -33,14 +33,26 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
-                                            <label for="prin_title">Event time</label>
-                                            <input type="text" name="event_time" class="form-control" placeholder="Enter Event Date and Time...">
+                                            <label for="prin_title">Event date</label>
+                                            <input type="date" name="event_date" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">From Time</label>
+                                            <input type="Time" name="from_time" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">To Time</label>
+                                            <input type="Time" name="to_time" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group errorshow">
                                             <label for="prin_title">Description</label>
-                                            <textarea name="description" class="form-control summernote"></textarea>
+                                            <textarea name="description" class="form-control" cols="30" rows="3"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -62,7 +74,13 @@
             title: {
                 required: true,
             },
-            event_time: {
+            event_date: {
+                required: true,
+            },
+            from_time: {
+                required: true,
+            },
+            to_time: {
                 required: true,
             },
         },

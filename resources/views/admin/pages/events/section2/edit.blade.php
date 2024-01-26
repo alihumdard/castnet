@@ -22,7 +22,7 @@
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-body">
-                            <form action="{{ route('our-event.update',$event->id) }}" id="event" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('myEvent.update',$event->id) }}" id="event" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="row mb-2">
