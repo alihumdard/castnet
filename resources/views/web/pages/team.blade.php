@@ -31,18 +31,22 @@
                     <h2 class="section_title text-center">Executive</h2>
                 </div>
             </div>
-            <div class="row gy-5 gy-md-0">
-                @foreach($executiveMembers as $executive)
-                <div class="col-md-4 col-lg-4 d-flex">
-                    <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
-                        <img src="{{ asset('assets/web/images/' . $executive->image) }}" alt="team" class="card-img-top">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ $executive -> name }}</h3>
-                            <p class="card-text">{{ $executive -> profession }}</p>
+            <div class="row">
+                <div class="col-xxl-8 mx-auto">
+                    <div class="row gy-5">
+                        @foreach($executiveMembers as $executive)
+                        <div class="col-md-4 col-lg-4 d-flex">
+                            <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
+                                <img src="{{ asset('assets/web/images/' . $executive->image) }}" alt="team" class="card-img-top">
+                                <div class="card-body">
+                                    <h3 class="card-title">{{ $executive -> name }}</h3>
+                                    <p class="card-text">{{ $executive -> profession }}</p>
+                                </div>
+                            </div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
-                @endforeach
             </div>
         </div>
     </section>
@@ -56,18 +60,22 @@
                     <h2 class="section_title text-center">staff</h2>
                 </div>
             </div>
-            <div class="row gy-5">
-                @foreach($staffMembers as $staff)
-                <div class="col-md-4 col-lg-4 d-flex">
-                    <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
-                        <img src="{{ asset('assets/web/images/' . $staff->image) }}" alt="team" class="card-img-top">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ $staff -> name }}</h3>
-                            <p class="card-text">{{ $staff -> profession }}</p>
+            <div class="row">
+                <div class="col-xxl-8 mx-auto">
+                    <div class="row gy-5">
+                        @foreach($staffMembers as $staff)
+                        <div class="col-md-4 col-lg-4 d-flex">
+                            <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
+                                <img src="{{ asset('assets/web/images/' . $staff->image) }}" alt="team" class="card-img-top">
+                                <div class="card-body">
+                                    <h3 class="card-title">{{ $staff -> name }}</h3>
+                                    <p class="card-text">{{ $staff -> profession }}</p>
+                                </div>
+                            </div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
-                @endforeach
             </div>
             <div class="row justify-content-center" data-aos="fade-up" data-aos-duration="1000">
                 <a href="#" class="btn btn-primary">see more team</a>
