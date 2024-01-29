@@ -10,7 +10,7 @@ $result = socialLinks();
                 <a href="{{ route('web.index') }}">
                     <img src="{{ asset('assets/web/images/'.$setting->footer_logo) }}" alt="logo" class="footer_logo">
                 </a>
-                <p class="footer_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+                <p class="footer_text">{{ $setting->footer_description }}</p>
                 <div class="d-flex gap-3">
                     <a href="{{ !empty($result->facebook) ? $result->facebook : '#' }}" class="social_link">
                         <img src="assets/web/images/icon_fb.png" alt="social icons" class="img-icon">
