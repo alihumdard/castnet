@@ -68,7 +68,7 @@ background-size: cover;">
                 <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
                     <span class="sub_title">request a quote</span>
                     <h2 class="title">How May We Help You!</h2>
-                    <form action="{{ route('contactus.form') }}" id="section1" method="post">
+                    <form action="{{ route('contactus.form') }}" id="contactUs" method="post">
                         @csrf
                         <div class="row gy-4">
                             <div class="col-12 col-md-6">
@@ -122,13 +122,11 @@ background-size: cover;">
 
 @stop
 @push('scripts')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{{ asset('assets/web/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('assets/web/plugins/jquery-validation/additional-methods.min.js') }}"></script>
 
 <script>
-    $('#section1').validate({
-        alert('working');
+    $('#contactUs').validate({
         rules: {
             fName: {
                 required: true,
