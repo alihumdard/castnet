@@ -33,7 +33,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
-                                            <label for="prin_title">Image</label>
+                                            <label for="prin_title">Image <span class="text-danger">(555 x 330)</span></label>
                                             <input type="file" name="image" class="form-control">
                                         </div>
                                     </div>
@@ -73,7 +73,7 @@
 @stop
 @push('scripts')
 <script>
-    $('#blog').validate({ 
+    $('#blog').validate({
         rules: {
             title: {
                 required: true,

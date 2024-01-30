@@ -88,7 +88,10 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group errorshow">
-                                        <label for="prin_title">Image</label>
+
+                                        <label for="prin_title">
+                                            Image @if(strtolower($page)=='advocacy' && $sn=='Section 2')<span class="text-danger">(60 x 60)</span>@elseif(strtolower($page)=='advocacy' && $sn=='Section 3')<span class="text-danger">(365 x 225)</span>@elseif(strtolower($page)=='advocacy' && $sn=='Section 4')<span class="text-danger">(35 x 40)</span>@elseif(strtolower($page)=='women advocacy' && $sn=='Section 2')<span class="text-danger">(60 x 60)</span>@elseif(strtolower($page)=='veterans' && $sn=='Section 2')<span class="text-danger">(365 x 225)</span>@endif
+                                        </label>
                                         <input type="file" name="image" class="form-control" id="">
                                     </div>
                                 </div>
@@ -140,7 +143,7 @@
 @stop
 @push('scripts')
 <script>
-    $('#advocacy').validate({ 
+    $('#advocacy').validate({
         rules: {
             title: {
                 required: true,

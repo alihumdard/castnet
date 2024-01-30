@@ -95,7 +95,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group errorshow">
-                                        <label for="prin_title">Image</label>
+                                        <label for="prin_title">Image <span class="text-danger">(270 x 130)</span></label>
                                         <input type="file" name="image" class="form-control" id="">
                                     </div>
                                 </div>
@@ -118,7 +118,7 @@
 @stop
 @push('scripts')
 <script>
-    $('#partnersponsor').validate({ 
+    $('#partnersponsor').validate({
         rules: {
             title: {
                 required: true,

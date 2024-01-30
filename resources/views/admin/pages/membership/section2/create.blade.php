@@ -27,7 +27,7 @@
                                 <div class="row mb-2">
                                     <div class="col-sm-4">
                                         <div class="form-group errorshow">
-                                            <label for="prin_title">Image</label>
+                                            <label for="prin_title">Image <span class="text-danger">(60 x 60)</span></label>
                                             <input type="file" name="image" class="form-control">
                                         </div>
                                     </div>
@@ -51,7 +51,7 @@
 @stop
 @push('scripts')
 <script>
-    $('#membership').validate({ 
+    $('#membership').validate({
         rules: {
             image: {
                 required: true,

@@ -33,9 +33,9 @@
             </div>
             <div class="row">
                 <div class="col-xxl-8 mx-auto">
-                    <div class="row gy-5">
+                    <div class="row row-cols-5 justify-content-center gy-5">
                         @foreach($executiveMembers as $executive)
-                        <div class="col-md-4 col-lg-4 d-flex">
+                        <div class="col d-flex">
                             <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
                                 <img src="{{ asset('assets/web/images/' . $executive->image) }}" alt="team" class="card-img-top">
                                 <div class="card-body">
@@ -62,9 +62,9 @@
             </div>
             <div class="row">
                 <div class="col-xxl-8 mx-auto">
-                    <div class="row gy-5">
+                    <div class="row row-cols-5 justify-content-center gy-5">
                         @foreach($staffMembers as $staff)
-                        <div class="col-md-4 col-lg-4 d-flex">
+                        <div class="col d-flex">
                             <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
                                 <img src="{{ asset('assets/web/images/' . $staff->image) }}" alt="team" class="card-img-top">
                                 <div class="card-body">
