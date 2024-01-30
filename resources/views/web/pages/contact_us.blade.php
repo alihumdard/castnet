@@ -68,22 +68,33 @@ background-size: cover;">
                 <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
                     <span class="sub_title">request a quote</span>
                     <h2 class="title">How May We Help You!</h2>
-                    <form action="#">
+                    <form action="{{ route('contactus.form') }}" id="section1" method="post">
+                        @csrf
                         <div class="row gy-4">
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="First Name">
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Last Name">
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <input type="email" class="form-control" placeholder="Email">
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Phone">
-                            </div>
-                            <div class="col-12 col-md-12">
-                                <textarea class="form-control" placeholder="Write a message" cols="30" rows="5"></textarea>
+                                <div class="form-group errorshow">
+                                    <input type="text" class="form-control" placeholder="First Name" name="fName">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group errorshow">
+                                        <input type="text" class="form-control" placeholder="Last Name" name="lName">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                <div class="form-group errorshow">
+                                    <input type="email" class="form-control" placeholder="Email" name="email">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                <div class="form-group errorshow">
+                                    <input type="text" class="form-control" placeholder="Phone" name="phone">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12">
+                                <div class="form-group errorshow">
+                                <textarea class="form-control" placeholder="Write a message" cols="30" rows="5" name="message"></textarea>
+                                </div>
                             </div>
                             <div class="text-center mt-5">
                                 <button type="submit" class="btn btn-primary">send message</button>
@@ -110,3 +121,42 @@ background-size: cover;">
 <!-- Map End -->
 
 @stop
+@push('scripts')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{ asset('assets/web/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('assets/web/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+
+<script>
+    $('#section1').validate({
+        alert('working');
+        rules: {
+            fName: {
+                required: true,
+            },
+            lName: {
+                required: true,
+            },
+            email: {
+                required: true,
+            },
+            phone: {
+                required: true,
+            },
+            message: {
+                required: true,
+            },
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.errorshow').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        }
+    });
+</script>
+@endpush

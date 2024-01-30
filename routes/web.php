@@ -20,6 +20,9 @@ Route::get('/about', [PagesController::class, 'aboutUs'])->name('web.about');
 Route::get('/who-we-are', [PagesController::class, 'whoweare'])->name('web.who-we-are');
 Route::get('/team', [PagesController::class, 'team'])->name('web.team');
 Route::get('/contactus', [PagesController::class, 'contactUs'])->name('web.contactus');
+Route::post('/contactUsData', [PagesController::class, 'contactUsData'])->name('contactus.form');
+
+
 Route::get('/membership', [PagesController::class, 'membership'])->name('web.membership');
 Route::get('/join', [PagesController::class, 'join'])->name('web.join');
 Route::get('/benefits', [PagesController::class, 'benefits'])->name('web.benefits');
