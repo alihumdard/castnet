@@ -30,7 +30,7 @@ background-size: cover;">
                 <h2 class="section_title" data-aos="fade-up" data-aos-duration="1000">membership levels</h2>
             </div>
         </div>
-        <div class="row gy-4">
+        <div class="row justify-content-center gy-4">
             @foreach($joins as $join)
             <div class="col-md-4 col-lg-4 d-flex">
                 <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">

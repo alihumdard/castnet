@@ -7,7 +7,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1 class="m-0">{{$page.' '.$sn}}</h1>
-                    </div> 
+                    </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
@@ -106,7 +106,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group errorshow">
-                                        <label for="prin_title">Image</label>
+                                        <label for="prin_title">Image <span class="text-danger">(60 x 60)</span></label>
                                         <input type="file" name="image" class="form-control" id="">
                                     </div>
                                 </div>

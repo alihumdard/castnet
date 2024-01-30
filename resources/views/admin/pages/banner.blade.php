@@ -28,7 +28,7 @@
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
-                                            <label for="prin_title">Banner Image <span class="text-danger">(1920 x 546 )</span></label>
+                                            <label for="prin_title">Banner Image <span class="text-danger">(1920 x 546)</span></label>
                                             <input type="file" name="image" class="form-control" id="">
                                             <input type="hidden" name="type" value="1">
                                         </div>
@@ -50,7 +50,7 @@
 @stop
 @push('scripts')
 <script>
-    $('#banner').validate({ 
+    $('#banner').validate({
         rules: {
             image: {
                 required: true,

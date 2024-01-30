@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group errorshow">
-                                            <label for="prin_title">Image</label>
+                                            <label for="prin_title">Image <span class="text-danger">(520 x 325)</span></label>
                                             <input type="file" name="image" class="form-control">
                                         </div>
                                     </div>

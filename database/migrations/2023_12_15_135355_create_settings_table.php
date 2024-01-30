@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('header_logo')->nullable();
             $table->string('popup_logo')->nullable();
             $table->longText('popup_description')->nullable();
+            $table->longText('footer_description')->nullable();
             $table->string('popup_link')->nullable();
             $table->string('footer_logo')->nullable();
             $table->string('email')->nullable();

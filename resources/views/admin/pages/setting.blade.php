@@ -68,6 +68,12 @@
                                 <textarea name="description" class="summernote form-control">{!! $setting->popup_description !!}</textarea>
                             </div>
                         </div>
+                        <div class="col-sm-12">
+                            <div class="form-group errorshow">
+                                <label>Footer Description:</label>
+                                <textarea name="footerDescription" rows="4" class="form-control">{{ $setting->footer_description }}</textarea>
+                            </div>
+                        </div>
                         <div class="col-sm-6">
                             <div class="form-group errorshow">
                                 <label>Email:</label>
@@ -85,13 +91,13 @@
                         <div class="col-sm-12">
                             <div class="form-group errorshow">
                                 <label>Address:</label>
-                                <input type="text" name="address" placeholder="Enter Address..." class="form-control" value="{{ $setting->address }}"> 
+                                <input type="text" name="address" placeholder="Enter Address..." class="form-control" value="{{ $setting->address }}">
                             </div>
                         </div>
                     </div>
                     <div class="card-footer" style="background:none;">
                       <button type="submit" class="btn btn-primary" style="float: right;">Save changes</button>
-                    </div> 
+                    </div>
                   </form>
                 </div>
             </div>

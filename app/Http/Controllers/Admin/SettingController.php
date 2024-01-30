@@ -18,7 +18,7 @@ class SettingController extends Controller
             return redirect()->back()->with('error', 'No records were found for editing.');
         }
         if($request->header_logo){
-            $header_logo = time().'.'.$request->header_logo->extension();  
+            $header_logo = time().'.'.$request->header_logo->extension();
             $request->header_logo->move(public_path('assets/web/images'), $header_logo);
         }else{
             $header_logo = $setting->header_logo;
@@ -37,12 +37,13 @@ class SettingController extends Controller
         else{
             $footer_logo = $setting->footer_logo;
         }
-        
+
         $data = [
             'title' => $request->title,
             'header_logo' => $header_logo,
             'popup_logo' => $popup_logo,
             'popup_description' => $request->description,
+            'footer_description' => $request->footerDescription,
             'footer_logo' => $footer_logo,
             'email' => $request->email,
             'phone' => $request->phone,

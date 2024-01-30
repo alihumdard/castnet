@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group errorshow">
-                                        <label for="prin_title">Image</label>
+                                        <label for="prin_title">Image @if(strtolower($page)=='financial' && $sn=='Section 1')<span class="text-danger">(365 x 225)</span>@elseif(strtolower($page)=='financial' && $sn=='Section 3')<span class="text-danger">(60 x 60)</span>@elseif(strtolower($page)=='grants' && $sn=='Section 2')<span class="text-danger">(45 x 40)</span>@elseif(strtolower($page)=='funding' && $sn=='Section 2')<span class="text-danger">(60 x 60)</span>@endif</label>
                                         <input type="file" name="image" class="form-control" id="">
                                     </div>
                                 </div>
