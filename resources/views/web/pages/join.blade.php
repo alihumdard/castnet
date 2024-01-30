@@ -51,49 +51,50 @@ background-size: cover;">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <form action="#">
+                <form action="{{ route('join.form')}}" method="POST">
+                    @csrf
                     <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
                         <h2 class="section_title">company information</h2>
                         <div class="row gy-4">
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Organization Name">
+                                <input type="text" class="form-control" placeholder="Organization Name" name="organization_name">
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Phone Number">
+                                <input type="text" class="form-control" placeholder="Phone Number" name="phone_number">
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Website Address">
+                                <input type="text" class="form-control" placeholder="Website Address" name="website_address">
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Number of Employees">
+                                <input type="text" class="form-control" placeholder="Number of Employees" name="number_of_employees">
                             </div>
                             <div class="col-12 col-md-12">
-                                <input type="email" class="form-control" placeholder="Billing Email">
+                                <input type="email" class="form-control" placeholder="Billing Email" name="billing_email">
                             </div>
                             <div class="col-12 col-md-12">
-                                <input type="text" class="form-control" placeholder="Billing Address">
+                                <input type="text" class="form-control" placeholder="Billing Address" name="billing_address">
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Billing City">
+                                <input type="text" class="form-control" placeholder="Billing City" name="billing_city">
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Billing State">
+                                <input type="text" class="form-control" placeholder="Billing State" name="billing_state">
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Billing Zip (Billing zip code must match credit card billing address)">
+                                <input type="text" class="form-control" placeholder="Billing Zip (Billing zip code must match credit card billing address)" name="zip">
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Billing Country">
+                                <input type="text" class="form-control" placeholder="Billing Country" name="billing_country">
                             </div>
                             <div class="col-12">
                                 <div class="checkbox-border">
                                     <h3 class="checkbox-title">Is the billing address the same as the Physical Address?</h3>
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="yes">
+                                        <input type="radio" class="form-check-input" id="yes" name="address_check" value="1">
                                         <label class="form-check-label" for="yes">Yes</label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="no">
+                                        <input type="radio" class="form-check-input" id="no" name="address_check" value="0">
                                         <label class="form-check-label" for="no">No</label>
                                     </div>
                                 </div>
@@ -104,19 +105,19 @@ background-size: cover;">
                         <h2 class="section_title">primary contact information</h2>
                         <div class="row gy-4">
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="First Name">
+                                <input type="text" class="form-control" placeholder="First Name" name="PFName">
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Last Number">
+                                <input type="text" class="form-control" placeholder="Last Number" name="PLName">
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Title">
+                                <input type="text" class="form-control" placeholder="Title" name="PTitle">
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Phone">
+                                <input type="text" class="form-control" placeholder="Phone" name="PPhone">
                             </div>
                             <div class="col-12 col-md-12">
-                                <input type="email" class="form-control" placeholder="Email">
+                                <input type="email" class="form-control" placeholder="Email" name="PEmail">
                             </div>
                         </div>
                     </div>
@@ -124,7 +125,7 @@ background-size: cover;">
                         <h2 class="section_title">membership level</h2>
                         <div class="row gy-4">
                             <div class="col-12 col-md-12">
-                                <select class="form-select">
+                                <select class="form-select" name="membership_level">
                                     <option selected>Please Select A Member Level</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
@@ -137,7 +138,7 @@ background-size: cover;">
                         <h2 class="section_title">about your organization</h2>
                         <div class="row gy-4">
                             <div class="col-12 col-md-12">
-                                <select class="form-select">
+                                <select class="form-select" name="about_organization">
                                     <option selected>Please select a category that best describes your business</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
@@ -145,7 +146,7 @@ background-size: cover;">
                                 </select>
                             </div>
                             <div class="col-12 col-md-12">
-                                <select class="form-select">
+                                <select class="form-select" name="ownership_structure">
                                     <option selected>Ownership Structure</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
@@ -159,7 +160,7 @@ background-size: cover;">
                         <p class="col-md-7 mx-auto joining_text">What are your reasons for joining the CASTNET Chamber? You may select as many options as you would like.</p>
                         <div class="row gy-4">
                             <div class="col-12 col-md-12">
-                                <select class="form-select">
+                                <select class="form-select" name="reason_to_join">
                                     <option selected>Select Options</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>

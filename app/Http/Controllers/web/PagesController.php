@@ -48,6 +48,7 @@ use App\Models\OpportunitiesModel;
 use App\Models\AdvocacyCommonModel;
 use App\Models\CareersCommonModel1;
 use App\Models\CareersModel;
+use App\Models\CompanyInformation;
 use App\Models\ContactUs;
 use App\Models\PartnersModel;
 use App\Models\PartnerSponsorPageTitleModel;
@@ -259,6 +260,34 @@ class PagesController extends Controller
             'message' => $request->message,
         ];
         ContactUs::create($contactUs);
+        $message = 'Event Request added successfully';
+        return redirect()->back();
+    }
+    public function joinData(Request $request){
+
+        $companyInfo = [
+            'organization_name' => $request->organization_name,
+            'phone_number' => $request->phone_number,
+            'website_address' => $request->website_address,
+            'number_of_employees' => $request->number_of_employees,
+            'billing_email' => $request->billing_email,
+            'billing_address' => $request->billing_address,
+            'billing_city' => $request->billing_city,
+            'billing_state' => $request->billing_state,
+            'billing_zip' => $request->zip,
+            'billing_country' => $request->billing_country,
+            'billing_address_check' => $request->address_check,
+            'first_name' => $request->PFName,
+            'last_name' => $request->PLName,
+            'title' => $request->PTitle,
+            'primary_phone_number' => $request->PPhone,
+            'primary_email' => $request->PEmail,
+            'membership_level' => $request->membership_level,
+            'about_organization' => $request->about_organization,
+            'ownership_structure' => $request->ownership_structure,
+            'reason_joining' => $request->reason_to_join,
+        ];
+        CompanyInformation::create($companyInfo);
         $message = 'Event Request added successfully';
         return redirect()->back();
     }
