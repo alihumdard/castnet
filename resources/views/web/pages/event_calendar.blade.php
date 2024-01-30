@@ -1,6 +1,8 @@
 @extends('web.layouts.default')
 @section('content')
-
+<div id="overlay" style="display: none">
+    <img src="{{asset('assets/loader1.gif')}}" alt="Loading" /><br/>
+ </div>
     <!-- Breadcrumb Start -->
     <section class="section_breadcrumb event_calendar_bg" style="
     background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $banner->image) }}) center no-repeat;
@@ -20,7 +22,6 @@
         </div>
     </section>
     <!-- Breadcrumb End -->
-
     <!-- Calendar Start -->
     <section class="section_calendar">
         <div class="container-fluid p-0">
@@ -63,7 +64,7 @@
                     </div>
                 </div>
                 <div class="col-md-8 col-lg-8" data-aos="fade-left" data-aos-duration="1000">
-                    <form action="#" class="form_search">
+                    <form id="search_keywords" class="form_search">
                         <div class="row gy-4 gy-md-0">
                             <div class="col-md-6">
                                 <label for="keyword" class="form-label">Keyword</label>
@@ -78,14 +79,16 @@
                             </div>
                         </div>
                     </form>
-                    @foreach($items as $item)
-                    <div class="event_box">
-                        <h3 class="event_title">{{ $item->title }}</h3>
-                        <p class="event_meta">{{ \Carbon\Carbon::parse($item->event_date)->format('d F Y') }} At {{ \Carbon\Carbon::parse($item->from_time)->format('h:i A') }} - {{ \Carbon\Carbon::parse($item->to_time)->format('h:i A') }} PT</p>
-                        <p class="event_desc">{{ $item->description }}</p>
-                        <a href="#" class="btn btn-primary">Community Events</a>
+                    <div id="dataShow">
+                        @foreach($items as $item)
+                        <div class="event_box">
+                            <h3 class="event_title">{{ $item->title }}</h3>
+                            <p class="event_meta">{{ \Carbon\Carbon::parse($item->event_date)->format('d F Y') }} At {{ \Carbon\Carbon::parse($item->from_time)->format('h:i A') }} - {{ \Carbon\Carbon::parse($item->to_time)->format('h:i A') }} PT</p>
+                            <p class="event_desc">{{ $item->description }}</p>
+                            <a href="#" class="btn btn-primary">Community Events</a>
+                        </div>
+                        @endforeach
                     </div>
-                    @endforeach
                 </div>
             </div>
         </div>
@@ -96,15 +99,15 @@
     <section class="section_block event_cta">
         <div class="container">
             <div class="row">
-                <div class="col-md-10 mx-auto" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title">{{ $widget->title }}</h2>
-                    <p class="text col-md-10 mx-auto">{{ $widget->description }}</p>
+                <div class="col-md-10 mx-auto">
+                    <h2 class="section_title">{{ eventWidget()->title }}</h2>
+                    <p class="text col-md-10 mx-auto">{{ eventWidget()->description }}</p>
                     <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3">
-                        <a href="{{ $widget->button1_link }}" class="btn btn-primary">
-                            <span>{{ $widget->button1 }}</span>
+                        <a href="{{ eventWidget()->button1_link }}" class="btn btn-primary">
+                            <span>{{ eventWidget()->button1 }}</span>
                         </a>
-                        <a href="{{ $widget->button2_link }}" class="btn btn-primary">
-                            <span>{{ $widget->button2 }}</span>
+                        <a href="{{ eventWidget()->button2_link }}" class="btn btn-primary">
+                            <span>{{ eventWidget()->button2 }}</span>
                         </a>
                     </div>
                 </div>
@@ -112,5 +115,37 @@
         </div>
     </section>
     <!-- Event CTA End -->
-
     @stop
+    @push('scripts')
+    <script>
+        $("body").on("submit", "#search_keywords", function (e) {
+            e.preventDefault();
+            let title = $('#keyword').val();
+            let date = $('#date').val();
+            // if(!(keyword || date)){
+            //     return false;
+            // }
+            $.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
+            $.ajax({
+                type: "post",
+                url: "{{ route('filter.keywords') }}",
+                data: {
+                    'title': title,
+                    'date': date,
+                },
+                dataType: "json",
+                beforeSend: function () {
+                    $('#overlay').show();
+                },
+                success: function (response) {
+                    $("#dataShow").html(response.data);
+                    $('#overlay').hide();
+                },
+            });
+        });
+    </script>
+    @endpush
