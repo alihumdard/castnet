@@ -51,51 +51,74 @@ background-size: cover;">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <form action="#">
+                <form action="{{ route('join.form')}}" id="join_form" method="POST">
+                    @csrf
                     <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
                         <h2 class="section_title">company information</h2>
                         <div class="row gy-4">
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Organization Name">
+                                <div class="form-group errorshow">
+                                <input type="text" class="form-control" placeholder="Organization Name" name="organization_name">
+                                </div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Phone Number">
+                                <div class="form-group errorshow">
+                                <input type="text" class="form-control" placeholder="Phone Number" name="phone_number">
+                                </div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Website Address">
+                                <div class="form-group errorshow">
+                                <input type="text" class="form-control" placeholder="Website Address" name="website_address">
+                                </div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Number of Employees">
+                                <div class="form-group errorshow">
+                                <input type="text" class="form-control" placeholder="Number of Employees" name="number_of_employees">
+                                </div>
                             </div>
                             <div class="col-12 col-md-12">
-                                <input type="email" class="form-control" placeholder="Billing Email">
+                                <div class="form-group errorshow">
+                                <input type="email" class="form-control" placeholder="Billing Email" name="billing_email">
+                                </div>
                             </div>
                             <div class="col-12 col-md-12">
-                                <input type="text" class="form-control" placeholder="Billing Address">
+                                <div class="form-group errorshow">
+                                <input type="text" class="form-control" placeholder="Billing Address" name="billing_address">
+                                </div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Billing City">
+                                <div class="form-group errorshow">
+                                <input type="text" class="form-control" placeholder="Billing City" name="billing_city">
+                                </div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Billing State">
+                                <div class="form-group errorshow">
+                                <input type="text" class="form-control" placeholder="Billing State" name="billing_state">
+                                </div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Billing Zip (Billing zip code must match credit card billing address)">
+                                <div class="form-group errorshow">
+                                <input type="text" class="form-control" placeholder="Billing Zip (Billing zip code must match credit card billing address)" name="zip">
+                                </div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Billing Country">
+                                <div class="form-group errorshow">
+                                <input type="text" class="form-control" placeholder="Billing Country" name="billing_country">
+                                </div>
                             </div>
                             <div class="col-12">
+                                <div class="form-group errorshow">
                                 <div class="checkbox-border">
                                     <h3 class="checkbox-title">Is the billing address the same as the Physical Address?</h3>
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="yes">
+                                        <input type="radio" class="form-check-input" id="yes" name="address_check" value="1">
                                         <label class="form-check-label" for="yes">Yes</label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="no">
+                                        <input type="radio" class="form-check-input" id="no" name="address_check" value="0">
                                         <label class="form-check-label" for="no">No</label>
                                     </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -104,19 +127,29 @@ background-size: cover;">
                         <h2 class="section_title">primary contact information</h2>
                         <div class="row gy-4">
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="First Name">
+                                <div class="form-group errorshow">
+                                <input type="text" class="form-control" placeholder="First Name" name="PFName">
+                                </div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Last Number">
+                                <div class="form-group errorshow">
+                                <input type="text" class="form-control" placeholder="Last Number" name="PLName">
+                                </div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Title">
+                                <div class="form-group errorshow">
+                                <input type="text" class="form-control" placeholder="Title" name="PTitle">
+                                </div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Phone">
+                                <div class="form-group errorshow">
+                                <input type="text" class="form-control" placeholder="Phone" name="PPhone">
+                                </div>
                             </div>
                             <div class="col-12 col-md-12">
-                                <input type="email" class="form-control" placeholder="Email">
+                                <div class="form-group errorshow">
+                                <input type="email" class="form-control" placeholder="Email" name="PEmail">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -124,12 +157,14 @@ background-size: cover;">
                         <h2 class="section_title">membership level</h2>
                         <div class="row gy-4">
                             <div class="col-12 col-md-12">
-                                <select class="form-select">
-                                    <option selected>Please Select A Member Level</option>
+                                <div class="form-group errorshow">
+                                <select class="form-select" name="membership_level">
+                                    <option selected disabled>Please Select A Member Level</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </select>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -137,20 +172,25 @@ background-size: cover;">
                         <h2 class="section_title">about your organization</h2>
                         <div class="row gy-4">
                             <div class="col-12 col-md-12">
-                                <select class="form-select">
-                                    <option selected>Please select a category that best describes your business</option>
+                                <div class="form-group errorshow">
+                                <select class="form-select" name="about_organization">
+                                    <option selected disabled>Please select a category that best describes your business</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </select>
+                                </div>
                             </div>
                             <div class="col-12 col-md-12">
-                                <select class="form-select">
-                                    <option selected>Ownership Structure</option>
+                                <div class="form-group errorshow">
+                                <select class="form-select" name="ownership_structure">
+                                    <option selected disabled>Ownership Structure</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </select>
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -159,8 +199,9 @@ background-size: cover;">
                         <p class="col-md-7 mx-auto joining_text">What are your reasons for joining the CASTNET Chamber? You may select as many options as you would like.</p>
                         <div class="row gy-4">
                             <div class="col-12 col-md-12">
-                                <select class="form-select">
-                                    <option selected>Select Options</option>
+                                <div class="form-group errorshow">
+                                <select class="form-select" name="reason_to_join">
+                                    <option selected disabled>Select Options</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
@@ -179,3 +220,85 @@ background-size: cover;">
 <!-- Membership Form end -->
 
 @stop
+@push('scripts')
+<script src="{{ asset('assets/web/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('assets/web/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+
+<script>
+    $('#join_form').validate({
+        rules: {
+            organization_name: {
+                required: true,
+            },
+            phone_number: {
+                required: true,
+            },
+            website_address: {
+                required: true,
+            },
+            number_of_employees: {
+                required: true,
+            },
+            billing_email: {
+                required: true,
+            },
+            billing_address: {
+                required: true,
+            },
+            billing_city: {
+                required: true,
+            },
+            billing_state: {
+                required: true,
+            },
+            zip: {
+                required: true,
+            },
+            billing_country: {
+                required: true,
+            },
+            address_check: {
+                required: true,
+            },
+            PFName: {
+                required: true,
+            },
+            PLName: {
+                required: true,
+            },
+            PTitle: {
+                required: true,
+            },
+            PPhone: {
+                required: true,
+            },
+            PEmail: {
+                required: true,
+            },
+            membership_level: {
+                required: true,
+            },
+            about_organization: {
+                required: true,
+            },
+            ownership_structure: {
+                required: true,
+            },
+            reason_to_join: {
+                required: true,
+            },
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.errorshow').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        }
+    });
+</script>
+@endpush
