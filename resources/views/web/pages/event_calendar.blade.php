@@ -1,8 +1,5 @@
 @extends('web.layouts.default')
 @section('content')
-<div id="overlay" style="display: none">
-    <img src="{{asset('assets/loader1.gif')}}" alt="Loading" /><br/>
- </div>
     <!-- Breadcrumb Start -->
     <section class="section_breadcrumb event_calendar_bg" style="
     background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $banner->image) }}) center no-repeat;

@@ -14,3 +14,4 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/web/css/main.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link class="js-stylesheet" href="{{ asset('assets/admin/sweetalert/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet">

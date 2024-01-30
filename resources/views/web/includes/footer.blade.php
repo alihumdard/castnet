@@ -68,8 +68,8 @@ $result = socialLinks();
             </div>
             <div class="col-md-6 col-lg-3 mt-lg-5">
                 <div class="footer_heading text-uppercase">our newsletter</div>
-                <form action="#">
-                    <input type="text" class="form-control" placeholder="Your Email Address">
+                <form id="newsletter">
+                    <input type="email" id="email" class="form-control" required placeholder="Your Email Address">
                     <button type="submit" class="btn btn-submit">subscribe</button>
                 </form>
             </div>

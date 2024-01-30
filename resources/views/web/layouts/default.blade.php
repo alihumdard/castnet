@@ -27,6 +27,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <body class="hold-transition sidebar-mini">
     @include('web.includes.header')
+    <div id="overlay" style="display: none">
+        <img src="{{asset('assets/loader1.gif')}}" alt="Loading" /><br/>
+     </div>
     @yield('content')
     @include('web.includes.footer')
     @stack('scripts')
