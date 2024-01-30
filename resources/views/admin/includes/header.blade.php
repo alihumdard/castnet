@@ -43,8 +43,8 @@
     overflow-y: auto;">
         <!-- Brand Logo -->
         <a href="{{ route('admin.index') }}" class="brand-link">
-            <img src="{{url('assets/admin/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-light">Castnet Dev</span>
+            <img src="{{ asset('assets/web/images/'.appSetting()->header_logo) }}" alt="{{ appSetting()->title }}" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <span class="brand-text font-weight-light">{{ appSetting()->title }}</span>
         </a>
 
         <!-- Sidebar -->
@@ -129,7 +129,7 @@
                     {{-- Home Page End --}}
 
                     {{-- About Us Page Start --}}
-                    <li class="nav-item {{ (request()->routeIs(['aboutus*','whoweare*','ourTeam.banner','our-team*','contactus*'])) ? 'menu-is-opening menu-open' : '' }}">
+                    <li class="nav-item {{ (request()->routeIs(['aboutus*','whoweare*','our-team*','contactus*'])) ? 'menu-is-opening menu-open' : '' }}">
                         <a href="#" class="nav-link"> <i class="nav-icon far fa-plus-square"></i>
                             <p> About Us <i class="fas fa-angle-left right"></i> </p>
                         </a>
@@ -190,26 +190,26 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['ourTeam.banner','our-team*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('our-team*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> OUR TEAM <i class="fas fa-angle-left right"></i> </p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{ route('ourTeam.banner') }}" class="nav-link {{(request()->routeIs('ourTeam.banner')) ? 'active' : ''}}">
+                                        <a href="{{ route('our-team.banner') }}" class="nav-link {{(request()->routeIs('our-team.banner')) ? 'active' : ''}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Banner</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('our-team.index') }}" class="nav-link {{(request()->routeIs('our-team*')) ? 'active' : ''}}">
+                                        <a href="{{ route('our-team.index') }}" class="nav-link {{(request()->routeIs(['our-team.index','our-team.edit','our-team.create'])) ? 'active' : ''}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Team Members</p>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['contactus*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('contactus*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> CONTACT US <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -289,7 +289,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['benefits*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('benefits*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> BENEFITS <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -314,7 +314,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['programs*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('programs*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> PROGRAMS <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -333,7 +333,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['evaluation*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('evaluation*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> EVALUATION <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -370,7 +370,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['roe*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('roe*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> RULES OF ENG.. <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -420,25 +420,6 @@
                                         <a href="{{ route('sectors.index') }}" class="nav-link {{(request()->routeIs(['sectors.index','sectors.edit','sectors.create'])) ? 'active' : ''}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Sectors</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item {{ (request()->routeIs('join*')) ? 'menu-is-opening menu-open' : '' }}">
-                                <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
-                                    <p> JOIN <i class="fas fa-angle-left right"></i> </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="{{ route('join.banner') }}" class="nav-link {{(request()->routeIs('join.banner')) ? 'active' : ''}}">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Banner</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ route('join.index') }}" class="nav-link {{(request()->routeIs('join.index','join.create','join.edit')) ? 'active' : ''}}">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Features</p>
                                         </a>
                                     </li>
                                 </ul>
@@ -709,7 +690,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['women*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('women*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> WOMEN <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -758,7 +739,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['veterans*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('veterans*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> VETERANS <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -789,25 +770,25 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['supportser*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('supportser*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> SUPPORT SERVICES <i class="fas fa-angle-left right"></i> </p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{ route('sector-c1sc.banner') }}" class="nav-link {{(request()->routeIs('sector-c1sc.banner')) ? 'active' : ''}}">
+                                        <a href="{{ route('supportser.banner') }}" class="nav-link {{(request()->routeIs('supportser.banner')) ? 'active' : ''}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Banner</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('sector-c1sc.section1') }}" class="nav-link {{(request()->routeIs('sector-c1sc.section1')) ? 'active' : ''}}">
+                                        <a href="{{ route('supportser.section1') }}" class="nav-link {{(request()->routeIs('supportser.section1')) ? 'active' : ''}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Section 1</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('sector-c2sc.section2') }}" class="nav-link {{(request()->routeIs('sector-c2sc.section2')) ? 'active' : ''}}">
+                                        <a href="{{ route('supportser.section2') }}" class="nav-link {{(request()->routeIs('supportser.section2')) ? 'active' : ''}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Section 2</p>
                                         </a>
@@ -874,7 +855,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['international_events*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('international_events*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> INTERNATIONAL EVE.. <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -899,7 +880,7 @@
 
 
                     {{--  BLOG Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['my-blog*'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs('my-blog*')) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -987,7 +968,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['funding*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('funding*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> FUNDING <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -1079,7 +1060,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['becomesponsor*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('becomesponsor*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> BECOME A SPONSOR <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -1171,7 +1152,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['ghana*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('ghana*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> GHANA <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -1196,7 +1177,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['southafrica*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('southafrica*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> SOUTH AFRICA <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -1221,7 +1202,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['zimbabwe*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('zimbabwe*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> ZIMBABWE <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -1246,7 +1227,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['cameroon*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('cameroon*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> CAMEROON <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -1271,7 +1252,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['drc*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('drc*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> DRC <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -1296,7 +1277,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['cotedivoire*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('cotedivoire*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> COTE D&apos;IVOIRE <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -1321,7 +1302,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['usa*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('usa*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> USA <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -1407,7 +1388,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['opporcons*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('opporcons*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> CONSTRUCTION <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -1432,7 +1413,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['oppormining*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('oppormining*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> MINING <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -1457,7 +1438,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs(['opporrfx*'])) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('opporrfx*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> RFX <i class="fas fa-angle-left right"></i> </p>
                                 </a>
