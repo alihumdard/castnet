@@ -48,6 +48,7 @@ use App\Models\OpportunitiesModel;
 use App\Models\AdvocacyCommonModel;
 use App\Models\CareersCommonModel1;
 use App\Models\CareersModel;
+use App\Models\ContactUs;
 use App\Models\PartnersModel;
 use App\Models\PartnerSponsorPageTitleModel;
 use App\Models\PartnerCommonSection1;
@@ -245,6 +246,19 @@ class PagesController extends Controller
 
 
         EventRequestForm::create($event);
+        $message = 'Event Request added successfully';
+        return redirect()->back();
+    }
+
+    public function contactUsData(Request $request){
+        $contactUs = [
+            'first_name' => $request->fName,
+            'last_name' => $request->lName,
+            'email' => $request->email,
+            'telephone' => $request->phone,
+            'message' => $request->message,
+        ];
+        ContactUs::create($contactUs);
         $message = 'Event Request added successfully';
         return redirect()->back();
     }
