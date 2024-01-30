@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\web\FeedbackController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Web\FilterController;
 use App\Http\Controllers\Web\PagesController;
 
 /*
@@ -67,6 +68,7 @@ Route::get('/mining', [PagesController::class, 'mining'])->name('web.mining');
 Route::get('/rfx', [PagesController::class, 'rfx'])->name('web.rfx');
 Route::get('/job_openings', [PagesController::class, 'job_openings'])->name('web.job_openings');
 Route::get('/careers', [PagesController::class, 'careers'])->name('web.careers');
+Route::post('/filter-keywords', [FilterController::class, 'filterKeywords'])->name('filter.keywords');
 
 
 

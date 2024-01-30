@@ -254,7 +254,6 @@ class PagesController extends Controller
     }
     public function event_calendar(){
         $banner = PageBanner::where('type', 25)->first();
-        $widget = CommonEventSection::first();
         $items = OurEventCalenderModel::get();
         return view('web.pages.event_calendar',get_defined_vars());
     }
