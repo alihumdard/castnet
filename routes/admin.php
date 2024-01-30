@@ -1,6 +1,18 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\International_events\InternationalEventsController;
+use App\Http\Controllers\Admin\Rules_of_engagement\RulesOfEngagementController;
+use App\Http\Controllers\Admin\Oppor_construction\OpporConstructionController;
+use App\Http\Controllers\Admin\Oppor_agriculture\OpporAgricultureController;
+use App\Http\Controllers\Admin\Partners_sponsors\PartnerSponsorController;
+use App\Http\Controllers\Admin\Support_services\SupportServicesController;
+use App\Http\Controllers\Admin\Partners_sponsors\BecomePartnerController;
+use App\Http\Controllers\Admin\Partners_sponsors\BecomeSponsorController;
+use App\Http\Controllers\Admin\Small_businesses\SmallBusinessController;
+use App\Http\Controllers\Admin\Sectors\SectorsCommonSection1Controller;
+use App\Http\Controllers\Admin\Sectors\SectorsCommonSection2Controller;
+use App\Http\Controllers\Admin\Event_calender\EventCalenderController;
 use App\Http\Controllers\Admin\HomePage\HomePageSection1Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageSection2Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageSection3Controller;
@@ -10,60 +22,48 @@ use App\Http\Controllers\Admin\HomePage\HomePageSection6Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageSection7Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageSection8Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageSection9Controller;
-use App\Http\Controllers\Admin\HomePage\HomePageBannerController;
-use App\Http\Controllers\Admin\Event_calender\EventCalenderController;
-use App\Http\Controllers\Admin\Sectors\SectorsCommonSection1Controller;
-use App\Http\Controllers\Admin\Sectors\SectorsCommonSection2Controller;
-use App\Http\Controllers\Admin\International_events\InternationalEventsController;
-use App\Http\Controllers\Admin\Events\EventSection1Controller;
-use App\Http\Controllers\Admin\AboutPage\AboutPageController;
-use App\Http\Controllers\Admin\Advocacy\AdvocacyController;
-use App\Http\Controllers\Admin\Sectors\SectorController;
-use App\Http\Controllers\Admin\Contact_us\ContactController;
 use App\Http\Controllers\Admin\Advocacy\AdvocacySection1Controller;
-use App\Http\Controllers\Admin\AdvocacyCSection;
-use App\Http\Controllers\Admin\AdvocacySServicesController;
+use App\Http\Controllers\Admin\South_africa\SouthAfricaController;
+use App\Http\Controllers\Admin\Oppor_mining\OpporMiningController;
+use App\Http\Controllers\Admin\HomePage\HomePageBannerController;
 use App\Http\Controllers\Admin\Who_we_are\WhoWeArePageController;
-use App\Http\Controllers\Admin\Benefits\BenefitsController;
-use App\Http\Controllers\Admin\Join\JoinController;
+use App\Http\Controllers\Admin\Job_openings\JobOpeningController;
 use App\Http\Controllers\Admin\Evaluation\EvaluationController;
-use App\Http\Controllers\Admin\Rules_of_engagement\RulesOfEngagementController;
 use App\Http\Controllers\Admin\Membership\MembershipController;
-use App\Http\Controllers\Admin\WidgetsController;
-use App\Http\Controllers\Admin\Team\TeamSectionController;
-use App\Http\Controllers\Admin\Outreach\OutreachController;
-use App\Http\Controllers\Admin\Chad\ChadController;
+use App\Http\Controllers\Admin\Events\EventSection1Controller;
+use App\Http\Controllers\Admin\Financial\FinancialController;
+use App\Http\Controllers\Admin\AboutPage\AboutPageController;
+use App\Http\Controllers\Admin\Contact_us\ContactController;
 use App\Http\Controllers\Admin\Cote_divoire\CotedController;
+use App\Http\Controllers\Admin\Oppor_rfx\OpporRfxController;
+use App\Http\Controllers\Admin\AdvocacySServicesController;
+use App\Http\Controllers\Admin\Advocacy\AdvocacyController;
+use App\Http\Controllers\Admin\Benefits\BenefitsController;
+use App\Http\Controllers\Admin\Veterans\VeteransController;
+use App\Http\Controllers\Admin\Programs\ProgramsController;
 use App\Http\Controllers\Admin\Cameroon\CameroonController;
 use App\Http\Controllers\Admin\Zimbabwe\ZimbabweController;
-use App\Http\Controllers\Admin\South_africa\SouthAfricaController;
-use App\Http\Controllers\Admin\Ghana\GhanaController;
-use App\Http\Controllers\Admin\Drc\DrcController;
-use App\Http\Controllers\Admin\Usa\UsaController;
+use App\Http\Controllers\Admin\Outreach\OutreachController;
+use App\Http\Controllers\Admin\Team\TeamSectionController;
 use App\Http\Controllers\Admin\Events\OurEventController;
-use App\Http\Controllers\Admin\Blog\BlogController;
-use App\Http\Controllers\Admin\SocialLinkController;
-use App\Http\Controllers\Admin\BannerController;
-use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\Careers\CareersController;
-use App\Http\Controllers\Admin\Financial\FinancialController;
 use App\Http\Controllers\Admin\Funding\FundingController;
+use App\Http\Controllers\Admin\Sectors\SectorController;
 use App\Http\Controllers\Admin\Grants\GrantsController;
-use App\Http\Controllers\Admin\Job_openings\JobOpeningController;
-use App\Http\Controllers\Admin\Partners_sponsors\PartnerSponsorController;
-use App\Http\Controllers\Admin\Partners_sponsors\BecomePartnerController;
-use App\Http\Controllers\Admin\Partners_sponsors\BecomeSponsorController;
-use App\Http\Controllers\Admin\Programs\ProgramsController;
-use App\Http\Controllers\Admin\Small_businesses\SmallBusinessController;
-use App\Http\Controllers\Admin\Support_services\SupportServicesController;
 use App\Http\Controllers\Admin\Oppor\OpporController;
-use App\Http\Controllers\Admin\Oppor_agriculture\OpporAgricultureController;
-use App\Http\Controllers\Admin\Oppor_construction\OpporConstructionController;
-use App\Http\Controllers\Admin\Oppor_mining\OpporMiningController;
-use App\Http\Controllers\Admin\Oppor_rfx\OpporRfxController;
-use App\Http\Controllers\Admin\Veterans\VeteransController;
+use App\Http\Controllers\Admin\Ghana\GhanaController;
 use App\Http\Controllers\Admin\Women\WomenController;
+use App\Http\Controllers\Admin\SocialLinkController;
+use App\Http\Controllers\Admin\Blog\BlogController;
+use App\Http\Controllers\Admin\Join\JoinController;
+use App\Http\Controllers\Admin\Chad\ChadController;
+use App\Http\Controllers\Admin\Drc\DrcController;
+use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\Usa\UsaController;
+use App\Http\Controllers\Admin\WidgetsController;
+use App\Http\Controllers\Admin\AdvocacyCSection;
+use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\PagesController;
 
 Route::middleware('auth')->group(function() {
     Route::prefix('admin')->group(function () {
@@ -118,7 +118,7 @@ Route::middleware('auth')->group(function() {
 
         //---** Our team **---//
         Route::resource('our-team', TeamSectionController::class);
-        Route::get('/ourTeam-banner', [TeamSectionController::class, 'banner'])->name('ourTeam.banner');
+        Route::get('/our-team-banner', [TeamSectionController::class, 'banner'])->name('our-team.banner');
         // --------- OUR TEAM Page Routes End --------------
 
         //---** Our team **---//
