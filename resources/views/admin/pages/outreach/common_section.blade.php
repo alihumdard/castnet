@@ -40,7 +40,11 @@
                                     @if(isset($section->image))
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="prin_title">Image</label>
+                                            <label for="prin_title">Image @if($sn == 'Section 1')
+                                                <span class="text-danger">(900 x 670)</span>
+                                                @else
+                                                <span class="text-danger">(520 x 300)</span>
+                                            @endif</label>
                                             <input type="file" name="image" class="form-control" id="">
                                         </div>
                                     </div>

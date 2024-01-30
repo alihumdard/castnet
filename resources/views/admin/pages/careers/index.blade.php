@@ -74,7 +74,7 @@
                             <div class="row mb-2">
                                 <div class="col-sm-6">
                                     <div class="form-group errorshow">
-                                        <label for="prin_title">Image</label>
+                                        <label for="prin_title">Image <span class="text-danger">(60 x 60)</span></label>
                                         <input type="file" name="image" class="form-control" id="">
                                     </div>
                                 </div>

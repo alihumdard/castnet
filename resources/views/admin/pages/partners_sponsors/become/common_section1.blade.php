@@ -117,7 +117,7 @@
                                 @if(strtolower($page)!='become a sponsor' && $sn!='Section 2')
                                 <div class="col-sm-6">
                                     <div class="form-group errorshow">
-                                        <label for="prin_title">Image</label>
+                                        <label for="prin_title">Image <span class="text-danger">(42 x 42)</span></label>
                                         <input type="file" name="image" class="form-control" id="">
                                     </div>
                                 </div>
@@ -128,7 +128,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                         @if(strtolower($page)=='become a sponsor')
                             <input type="hidden" name="page" value="become_sponsor">
@@ -155,7 +155,7 @@
 @stop
 @push('scripts')
 <script>
-    $('#become').validate({ 
+    $('#become').validate({
         rules: {
             title: {
                 required: true,

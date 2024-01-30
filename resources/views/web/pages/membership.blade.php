@@ -44,12 +44,12 @@ background-size: cover;">
 <!-- Membership Values Start -->
 <section class="section_block membership_values">
     <div class="container">
-        <div class="row gy-5 gy-md-0 gx-lg-5">
+        <div class="row gy-5 gx-lg-5">
             @foreach ($section2 as $item)
             <div class="col-md-4 col-lg-4 d-flex">
                 <div class="card border_p" data-aos="zoom-in-right" data-aos-duration="1000">
                     <div class="card-body">
-                        <img src="{{ asset('assets/web/images/'.$item->image) }}" alt="value">
+                        <img src="{{ asset('assets/web/images/'.$item->image) }}" alt="value" class="img-icon">
                         <p class="card-text">{{ $item->heading }}</p>
                     </div>
                 </div>

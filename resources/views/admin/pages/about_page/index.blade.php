@@ -28,7 +28,7 @@
                                 <div class="row mb-2">
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="prin_title">Image</label>
+                                            <label for="prin_title">Image <span class="text-danger">(520 x 310)</span></label>
                                             <input type="file" name="image" class="form-control" id="">
                                         </div>
                                     </div>
