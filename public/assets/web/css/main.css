@@ -1979,6 +1979,11 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
     color: var(--white);
 }
 
+.section_team .img-height {
+    min-height: 25rem;
+    object-fit: cover;
+}
+
 @media screen and (min-width:992px) {
     .section_team .section_title {
         margin-bottom: 5rem;

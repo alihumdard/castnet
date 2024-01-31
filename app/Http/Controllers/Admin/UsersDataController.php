@@ -16,6 +16,7 @@ class UsersDataController extends Controller
         return view('admin.pages.companyInfoData',compact('data'));
     }
     public function subscribers(){
+
         $data= NewsletterModel::all();
 
         return view('admin.pages.subscribers',compact('data'));

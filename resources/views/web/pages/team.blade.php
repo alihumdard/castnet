@@ -37,7 +37,7 @@
                         @foreach($executiveMembers as $executive)
                         <div class="col d-flex">
                             <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
-                                <img src="{{ asset('assets/web/images/' . $executive->image) }}" alt="team" class="card-img-top">
+                                <img src="{{ asset('assets/web/images/' . $executive->image) }}" alt="team" class="card-img-top img-height">
                                 <div class="card-body">
                                     <h3 class="card-title">{{ $executive -> name }}</h3>
                                     <p class="card-text">{{ $executive -> profession }}</p>
@@ -66,7 +66,7 @@
                         @foreach($staffMembers as $staff)
                         <div class="col d-flex">
                             <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
-                                <img src="{{ asset('assets/web/images/' . $staff->image) }}" alt="team" class="card-img-top">
+                                <img src="{{ asset('assets/web/images/' . $staff->image) }}" alt="team" class="card-img-top img-height">
                                 <div class="card-body">
                                     <h3 class="card-title">{{ $staff -> name }}</h3>
                                     <p class="card-text">{{ $staff -> profession }}</p>
