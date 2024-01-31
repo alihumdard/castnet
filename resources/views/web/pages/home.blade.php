@@ -323,9 +323,13 @@ $setting = appSetting();
                     </div>
                     <div class="col-lg-7">
                        {!! $setting->popup_description !!}
-                        <button type="button" class="btn-close" data-bs-target="#ModalForm" data-bs-toggle="modal">
+                        {{-- <button type="button" class="btn-close" data-bs-target="#ModalForm" data-bs-toggle="modal">
                             <span>get started</span>
                             <img src="assets/web/images/icon_arrow_alt.png" alt="arrow">
+                        </button> --}}
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span>get started</span>
+                            <img src="{{ asset('assets/web/images/icon_arrow_alt.png') }}" alt="arrow">
                         </button>
                     </div>
                 </div>
@@ -333,7 +337,6 @@ $setting = appSetting();
         </div>
     </div>
 </div>
-
 
 <div class="modal fade secondModal" id="ModalForm" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true" aria-labelledby="ModalForm" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
@@ -347,8 +350,6 @@ $setting = appSetting();
                     <div class="checkboxes mb-5">
                         <p class="query-text">Overall, how satisfied are you with the website?</p>
                         <div class="d-flex justify-content-between">
-
-
                             <div class="form-check">
                                 <input type="radio" id="inputRating0" value="0" name="radioNumber" class="form-check-input" required>
                                 <label for="inputRating0" class="form-check-label fs-14">0</label>

@@ -37,18 +37,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 $('#overlay').hide();
                 if(response.status==true){
                     Swal.fire({
-                        title: "Good job!",
+                        title: "Congratulations!",
                         text: response.message,
                         icon: "success"
                     });
                 }else{
                     Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: response.message,
-                });
+                        icon: "error",
+                        title: "Oops...",
+                        text: response.message,
+                    });
                 }
-                
             },
         });
     });
