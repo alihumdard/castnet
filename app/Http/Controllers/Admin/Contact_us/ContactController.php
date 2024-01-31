@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Contact_us;
 
 use App\Http\Controllers\Controller;
+use App\Models\ContactUs;
 use Illuminate\Http\Request;
 use App\Models\ContactUsModel;
 use App\Models\PageBanner;
@@ -17,6 +18,18 @@ class ContactController extends Controller
         $banner = PageBanner::where('type',4)->first();
         $page = "Contact us";
         return view('admin.pages.banner',compact('banner','page'));
+    }
+
+    public function contactUsData(){
+        $data= ContactUs::all();
+
+        return view('admin.pages.contactUsData',compact('data'));
+    }
+
+    public function contactUsDetail($id){
+        $contact = ContactUs::findOrFail($id);
+
+    return view('admin.pages.contactUsDetail', compact('contact'));
     }
 
     public function update(Request $request,$id){
@@ -34,5 +47,16 @@ class ContactController extends Controller
         $contact->update($data);
 
         return redirect()->back()->with('success', "Data Updated Successfully.");
+    }
+
+
+    public function destroy($id)
+    {
+        ContactUs::destroy($id);
+        return response()->json(array(
+            'data' => true,
+            'message' => 'Team member deleted successfully.',
+            'status' => 'success',
+        ));
     }
 }
