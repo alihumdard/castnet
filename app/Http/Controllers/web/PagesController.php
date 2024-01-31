@@ -57,6 +57,7 @@ use App\Models\PartnerCommonSection2;
 use App\Models\FinancialCommonModel;
 use App\Models\FinancialCommonModel1;
 use App\Models\Job;
+use Illuminate\Support\Facades\Mail;
 
 
 class PagesController extends Controller
@@ -259,9 +260,14 @@ class PagesController extends Controller
             'telephone' => $request->phone,
             'message' => $request->message,
         ];
+        $input = $request->all();
+
         ContactUs::create($contactUs);
+
+
+
         $message = 'Event Request added successfully';
-        return redirect()->back();
+        return redirect()->back()->with('message', $message);
     }
     public function joinData(Request $request){
 
