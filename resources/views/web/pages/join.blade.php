@@ -73,7 +73,7 @@ background-size: cover;">
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="Number of Employees" name="number_of_employees">
+                                <input type="number" class="form-control" placeholder="Number of Employees" name="number_of_employees">
                                 </div>
                             </div>
                             <div class="col-12 col-md-12">

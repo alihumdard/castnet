@@ -1554,6 +1554,44 @@
                     </li>
                     {{-- widgets section end  --}}
 
+                    {{-- User data section start --}}
+                    <li class="nav-item {{(request()->routeIs(['contactus.data','contactus.detail','company.Info','companyInfo.detail','event.request','eventRequest.detail','subscribers'])) ? 'menu-is-opening menu-open' : ''}}">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                USER DATA
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('contactus.data') }}" class="nav-link {{(request()->routeIs('contactus.data','contactus.detail')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>CONTACT US</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('company.Info') }}" class="nav-link {{(request()->routeIs('company.Info','companyInfo.detail')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>COMPANY INFO</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('event.request') }}" class="nav-link {{(request()->routeIs('event.request','eventRequest.detail')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>EVENT REQUEST</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('subscribers') }}" class="nav-link {{(request()->routeIs('subscribers')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>SUBSCRIBERS</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{-- User data section end --}}
+
                     <li class="nav-item">
                         <a href="{{ route('admin.sociallinks') }}" class="nav-link {{(request()->routeIs('admin.sociallinks')) ? 'active' :''}}">
                             <i class="nav-icon fas fa-globe"></i>

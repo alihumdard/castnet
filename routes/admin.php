@@ -64,6 +64,7 @@ use App\Http\Controllers\Admin\WidgetsController;
 use App\Http\Controllers\Admin\AdvocacyCSection;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\PagesController;
+use App\Http\Controllers\Admin\UsersDataController;
 
 Route::middleware('auth')->group(function() {
     Route::prefix('admin')->group(function () {
@@ -125,6 +126,7 @@ Route::middleware('auth')->group(function() {
         Route::get('/contactus-banner', [ContactController::class, 'banner'])->name('contactus.banner');
         Route::get('/contactus-info', [ContactController::class, 'info'])->name('contactus.info');
         Route::put('/contactus-update/{id}', [ContactController::class, 'update'])->name('contactus.update');
+
         // --------- OUR TEAM Page Routes End --------------
 
         //---** My Blog **---//
@@ -434,5 +436,26 @@ Route::middleware('auth')->group(function() {
         Route::put('/jobs-updation/{id}',[JobOpeningController::class,'updation'])->name('jobs.updation');
         Route::post('/change-status',[JobOpeningController::class,'statusChange'])->name('jobs.status');
         // ----------------------------------job opining route end-----------------------------------------
+
+
+
+        // -------------------------------------------------Users Data route start----------------------------------------------------
+        Route::get('/contactus-data', [ContactController::class, 'contactUsData'])->name('contactus.data');
+        Route::get('/contactus-detail/{id}', [ContactController::class, 'contactUsDetail'])->name('contactus.detail');
+        Route::delete('/contact-delete/{id}', [ContactController::class, 'destroy'])->name('contact.delete');
+
+        Route::get('/company-info', [UsersDataController::class, 'companyInfoData'])->name('company.Info');
+        Route::get('/companyinfo.detail/{id}', [UsersDataController::class, 'companyInfoDetail'])->name('companyInfo.detail');
+        Route::delete('/companyInfo-delete/{id}', [UsersDataController::class, 'destroyInfo'])->name('companyInfo.delete');
+
+        Route::get('/event-request', [UsersDataController::class, 'eventData'])->name('event.request');
+        Route::get('/eventRequest.detail/{id}', [UsersDataController::class, 'eventDetail'])->name('eventRequest.detail');
+        Route::delete('/eventRequest-delete/{id}', [UsersDataController::class, 'destroyEvent'])->name('eventRequest.delete');
+
+
+        Route::get('/subscribers', [UsersDataController::class, 'subscribers'])->name('subscribers');
+        Route::delete('/subscribers-delete/{id}', [UsersDataController::class, 'destroysubscriber'])->name('subscribers.delete');
+
+        // -------------------------------------------------Users Data route end------------------------------------------------------
     });
 });
