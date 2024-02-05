@@ -50,14 +50,16 @@
     <!-- Section Alt Start -->
     <section class="section_block section_block_alt">
         <div class="container">
-            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
-                <div class="img_border">
-                    <img src="{{ asset('assets/web/images/'.$section2->image)}}" alt="culture_chad">
+            <div class="row">
+                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="img_border">
+                        <img src="{{ asset('assets/web/images/'.$section2->image)}}" alt="culture_chad">
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
-                <h2 class="section_title fw-bold">{{$section2->title}}</h2>
-                <p class="about_text">{!! $section2->description !!}</p>
+                <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="section_title fw-bold">{{$section2->title}}</h2>
+                    <p class="about_text">{!! $section2->description !!}</p>
+                </div>
             </div>
         </div>
     </section>

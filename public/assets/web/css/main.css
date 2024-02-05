@@ -370,7 +370,7 @@ header .navbar .img-menu {
 
 .hero .hero_text {
     color: var(--white);
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     font-weight: 300;
     margin-bottom: 3rem;
 }
@@ -466,7 +466,7 @@ header .navbar .img-menu {
 }
 
 .card_events .card .card-text {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin-bottom: 1.8rem;
 }
 
@@ -553,7 +553,7 @@ header .navbar .img-menu {
 
 .about .about_text {
     color: var(--white);
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     line-height: 150%;
     text-align: justify;
 }
@@ -649,7 +649,7 @@ header .navbar .img-menu {
 
 .principles .tab-content .tab-pane {
     color: var(--white);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 400;
     letter-spacing: 0em;
     line-height: 2.7rem;
@@ -797,7 +797,7 @@ header .navbar .img-menu {
 
 .roadmap .accordion-item .accordion-list-item {
     color: var(--dark-charcoal);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 400;
     margin-bottom: 1rem;
 }
@@ -852,10 +852,10 @@ header .navbar .img-menu {
 
 .events .events_text {
     color: var(--black);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 400;
     line-height: 150%;
-    margin: 1.5rem 0 1rem;
+    margin: 1.5rem 0 0.3rem;
     text-align: justify;
 }
 
@@ -1087,7 +1087,7 @@ header .navbar .img-menu {
 
 .community .community_text {
     color: var(--white);
-    font-size: 1.3rem;
+    font-size: 1.6rem;
 }
 
 .community .btn {
@@ -1194,7 +1194,7 @@ header .navbar .img-menu {
 
 .key .key_box .key_text {
     color: var(--dark-charcoal);
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     font-weight: 400;
     line-height: 150%;
     text-align: justify;
@@ -1246,7 +1246,7 @@ header .navbar .img-menu {
 
 .impact .impact_text {
     color: var(--white);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin-bottom: 3rem;
 }
 
@@ -1274,7 +1274,7 @@ header .navbar .img-menu {
 }
 
 .impact .impact_box .box_text {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 }
 
 .impact .btn {
@@ -1357,7 +1357,7 @@ header .navbar .img-menu {
 .modal .modal-text {
     color: var(--black);
     text-align: justify;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 400;
     line-height: 150%;
     margin-bottom: 1.5rem;
@@ -1468,7 +1468,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .footer .footer_text {
     color: var(--black-rich);
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     font-weight: 400;
     line-height: 150%;
     margin: 0 0 2rem;
@@ -1540,7 +1540,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 .footer .footer_links .contact_media .text,
 .footer .footer_links .contact_media a {
     color: var(--black-chinese);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 400;
 }
 
@@ -1823,7 +1823,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .our_value .about_text {
     color: var(--white);
-    font-size: 1.4rem;
+    font-size: 1.6rem !important;
     line-height: 150%;
     text-align: justify;
     margin-bottom: 2rem;
@@ -1868,7 +1868,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .welcome .about_text {
     color: var(--dark-charcoal);
-    font-size: 1.4rem;
+    font-size: 1.6rem !important;
     line-height: 150%;
     text-align: justify;
     margin-bottom: 2rem;
@@ -1910,7 +1910,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .ten_things .order-item {
     color: var(--dark-charcoal);
-    font-size: 1.4rem;
+    font-size: 1.6rem !important;
     font-weight: 400;
     line-height: 150%;
 }
@@ -2044,7 +2044,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
     }
 
     .section_contact_info .card .card-text {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 }
 
@@ -2175,7 +2175,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .why_join .about_text {
     color: var(--dark-charcoal);
-    font-size: 1.4rem;
+    font-size: 1.6rem !important;
     line-height: 150%;
     text-align: justify;
     margin-bottom: 2rem;
@@ -2254,9 +2254,10 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
     text-transform: uppercase;
 }
 
+.membership_values .card .card-body p span,
 .membership_values .card .card-desc {
     color: var(--dark-charcoal);
-    font-size: 1.4rem;
+    font-size: 1.6rem !important;
     font-weight: 400;
     line-height: 150%;
 }
@@ -2284,7 +2285,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .ready_to_join .text {
     color: var(--white);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin: 2rem 0 3rem;
 }
 
@@ -2355,7 +2356,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .section_membership_cards .card-body .card-text {
     color: var(--white);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
@@ -2490,7 +2491,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .member_benefits .benefit_text {
     color: var(--dark-charcoal);
-    font-size: 1.4rem;
+    font-size: 1.6rem !important;
     font-weight: 400;
     margin-bottom: 2rem;
 }
@@ -2526,7 +2527,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .member_benefits .card-body .benefit-item {
     color: var(--dark-charcoal);
-    font-size: 1.4rem;
+    font-size: 1.6rem !important;
     font-weight: 400;
     margin-bottom: 0rem;
     text-align: justify;
@@ -2556,8 +2557,9 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
     text-transform: uppercase;
 }
 
+.member_benefits .card.vip_card p span,
 .member_benefits .card.vip_card .card-desc {
-    font-size: 1.3rem;
+    font-size: 1.6rem !important;
     text-align: center;
 }
 
@@ -2584,7 +2586,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .programs .section_text {
     color: var(--dark-charcoal);
-    font-size: 1.4rem;
+    font-size: 1.6rem !important;
     text-align: center;
 }
 
@@ -2654,7 +2656,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .evaluation .about_text {
     color: var(--dark-charcoal);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     line-height: 150%;
     text-align: justify;
     margin-bottom: 2rem;
@@ -2723,7 +2725,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .accessibility .about_text {
     color: var(--dark-charcoal);
-    font-size: 1.4rem;
+    font-size: 1.6rem !important;
     line-height: 150%;
     text-align: justify;
     margin-bottom: 2rem;
@@ -2790,7 +2792,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .financial_performance .section_text {
     color: var(--dark-charcoal);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin: 1.5rem 0 0;
 }
 
@@ -2909,7 +2911,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .rules_of_engagement .about_text {
     color: var(--dark-charcoal);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     line-height: 150%;
     text-align: justify;
     margin-bottom: 2rem;
@@ -3029,7 +3031,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
     align-items: start;
     color: var(--dark-charcoal);
     display: flex;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 400;
     gap: 1rem;
     margin-bottom: 1rem;
@@ -3142,7 +3144,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 .sector_blog .blog_item .content .blog_desc {
     color: var(--dark-charcoal);
     text-align: justify;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     font-weight: 400;
 }
 
@@ -3182,7 +3184,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 }
 
 .sector_blog .card .card-body .card-text {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     font-weight: 300;
     line-height: 2.1rem;
     margin-bottom: 1rem;
@@ -3194,7 +3196,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 }
 
 .sector_blog .card .card-footer .btn {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     padding: 1.2rem 0;
     width: 15rem;
 }
@@ -3245,9 +3247,10 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
     text-transform: uppercase;
 }
 
+.advocacy_values .card p span,
 .advocacy_values .card .card-text {
     color: var(--black-olive);
-    font-size: 1.4rem;
+    font-size: 1.6rem !important;
     font-weight: 400;
 }
 
@@ -3281,9 +3284,11 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
     text-transform: uppercase;
 }
 
+
+.advocacy_cards .card p span,
 .advocacy_cards .card .card-text {
     color: var(--dark-charcoal);
-    font-size: 1.4rem;
+    font-size: 1.6rem !important;
     font-weight: 400;
     line-height: 150%;
     text-align: justify;
@@ -3382,7 +3387,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .advocacy_alt .about_text {
     color: var(--dark-charcoal);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     line-height: 150%;
     text-align: justify;
     margin-bottom: 2rem;
@@ -3454,7 +3459,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .section_block_alt .about_text {
     color: var(--dark-charcoal);
-    font-size: 1.4rem;
+    font-size: 1.6rem !important;
     line-height: 150%;
     text-align: justify;
     margin-bottom: 2rem;
@@ -3513,6 +3518,11 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
     overflow: hidden;
 }
 
+.all_events .card .card-img-top {
+    min-height: 350px;
+    object-fit: cover;
+}
+
 .all_events .card .card-body {
     padding: 2.4rem 0;
     text-align: center;
@@ -3547,7 +3557,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .event_cta .text {
     color: var(--white);
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     margin: 2rem 0 3rem;
 }
 
@@ -3620,7 +3630,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .outreach_inner_cta .text {
     color: var(--white);
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     margin: 2rem 0 0;
 }
 
@@ -3795,7 +3805,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .section_calendar .event_box .event_desc {
     color: var(--dark-charcoal);
-    font-size: 1.325rem;
+    font-size: 1.6rem;
     font-weight: 400;
     line-height: 150%;
     margin-bottom: 2rem;
@@ -4020,7 +4030,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 .become_partner .section_text {
     color: var(--dark-charcoal);
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 400;
     line-height: 150%;
 }
@@ -4050,9 +4060,10 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
     text-transform: uppercase;
 }
 
+.become_partner .card p span,
 .become_partner .card .card-text {
     color: var(--black-olive);
-    font-size: 1.4rem;
+    font-size: 1.6rem !important;
     font-weight: 400;
 }
 
@@ -4160,7 +4171,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 }
 
 .current_opening .card-body .card-text {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 300;
     margin-bottom: 0;
 }
