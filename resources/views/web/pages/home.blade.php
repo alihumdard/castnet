@@ -296,7 +296,7 @@ $setting = appSetting();
         </div>
         <div class="row gy-4 gy-md-0 gx-md-5">
             @foreach($section9feature as $item)
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-4 col-lg-4 d-flex">
                 <div class="impact_box blue_bd">
                     <h3 class="box_title">{{ $item->title }}</h3>
                     <p class="box_text">{{ $item->description }}</p>
