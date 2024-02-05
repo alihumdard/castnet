@@ -38,20 +38,11 @@ class AdvocacyController extends Controller
         return view('admin.pages.advocacy.common_section1',get_defined_vars());
     }
 
-    public function section4(){
-        $section = AdvocacyCommonModel1::where(['page'=>'advocacy','section'=>4])->get();
-        $page = "Advocacy";
-        $sn = "Section 4";
-        return view('admin.pages.advocacy.common_section1',get_defined_vars());
-    }
-
     public function store(Request $request){
         if($request->page=='advocacy' && $request->section==2){
             $route = "advocacy.section2";
         }elseif($request->page=='advocacy' && $request->section==3){
             $route = "advocacy.section3";
-        }elseif($request->page=='advocacy' && $request->section==4){
-            $route = "advocacy.section4";
         }elseif($request->page=='women' && $request->section==2){
             $route = "women.section2";
         }elseif($request->page=='veterans' && $request->section==2){
@@ -162,8 +153,6 @@ class AdvocacyController extends Controller
             $route = "advocacy.section2";
         }elseif($advocacy->page=='advocacy' && $advocacy->section==3){
             $route = "advocacy.section3";
-        }elseif($advocacy->page=='advocacy' && $advocacy->section==4){
-            $route = "advocacy.section4";
         }elseif($advocacy->page=='women' && $advocacy->section==2){
             $route = "women.section2";
         }elseif($advocacy->page=='veterans' && $advocacy->section==2){

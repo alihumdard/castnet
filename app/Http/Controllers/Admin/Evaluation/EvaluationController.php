@@ -30,15 +30,8 @@ class EvaluationController extends Controller
         return view('admin.pages.membership.common_section',get_defined_vars());
     }
 
-    public function section5(){
-        $section = MembershipCommonModel::where(['section'=>5,'page'=>'evaluation'])->first();
-        $page = "Evaluation";
-        $sn = "Section 5";
-        return view('admin.pages.membership.common_section',get_defined_vars());
-    }
-
     public function banner(){
-        $banner = PageBanner::where('type',10)->first();
+        $banner = PageBanner::where('type',9)->first();
         $page = "Evaluation";
         return view('admin.pages.banner',compact('banner','page'));
     }

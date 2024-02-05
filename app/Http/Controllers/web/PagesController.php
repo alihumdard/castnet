@@ -121,7 +121,6 @@ class PagesController extends Controller
         $section1 = MembershipCommonModel::where(['page'=>'evaluation','section'=>1])->first();
         $section3 = MembershipCommonModel::where(['page'=>'evaluation','section'=>3])->first();
         $section4 = MembershipCommonModel::where(['page'=>'evaluation','section'=>4])->first();
-        $section5 = MembershipCommonModel::where(['page'=>'evaluation','section'=>5])->first();
         return view('web.pages.evaluation',get_defined_vars());
     }
 
@@ -184,7 +183,6 @@ class PagesController extends Controller
         $section1 = AdvocacyCommonModel::where(['page'=>'advocacy','section'=>1])->first();
         $section2 = AdvocacyCommonModel1::where(['page'=>'advocacy','section'=>2])->get();
         $section3 = AdvocacyCommonModel1::where(['page'=>'advocacy','section'=>3])->get();
-        $section4 = AdvocacyCommonModel1::where(['page'=>'advocacy','section'=>4])->get();
         return view('web.pages.advocacy',get_defined_vars());
     }
     public function small_businesses(){
@@ -489,5 +487,9 @@ class PagesController extends Controller
         $section5 = AboutPage::where('section',5)->first();
         $section6 = HomeSection3::first();
         return view('web.pages.whoweare',get_defined_vars());
+    }
+
+    public function login(){
+        return view('web.pages.login');
     }
 }

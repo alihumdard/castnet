@@ -105,35 +105,17 @@
     </section>
     <!-- Accessibility End -->
 
-    <!-- Financial Performance Start -->
-    <section class="section_block financial_performance">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9 mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
-                    <h2 class="section_title">{{ $section4->title }}</h2>
-                    <p class="section_text">{!! $section4->description !!}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-10 mx-auto">
-                    <img src="{{ asset('assets/web/images/'.$section4->image) }}" alt="graph" class="img-fluid" data-aos="zoom-in" data-aos-duration="1000">
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Financial Performance End -->
-
     <!-- Benefits Assessment Start -->
     <section class="section_block evaluation light_blue_bg">
         <div class="container">
             <div class="row gy-5 gy-lg-0 gx-md-5">
                 <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title">{{ $section5->title }}</h2>
-                    {!! $section5->description !!}
+                    <h2 class="section_title">{{ $section4->title }}</h2>
+                    {!! $section4->description !!}
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="{{ asset('assets/web/images/'.$section5->image) }}" alt="benefit-assesment">
+                        <img src="{{ asset('assets/web/images/'.$section4->image) }}" alt="benefit-assesment">
                     </div>
                 </div>
             </div>

@@ -34,8 +34,12 @@
                                     </button>
                                 </div>
                             </form>
-                            <a href="#" class="btn btn-primary">
+                            <a href="{{route('user.login')}}" class="btn btn-primary">
                                 <span>sponsors login</span>
+                                <img src="assets/web/images/icon_log.png" alt="icon login" class="icon-login">
+                            </a>
+                            <a href="{{route('user.login')}}" class="btn btn-primary">
+                                <span>Member login</span>
                                 <img src="assets/web/images/icon_log.png" alt="icon login" class="icon-login">
                             </a>
                         </div>

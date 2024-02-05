@@ -156,8 +156,6 @@ class MembershipController extends Controller
             $route = "evaluation.section3";
         }elseif($membership->page=='evaluation' && $membership->section==4){
             $route = "evaluation.section4";
-        }elseif($membership->page=='evaluation' && $membership->section==5){
-            $route = "evaluation.section5";
         }elseif($membership->page=='roe' && $membership->section==1){
             $route = "roe.section1";
         }

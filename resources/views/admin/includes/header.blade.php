@@ -362,12 +362,6 @@
                                             <p>Section 4</p>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="{{ route('evaluation.section5') }}" class="nav-link {{ (request()->routeIs('evaluation.section5')) ? 'active' : '' }}">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Section 5</p>
-                                        </a>
-                                    </li>
                                 </ul>
                             </li>
                             <li class="nav-item {{ (request()->routeIs('roe*')) ? 'menu-is-opening menu-open' : '' }}">
@@ -637,12 +631,6 @@
                                         <a href="{{ route('advocacy.section3') }}" class="nav-link {{(request()->routeIs('advocacy.section3')) ? 'active' : ''}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Section 3</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ route('advocacy.section4') }}" class="nav-link {{(request()->routeIs('advocacy.section4')) ? 'active' : ''}}">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Section 4</p>
                                         </a>
                                     </li>
                                 </ul>
