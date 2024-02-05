@@ -190,6 +190,8 @@ class BecomePartnerController extends Controller
             $route = "becomepartner.index";
         }elseif($partner->section==2 && $partner->page=='become_partner'){
             $route = "becomepartner.section2";
+        }elseif($partner->section==1 && $partner->page=='become_sponsor'){
+            $route = "becomesponsor.section1";
         }
 
         if($request->image){

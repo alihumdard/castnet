@@ -57,6 +57,7 @@ use App\Http\Controllers\Admin\SocialLinkController;
 use App\Http\Controllers\Admin\Blog\BlogController;
 use App\Http\Controllers\Admin\Join\JoinController;
 use App\Http\Controllers\Admin\Chad\ChadController;
+use App\Http\Controllers\Admin\UsersDataController;
 use App\Http\Controllers\Admin\Drc\DrcController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\Usa\UsaController;
@@ -64,7 +65,6 @@ use App\Http\Controllers\Admin\WidgetsController;
 use App\Http\Controllers\Admin\AdvocacyCSection;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\PagesController;
-use App\Http\Controllers\Admin\UsersDataController;
 
 Route::middleware('auth')->group(function() {
     Route::prefix('admin')->group(function () {
@@ -79,7 +79,7 @@ Route::middleware('auth')->group(function() {
         Route::get('/sociallinks', [SocialLinkController::class, 'index'])->name('admin.sociallinks');
         Route::put('/sociallinks-update/{id}', [SocialLinkController::class,'update'])->name('sociallinks.update');
 
-        //---** Home page **---//
+        //---** Home page routes **---//
         Route::get('/homepage-banner', [HomePageBannerController::class,'index'])->name('homepage.banner');
         Route::put('/homebanner-update/{id}', [HomePageBannerController::class,'update'])->name('homebanner.update');
         Route::resource('homesection1', HomePageSection1Controller::class);
@@ -99,16 +99,14 @@ Route::middleware('auth')->group(function() {
         Route::put('/homesection8-updation/{id}',[HomePageSection8Controller::class,'updation'])->name('homesection8.updataion');
         Route::resource('homesection9', HomePageSection9Controller::class);
         Route::put('/homesection9-updation/{id}',[HomePageSection9Controller::class,'updation'])->name('homesection9.updataion');
+        //---** End Home page routes **---//
 
-        Route::get('/allpages', [PagesController::class, 'allpages'])->name('admin.allpages');
-        Route::get('/addpage', [PagesController::class, 'addpage'])->name('admin.addpage');
-
-        // --------- About Page Routes Start ------------
+        //---** About Page Routes Start **---//
         Route::get('/about-us-banner', [AboutPageController::class, 'index'])->name('aboutus.banner');
         Route::get('/about-us-section1', [AboutPageController::class, 'section1'])->name('aboutus.section1');
         Route::get('/about-us-section2', [AboutPageController::class, 'section2'])->name('aboutus.section2');
         Route::get('/about-us-section3', [AboutPageController::class, 'section3'])->name('aboutus.section3');
-        // --------- About Page Routes End --------------
+        //--- About Page Routes End -----
 
         // --------- who_we_are Page Routes Start ------------
         Route::get('/whoweare-banner', [WhoWeArePageController::class, 'index'])->name('whoweare.banner');
@@ -117,17 +115,16 @@ Route::middleware('auth')->group(function() {
         Route::put('/whoweare/{id}', [WhoWeArePageController::class, 'update'])->name('whoweare.update');
         // --------- who_we_are Page Routes End --------------
 
-        //---** Our team **---//
+        //---** Our team routes **---//
         Route::resource('our-team', TeamSectionController::class);
         Route::get('/our-team-banner', [TeamSectionController::class, 'banner'])->name('our-team.banner');
-        // --------- OUR TEAM Page Routes End --------------
+        //--- End our team routes ---
 
-        //---** Our team **---//
+        //---** Contact us page routes **---//
         Route::get('/contactus-banner', [ContactController::class, 'banner'])->name('contactus.banner');
         Route::get('/contactus-info', [ContactController::class, 'info'])->name('contactus.info');
         Route::put('/contactus-update/{id}', [ContactController::class, 'update'])->name('contactus.update');
-
-        // --------- OUR TEAM Page Routes End --------------
+        //--- End Contact us page routes ------
 
         //---** My Blog **---//
         Route::resource('my-blog', BlogController::class);
@@ -157,7 +154,6 @@ Route::middleware('auth')->group(function() {
         // ---- Membership page routes end ----
 
         // ---- Join page routes start ----
-
         Route::resource('join', JoinController::class);
         Route::get('/join-banner', [JoinController::class, 'banner'])->name('join.banner');
         // ---- Join page routes end ----
@@ -166,7 +162,6 @@ Route::middleware('auth')->group(function() {
         Route::get('/evaluation-section', [EvaluationController::class, 'section1'])->name('evaluation.section');
         Route::get('/evaluation-section3', [EvaluationController::class, 'section3'])->name('evaluation.section3');
         Route::get('/evaluation-section4', [EvaluationController::class, 'section4'])->name('evaluation.section4');
-        Route::get('/evaluation-section1', [EvaluationController::class, 'section5'])->name('evaluation.section5');
         Route::put('/evaluation-update/{id}', [EvaluationController::class, 'update'])->name('evaluation.update');
         Route::get('/evaluation-banner', [EvaluationController::class, 'banner'])->name('evaluation.banner');
         // ---- EVALUATION page routes end ----
@@ -231,22 +226,23 @@ Route::middleware('auth')->group(function() {
         Route::get('/sector-c2text-section2', [SectorsCommonSection2Controller::class, 'textiles'])->name('sector-c2text.section2');
         // ------- Natural Resources page work end --------
 
-        ///**-- Common Functions --**///
+        //**--- Common Functions --**//
         Route::put('/sector-c1-update/{id}', [SectorsCommonSection1Controller::class, 'update'])->name('sector-c1.update');
         Route::put('/c-section1/{id}', [AboutPageController::class, 'update'])->name('c-section1.update');
         Route::put('/banner-update/{id}', [BannerController::class, 'update'])->name('banner.update');
         Route::resource('sector-c2', SectorsCommonSection2Controller::class);
         Route::put('/sector-c2-updation/{id}', [SectorsCommonSection2Controller::class, 'updation'])->name('sector-c2.updation');
+        //--- End common functions -----
 
-        // benefits page routes start
+        //**--- Benefits page routes --**//
         Route::resource('benefits', BenefitsController::class);
         Route::get('/benefits-section1',[BenefitsController::class,'section1'])->name('benefits.section1');
         Route::get('/benefits-section2',[BenefitsController::class,'section2'])->name('benefits.section2');
         Route::get('/benefits-banner',[BenefitsController::class,'banner'])->name('benefits.banner');
         Route::put('/benefits-updation/{id}',[BenefitsController::class,'updation'])->name('benefits.updation');
-        // benefits page routes end
+        //--- End benefits page routes -----
 
-        // ADVOCACY page routes start
+        //**--- ADVOCACY page routes ---**//
         Route::resource('advocacy', AdvocacyController::class);
         Route::get('/advocacy-banner', [AdvocacyController::class, 'banner'])->name('advocacy.banner');
         Route::get('/advocacy-section1', [AdvocacyController::class, 'section1'])->name('advocacy.section1');
@@ -254,7 +250,7 @@ Route::middleware('auth')->group(function() {
         Route::get('/advocacy-section3', [AdvocacyController::class, 'section3'])->name('advocacy.section3');
         Route::get('/advocacy-section4', [AdvocacyController::class, 'section4'])->name('advocacy.section4');
         Route::put('/advocacy-updation/{id}', [AdvocacyController::class, 'updation'])->name('advocacy.updation');
-        // ADVOCACY page routes end
+        //--- End ADVOCACY page routes ----
 
         //Small Business routes start
         Route::get('/small_business-banner', [SmallBusinessController::class, 'banner'])->name('small_business.banner');
@@ -437,8 +433,6 @@ Route::middleware('auth')->group(function() {
         Route::post('/change-status',[JobOpeningController::class,'statusChange'])->name('jobs.status');
         // ----------------------------------job opining route end-----------------------------------------
 
-
-
         // -------------------------------------------------Users Data route start----------------------------------------------------
         Route::get('/contactus-data', [ContactController::class, 'contactUsData'])->name('contactus.data');
         Route::get('/contactus-detail/{id}', [ContactController::class, 'contactUsDetail'])->name('contactus.detail');
@@ -452,10 +446,8 @@ Route::middleware('auth')->group(function() {
         Route::get('/eventRequest.detail/{id}', [UsersDataController::class, 'eventDetail'])->name('eventRequest.detail');
         Route::delete('/eventRequest-delete/{id}', [UsersDataController::class, 'destroyEvent'])->name('eventRequest.delete');
 
-
         Route::get('/subscribers', [UsersDataController::class, 'subscribers'])->name('subscribers');
         Route::delete('/subscribers-delete/{id}', [UsersDataController::class, 'destroysubscriber'])->name('subscribers.delete');
-
         // -------------------------------------------------Users Data route end------------------------------------------------------
     });
 });

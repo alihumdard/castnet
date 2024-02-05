@@ -39,26 +39,6 @@
     </section>
     <!-- Advocacy End -->
 
-    <!-- Advocacy Values Start -->
-    <section class="section_block advocacy_values">
-        <div class="container">
-            <div class="row gy-4 gy-lg-0 gx-lg-4">
-                @foreach($section2 as $item)
-                <div class="col-md-6 col-lg-3 d-flex">
-                    <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
-                        <div class="card-body">
-                            <img src="{{ asset('assets/web/images/'.$item->image) }}" alt="icon" class="img-icon">
-                            <h3 class="card-title">{{$item->title}}</h3>
-                            <p class="card-text">{!! $item->description !!}</p>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-    <!-- Advocacy Values end -->
-
     <!-- Advocacy Cards Start -->
     <section class="section_block advocacy_cards">
         <div class="container">
@@ -68,7 +48,7 @@
                 </div>
             </div>
             <div class="row gy-4 gy-lg-0">
-                @foreach($section3 as $item)
+                @foreach($section2 as $item)
                 <div class="col-md-6 col-lg-4">
                     <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
                         <img src="{{ asset('assets/web/images/'.$item->image)}}" alt="card photo" class="card-img-top">
@@ -93,7 +73,7 @@
                 </div>
             </div>
             <div class="row gy-3 gy-lg-0 gx-3" data-aos="fade-left" data-aos-duration="1000">
-                @foreach($section4 as $item)
+                @foreach($section3 as $item)
                 <div class="col-md-4 col-lg-2 d-flex">
                     <div class="priorities_box">
                         <img src="{{ asset('assets/web/images/'.$item->image) }}" alt="vector" class="img-vector">

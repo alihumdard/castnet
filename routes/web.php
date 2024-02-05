@@ -77,6 +77,7 @@ Route::get('/job_openings', [PagesController::class, 'job_openings'])->name('web
 Route::get('/careers', [PagesController::class, 'careers'])->name('web.careers');
 Route::post('/filter-keywords', [FilterController::class, 'filterKeywords'])->name('filter.keywords');
 Route::post('/subscribe-newsletter', [DefaultController::class, 'subscribe'])->name('subscribe.newsletter');
+Route::get('/user-login', [PagesController::class, 'login'])->name('user.login');
 
 
 
