@@ -11,16 +11,16 @@
                     <div class="col-md-6 col-lg-6">
                         <div class="d-flex gap-3">
                             <a href="{{ !empty($result->facebook) ? $result->facebook : '#' }}" class="social_link">
-                                <img src="assets/web/images/icon_fb.png" alt="social icons" class="img-icon">
+                                <img src="{{ asset('assets/web/images/icon_fb.png') }}" alt="social icons" class="img-icon">
                             </a>
                             <a href="{{ !empty($result->twitter) ? $result->twitter : '#' }}" class="social_link">
-                                <img src="assets/web/images/icon_tw.png" alt="social icons" class="img-icon">
+                                <img src="{{ asset('assets/web/images/icon_tw.png') }}" alt="social icons" class="img-icon">
                             </a>
                             <a href="{{ !empty($result->linkedin) ? $result->linkedin : '#' }}" class="social_link">
-                                <img src="assets/web/images/icon_li.png" alt="social icons" class="img-icon">
+                                <img src="{{ asset('assets/web/images/icon_li.png') }}" alt="social icons" class="img-icon">
                             </a>
                             <a href="{{ !empty($result->instagram) ? $result->instagram : '#' }}" class="social_link">
-                                <img src="assets/web/images/icon_ig.png" alt="social icons" class="img-icon">
+                                <img src="{{ asset('assets/web/images/icon_ig.png') }}" alt="social icons" class="img-icon">
                             </a>
                         </div>
                     </div>
@@ -30,17 +30,17 @@
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="site search">
                                     <button type="submit" class="btn-search">
-                                        <img src="assets/web/images/icon_search.png" alt="search">
+                                        <img src="{{ asset('assets/web/images/icon_search.png') }}" alt="search">
                                     </button>
                                 </div>
                             </form>
                             <a href="{{route('user.login')}}" class="btn btn-primary">
                                 <span>sponsors login</span>
-                                <img src="assets/web/images/icon_log.png" alt="icon login" class="icon-login">
+                                <img src="{{ asset('assets/web/images/icon_log.png') }}" alt="icon login" class="icon-login">
                             </a>
                             <a href="{{route('user.login')}}" class="btn btn-primary">
                                 <span>Member login</span>
-                                <img src="assets/web/images/icon_log.png" alt="icon login" class="icon-login">
+                                <img src="{{ asset('assets/web/images/icon_log.png') }}" alt="icon login" class="icon-login">
                             </a>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                         </li>
                         <li class="nav-item">
                             <a data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasExample">
-                                <img src="assets/web/images/icon_menu.png" alt="menu" class="img-menu">
+                                <img src="{{ asset('assets/web/images/icon_menu.png') }}" alt="menu" class="img-menu">
                             </a>
                         </li>
                     </ul>

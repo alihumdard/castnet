@@ -55,27 +55,24 @@
                     <div class="box_job">
                         <div class="row gy-4 gy-lg-0">
                             <div class="col-lg-1 text-center text-lg-start">
-                                <img src="assets/web/images/icon_job.png" alt="job icon" class="img-job">
+                                <img src="{{ asset('assets/web/images/icon_job.png') }}" alt="job icon" class="img-job">
                             </div>
                             <div class="col-lg-11">
                                 <div class="box_header">
                                     <h3 class="title">{{ $job->job_title }}</h3>
-                                    <p class="text">{{ $job->salary_detail}}</span></p>
                                 </div>
                                 <div class="box_body">
                                     {{ $job->job_description}}
                                     <div class="d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-lg-start gap-4">
                                         @foreach(explode(',',$job->duration_detail) as $item)
                                         <span class="tag">{{ $item }}</span>
-                                        {{-- <span class="tag">Engineering</span>
-                                        <span class="tag">Onsite</span> --}}
                                         @endforeach
                                     </div>
                                 </div>
                                 <div class="box_footer">
                                     <a href="#" class="btn btn-primary">
                                         <span>apply now</span>
-                                        <img src="assets/web/images/icon_arrow.png" alt="arrow">
+                                        <img src="{{ asset('assets/web/images/icon_arrow.png') }}" alt="arrow">
                                     </a>
                                 </div>
                             </div>
@@ -99,7 +96,7 @@
                     <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 gap-md-5">
                         <a href="{{ joinWidget()->button1_link }}" class="btn btn-primary">
                             <span>{{ joinWidget()->button1 }}</span>
-                            <img src="assets/web/images/icon_log.png" alt="login" class="img-login">
+                            <img src="{{ asset('assets/web/images/icon_log.png') }}" alt="login" class="img-login">
                         </a>
                         <a href="{{ joinWidget()->button2_link }}" class="btn btn-contact">{{ joinWidget()->button2 }}</a>
                     </div>
