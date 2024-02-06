@@ -19,7 +19,7 @@
 <!-- jquery-validation -->
 <script src="{{asset('/assets/admin/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
 <script src="{{asset('/assets/admin/plugins/jquery-validation/additional-methods.min.js') }}"></script>
- <!-- Summernote -->
+<!-- Summernote -->
 <script src="{{asset('/assets/admin/plugins/summernote/summernote-bs4.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('/assets/admin/dist/js/adminlte.min.js') }}"></script>
