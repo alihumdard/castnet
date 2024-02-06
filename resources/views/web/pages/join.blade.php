@@ -207,7 +207,7 @@ background-size: cover;">
                             </div>
                         </div>
                     </div>
-                    <div class="text-center" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="text-center mt-4" data-aos="fade-right" data-aos-duration="1000">
                         <button type="submit" class="btn btn-submit">submit</button>
                     </div>
                 </form>
