@@ -47,9 +47,9 @@
                     <h2 class="section_title">Our Priorities</h2>
                 </div>
             </div>
-            <div class="row gy-4 gy-lg-0">
+            <div class="row gy-4">
                 @foreach($section2 as $item)
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4 d-flex">
                     <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
                         <img src="{{ asset('assets/web/images/'.$item->image)}}" alt="card photo" class="card-img-top">
                         <div class="card-body">
@@ -78,6 +78,7 @@
                     <div class="priorities_box">
                         <img src="{{ asset('assets/web/images/'.$item->image) }}" alt="vector" class="img-vector">
                         <p class="box_title">{{$item->title}}</p>
+
                     </div>
                 </div>
                 @endforeach
