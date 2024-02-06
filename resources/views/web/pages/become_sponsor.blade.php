@@ -45,7 +45,7 @@
             </div>
             <div class="row gy-4 gx-md-4">
                 @foreach($section2 as $item)
-                <div class="col-md-4 col-lg-4">
+                <div class="col-md-4 col-lg-4 d-flex">
                     <div class="card" data-aos="fade-right" data-aos-duration="1000">
                         <div class="card-body">
                             <h3 class="card-title">{{$item->title}}</h3>
