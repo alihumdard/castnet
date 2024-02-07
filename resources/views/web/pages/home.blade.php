@@ -327,7 +327,7 @@ $setting = appSetting();
                             <span>get started</span>
                             <img src="assets/web/images/icon_arrow_alt.png" alt="arrow">
                         </button> --}}
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" class="btn-close" data-bs-target="#ModalForm" data-bs-toggle="modal">
                             <span>get started</span>
                             <img src="{{ asset('assets/web/images/icon_arrow_alt.png') }}" alt="arrow">
                         </button>
@@ -339,6 +339,247 @@ $setting = appSetting();
 </div>
 
 <div class="modal fade secondModal" id="ModalForm" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true" aria-labelledby="ModalForm" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header flex-column justify-content-center">
+                <h1 class="modal-title">Welcome to CASTNET!</h1>
+                <p>Let's tailor your experience. Please take a moment to answer a few quick questions:</p>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('welcom.modal') }}" method="post">
+                    @csrf
+                    <div class="checkboxes mb-5">
+                        <p class="query-text">1. What beat describes you or your organization?</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating0" name="radioNumber1" class="form-check-input">
+                                    <label for="inputRating0" class="form-check-label">Small Business Owner</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating1" name="radioNumber1" class="form-check-input">
+                                    <label for="inputRating1" class="form-check-label">Academic/Educator</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating2" name="radioNumber1" class="form-check-input">
+                                    <label for="inputRating2" class="form-check-label">Industry Professional</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating3" name="radioNumber1" class="form-check-input">
+                                    <label for="inputRating3" class="form-check-label">Other</label>
+                                    <input type="text" class="form-control form-other">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkboxes mb-5">
+                        <p class="query-text">2. What brings you to CASTNET today?</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating4" name="radioNumber2" class="form-check-input">
+                                    <label for="inputRating0" class="form-check-label">Learn more about CASTNET membership benefits</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating5" name="radioNumber2" class="form-check-input">
+                                    <label for="inputRating1" class="form-check-label">Access supply chain management resources</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating6" name="radioNumber2" class="form-check-input">
+                                    <label for="inputRating2" class="form-check-label">Explore partnership or sponsorship opportunities</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating7" name="radioNumber2" class="form-check-input">
+                                    <label for="inputRating3" class="form-check-label">Other</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating8" name="radioNumber2" class="form-check-input">
+                                    <label for="inputRating2" class="form-check-label">Find events and networking opportunities</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkboxes mb-5">
+                        <p class="query-text">3. Which sector are you primarily interested in?</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating9" name="radioNumber3" class="form-check-input">
+                                    <label for="inputRating0" class="form-check-label">Construction</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating10" name="radioNumber3" class="form-check-input">
+                                    <label for="inputRating1" class="form-check-label">Natural Resources</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating11" name="radioNumber3" class="form-check-input">
+                                    <label for="inputRating2" class="form-check-label">Agriculture</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating12" name="radioNumber3" class="form-check-input">
+                                    <label for="inputRating3" class="form-check-label">Energy</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating13" name="radioNumber3" class="form-check-input">
+                                    <label for="inputRating2" class="form-check-label">Supply Chain</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating14" name="radioNumber3" class="form-check-input">
+                                    <label for="inputRating2" class="form-check-label">Textiles</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating15" name="radioNumber3" class="form-check-input">
+                                    <label for="inputRating2" class="form-check-label">Technology</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating16" name="radioNumber3" class="form-check-input">
+                                    <label for="inputRating2" class="form-check-label">Not Sure Yet</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkboxes mb-5">
+                        <p class="query-text">4. What is your current business challenge?</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating17" name="radioNumber4" class="form-check-input">
+                                    <label for="inputRating0" class="form-check-label">Expanding into new markets</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating18" name="radioNumber4" class="form-check-input">
+                                    <label for="inputRating1" class="form-check-label">Networking with industry leaders</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating19" name="radioNumber4" class="form-check-input">
+                                    <label for="inputRating0" class="form-check-label">Streamlining operations</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating20" name="radioNumber4" class="form-check-input">
+                                    <label for="inputRating1" class="form-check-label">Getting access to education resources</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating21" name="radioNumber4" class="form-check-input">
+                                    <label for="inputRating0" class="form-check-label">Leveraging technology for growth</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating22" name="radioNumber4" class="form-check-input">
+                                    <label for="inputRating1" class="form-check-label">Other</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkboxes mb-5">
+                        <p class="query-text">5. Would you like to receive more information about membership?</p>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating23" name="radioNumber5" class="form-check-input">
+                                    <label for="inputRating0" class="form-check-label">Yes, please contact me</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check gap-3 gap-md-0">
+                                    <input type="radio" id="inputRating24" name="radioNumber5" class="form-check-input">
+                                    <label for="inputRating1" class="form-check-label">Not at this time</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkboxes mb-5">
+                        <p class="query-text">Contact Information (Optional)</p>
+                        <div class="row gy-4">
+                            <div class="col-md-6">
+                                <div class="d-flex gap-3">
+                                    <label for="contactName" class="form-check-label">Name</label>
+                                    <input type="text" id="contactName" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex gap-3">
+                                    <label for="contactPhone" class="form-check-label">Phone</label>
+                                    <input type="text" id="contactPhone" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex gap-3">
+                                    <label for="contactCompany" class="form-check-label">Company</label>
+                                    <input type="text" id="contactCompany" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex gap-3">
+                                    <label for="contactEmail" class="form-check-label">Email</label>
+                                    <input type="email" id="contactEmail" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="acknowledge-text">By submitting this form, you agree to receive communications from CASTNET. You can unsubscribe at anytime.</p>
+                    <div class="d-flex justify-content-end gap-4">
+                        <button type="button" class="btn-modal" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn-submit">become a member</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- <div class="modal fade secondModal" id="ModalForm" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true" aria-labelledby="ModalForm" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header justify-content-center">
@@ -448,6 +689,6 @@ $setting = appSetting();
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- Modal End -->
 @stop

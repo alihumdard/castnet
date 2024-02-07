@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Experience;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\NewsletterModel;
@@ -14,7 +15,11 @@ class DefaultController extends Controller
         }
         NewsletterModel::create([
             'email'=>$request->email
-        ]);        
+        ]);
         return response()->json(['status' => true,'message'=>'You have successfully subscribed!']);
+    }
+    public function weclome(Request $request){
+        dd('working');
+        Experience::all();
     }
 }
