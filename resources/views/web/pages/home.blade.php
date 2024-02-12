@@ -313,6 +313,7 @@ $setting = appSetting();
 </section>
 <!-- Impact End -->
 <!-- Modal Start -->
+@if(empty(\Illuminate\Support\Facades\Cookie::get('user_ip')))
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
@@ -323,10 +324,6 @@ $setting = appSetting();
                     </div>
                     <div class="col-lg-7">
                        {!! $setting->popup_description !!}
-                        {{-- <button type="button" class="btn-close" data-bs-target="#ModalForm" data-bs-toggle="modal">
-                            <span>get started</span>
-                            <img src="assets/web/images/icon_arrow_alt.png" alt="arrow">
-                        </button> --}}
                         <button type="button" class="btn-close" data-bs-target="#ModalForm" data-bs-toggle="modal">
                             <span>get started</span>
                             <img src="{{ asset('assets/web/images/icon_arrow_alt.png') }}" alt="arrow">
@@ -337,7 +334,7 @@ $setting = appSetting();
         </div>
     </div>
 </div>
-
+@endif
 <div class="modal fade secondModal" id="ModalForm" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true" aria-labelledby="ModalForm" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">

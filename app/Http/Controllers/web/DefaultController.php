@@ -7,6 +7,7 @@ use App\Models\Experience;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\NewsletterModel;
+use Illuminate\Support\Facades\Cookie;
 class DefaultController extends Controller
 {
     public function subscribe(Request $request){
@@ -18,7 +19,7 @@ class DefaultController extends Controller
         ]);
         return response()->json(['status' => true,'message'=>'You have successfully subscribed!']);
     }
-    
+
     public function weclome(Request $request){
         $experienceInfo = [
             'organization' => $request->radioNumber1 === 'Other' ? $request->other_value : $request->radioNumber1,
@@ -32,6 +33,7 @@ class DefaultController extends Controller
             'email' => $request->email,
         ];
         Experience::create($experienceInfo);
+        Cookie::queue('user_ip', $request->ip(), 30 * 24 * 60);
         $message = 'Experience added successfully';
         return redirect()->back();
     }
