@@ -61,7 +61,7 @@ use Illuminate\Support\Facades\Mail;
 
 class PagesController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         $banner = Banner::first();
         $section1 = HomeSection1::all();
         $section2 = HomeSection2::first();
