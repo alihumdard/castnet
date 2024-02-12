@@ -14,7 +14,7 @@ class DefaultController extends Controller
         }
         NewsletterModel::create([
             'email'=>$request->email
-        ]);        
+        ]);
         return response()->json(['status' => true,'message'=>'You have successfully subscribed!']);
     }
 }

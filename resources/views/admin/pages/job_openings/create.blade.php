@@ -25,20 +25,12 @@
                             <form action="{{ route('jobs.store')}}" id="jobs" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-2">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <div class="form-group errorshow">
                                             <label for="prin_title">Job Title</label>
                                             <input type="text" name="title" class="form-control" placeholder="Enter Job Title...">
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group errorshow">
-                                            <label for="prin_title">Salary</label>
-                                                <input type="text" name="salary" class="form-control" placeholder="Enter Salary...">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-2">
                                     <div class="col-sm-12">
                                         <div class="form-group errorshow">
                                             <label>Description</label>
@@ -47,7 +39,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12 errorshow">
                                         <label>Job Detail</label>
                                         <div class="form-group clearfix">
                                             <div class="icheck-primary d-inline">
@@ -117,9 +109,6 @@
     $('#jobs').validate({
         rules: {
             title: {
-                required: true,
-            },
-            salary: {
                 required: true,
             },
             description: {

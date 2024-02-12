@@ -1,7 +1,6 @@
 @extends('admin.layouts.default')
 @section('title', 'Home Page Section 1')
 @section('content')
-
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
@@ -27,16 +26,10 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="row mb-2">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <div class="form-group errorshow">
                                             <label for="prin_title">Job Title</label>
                                                 <input type="text" name="title" value="{{ $section->job_title }}" class="form-control" placeholder="Enter Job Title...">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group errorshow">
-                                            <label for="prin_title">Salary</label>
-                                                <input type="text" name="salary" value="{{ $section->salary_detail }}" class="form-control" placeholder="Enter Salary...">
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
@@ -47,7 +40,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12 errorshow">
                                         <label>Job Detail</label>
                                         <div class="form-group clearfix">
                                             <div class="icheck-primary d-inline">
@@ -117,9 +110,6 @@
     $('#jobs').validate({
         rules: {
             title: {
-                required: true,
-            },
-            salary: {
                 required: true,
             },
             description: {

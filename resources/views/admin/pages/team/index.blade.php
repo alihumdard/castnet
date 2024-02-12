@@ -52,7 +52,21 @@
                                         {{ $team->profession }}
                                     </td>
                                     <td>
-                                    {{ $team->type == 0 ? 'EXECUTIVE' : 'STAFF' }}
+                                        @if($team->type==1)
+                                            FOUNDER
+                                        @elseif($team->type==2)
+                                            BOARD OF DIRECTORS
+                                        @elseif($team->type==3)
+                                            MANAGEMENT TEAM
+                                        @elseif($team->type==4)
+                                            COUNCIL OF COUNTRY DELEGATES
+                                        @elseif($team->type==5)
+                                            COUNCIL OF INDUSTRY ADVISORS
+                                        @elseif($team->type==6)
+                                            PROGRAM OF LEADERS
+                                        @elseif($team->type==7)
+                                            STAFF
+                                        @endif
                                     </td>
                                     <td>
                                         <a href="{{ route('our-team.edit',$team->id) }}"><i class="fa fa-edit"></i></a>

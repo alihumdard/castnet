@@ -63,49 +63,4 @@
         </div>
     </section>
     <!-- Become Partner Values End -->
-
-    <!-- Current Opening Start -->
-    <section class="section_block current_opening">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-12">
-                    <h2 class="section_title" data-aos="fade-up" data-aos-duration="1000">current openings</h2>
-                </div>
-            </div>
-            <div class="row gy-4 gy-md-0">
-                @foreach($section3 as $job)
-                @if($job->status == 0)
-                <div class="col-md-4 col-lg-4 d-flex">
-                    <div class="card" data-aos="fade-right" data-aos-duration="1000">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ $job->job_title }}</h3>
-                            @foreach(explode(',',$job->duration_detail) as $item)
-                            <span class="card-subtext">{{ $item }}</span>
-                            @if(!$loop->last)
-        <span class="card-subtext"> /</span>
-    @endif
-                            @endforeach
-                            <p class="card-text">{{ $job->job_description}}</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-primary">
-                                <span>apply now</span>
-                                <img src="assets/web/images/icon_arrow.png" alt="arrow">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                @endif
-                @endforeach
-                <div class="col-12 mt-5">
-                    <a href="#" class="btn-more" data-aos="zoom-in" data-aos-duration="1000">
-                        <span>see more</span>
-                        <img src="assets/web/images/icon_arrow.png" alt="arrow">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Current Opening End -->
-
     @stop

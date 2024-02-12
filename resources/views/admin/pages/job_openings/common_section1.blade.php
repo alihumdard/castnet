@@ -32,7 +32,6 @@
                                 <tr>
                                 <th>#</th>
                                 <th>Title</th>
-                                <th>Salary</th>
                                 <th>Status</th>
                                 <th>Action</th>
                                 </tr>
@@ -44,7 +43,6 @@
                                     <td>
                                         {{ $item->job_title }}
                                     </td>
-                                    <td>{{ $item->salary_detail }}</td>
                                     <td>@if($item->status == 0)<span class='badge bg-secondary bg-success'>Active</span>@else<span class='badge bg-secondary bg-danger'>Inactive</span>@endif</td>
                                     <td>
                                         <a href="{{ route('jobs.edit',$item->id) }}"><i class="fa fa-edit"></i></a>

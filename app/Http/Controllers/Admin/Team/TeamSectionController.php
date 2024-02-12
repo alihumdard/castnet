@@ -99,7 +99,7 @@ class TeamSectionController extends Controller
         ];
         $team->update($data);
 
-        return redirect()->back()->with('success', "Data Updated Successfully");
+        return redirect()->route('our-team.index')->with('success', "Data Updated Successfully");
     }
 
     /**
