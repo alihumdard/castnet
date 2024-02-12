@@ -131,12 +131,12 @@
                     {{-- About Us Page Start --}}
                     <li class="nav-item {{ (request()->routeIs(['aboutus*','whoweare*','our-team*','contactus*'])) ? 'menu-is-opening menu-open' : '' }}">
                         <a href="#" class="nav-link"> <i class="nav-icon far fa-plus-square"></i>
-                            <p> About Us <i class="fas fa-angle-left right"></i> </p>
+                            <p> ABOUT US <i class="fas fa-angle-left right"></i> </p>
                         </a>
                         <ul class="nav nav-treeview ml-2">
                             <li class="nav-item {{ (request()->routeIs('aboutus*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
-                                    <p> About us <i class="fas fa-angle-left right"></i> </p>
+                                    <p> ABOUT US <i class="fas fa-angle-left right"></i> </p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
@@ -270,7 +270,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs('join*')) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('join*','join-form-setting*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> JOIN <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -285,6 +285,12 @@
                                         <a href="{{ route('join.index') }}" class="nav-link {{(request()->routeIs('join.index','join.create','join.edit')) ? 'active' : ''}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Features</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('join-form-setting.index') }}" class="nav-link {{(request()->routeIs('join-form-setting*')) ? 'active' : ''}}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Form Setting</p>
                                         </a>
                                     </li>
                                 </ul>

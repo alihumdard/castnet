@@ -64,6 +64,7 @@ use App\Http\Controllers\Admin\Usa\UsaController;
 use App\Http\Controllers\Admin\WidgetsController;
 use App\Http\Controllers\Admin\AdvocacyCSection;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\Join\JoinFormSettingController;
 use App\Http\Controllers\Admin\PagesController;
 
 Route::middleware('auth')->group(function() {
@@ -151,11 +152,13 @@ Route::middleware('auth')->group(function() {
         Route::get('/membership-section1', [MembershipController::class, 'section1'])->name('membership.section1');
         Route::get('/membership-section3', [MembershipController::class, 'section3'])->name('membership.section3');
         Route::put('/membership-updation/{id}', [MembershipController::class, 'updation'])->name('membership.updation');
+
         // ---- Membership page routes end ----
 
         // ---- Join page routes start ----
         Route::resource('join', JoinController::class);
         Route::get('/join-banner', [JoinController::class, 'banner'])->name('join.banner');
+        Route::resource('join-form-setting', JoinFormSettingController::class);
         // ---- Join page routes end ----
 
         // ---- EVALUATION page routes start ----
