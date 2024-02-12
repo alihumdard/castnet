@@ -79,14 +79,11 @@ Route::post('/filter-keywords', [FilterController::class, 'filterKeywords'])->na
 Route::post('/subscribe-newsletter', [DefaultController::class, 'subscribe'])->name('subscribe.newsletter');
 Route::get('/user-login', [PagesController::class, 'login'])->name('user.login');
 
-
-
-
 // ******************************************* Event request page form below
 Route::post('/event_request', [PagesController::class, 'event_request_form'])->name('event.request');
 
 
-
+Route::post('/welcome-modal', [DefaultController::class, 'weclome'])->name('welcom.modal');
 
 include __DIR__.'/admin.php';
 

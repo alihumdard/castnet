@@ -276,7 +276,7 @@ class PagesController extends Controller
     }
 
     public function joinData(Request $request){
-        $companyInfo = [
+        $companyInfo = [ 
             'organization_name' => $request->organization_name,
             'phone_number' => $request->phone_number,
             'website_address' => $request->website_address,

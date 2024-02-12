@@ -1543,7 +1543,7 @@
                     {{-- widgets section end  --}}
 
                     {{-- User data section start --}}
-                    <li class="nav-item {{(request()->routeIs(['contactus.data','contactus.detail','company.Info','companyInfo.detail','event.request','eventRequest.detail','subscribers'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['contactus.data','contactus.detail','company.Info','companyInfo.detail','experience.detail','event.request','eventRequest.detail','subscribers','experience'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -1574,6 +1574,12 @@
                                 <a href="{{ route('subscribers') }}" class="nav-link {{(request()->routeIs('subscribers')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>SUBSCRIBERS</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('experience') }}" class="nav-link {{(request()->routeIs('experience','experience.detail')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>EXPERIENCE</p>
                                 </a>
                             </li>
                         </ul>
