@@ -18,6 +18,7 @@ class DefaultController extends Controller
         ]);
         return response()->json(['status' => true,'message'=>'You have successfully subscribed!']);
     }
+    
     public function weclome(Request $request){
         $experienceInfo = [
             'organization' => $request->radioNumber1 === 'Other' ? $request->other_value : $request->radioNumber1,

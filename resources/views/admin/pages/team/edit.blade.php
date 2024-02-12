@@ -53,8 +53,13 @@
                                         <div class="form-group errorshow">
                                             <label for="prin_title">Type</label>
                                                 <select class="form-control" name="type">
-                                                    <option value="0" {{ $team->type == 0 ? 'selected' : '' }}>EXECUTIVE</option>
-                                                    <option value="1" {{ $team->type == 1 ? 'selected' : '' }}>STAFF</option>
+                                                    <option value="1" {{ $team->type == 1 ? 'selected' : '' }}>FOUNDER</option>
+                                                    <option value="2" {{ $team->type == 2 ? 'selected' : '' }}>BOARD OF DIRECTORS</option>
+                                                    <option value="3" {{ $team->type == 3 ? 'selected' : '' }}>MANAGEMENT TEAM</option>
+                                                    <option value="4" {{ $team->type == 4 ? 'selected' : '' }}>COUNCIL OF COUNTRY DELEGATES</option>
+                                                    <option value="5" {{ $team->type == 5 ? 'selected' : '' }}>COUNCIL OF INDUSTRY ADVISORS</option>
+                                                    <option value="6" {{ $team->type == 6 ? 'selected' : '' }}>PROGRAM OF LEADERS</option>
+                                                    <option value="7" {{ $team->type == 7 ? 'selected' : '' }}>STAFF</option>
                                                 </select>
                                         </div>
                                     </div>

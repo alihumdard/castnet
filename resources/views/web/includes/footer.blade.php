@@ -13,16 +13,16 @@ $result = socialLinks();
                 <p class="footer_text">{{ $setting->footer_description }}</p>
                 <div class="d-flex gap-3">
                     <a href="{{ !empty($result->facebook) ? $result->facebook : '#' }}" class="social_link">
-                        <img src="assets/web/images/icon_fb.png" alt="social icons" class="img-icon">
+                        <img src="{{ asset('assets/web/images/icon_fb.png') }}" alt="social icons" class="img-icon">
                     </a>
                     <a href="{{ !empty($result->twitter) ? $result->twitter : '#' }}" class="social_link">
-                        <img src="assets/web/images/icon_tw.png" alt="social icons" class="img-icon">
+                        <img src="{{ asset('assets/web/images/icon_tw.png') }}" alt="social icons" class="img-icon">
                     </a>
                     <a href="{{ !empty($result->linkedin) ? $result->linkedin : '#' }}" class="social_link">
-                        <img src="assets/web/images/icon_li.png" alt="social icons" class="img-icon">
+                        <img src="{{ asset('assets/web/images/icon_li.png') }}" alt="social icons" class="img-icon">
                     </a>
                     <a href="{{ !empty($result->instagram) ? $result->instagram : '#' }}" class="social_link">
-                        <img src="assets/web/images/icon_ig.png" alt="social icons" class="img-icon">
+                        <img src="{{ asset('assets/web/images/icon_ig.png') }}" alt="social icons" class="img-icon">
                     </a>
                 </div>
             </div>
@@ -44,7 +44,7 @@ $result = socialLinks();
                 <div class="footer_links">
                     <div class="contact_media">
                         <div class="icon">
-                            <img src="assets/web/images/icon_phone.png" alt="phone" class="img-fluid">
+                            <img src="{{ asset('assets/web/images/icon_phone.png') }}" alt="phone" class="img-fluid">
                         </div>
                         <div class="text">
                             <a href="tel:{{ $setting->phone ?? '' }}">{{ $setting->phone ?? '' }}</a>
@@ -52,7 +52,7 @@ $result = socialLinks();
                     </div>
                     <div class="contact_media">
                         <div class="icon">
-                            <img src="assets/web/images/icon_email.png" alt="phone" class="img-fluid">
+                            <img src="{{ asset('assets/web/images/icon_email.png') }}" alt="phone" class="img-fluid">
                         </div>
                         <div class="text">
                             <a href="mailto:{{ $setting->email ?? '' }}">{{ $setting->email ?? ''}}</a>
@@ -60,7 +60,7 @@ $result = socialLinks();
                     </div>
                     <div class="contact_media">
                         <div class="icon">
-                            <img src="assets/web/images/icon_map.png" alt="phone" class="img-fluid">
+                            <img src="{{ asset('assets/web/images/icon_map.png') }}" alt="phone" class="img-fluid">
                         </div>
                         <div class="text">{{ $setting->address ?? '' }}</div>
                     </div>

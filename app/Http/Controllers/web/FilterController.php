@@ -26,8 +26,6 @@ class FilterController extends Controller
         $results = $query->get();
         
         $html = view('web.ajax_load.event_filter', compact('results'))->render();
-        
         return response()->json(['data' => $html]);
     }
-    
 }

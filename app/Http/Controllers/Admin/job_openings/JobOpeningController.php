@@ -58,7 +58,6 @@ class JobOpeningController extends Controller
     public function store(Request $request){
         Job::create([
             'job_title' => $request->title,
-            'salary_detail' => $request->salary,
             'job_description' => $request->description,
             'duration_detail' => implode(",",$request->duration),
         ]);
@@ -109,7 +108,6 @@ class JobOpeningController extends Controller
 
         $data = [
             'job_title' => $request->title,
-            'salary_detail' => $request->salary,
             'job_description' => $request->description,
             'duration_detail' => implode(",",$request->duration),
             'status' => $request->status,
