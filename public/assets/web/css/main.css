@@ -4605,8 +4605,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
     }
 }
 
-/* second model CSS */
-
+/* secondModal */
 .fs-14 {
     font-size: 1.4rem;
 }
@@ -4621,21 +4620,17 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .secondModal .modal-header {
     border: none;
+    padding-top: 3rem;
 }
 
 .secondModal .modal-body {
-    padding-top: 0;
+    padding: 1.2rem;
 }
 
 .secondModal .modal-body .checkboxes .form-check {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     padding: 0;
-}
-
-.secondModal .modal-body .checkboxes .form-check .form-check-label {
-    border: 0.1rem solid var(--gray-four);
-    padding: 0.3rem 0.2rem;
 }
 
 .secondModal .modal-body .query-text {
@@ -4651,19 +4646,11 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .secondModal .modal-body .checkboxes .form-check .form-check-input {
     margin: 0;
+    border-radius: 0;
 }
 
 .secondModal .modal-body .checkboxes_text {
     font-size: 1.4rem;
-}
-
-.secondModal .modal-body .checkboxes .form-check .form-check-input {
-    display: none;
-}
-
-.secondModal .modal-body .checkboxes .form-check .form-check-input:checked + .form-check-label {
-    background: var(--primary);
-    color: var(--white);
 }
 
 .secondModal .modal-body .form-select {
@@ -4716,17 +4703,34 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
     text-transform: capitalize;
 }
 
+.secondModal .modal-body .checkboxes .form-check .form-check-label,
+.secondModal .modal-body .checkboxes .form-check-label {
+    font-size: 1.4rem;
+}
+
+.secondModal .form-other {
+    border-radius: 0;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    font-size: 1.4rem;
+}
+
+.secondModal .form-other:focus {
+    box-shadow: none;
+}
+
 @media screen and (min-width:768px) {
     .secondModal .modal-body .checkboxes .form-check .form-check-label {
         padding: 0.3rem 0.9rem;
     }
+
+    .secondModal .modal-body {
+        padding: 3rem 4rem;
+    }
 }
 
 @media screen and (min-width:992px) {
-    .secondModal .modal-body {
-        padding: 0 3rem 3rem;
-    }
-
     .secondModal .modal-title {
         font-size: 3rem;
     }

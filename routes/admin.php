@@ -448,6 +448,11 @@ Route::middleware('auth')->group(function() {
 
         Route::get('/subscribers', [UsersDataController::class, 'subscribers'])->name('subscribers');
         Route::delete('/subscribers-delete/{id}', [UsersDataController::class, 'destroysubscriber'])->name('subscribers.delete');
+
+
+        Route::get('/experience', [UsersDataController::class, 'experience'])->name('experience');
+        Route::get('/experience/{id}', [UsersDataController::class, 'experienceDetail'])->name('experience.detail');
+        Route::delete('/experience-delete/{id}', [UsersDataController::class, 'destroyexperience'])->name('experience.delete');
         // -------------------------------------------------Users Data route end------------------------------------------------------
     });
 });
