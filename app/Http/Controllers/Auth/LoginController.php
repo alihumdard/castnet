@@ -49,7 +49,7 @@ class LoginController extends Controller
         $passhashed = Hash::check($request->password, $user->password);       
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $request->session()->regenerate();
-            return redirect()->intended('/admin/dashboard');
+            return redirect()->intended('/logged');
         } else {
             return back()->with('error','Credentials do not match');
         }

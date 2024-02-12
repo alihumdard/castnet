@@ -16,6 +16,8 @@ use App\Http\Controllers\Web\PagesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/logged', [DefaultController::class, 'logged'])->name('logged.user');
+
 
 Route::get('/', [PagesController::class, 'index'])->name('web.index');
 Route::get('/about', [PagesController::class, 'aboutUs'])->name('web.about');
@@ -78,6 +80,8 @@ Route::get('/careers', [PagesController::class, 'careers'])->name('web.careers')
 Route::post('/filter-keywords', [FilterController::class, 'filterKeywords'])->name('filter.keywords');
 Route::post('/subscribe-newsletter', [DefaultController::class, 'subscribe'])->name('subscribe.newsletter');
 Route::get('/user-login', [PagesController::class, 'login'])->name('user.login');
+Route::get('/user-register', [PagesController::class, 'register'])->name('user.register');
+Route::post('/user-registration', [PagesController::class, 'registration'])->name('user.registration');
 
 // ******************************************* Event request page form below
 Route::post('/event_request', [PagesController::class, 'event_request_form'])->name('event.request');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Experience;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -36,5 +37,13 @@ class DefaultController extends Controller
         Cookie::queue('user_ip', $request->ip(), 30 * 24 * 60);
         $message = 'Experience added successfully';
         return redirect()->back();
+    }
+
+    public function logged(){
+        if(Auth::user()->type==1){
+            return redirect()->route('admin.index');
+        }else{
+            return redirect()->route('web.index')->with('success','You have successfully login your account.');
+        }
     }
 }

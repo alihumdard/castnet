@@ -22,6 +22,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
         padding-top: 20%;
         filter: blur(1px);
     }
+    .message {
+        align-items: center !important;
+        justify-content: center !important;
+        position: absolute;
+        width: 100%;
+        z-index: 99;
+        display: flex;
+        top: 50px;
+    }
     </style>
 </head>
 
@@ -30,6 +39,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div id="overlay" style="display: none">
         <img src="{{asset('assets/loader1.gif')}}" alt="Loading" /><br/>
      </div>
+     
+     <div class="message">
+        @if (session()->has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ strtoupper(session()->get('success')) }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+        @if (session()->has('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ strtoupper(session()->get('error')) }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+    </div>
     @yield('content')
     @include('web.includes.footer')
     @stack('scripts')
