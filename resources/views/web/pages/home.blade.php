@@ -346,20 +346,20 @@ $setting = appSetting();
                 <p>Let's tailor your experience. Please take a moment to answer a few quick questions:</p>
             </div>
             <div class="modal-body">
-                <form action="{{ route('welcom.modal') }}" method="post">
+                <form action="{{ route('welcom.modal')}}" id="experience_form" method="POST">
                     @csrf
-                    <div class="checkboxes mb-5">
+                    <div class="checkboxes mb-5 errorshow">
                         <p class="query-text">1. What beat describes you or your organization?</p>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating0" name="radioNumber1" class="form-check-input">
+                                    <input type="radio" id="inputRating0" name="radioNumber1" value="Small Business Owner" class="form-check-input">
                                     <label for="inputRating0" class="form-check-label">Small Business Owner</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating1" name="radioNumber1" class="form-check-input">
+                                    <input type="radio" id="inputRating1" name="radioNumber1" value="Academic/Educator" class="form-check-input">
                                     <label for="inputRating1" class="form-check-label">Academic/Educator</label>
                                 </div>
                             </div>
@@ -367,31 +367,31 @@ $setting = appSetting();
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating2" name="radioNumber1" class="form-check-input">
+                                    <input type="radio" id="inputRating2" name="radioNumber1" value="Industry Professional" class="form-check-input">
                                     <label for="inputRating2" class="form-check-label">Industry Professional</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating3" name="radioNumber1" class="form-check-input">
+                                    <input type="radio" id="inputRating3" name="radioNumber1" value="Other" class="form-check-input">
                                     <label for="inputRating3" class="form-check-label">Other</label>
-                                    <input type="text" class="form-control form-other">
+                                    <input type="text" class="form-control form-other" name="other_value">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="checkboxes mb-5">
+                    <div class="checkboxes mb-5 errorshow">
                         <p class="query-text">2. What brings you to CASTNET today?</p>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating4" name="radioNumber2" class="form-check-input">
+                                    <input type="radio" id="inputRating4" name="radioNumber2" value="Learn more about CASTNET membership benefits" class="form-check-input">
                                     <label for="inputRating0" class="form-check-label">Learn more about CASTNET membership benefits</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating5" name="radioNumber2" class="form-check-input">
+                                    <input type="radio" id="inputRating5" name="radioNumber2" value="Access supply chain management resources" class="form-check-input">
                                     <label for="inputRating1" class="form-check-label">Access supply chain management resources</label>
                                 </div>
                             </div>
@@ -399,37 +399,36 @@ $setting = appSetting();
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating6" name="radioNumber2" class="form-check-input">
+                                    <input type="radio" id="inputRating6" name="radioNumber2" value="Explore partnership or sponsorship opportunities" class="form-check-input">
                                     <label for="inputRating2" class="form-check-label">Explore partnership or sponsorship opportunities</label>
                                 </div>
                             </div>
-
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating7" name="radioNumber2" class="form-check-input">
+                                    <input type="radio" id="inputRating7" name="radioNumber2" value="Other" class="form-check-input">
                                     <label for="inputRating3" class="form-check-label">Other</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating8" name="radioNumber2" class="form-check-input">
+                                    <input type="radio" id="inputRating8" name="radioNumber2" value="Find events and networking opportunities" class="form-check-input">
                                     <label for="inputRating2" class="form-check-label">Find events and networking opportunities</label>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="checkboxes mb-5">
+                    <div class="checkboxes mb-5 errorshow">
                         <p class="query-text">3. Which sector are you primarily interested in?</p>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating9" name="radioNumber3" class="form-check-input">
+                                    <input type="radio" id="inputRating9" name="radioNumber3" value="Construction" class="form-check-input">
                                     <label for="inputRating0" class="form-check-label">Construction</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating10" name="radioNumber3" class="form-check-input">
+                                    <input type="radio" id="inputRating10" name="radioNumber3" value="Natural Resources" class="form-check-input">
                                     <label for="inputRating1" class="form-check-label">Natural Resources</label>
                                 </div>
                             </div>
@@ -437,13 +436,13 @@ $setting = appSetting();
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating11" name="radioNumber3" class="form-check-input">
+                                    <input type="radio" id="inputRating11" name="radioNumber3" value="Agriculture" class="form-check-input">
                                     <label for="inputRating2" class="form-check-label">Agriculture</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating12" name="radioNumber3" class="form-check-input">
+                                    <input type="radio" id="inputRating12" name="radioNumber3" value="Energy" class="form-check-input">
                                     <label for="inputRating3" class="form-check-label">Energy</label>
                                 </div>
                             </div>
@@ -451,13 +450,13 @@ $setting = appSetting();
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating13" name="radioNumber3" class="form-check-input">
+                                    <input type="radio" id="inputRating13" name="radioNumber3" value="Supply Chain" class="form-check-input">
                                     <label for="inputRating2" class="form-check-label">Supply Chain</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating14" name="radioNumber3" class="form-check-input">
+                                    <input type="radio" id="inputRating14" name="radioNumber3" value="Textiles" class="form-check-input">
                                     <label for="inputRating2" class="form-check-label">Textiles</label>
                                 </div>
                             </div>
@@ -465,30 +464,30 @@ $setting = appSetting();
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating15" name="radioNumber3" class="form-check-input">
+                                    <input type="radio" id="inputRating15" name="radioNumber3" value="Technology" class="form-check-input">
                                     <label for="inputRating2" class="form-check-label">Technology</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating16" name="radioNumber3" class="form-check-input">
+                                    <input type="radio" id="inputRating16" name="radioNumber3" value="Not Sure Yet" class="form-check-input">
                                     <label for="inputRating2" class="form-check-label">Not Sure Yet</label>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="checkboxes mb-5">
+                    <div class="checkboxes mb-5 errorshow">
                         <p class="query-text">4. What is your current business challenge?</p>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating17" name="radioNumber4" class="form-check-input">
+                                    <input type="radio" id="inputRating17" name="radioNumber4" value="Expanding into new markets" class="form-check-input">
                                     <label for="inputRating0" class="form-check-label">Expanding into new markets</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating18" name="radioNumber4" class="form-check-input">
+                                    <input type="radio" id="inputRating18" name="radioNumber4" name="Networking with industry leaders" class="form-check-input">
                                     <label for="inputRating1" class="form-check-label">Networking with industry leaders</label>
                                 </div>
                             </div>
@@ -496,13 +495,13 @@ $setting = appSetting();
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating19" name="radioNumber4" class="form-check-input">
+                                    <input type="radio" id="inputRating19" name="radioNumber4" value="Streamlining operations" class="form-check-input">
                                     <label for="inputRating0" class="form-check-label">Streamlining operations</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating20" name="radioNumber4" class="form-check-input">
+                                    <input type="radio" id="inputRating20" name="radioNumber4" value="Getting access to education resources" class="form-check-input">
                                     <label for="inputRating1" class="form-check-label">Getting access to education resources</label>
                                 </div>
                             </div>
@@ -510,30 +509,30 @@ $setting = appSetting();
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating21" name="radioNumber4" class="form-check-input">
+                                    <input type="radio" id="inputRating21" name="radioNumber4" value="Leveraging technology for growth" class="form-check-input">
                                     <label for="inputRating0" class="form-check-label">Leveraging technology for growth</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating22" name="radioNumber4" class="form-check-input">
+                                    <input type="radio" id="inputRating22" name="radioNumber4" value="Other" class="form-check-input">
                                     <label for="inputRating1" class="form-check-label">Other</label>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="checkboxes mb-5">
+                    <div class="checkboxes mb-5 errorshow">
                         <p class="query-text">5. Would you like to receive more information about membership?</p>
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating23" name="radioNumber5" class="form-check-input">
+                                    <input type="radio" id="inputRating23" name="radioNumber5" value="Yes, please contact me" class="form-check-input">
                                     <label for="inputRating0" class="form-check-label">Yes, please contact me</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-check gap-3 gap-md-0">
-                                    <input type="radio" id="inputRating24" name="radioNumber5" class="form-check-input">
+                                    <input type="radio" id="inputRating24" name="radioNumber5" value="Not at this time" class="form-check-input">
                                     <label for="inputRating1" class="form-check-label">Not at this time</label>
                                 </div>
                             </div>
@@ -543,27 +542,27 @@ $setting = appSetting();
                         <p class="query-text">Contact Information (Optional)</p>
                         <div class="row gy-4">
                             <div class="col-md-6">
-                                <div class="d-flex gap-3">
+                                <div class="d-flex gap-3 errorshow">
                                     <label for="contactName" class="form-check-label">Name</label>
-                                    <input type="text" id="contactName" class="form-control">
+                                    <input type="text" id="contactName" name="name" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="d-flex gap-3">
+                                <div class="d-flex gap-3 errorshow">
                                     <label for="contactPhone" class="form-check-label">Phone</label>
-                                    <input type="text" id="contactPhone" class="form-control">
+                                    <input type="text" id="contactPhone" name="phone" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="d-flex gap-3">
+                                <div class="d-flex gap-3 errorshow">
                                     <label for="contactCompany" class="form-check-label">Company</label>
-                                    <input type="text" id="contactCompany" class="form-control">
+                                    <input type="text" id="contactCompany" name="company" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="d-flex gap-3">
+                                <div class="d-flex gap-3 errorshow">
                                     <label for="contactEmail" class="form-check-label">Email</label>
-                                    <input type="email" id="contactEmail" class="form-control">
+                                    <input type="email" id="contactEmail" name="email" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -579,116 +578,64 @@ $setting = appSetting();
     </div>
 </div>
 
-{{-- <div class="modal fade secondModal" id="ModalForm" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true" aria-labelledby="ModalForm" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header justify-content-center">
-                <h1 class="modal-title">We'd love your feedback!</h1>
-            </div>
-            <div class="modal-body">
-                <form action="{{ route('feedbacks') }}" method="post">
-                    @csrf
-                    <div class="checkboxes mb-5">
-                        <p class="query-text">Overall, how satisfied are you with the website?</p>
-                        <div class="d-flex justify-content-between">
-                            <div class="form-check">
-                                <input type="radio" id="inputRating0" value="0" name="radioNumber" class="form-check-input" required>
-                                <label for="inputRating0" class="form-check-label fs-14">0</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" id="inputRating1" value="1" name="radioNumber" class="form-check-input" required>
-                                <label for="inputRating1" class="form-check-label fs-14">1</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" id="inputRating2" value="2" name="radioNumber" class="form-check-input" required>
-                                <label for="inputRating2" class="form-check-label fs-14">2</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" id="inputRating3" value="3" name="radioNumber" class="form-check-input" required>
-                                <label for="inputRating3" class="form-check-label fs-14">3</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" id="inputRating4" value="4" name="radioNumber" class="form-check-input" required>
-                                <label for="inputRating4" class="form-check-label fs-14">4</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" id="inputRating5" value="5" name="radioNumber" class="form-check-input" required>
-                                <label for="inputRating5" class="form-check-label fs-14">5</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" id="inputRating6" value="6" name="radioNumber" class="form-check-input" required>
-                                <label for="inputRating6" class="form-check-label fs-14">6</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" id="inputRating7" value="7" name="radioNumber" class="form-check-input" required>
-                                <label for="inputRating7" class="form-check-label fs-14">7</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" id="inputRating8" value="8" name="radioNumber" class="form-check-input" required>
-                                <label for="inputRating8" class="form-check-label fs-14">8</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" id="inputRating9" value="9" name="radioNumber" class="form-check-input" required>
-                                <label for="inputRating9" class="form-check-label fs-14">9</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" id="inputRating10" value="10" name="radioNumber" class="form-check-input" required>
-                                <label for="inputRating10" class="form-check-label fs-14">10</label>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <p class="checkboxes_text">Not at all satisfied</p>
-                            <p class="checkboxes_text">Extremely satisfied</p>
-                        </div>
-                    </div>
-                    <div class="mb-5">
-                        <p class="query-text">What was the main purpose for your visit today?</p>
-                        <select class="form-select" name="selected_option" required>
-                            <option value="" selected disabled>Please Select Option</option>
-                            <option value="one">One</option>
-                            <option value="two">Two</option>
-                            <option value="three">Three</option>
-                        </select>
-                    </div>
-                    <div class="mb-5">
-                        <p class="query-text">Were you able to complete your primary purpose for today's visit?</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" value="yes" name="flexRadioDefault" id="yes" required>
-                            <label class="form-check-label fs-14" for="yes">Yes</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" value="no" name="flexRadioDefault" id="no" required>
-                            <label class="form-check-label fs-14" for="no">No</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" value="im not done yet" name="flexRadioDefault" id="notYet" required>
-                            <label class="form-check-label fs-14" for="notYet">I'm not yet done</label>
-                        </div>
-                    </div>
-                    <div class="mb-5">
-                        <p class="query-text">Please share your feedback:</p>
-                        <textarea cols="30" rows="7" class="form-control" required placeholder="Please do not enter personal information." name="feedback"></textarea>
-                    </div>
-                    <div class="mb-5">
-                        <p class="query-text">If we need clarification on your responses, may we contact you?</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" required value="yes" name="flexRadioDefault1" id="yesTwo">
-                            <label class="form-check-label fs-14" for="yesTwo">Yes</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" required value="no" name="flexRadioDefault1" id="not">
-                            <label class="form-check-label fs-14" for="not">Please do not contact me</label>
-                        </div>
-                    </div>
-                    <p class="acknowledge-text">You acknowledge that any personal data collected here will be processed in accordance with the <a href="#" target="_blank">NortanLifeLock Global Privacy Statement.</a></p>
-                    <div class="d-flex justify-content-end gap-4">
-                        <button type="button" class="btn-modal" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn-submit">submit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> --}}
-<!-- Modal End -->
+
 @stop
+@push('scripts')
+<script src="{{ asset('assets/web/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('assets/web/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+
+<script>
+    $('#experience_form').validate({
+        rules: {
+            radioNumber1: {
+                required: true,
+            },
+            radioNumber2: {
+                required: true,
+            },
+            radioNumber3: {
+                required: true,
+            },
+            radioNumber4: {
+                required: true,
+            },
+            radioNumber5: {
+                required: true,
+            },
+            name: {
+                required: true,
+            },
+            phone: {
+                required: true,
+            },
+            company: {
+                required: true,
+            },
+            email: {
+                required: true,
+            }
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.errorshow').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            // $(element).addClass('is-invalid');
+            if (element.type === 'radio') {
+            $(element).closest('.errorshow').addClass('is-invalid');
+        } else {
+            $(element).addClass('is-invalid');
+        }
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            // $(element).removeClass('is-invalid');
+            if (element.type === 'radio') {
+            $(element).closest('.errorshow').removeClass('is-invalid');
+        } else {
+            $(element).removeClass('is-invalid');
+        }
+        }
+    });
+</script>
+@endpush
