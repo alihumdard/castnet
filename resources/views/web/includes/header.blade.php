@@ -34,6 +34,14 @@
                                     </button>
                                 </div>
                             </form>
+                            @auth
+                            <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"> <span>Logout</span>
+                                <img src="{{ asset('assets/web/images/icon_log.png') }}" alt="icon login" class="icon-login"></a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                            @else
                             <a href="{{route('user.login')}}" class="btn btn-primary">
                                 <span>sponsors login</span>
                                 <img src="{{ asset('assets/web/images/icon_log.png') }}" alt="icon login" class="icon-login">
@@ -42,6 +50,7 @@
                                 <span>Member login</span>
                                 <img src="{{ asset('assets/web/images/icon_log.png') }}" alt="icon login" class="icon-login">
                             </a>
+                            @endauth
                         </div>
                     </div>
                 </div>

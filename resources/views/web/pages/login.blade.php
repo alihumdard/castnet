@@ -41,7 +41,7 @@
                         </div>
                         <span class="form-border"></span>
                         <div class="creat_account">
-                            <p>No account? Create one <a href="#">here</a></p>
+                            <p>No account? Create one <a href="{{route('user.register')}}" class="text-success">here</a></p>
                         </div>
                     </form>
                 </div>

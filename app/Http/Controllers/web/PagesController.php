@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\web;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\PartnerSponsorPageTitleModel;
 use App\Models\OutreachCommonSectionModel;
+use Illuminate\Support\Facades\Validator;
 use App\Models\RulesOfEngagementModel;
 use App\Models\PartnerCommonSection1;
 use App\Models\PartnerCommonSection2;
@@ -56,6 +58,7 @@ use App\Models\ContactUs;
 use App\Models\OurTeam;
 use App\Models\Banner;
 use App\Models\MyBlog;
+use App\Models\User;
 use App\Models\Job;
 use Illuminate\Support\Facades\Mail;
 
@@ -523,5 +526,28 @@ class PagesController extends Controller
 
     public function login(){
         return view('web.pages.login');
+    }
+
+    public function register(){
+        return view('web.pages.register');
+    }
+
+    public function registration(Request $request){
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|string|email|max:255|unique:users',
+        ]);
+        
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $user = User::create([
+            'first_name'=>$request->first_name,
+            'last_name'=>$request->last_name,
+            'email'=>$request->email,
+            'password'=>bcrypt($request->password),
+            'type'=>$request->type,
+        ]);
+        Auth::login($user);
+        return redirect()->route('web.index');
     }
 }
