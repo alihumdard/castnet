@@ -45,8 +45,8 @@
                         <div class="errorshow">
                             <select name="type" id="" class="form-control mt-3">
                                 <option disabled selected>Select Account Type</option>
-                                <option value="1" @if(old('type')==2) selected @endif>Sponsor</option>
-                                <option value="2" @if(old('type')==3) selected @endif>Member</option>
+                                <option value="2" @if(old('type')==2) selected @endif>Sponsor</option>
+                                <option value="3" @if(old('type')==3) selected @endif>Member</option>
                             </select>
                         </div>
                         <div class="text-center">
