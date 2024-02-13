@@ -158,9 +158,9 @@ background-size: cover;">
                                 <div class="form-group errorshow">
                                 <select class="form-select" name="membership_level">
                                     <option selected disabled>Please Select A Member Level</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    @foreach ($memberLevel as $level)
+                                        <option value="{{ $level->dropdowns }}">{{ $level->dropdowns }}</option>
+                                    @endforeach
                                 </select>
                                 </div>
                             </div>
@@ -173,9 +173,9 @@ background-size: cover;">
                                 <div class="form-group errorshow">
                                 <select class="form-select" name="about_organization">
                                     <option selected disabled>Please select a category that best describes your business</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    @foreach ($businessDescription as $level)
+                                        <option value="{{ $level->dropdowns }}">{{ $level->dropdowns }}</option>
+                                    @endforeach
                                 </select>
                                 </div>
                             </div>
@@ -183,9 +183,9 @@ background-size: cover;">
                                 <div class="form-group errorshow">
                                 <select class="form-select" name="ownership_structure">
                                     <option selected disabled>Ownership Structure</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    @foreach ($ownershipStructure as $level)
+                                        <option value="{{ $level->dropdowns }}">{{ $level->dropdowns }}</option>
+                                    @endforeach
                                 </select>
 
                                 </div>
@@ -200,9 +200,9 @@ background-size: cover;">
                                 <div class="form-group errorshow">
                                 <select class="form-select" name="reason_to_join">
                                     <option selected disabled>Select Options</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    @foreach ($reasonsForJoining as $level)
+                                        <option value="{{ $level->dropdowns }}">{{ $level->dropdowns }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
