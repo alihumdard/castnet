@@ -57,6 +57,7 @@ use App\Models\AboutPage;
 use App\Models\ContactUs;
 use App\Models\OurTeam;
 use App\Models\Banner;
+use App\Models\CompanyInfoFormSetting;
 use App\Models\MyBlog;
 use App\Models\User;
 use App\Models\Job;
@@ -279,7 +280,7 @@ class PagesController extends Controller
     }
 
     public function joinData(Request $request){
-        $companyInfo = [ 
+        $companyInfo = [
             'organization_name' => $request->organization_name,
             'phone_number' => $request->phone_number,
             'website_address' => $request->website_address,
@@ -452,7 +453,7 @@ class PagesController extends Controller
         $section2 = OpportunitiesModel::where(['section'=>2,'page'=>'cons'])->first();
         return view('web.pages.opportunities_construction',get_defined_vars());
     }
-    
+
     public function mining(){
         $banner = PageBanner::where('type',47)->first();
         $section1 = OpportunitiesModel::where(['section'=>1,'page'=>'mining'])->first();
@@ -486,6 +487,10 @@ class PagesController extends Controller
     public function join(){
         $banner = PageBanner::where('type',6)->first();
         $joins =  Membership_Level::all();
+        $reasonsForJoining = CompanyInfoFormSetting::where('type', 'reason_for_joining')->get();
+        $ownershipStructure = CompanyInfoFormSetting::where('type', 'ownership_structure')->get();
+        $businessDescription = CompanyInfoFormSetting::where('type', 'business_description')->get();
+        $memberLevel = CompanyInfoFormSetting::where('type', 'member_level')->get();
         return view('web.pages.join',get_defined_vars());
     }
 
@@ -536,7 +541,7 @@ class PagesController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required|string|email|max:255|unique:users',
         ]);
-        
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
