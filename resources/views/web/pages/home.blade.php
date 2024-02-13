@@ -346,7 +346,7 @@ $setting = appSetting();
                 <form action="{{ route('welcom.modal')}}" id="experience_form" method="POST">
                     @csrf
                     <div class="checkboxes mb-5 errorshow">
-                        <p class="query-text">1. What beat describes you or your organization?</p>
+                        <p class="query-text">1. What best describes you or your organization?</p>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-check gap-3 gap-md-0">

@@ -67,10 +67,10 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\Join\JoinFormSettingController;
 use App\Http\Controllers\Admin\PagesController;
 
+Route::get('/administrator', [PagesController::class, 'login'])->name('admin.login');
 Route::middleware('auth')->group(function() {
     Route::middleware('user-not-access')->group(function() {
         Route::prefix('admin')->group(function () {
-            Route::get('/administrator', [PagesController::class, 'login'])->name('admin.login');
             Route::get('/dashboard', [PagesController::class, 'index'])->name('admin.index');
 
             //---** Web setting **---//
