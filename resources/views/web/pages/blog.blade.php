@@ -44,7 +44,7 @@
                             </div>
                             <h2 class="blog_title">{{ $blog->title }}</h2>
                             <p class="blog_desc">{!! $blog->description !!}</p>
-                            <a href="blog_single.html" class="btn btn-primary">read more</a>
+                            {{-- <a href="blog_single.html" class="btn btn-primary">read more</a> --}}
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                 <div class="col-md-12 col-lg-12">
                     <div class="row gy-4 gy-md-0 align-items-center">
                         <div class="col-md-6 col-lg-6 order-1 order-md-2" data-aos="fade-left" data-aos-duration="1000">
-                            <img src="assets/web/images/our_blog_2.png" alt="blog" class="img-fluid">
+                            <img src="{{ asset('assets/web/images/our_blog_2.png') }}" alt="blog" class="img-fluid">
                         </div>
                         <div class="col-md-6 col-lg-6 order-2 order-md-1" data-aos="fade-right" data-aos-duration="1000">
                         <div class="blog_meta">
@@ -68,7 +68,7 @@
                         </div>
                         <h2 class="blog_title">{{ $blog->title }}</h2>
                         <p class="blog_desc">{!! $blog->description !!}</p>
-                        <a href="blog_single.html" class="btn btn-primary">read more</a>
+                        {{-- <a href="blog_single.html" class="btn btn-primary">read more</a> --}}
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@
                     <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 gap-md-5">
                         <a href="{{ joinWidget()->button1_link }}" class="btn btn-primary">
                             <span>{{ joinWidget()->button1 }}</span>
-                            <img src="assets/web/images/icon_log.png" alt="login" class="img-login">
+                            <img src="{{ asset('assets/web/images/icon_log.png') }}" alt="login" class="img-login">
                         </a>
                         <a href="{{ joinWidget()->button2_link }}" class="btn btn-contact">{{ joinWidget()->button2 }}</a>
                     </div>

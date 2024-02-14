@@ -25,10 +25,16 @@
                             <form action="{{ route('jobs.store')}}" id="jobs" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-2">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-6">
                                         <div class="form-group errorshow">
                                             <label for="prin_title">Job Title</label>
                                             <input type="text" name="title" class="form-control" placeholder="Enter Job Title...">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">Job Location</label>
+                                            <input type="text" name="job_location" class="form-control" placeholder="Enter Job Location...">
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
@@ -112,6 +118,9 @@
                 required: true,
             },
             description: {
+                required: true,
+            },
+            job_location: {
                 required: true,
             },
             'duration[]':{

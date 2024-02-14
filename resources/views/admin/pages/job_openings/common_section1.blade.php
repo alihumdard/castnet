@@ -32,6 +32,7 @@
                                 <tr>
                                 <th>#</th>
                                 <th>Title</th>
+                                <th>Location</th>
                                 <th>Status</th>
                                 <th>Action</th>
                                 </tr>
@@ -43,6 +44,9 @@
                                     <td>
                                         {{ $item->job_title }}
                                     </td>
+                                    <td>
+                                        {{ $item->job_location }}
+                                    </td>
                                     <td>@if($item->status == 0)<span class='badge bg-secondary bg-success'>Active</span>@else<span class='badge bg-secondary bg-danger'>Inactive</span>@endif</td>
                                     <td>
                                         <a href="{{ route('jobs.edit',$item->id) }}"><i class="fa fa-edit"></i></a>
@@ -53,7 +57,7 @@
                                         @if($item->status == 0)
                                             <a  onclick="changeStatus({{$item->id}},1,'change-status')" href="javascript:;" class="btn btn-sm btn-outline-info">Inactive</a>
                                         @endif
-                                        <a href="{{ route('job_applicants',$item->id) }}" class="btn btn-sm btn-outline-info">Applicants</a>
+                                        <a href="{{ route('job_applicants',$item->id) }}" class="btn btn-sm btn-outline-info">View Applicants</a>
 
                                     </td>
                                 </tr>

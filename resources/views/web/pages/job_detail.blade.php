@@ -35,7 +35,7 @@
                                 <div class="icon-media">
                                     <div class="d-flex align-items-center gap-2">
                                         <img src="{{ asset('assets/web/images/icon_loc.png') }}" alt="icon">
-                                        <p class="icon-text">Punjab, Pakistan</p>
+                                        <p class="icon-text">{{ $selectedJob->job_location }}</p>
                                     </div>
                                     <div class="d-flex align-items-center gap-2">
                                         @foreach(explode(',',$selectedJob->duration_detail) as $item)

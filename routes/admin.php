@@ -30,6 +30,7 @@ use App\Http\Controllers\Admin\Who_we_are\WhoWeArePageController;
 use App\Http\Controllers\Admin\Job_openings\JobOpeningController;
 use App\Http\Controllers\Admin\Evaluation\EvaluationController;
 use App\Http\Controllers\Admin\Membership\MembershipController;
+use App\Http\Controllers\Admin\Join\JoinFormSettingController;
 use App\Http\Controllers\Admin\Events\EventSection1Controller;
 use App\Http\Controllers\Admin\Financial\FinancialController;
 use App\Http\Controllers\Admin\AboutPage\AboutPageController;
@@ -64,7 +65,6 @@ use App\Http\Controllers\Admin\Usa\UsaController;
 use App\Http\Controllers\Admin\WidgetsController;
 use App\Http\Controllers\Admin\AdvocacyCSection;
 use App\Http\Controllers\Admin\BannerController;
-use App\Http\Controllers\Admin\Join\JoinFormSettingController;
 use App\Http\Controllers\Admin\PagesController;
 
 Route::get('/administrator', [PagesController::class, 'login'])->name('admin.login');
@@ -153,7 +153,6 @@ Route::middleware('auth')->group(function() {
             Route::get('/membership-section1', [MembershipController::class, 'section1'])->name('membership.section1');
             Route::get('/membership-section3', [MembershipController::class, 'section3'])->name('membership.section3');
             Route::put('/membership-updation/{id}', [MembershipController::class, 'updation'])->name('membership.updation');
-
             // ---- Membership page routes end ----
 
             // ---- Join page routes start ----
@@ -422,14 +421,14 @@ Route::middleware('auth')->group(function() {
             Route::get('/funding-section2', [FundingController::class, 'section2'])->name('funding.section2');
             // --------------------- funding page routes end -----------------------------
 
-            // ------------------------ careers page route start -------------------------------
+            // ------------------------ careers page route start ---------------------------
             Route::resource('careers', CareersController::class);
             Route::get('/careers-banner', [CareersController::class, 'banner'])->name('careers.banner');
             Route::get('/careers-section1', [CareersController::class, 'section1'])->name('careers.section1');
             Route::put('/careers-updation/{id}',[CareersController::class,'updation'])->name('careers.updation');
             // ------------------------ careers page route end -------------------------------
 
-            // ----------------------------------job opining route start-----------------------------------------
+            // ---------------------job opining route start----------------------
             Route::resource('jobs', JobOpeningController::class);
             Route::get('/jobs-banner', [JobOpeningController::class, 'banner'])->name('jobs.banner');
             Route::get('/jobs-section1', [JobOpeningController::class, 'section1'])->name('jobs.section1');
@@ -437,11 +436,9 @@ Route::middleware('auth')->group(function() {
             Route::post('/change-status',[JobOpeningController::class,'statusChange'])->name('jobs.status');
             Route::get('/job-applicants/{id}', [JobOpeningController::class, 'jobApplicants'])->name('job_applicants');
             Route::delete('/delete_application/{id}', [JobOpeningController::class, 'deleteApplicantion'])->name('delete_application');
+            // ---------------------job opining route end-------------------------
 
-
-            // ----------------------------------job opining route end-----------------------------------------
-
-            // -------------------------------------------------Users Data route start----------------------------------------------------
+            // --------------------Users Data route start----------------------
             Route::get('/contactus-data', [ContactController::class, 'contactUsData'])->name('contactus.data');
             Route::get('/contactus-detail/{id}', [ContactController::class, 'contactUsDetail'])->name('contactus.detail');
             Route::delete('/contact-delete/{id}', [ContactController::class, 'destroy'])->name('contact.delete');
@@ -461,7 +458,7 @@ Route::middleware('auth')->group(function() {
             Route::get('/experience', [UsersDataController::class, 'experience'])->name('experience');
             Route::get('/experience/{id}', [UsersDataController::class, 'experienceDetail'])->name('experience.detail');
             Route::delete('/experience-delete/{id}', [UsersDataController::class, 'destroyexperience'])->name('experience.delete');
-            // -------------------------------------------------Users Data route end------------------------------------------------------
+            // ---------------------Users Data route end-----------------------------
         });
     });
 });

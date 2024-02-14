@@ -61,6 +61,7 @@ class JobOpeningController extends Controller
             'job_title' => $request->title,
             'job_description' => $request->description,
             'duration_detail' => implode(",",$request->duration),
+            'job_location' => $request->job_location,
         ]);
         return redirect()->route('jobs.index')->with('success', 'Data saved successfully!');
     }
@@ -111,6 +112,7 @@ class JobOpeningController extends Controller
             'job_title' => $request->title,
             'job_description' => $request->description,
             'duration_detail' => implode(",",$request->duration),
+            'job_location' => $request->job_location,
             'status' => $request->status,
         ];
         $job->update($data);
@@ -183,7 +185,6 @@ class JobOpeningController extends Controller
         $section = Application::where('job_id', $id)->get();
         $page = "Applicants";
         $sn = "Job";
-        // dd($jobApplications);
         return view('admin.pages.job_openings.applicants',get_defined_vars());
     }
 
