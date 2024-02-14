@@ -76,6 +76,7 @@ Route::get('/opportunities_construction', [PagesController::class, 'opportunitie
 Route::get('/mining', [PagesController::class, 'mining'])->name('web.mining');
 Route::get('/rfx', [PagesController::class, 'rfx'])->name('web.rfx');
 Route::get('/job_openings', [PagesController::class, 'job_openings'])->name('web.job_openings');
+Route::get('/job_detail/{id}', [PagesController::class, 'job_detail'])->name('web.job_detail');
 Route::get('/careers', [PagesController::class, 'careers'])->name('web.careers');
 Route::post('/filter-keywords', [FilterController::class, 'filterKeywords'])->name('filter.keywords');
 Route::post('/subscribe-newsletter', [DefaultController::class, 'subscribe'])->name('subscribe.newsletter');
@@ -88,6 +89,7 @@ Route::post('/event_request', [PagesController::class, 'event_request_form'])->n
 
 
 Route::post('/welcome-modal', [DefaultController::class, 'weclome'])->name('welcom.modal');
+Route::post('/job-application/{id}', [DefaultController::class, 'jobApply'])->name('job.application');
 
 include __DIR__.'/admin.php';
 

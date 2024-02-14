@@ -53,6 +53,8 @@
                                         @if($item->status == 0)
                                             <a  onclick="changeStatus({{$item->id}},1,'change-status')" href="javascript:;" class="btn btn-sm btn-outline-info">Inactive</a>
                                         @endif
+                                        <a href="{{ route('job_applicants',$item->id) }}" class="btn btn-sm btn-outline-info">Applicants</a>
+
                                     </td>
                                 </tr>
                                 @endforeach

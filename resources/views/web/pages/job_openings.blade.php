@@ -70,7 +70,7 @@
                                     </div>
                                 </div>
                                 <div class="box_footer">
-                                    <a href="#" class="btn btn-primary">
+                                    <a href="{{ route('web.job_detail', ['id' => $job->id]) }}" class="btn btn-primary">
                                         <span>apply now</span>
                                         <img src="{{ asset('assets/web/images/icon_arrow.png') }}" alt="arrow">
                                     </a>
