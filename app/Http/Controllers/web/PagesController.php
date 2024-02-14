@@ -478,7 +478,6 @@ class PagesController extends Controller
     public function job_detail($id){
         $banner = PageBanner::where('type',50)->first();
         $selectedJob = Job::findOrFail($id);
-        // dd($selectedJob);
         return view('web.pages.job_detail',get_defined_vars());
     }
 

@@ -49,103 +49,103 @@
                                         {{ $item->phone_number }}
                                     </td>
                                     <td>
-{{-- ***************************************** File Download Working Start ************************************************** --}}
+                                    {{--******** File Download Working Start ********--}}
                                         @if(isset($item->file))
-                            @php $ext = substr($item->file, strrpos($item->file, '.')+1); @endphp
-                            @if(strtolower($ext)=='pdf')
-                            <div class="row">
-                                <div class="col-4">
-                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
-                                        <img class="selected_img" src="{{ asset('assets/web/images/pdf.png') }}" height="50px" width="50px">
-                                    </a>
-                                </div>
-                            </div>
-                            @elseif(strtolower($ext)=='doc')
-                            <div class="row">
-                                <div class="col-4">
-                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
-                                        <img class="selected_img" src="{{ asset('assets/web/images/doc.png') }}" height="50px" width="50px">
-                                    </a>
-                                </div>
-                            </div>
-                            @elseif(strtolower($ext)=='docx')
-                            <div class="row">
-                                <div class="col-4">
-                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
-                                        <img class="selected_img" src="{{ asset('assets/web/images/docx.png') }}" height="50px" width="50px">
-                                    </a>
-                                </div>
-                            </div>
-                            @elseif(strtolower($ext)=='txt')
-                            <div class="row">
-                                <div class="col-4">
-                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
-                                        <img class="selected_img" src="{{ asset('assets/web/images/txt.png') }}" height="50px" width="50px">
-                                    </a>
-                                </div>
-                            </div>
-                            @elseif(strtolower($ext)=='rtf')
-                            <div class="row">
-                                <div class="col-4">
-                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
-                                        <img class="selected_img" src="{{ asset('assets/web/images/rtf.png') }}" height="50px" width="50px">
-                                    </a>
-                                </div>
-                            </div>
-                            @elseif(strtolower($ext)=='html')
-                            <div class="row">
-                                <div class="col-4">
-                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
-                                        <img class="selected_img" src="{{ asset('assets/web/images/html.png') }}" height="50px" width="50px">
-                                    </a>
-                                </div>
-                            </div>
-                            @elseif(strtolower($ext)=='jpg')
-                            <div class="row">
-                                <div class="col-4">
-                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
-                                        <img class="selected_img" src="{{ asset('assets/web/images/jpg.png') }}" height="50px" width="50px">
-                                    </a>
-                                </div>
-                            </div>
-                            @elseif(strtolower($ext)=='png')
-                            <div class="row">
-                                <div class="col-4">
-                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
-                                        <img class="selected_img" src="{{ asset('assets/web/images/png.png') }}" height="50px" width="50px">
-                                    </a>
-                                </div>
-                            </div>
-                            @elseif(strtolower($ext)=='odt')
-                            <div class="row">
-                                <div class="col-4">
-                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
-                                        <img class="selected_img" src="{{ asset('assets/web/images/odt.png') }}" height="50px" width="50px">
-                                    </a>
-                                </div>
-                            </div>
-                            @elseif(strtolower($ext)=='tex')
-                            <div class="row">
-                                <div class="col-4">
-                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
-                                        <img class="selected_img" src="{{ asset('assets/web/images/tex.png') }}" height="50px" width="50px">
-                                    </a>
-                                </div>
-                            </div>
-                            @else
-                            <div class="row">
-                                <div class="col-4">
-                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
-                                        <img class="selected_img" src="{{ asset('assets/web/applications/'.$item->file) }}" height="50px" width="50px">
-                                    </a>
-                                </div>
-                            </div>
-                            @endif
-                        @else
-                            <p class="text-danger">{{ "No file selected" }}</p>
-                        @endif
+                                            @php $ext = substr($item->file, strrpos($item->file, '.')+1); @endphp
+                                            @if(strtolower($ext)=='pdf')
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
+                                                        <img class="selected_img" src="{{ asset('assets/web/images/pdf.png') }}" height="50px" width="50px">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            @elseif(strtolower($ext)=='doc')
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
+                                                        <img class="selected_img" src="{{ asset('assets/web/images/doc.png') }}" height="50px" width="50px">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            @elseif(strtolower($ext)=='docx')
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
+                                                        <img class="selected_img" src="{{ asset('assets/web/images/docx.png') }}" height="50px" width="50px">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            @elseif(strtolower($ext)=='txt')
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
+                                                        <img class="selected_img" src="{{ asset('assets/web/images/txt.png') }}" height="50px" width="50px">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            @elseif(strtolower($ext)=='rtf')
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
+                                                        <img class="selected_img" src="{{ asset('assets/web/images/rtf.png') }}" height="50px" width="50px">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            @elseif(strtolower($ext)=='html')
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
+                                                        <img class="selected_img" src="{{ asset('assets/web/images/html.png') }}" height="50px" width="50px">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            @elseif(strtolower($ext)=='jpg')
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
+                                                        <img class="selected_img" src="{{ asset('assets/web/applications/'.$item->file) }}" height="50px" width="50px">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            @elseif(strtolower($ext)=='png')
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
+                                                        <img class="selected_img" src="{{ asset('assets/web/applications/'.$item->file) }}" height="50px" width="50px">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            @elseif(strtolower($ext)=='odt')
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
+                                                        <img class="selected_img" src="{{ asset('assets/web/images/odt.png') }}" height="50px" width="50px">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            @elseif(strtolower($ext)=='tex')
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
+                                                        <img class="selected_img" src="{{ asset('assets/web/images/tex.png') }}" height="50px" width="50px">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            @else
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <a download href="{{ asset('assets/web/applications/'.$item->file) }}" target="_blank">
+                                                        <img class="selected_img" src="{{ asset('assets/web/applications/'.$item->file) }}" height="50px" width="50px">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            @endif
+                                        @else
+                                            <p class="text-danger">{{ "No file selected" }}</p>
+                                        @endif
                                     </td>
-{{-- ***************************************** File Download Working End ************************************************** --}}
+                                    {{--******** End File Download Working ********--}}
                                     <td>
                                         <button class="btn-outline-danger delete_btn" type="button" data-url="/admin/delete_application" data-id="{{ $item->id }}"><i class="fa fa-trash"></i></button>
                                         {{-- <a href="{{ route('delete_application',$item->id) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></a> --}}
