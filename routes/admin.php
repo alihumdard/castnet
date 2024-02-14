@@ -435,6 +435,10 @@ Route::middleware('auth')->group(function() {
             Route::get('/jobs-section1', [JobOpeningController::class, 'section1'])->name('jobs.section1');
             Route::put('/jobs-updation/{id}',[JobOpeningController::class,'updation'])->name('jobs.updation');
             Route::post('/change-status',[JobOpeningController::class,'statusChange'])->name('jobs.status');
+            Route::get('/job-applicants/{id}', [JobOpeningController::class, 'jobApplicants'])->name('job_applicants');
+            Route::delete('/delete_application/{id}', [JobOpeningController::class, 'deleteApplicantion'])->name('delete_application');
+
+
             // ----------------------------------job opining route end-----------------------------------------
 
             // -------------------------------------------------Users Data route start----------------------------------------------------

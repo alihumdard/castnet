@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\job_openings;
 
 use App\Http\Controllers\Controller;
+use App\Models\Application;
 use App\Models\CareersModel;
 use App\Models\Job;
 use Illuminate\Http\Request;
@@ -135,13 +136,27 @@ class JobOpeningController extends Controller
             'status' => 'success',
         ));
     }
+    public function deleteApplicantion($id){
+
+        $path = Application::where('id',$id)->first()->file;
+        if(isset($path)){
+            $path = public_path().'/assets/web/applications/'.$path;
+            File::delete($path);
+        }
+        Application::destroy($id);
+        return response()->json(array(
+            'data' => true,
+            'message' => 'Data deleted successfully.',
+            'status' => 'success',
+        ));
+    }
 
     public function updation(Request $request,$id){
         $job = CareersModel::findOrFail($id);
         if ($job == null) {
             return redirect()->back()->with('error', 'No records were found for updation.');
         }
-       
+
         if($request->image){
             $path = $job->image;
             if(isset($path)){
@@ -163,7 +178,17 @@ class JobOpeningController extends Controller
 
         return redirect()->route('jobs.section1')->with('success', "Data Updated Successfully.");
     }
-    
+
+    public function jobApplicants($id){
+        $section = Application::where('job_id', $id)->get();
+        $page = "Applicants";
+        $sn = "Job";
+        // dd($jobApplications);
+        return view('admin.pages.job_openings.applicants',get_defined_vars());
+    }
+
+
+
     public function statusChange(Request $request){
         $job = Job::findOrFail($request->id);
         if ($job == null) {

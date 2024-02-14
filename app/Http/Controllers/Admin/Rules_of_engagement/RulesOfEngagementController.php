@@ -8,6 +8,7 @@ use App\Models\MembershipCommonModel;
 use App\Models\RulesOfEngagementModel;
 use App\Models\PageBanner;
 
+
 class RulesOfEngagementController extends Controller
 {
     public function section1(){
@@ -66,7 +67,7 @@ class RulesOfEngagementController extends Controller
      * @param  \App\Models\MembershipSection2  $membershipSection2
      * @return \Illuminate\Http\Response
      */
-    public function show(MembershipSection2 $membershipSection2)
+    public function show()
     {
         //
     }
