@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Application;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Experience;
 use Illuminate\Support\Facades\Validator;
@@ -37,6 +38,32 @@ class DefaultController extends Controller
         Cookie::queue('user_ip', $request->ip(), 30 * 24 * 60);
         $message = 'Experience added successfully';
         return redirect()->back();
+    }
+
+    public function jobApply(Request $request,$id){
+        $validator = Validator::make($request->all(), [
+            'cv' => 'required|file|mimes:pdf,doc,docx,txt,rtf,html,jpg,png,odt,tex|max:2048',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        if ($request->hasFile('cv')) {
+            $cv = $request->file('cv');
+            $cvFileName = time() . '_' . $cv->getClientOriginalName();
+            $cv->move(public_path('assets/web/applications'), $cvFileName);
+            $file = $cvFileName;
+        }
+
+        Application::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'phone_number' => $request->phone_number,
+            'job_id' => $id,
+            'file' => $file,
+        ]);
+        return redirect()->route('web.job_openings')->with('success', 'Application submitted successfully.');
     }
 
     public function logged(){

@@ -38,7 +38,7 @@ class OurEventController extends Controller
      */
     public function store(Request $request)
     {
-        $file = time().'.'.$request->image->extension();  
+        $file = time().'.'.$request->image->extension();
         $request->image->move(public_path('assets/web/images'), $file);
 
         $event = [
@@ -85,7 +85,7 @@ class OurEventController extends Controller
     {
         $event = OurEventModel::findOrFail($id);
         if($request->image){
-            $file = time().'.'.$request->image->extension();  
+            $file = time().'.'.$request->image->extension();
             $request->image->move(public_path('assets/web/images'), $file);
         }else{
             $file = $event->image;

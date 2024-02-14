@@ -62,7 +62,7 @@ class BenefitsController extends Controller
         if ($section == null) {
             return redirect()->back()->with('error', 'No records were found for creating.');
         }
-        $file = time().'.'.$request->image->extension();  
+        $file = time().'.'.$request->image->extension();
         $request->image->move(public_path('assets/web/images'), $file);
 
         BenefitsDetailModel::create([
@@ -131,7 +131,7 @@ class BenefitsController extends Controller
             return redirect()->back()->with('error', 'No records were found for creating.');
         }
         if($request->image){
-            $file = time().'.'.$request->image->extension();  
+            $file = time().'.'.$request->image->extension();
             $request->image->move(public_path('assets/web/images'), $file);
         }else{
             $file = $section->image;

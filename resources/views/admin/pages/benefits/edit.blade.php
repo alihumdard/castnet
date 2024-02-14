@@ -7,7 +7,7 @@
         background-color:blue;
         padding:10px;
     }
-    .note-editor.note-airframe .note-editing-area .note-editable,.note-editor.note-frame .note-editing-area .note-editable{word-wrap:break-word;overflow:auto;padding:10px;background-color: #0c2038;}
+    .note-editor.note-airframe .note-editing-area .note-editable,.note-editor.note-frame .note-editing-area .note-editable{word-wrap:break-word;overflow:auto;padding:10px;background-color: #0c2038;color: white}
 </style>
 @endif
     <div class="content-wrapper">
@@ -70,7 +70,7 @@
 @stop
 @push('scripts')
 <script>
-    $('#benefits').validate({ 
+    $('#benefits').validate({
         rules: {
             title: {
                 required: true,

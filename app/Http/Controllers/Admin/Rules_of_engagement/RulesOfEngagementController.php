@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Models\PageBanner;
 
+
 class RulesOfEngagementController extends Controller
 {
     public function section1(){

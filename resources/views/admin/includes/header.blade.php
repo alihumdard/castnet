@@ -1463,7 +1463,7 @@
 
 
                     {{--  CAREERS Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['careers*','jobs*'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['careers*','jobs*','job_applicants'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link"> <i class="nav-icon far fa-plus-square"></i>
                             <p> CAREERS <i class="fas fa-angle-left right"></i> </p>
                         </a>
@@ -1493,7 +1493,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs('jobs*')) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('jobs*','job_applicants')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> JOB OPENINGS <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -1511,7 +1511,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('jobs.index') }}" class="nav-link {{(request()->routeIs('jobs.index','jobs.create','jobs.edit')) ? 'active' : ''}}">
+                                        <a href="{{ route('jobs.index') }}" class="nav-link {{(request()->routeIs('jobs.index','jobs.create','jobs.edit','job_applicants')) ? 'active' : ''}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Section 2</p>
                                         </a>
