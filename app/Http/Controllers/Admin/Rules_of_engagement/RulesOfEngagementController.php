@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin\Rules_of_engagement;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\MembershipCommonModel;
 use App\Models\RulesOfEngagementModel;
+use App\Models\MembershipCommonModel;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+use Illuminate\Http\Request;
 use App\Models\PageBanner;
 
 class RulesOfEngagementController extends Controller
@@ -66,7 +67,7 @@ class RulesOfEngagementController extends Controller
      * @param  \App\Models\MembershipSection2  $membershipSection2
      * @return \Illuminate\Http\Response
      */
-    public function show(MembershipSection2 $membershipSection2)
+    public function show($id)
     {
         //
     }

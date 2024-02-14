@@ -97,7 +97,7 @@ class OurEventController extends Controller
         ];
         $event->update($data);
 
-        return redirect()->back()->with('success', "Data Updated Successfully");
+        return redirect()->route('myEvent.index')->with('success', "Data Updated Successfully");
     }
 
     /**

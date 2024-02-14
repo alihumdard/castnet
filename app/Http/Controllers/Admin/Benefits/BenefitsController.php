@@ -134,7 +134,7 @@ class BenefitsController extends Controller
             $file = time().'.'.$request->image->extension();  
             $request->image->move(public_path('assets/web/images'), $file);
         }else{
-            $file = $about->image;
+            $file = $section->image;
         }
         $section->update([
             'image' => $file,

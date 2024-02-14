@@ -101,7 +101,7 @@ class BlogController extends Controller
         ];
         $blog->update($data);
 
-        return redirect()->back()->with('success', "Data Updated Successfully");
+        return redirect()->route('my-blog.index')->with('success', "Data Updated Successfully");
     }
 
     /**

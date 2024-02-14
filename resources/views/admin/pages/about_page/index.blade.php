@@ -1,6 +1,11 @@
 @extends('admin.layouts.default')
 @section('title', $title )
 @section('content')
+@if($section->section==2)
+<style>
+    .note-editor.note-airframe .note-editing-area .note-editable,.note-editor.note-frame .note-editing-area .note-editable{word-wrap:break-word;overflow:auto;padding:10px;background-color: #0c2038;color:white;}
+</style>
+@endif
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
