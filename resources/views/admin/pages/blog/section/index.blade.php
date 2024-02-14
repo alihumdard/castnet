@@ -31,7 +31,6 @@
                               <th>#</th>
                               <th>Title</th>
                               <th>Image</th>
-                              <th>Date</th>
                               <th>Category</th>
                               <th>Action</th>
                             </tr>
@@ -44,7 +43,6 @@
                                     <td>
                                         <img src="{{ asset('assets/web/images/' . $blog->image) }}" alt="section img" height="50" width="50">
                                     </td>
-                                    <td>{{ $blog->date }}</td>
                                     <td>
                                         {{ $blog->category }}
                                     </td>

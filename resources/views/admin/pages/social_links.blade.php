@@ -25,42 +25,42 @@
         <div class="col-md-12">
             <div class="card ">
                 <div class="card-body">
-                  <form method="post" action="{{ route('sociallinks.update',$links->id) }}">
+                  <form method="post" action="{{ route('sociallinks.update',$links->id) }}" id="socialLiks">
                     @csrf
                     @method('PUT')
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <div class="form-group">
+                            <div class="form-group errorshow">
                                 <label for="prin_title">Facebook</label>
-                                <input type="url" name="facebook" id="facebookURL" class="form-control" value="{{ $links->facebook }}" placeholder="Enter URL">
+                                <input type="text" name="facebook" id="facebookURL" class="form-control" value="{{ $links->facebook }}" placeholder="Enter URL">
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="form-group">
+                            <div class="form-group errorshow">
                                 <label for="prin_title">Twitter</label>
-                                <input type="url" name="twitter" id="twitterURL" class="form-control" value="{{ $links->twitter }}" placeholder="Enter URL">
+                                <input type="text" name="twitter" id="twitterURL" class="form-control" value="{{ $links->twitter }}" placeholder="Enter URL">
                             </div>
                         </div>                        
                     </div>
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <div class="form-group">
+                            <div class="form-group errorshow">
                                 <label for="prin_title">Instagram</label>
-                                <input type="url" name="instagram" id="instagramURL" class="form-control" value="{{ $links->instagram }}" placeholder="Enter URL">
+                                <input type="text" name="instagram" id="instagramURL" class="form-control" value="{{ $links->instagram }}" placeholder="Enter URL">
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="form-group">
+                            <div class="form-group errorshow">
                                 <label for="prin_title">Linkedin</label>
-                                <input type="url" name="linkedin" id="linkedinURL" class="form-control" value="{{ $links->linkedin }}" placeholder="Enter URL">
+                                <input type="text" name="linkedin" id="linkedinURL" class="form-control" value="{{ $links->linkedin }}" placeholder="Enter URL">
                             </div>
                         </div>                        
                     </div>                    
                     <div class="row mb-2">
                         <div class="col-sm-12">
-                            <div class="form-group">
+                            <div class="form-group errorshow">
                                 <label for="prin_title">Pinterest</label>
-                                <input type="url" name="pintrest" id="pinterestURL" class="form-control" value="{{ $links->pintrest }}" placeholder="Enter URL">
+                                <input type="text" name="pintrest" id="pinterestURL" class="form-control" value="{{ $links->pintrest }}" placeholder="Enter URL">
                             </div>
                         </div>                       
                     </div>  
@@ -75,3 +75,37 @@
   </div>
 </div>
 @stop
+@push('scripts')
+<script>
+  $('#socialLiks').validate({
+        rules: {
+            facebook: {
+                 required: true,
+            },
+            twitter: {
+                 required: true,
+            },
+            instagram: {
+                 required: true,
+            },
+            linkedin: {
+                 required: true,
+            },
+            pintrest: {
+                 required: true,
+            },
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.errorshow').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        }
+     });
+</script>
+@endpush

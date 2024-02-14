@@ -106,7 +106,7 @@
   </div>
 </div>
 @stop
-@pushOnce('scripts')
+@push('scripts')
 <script>
   $('#webSetting').validate({
         rules: {
@@ -136,4 +136,4 @@
         }
      });
 </script>
-@endPushOnce
+@endpush

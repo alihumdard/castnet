@@ -574,13 +574,8 @@ $setting = appSetting();
         </div>
     </div>
 </div>
-
-
 @stop
 @push('scripts')
-<script src="{{ asset('assets/web/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
-<script src="{{ asset('assets/web/plugins/jquery-validation/additional-methods.min.js') }}"></script>
-
 <script>
     $('#experience_form').validate({
         rules: {

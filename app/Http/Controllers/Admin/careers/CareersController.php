@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use App\Models\CareersCommonModel1;
 use Illuminate\Http\Request;
-use App\Models\PageBanner;
 use App\Models\CareersModel;
+use App\Models\PageBanner;
 
 class CareersController extends Controller
 {
