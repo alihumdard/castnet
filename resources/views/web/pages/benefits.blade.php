@@ -61,7 +61,7 @@ background-size: cover;">
             @foreach($section2->details as $item)
             <div class="col-md-6 col-lg-6 d-flex">
                 <div class="card vip_card flex-grow-1" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="card-body">
+                    <div class="card-body text-white">
                         <div class="text-center">
                             <img src="{{ asset('assets/web/images/'.$item->image) }}" alt="icon" class="img-icon">
                         </div>

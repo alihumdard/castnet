@@ -66,6 +66,7 @@ class PartnerSponsorController extends Controller
         PartnersModel::create([
             'title' => $request->title,
             'image' => $file,
+            'url' => $request->url,
             'section' => $request->section,
         ]);
 
@@ -130,6 +131,7 @@ class PartnerSponsorController extends Controller
 
         $data = [
             'title' => $request->title,
+            'url' => $request->url,
             'image' => $file,
         ];
         $partner->update($data);
