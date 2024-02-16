@@ -36,7 +36,10 @@
                             @foreach($section1 as $item)
                             <div class="swiper-slide">
                                 <div class="img-box">
-                                    <img src="{{ asset('assets/web/images/'.$item->image) }}" alt="{{$item->title}}" class="img-fluid">
+                                    <a href="{{$item->url}}">
+                                        <img src="{{ asset('assets/web/images/'.$item->image) }}" class="img-fluid">
+                                        <h3 class="text-center">{{$item->title}}</h3>
+                                    </a>
                                 </div>
                             </div>
                             @endforeach
@@ -61,7 +64,10 @@
                 <div class="col-md-3 col-lg-3">
                     <div class="card" data-aos="fade-right" data-aos-duration="1000">
                         <div class="card-body">
-                            <img src="{{ asset('assets/web/images/'.$item->image) }}" alt="{{$item->title}}" class="img-sponsor">
+                            <a href="{{$item->url}}">
+                                <img src="{{ asset('assets/web/images/'.$item->image) }}" class="img-sponsor">
+                                <h3 class="text-center">{{$item->title}}</h3>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -87,7 +87,7 @@
                         @csrf
                         <div class="modal-body">
                             <div class="row mb-2">
-                                <div class="col-sm-6">
+                                <div class="col-sm-12">
                                     <div class="form-group errorshow">
                                         <label for="prin_title">Title</label>
                                         <input type="text" name="title" class="form-control" placeholder="Enter Title...">
@@ -97,6 +97,12 @@
                                     <div class="form-group errorshow">
                                         <label for="prin_title">Image <span class="text-danger">(270 x 130)</span></label>
                                         <input type="file" name="image" class="form-control" id="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group errorshow">
+                                        <label for="prin_title">Url</label>
+                                        <input type="text" name="url" class="form-control" id="">
                                     </div>
                                 </div>
                             </div>
@@ -124,6 +130,9 @@
                 required: true,
             },
             image: {
+                required: true,
+            },
+            url: {
                 required: true,
             },
         },

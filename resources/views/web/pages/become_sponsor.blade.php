@@ -74,7 +74,10 @@
                             @foreach($partners as $item)
                             <div class="swiper-slide">
                                 <div class="img-box">
-                                    <img src="{{ asset('assets/web/images/'.$item->image) }}" title="{{$item->title}}" alt="{{$item->title}}" class="img-fluid">
+                                    <a href="{{$item->url}}">
+                                        <img src="{{ asset('assets/web/images/'.$item->image) }}" alt="{{$item->title}}" class="img-fluid">
+                                        <h3 class="text-center">{{$item->title}}</h3>
+                                    </a>
                                 </div>
                             </div>
                             @endforeach
