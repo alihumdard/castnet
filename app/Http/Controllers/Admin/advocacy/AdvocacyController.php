@@ -8,6 +8,7 @@ use App\Models\AdvocacyCommonModel1;
 use App\Models\AdvocacyCommonModel;
 use Illuminate\Http\Request;
 use App\Models\PageBanner;
+use App\Models\PartnerSponsorPageTitleModel;
 
 class AdvocacyController extends Controller
 {
@@ -33,6 +34,7 @@ class AdvocacyController extends Controller
 
     public function section3(){
         $section = AdvocacyCommonModel1::where(['page'=>'advocacy','section'=>3])->get();
+        $title = PartnerSponsorPageTitleModel::where(['page'=>'advocacy','section'=>3])->first();
         $page = "Advocacy";
         $sn = "Section 3";
         return view('admin.pages.advocacy.common_section1',get_defined_vars());

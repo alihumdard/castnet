@@ -28,6 +28,19 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="col-md-12">
+                    <label for="">Section Title</label>
+                    <div class="input-group mb-3">
+                        <input type="text" name="title" id="title" value="{{$title->title}}" class="form-control" placeholder="Section title...">
+                        <input type="hidden" id="page" name="page" value="advocacy">
+                 
+                            <input type="hidden" id="section" name="section" value="3">
+                        
+                        <div class="input-group-append">
+                          <button class="btn btn-primary btn-sm" id="saveMainTitle" type="button">Save</button>
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
                             <button type="button" class="btn btn-sm btn-primary" style="float: right;" data-toggle="modal" data-target="#newModal">
@@ -162,6 +175,52 @@
         },
         unhighlight: function (element, errorClass, validClass) {
             $(element).removeClass('is-invalid');
+        }
+    });
+
+    $(document).on('click','#saveMainTitle',function(){
+        let title = $.trim($('#title').val());
+        let section = $('#section').val();
+        let page = $('#page').val();
+        if(title == ''){
+            Swal.fire({
+                position: 'top-end',
+                toast: true,
+                timer: 6000,
+                icon: 'error',
+                text: "please enter the section title.",
+            });
+        }
+        else{
+        $.ajaxSetup({
+            headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+        });
+        $.ajax({
+            type: "post",
+            url: '{{ route("partnersponsor.title") }}',
+            dataType: "json",
+            data: {
+                title: title,
+                section : section,
+                page : page,
+            },
+            success: function (response) {
+                if(response.status === true){
+                    Swal.fire({
+                    position: 'top-end',
+                    toast: true,
+                    timer: 6000,
+                    icon: 'success',
+                    text: response.message,
+                    });
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
+                }
+            },
+        });
         }
     });
 </script>
