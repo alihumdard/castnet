@@ -47,7 +47,7 @@
             <div class="row gx-md-5">
                 <div class="col-lg-6 order-1 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
                     <div class="img_border">
-                        <img src="{{ asset('assets/web/images/'.$item->image)}}" alt="financial">
+                        <img src="{{ asset('assets/web/images/'.$section2->image)}}" alt="financial">
                     </div>
                 </div>
                 <div class="col-lg-6 order-2 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
