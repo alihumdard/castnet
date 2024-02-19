@@ -51,4 +51,22 @@ document.addEventListener('DOMContentLoaded', function() {
             },
         });
     });
+
+
+
+            // Dropdown Script
+const collapsibles = document.querySelectorAll(".dropdown-link .img-icon");
+collapsibles.forEach((item) => item.addEventListener("click", function() {
+    this.classList.toggle("dropdown_expanded");
+})
+);
+
+// Offcanvas Script
+const OffcanvasCollapsibles = document.querySelectorAll(".offcanvas-menu .img-icon");
+OffcanvasCollapsibles.forEach((item) => item.addEventListener("click", function() {
+    this.classList.toggle("dropdown_expanded");
+})
+);
 </script>
+
+

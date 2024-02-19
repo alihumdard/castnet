@@ -268,41 +268,40 @@ header .navbar .img-menu {
     position: relative;
 }
 
-.navbar .navbar-nav .nav-item.dropdown-link .nav-link::after {
-    content: '';
-    display: inline-block;
-    background: url('/assets/images/angle_down.png') center no-repeat;
-    background-size: cover;
-    width: 1rem;
-    height: 0.5rem;
-    margin-left: 0.255em;
-}
-
-.navbar .navbar-nav .nav-item.dropdown-link .dropdown-content {
+.navbar .navbar-nav .dropdown-content {
     background: var(--white);
     border: 0.1rem solid var(--gray-light);
-    display: none;
     list-style-type: none;
     margin: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
     padding: 0 0.5rem;
-    position: absolute;
+    transition: all 0.4s;
 }
 
-.navbar .navbar-nav .nav-item.dropdown-link:hover .dropdown-content {
-    display: block;
+.navbar .navbar-nav .nav-item.dropdown-link .img-icon {
+    height: auto;
+    max-width: 0.8rem;
+    cursor: pointer;
 }
 
-.navbar .navbar-nav .nav-item.dropdown-link .dropdown-content li {
+.navbar .navbar-nav .img-icon.dropdown_expanded~.dropdown-content {
+    max-height: 100vh;
+    opacity: 1;
+}
+
+.navbar .navbar-nav .dropdown-content li {
     border-bottom: 0.1rem solid var(--gray-light);
     padding: 0.8rem 0;
     width: 13rem;
 }
 
-.navbar .navbar-nav .nav-item.dropdown-link .dropdown-content li:last-of-type {
+.navbar .navbar-nav .dropdown-content li:last-of-type {
     border-bottom: none;
 }
 
-.navbar .navbar-nav .nav-item.dropdown-link .dropdown-content li a {
+.navbar .navbar-nav .dropdown-content li a {
     color: var(--primary);
     font-size: 1.2rem;
     font-weight: 700;
@@ -315,6 +314,7 @@ header .navbar .img-menu {
 
 .navbar .navbar-nav .nav-link {
     color: var(--dark-charcoal);
+    display: inline-block;
     font-size: 1.3rem;
     font-weight: 700;
     padding: 0;
@@ -325,6 +325,10 @@ header .navbar .img-menu {
     .navbar .navbar-nav {
         gap: 1rem;
         text-align: start;
+    }
+
+    .navbar .navbar-nav .dropdown-content {
+        position: absolute;
     }
 
     header .navbar {
@@ -1400,13 +1404,22 @@ header .offcanvas.offcanvas-end .offcanvas-body .offcanvas-menu {
     position: relative;
 }
 
+header .offcanvas.offcanvas-end .offcanvas-body .offcanvas-menu .img-icon {
+    height: auto;
+    max-width: 0.8rem;
+    cursor: pointer;
+}
+
 header .offcanvas-body .offcanvas-menu .sub_menu {
     background: var(--white);
     border: 0.1rem solid var(--gray-light);
-    display: none;
     list-style-type: none;
     margin: 0;
     padding: 0 0.5rem;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.4s;
 }
 
 header .offcanvas-body .offcanvas-menu .sub_menu li {
@@ -1417,24 +1430,9 @@ header .offcanvas-body .offcanvas-menu .sub_menu li:last-of-type {
     border-bottom: 0;
 }
 
-header .offcanvas.offcanvas-end .offcanvas-body .offcanvas-menu:hover .sub_menu {
-    display: block;
-}
-
-header .offcanvas.offcanvas-end .offcanvas-body .offcanvas-menu .link {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-}
-
-header .offcanvas.offcanvas-end .offcanvas-body .offcanvas-menu .link::after {
-    content: '';
-    display: inline-block;
-    background: url(/assets/images/angle_down.png) center no-repeat;
-    background-size: contain;
-    width: 1rem;
-    height: 0.5rem;
-    margin-left: 0.255em;
+.offcanvas-body .offcanvas-menu .img-icon.dropdown_expanded~.sub_menu {
+    max-height: 100vh;
+    opacity: 1;
 }
 
 header .offcanvas.offcanvas-end .offcanvas-body ul {
