@@ -33,7 +33,7 @@
                           <button class="btn btn-primary btn-sm" id="saveMainTitle" type="button">Save</button>
                         </div>
                     </div>
-                </div>
+                </div> 
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">

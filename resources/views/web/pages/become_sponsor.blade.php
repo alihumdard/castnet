@@ -64,7 +64,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h2 class="section_title mb-5 mt-0" data-aos="fade-up" data-aos-duration="1000">thanks to our partners</h2>
+                    <h2 class="section_title mb-5 mt-0" data-aos="fade-up" data-aos-duration="1000">{{ $title2->title }}</h2>
                 </div>
             </div>
             <div class="row">
