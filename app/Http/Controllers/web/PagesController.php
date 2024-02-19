@@ -187,7 +187,8 @@ class PagesController extends Controller
     }
     public function advocacy(){
         $banner = PageBanner::where('type',19)->first();
-        $title = PartnerSponsorPageTitleModel::where(['page'=>'advocacy','section'=>3])->first();
+        $title2 = PartnerSponsorPageTitleModel::where(['page'=>'advocacy','section'=>2])->first();
+        $title3 = PartnerSponsorPageTitleModel::where(['page'=>'advocacy','section'=>3])->first();
         $section1 = AdvocacyCommonModel::where(['page'=>'advocacy','section'=>1])->first();
         $section2 = AdvocacyCommonModel1::where(['page'=>'advocacy','section'=>2])->get();
         $section3 = AdvocacyCommonModel1::where(['page'=>'advocacy','section'=>3])->get();

@@ -44,7 +44,7 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12">
-                    <h2 class="section_title">Our Priorities</h2>
+                    <h2 class="section_title">{{ $title2->title }}</h2>
                 </div>
             </div>
             <div class="row gy-4">
@@ -69,7 +69,7 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12">
-                    <h2 class="section_title" data-aos="fade-right" data-aos-duration="1000">{{ $title->title }}</h2>
+                    <h2 class="section_title" data-aos="fade-right" data-aos-duration="1000">{{ $title3->title }}</h2>
                 </div>
             </div>
             <div class="row gy-3 gy-lg-0 gx-3" data-aos="fade-left" data-aos-duration="1000">
