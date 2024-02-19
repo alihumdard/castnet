@@ -27,6 +27,7 @@ class AdvocacyController extends Controller
 
     public function section2(){
         $section = AdvocacyCommonModel1::where(['page'=>'advocacy','section'=>2])->get();
+        $title = PartnerSponsorPageTitleModel::where(['page'=>'advocacy','section'=>2])->first();
         $page = "Advocacy";
         $sn = "Section 2";
         return view('admin.pages.advocacy.common_section1',get_defined_vars());

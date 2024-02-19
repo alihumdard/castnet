@@ -27,14 +27,17 @@
         </div>
         <div class="content">
             <div class="container-fluid">
-                @if($sn=='Section 3')  
+                @if($sn=='Section 3' || $sn=='Section 2') 
                 <div class="col-md-12">
                     <label for="">Section Title</label>
-                        <div class="input-group mb-3">
-                            <input type="hidden" id="page" name="page" value="advocacy">
-                            <input type="text" name="title" id="title" value="{{$title->title}}" class="form-control" placeholder="Section title...">                      
-                            <input type="hidden" id="section" name="section" value="3">
-                        </div>
+                    <div class="input-group mb-3">
+                        <input type="hidden" id="page" name="page" value="advocacy">
+                        <input type="text" name="title" id="title" value="{{$title->title}}" class="form-control" placeholder="Section title...">                      
+                        @if($sn=='Section 2')
+                        <input type="hidden" id="section" name="section" value="2">
+                        @else
+                        <input type="hidden" id="section" name="section" value="3">
+                        @endif
                         <div class="input-group-append">
                           <button class="btn btn-primary btn-sm" id="saveMainTitle" type="button">Save</button>
                         </div>
