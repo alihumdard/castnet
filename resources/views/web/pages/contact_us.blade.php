@@ -113,7 +113,7 @@ background-size: cover;">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 px-0">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d25741.69044554004!2d-74.3085925148786!3d40.77942931948609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x89c3a95afe5fcbb9%3A0x9644f0d90d4a58e5!2s483%20S%20Livingston%20Ave%2C%20Livingston%2C%20NJ%2007039%2C%20United%20States!3m2!1d40.7749163!2d-74.3216291!5e0!3m2!1sen!2s!4v1702547984314!5m2!1sen!2s" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="{{$contact->map}}" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>

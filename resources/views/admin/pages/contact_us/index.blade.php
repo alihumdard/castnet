@@ -56,6 +56,12 @@
                                             <input type="text" name="address" class="form-control" placeholder="Enter Address..." value="{{ $contact->address }}">
                                         </div>
                                     </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="prin_title">Google Map Src</label>
+                                            <textarea name="map" id="" class="form-control" cols="30" rows="3" placeholder="Enter Map Src...">{{ $contact->map }}</textarea>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-footer" style="background:none;">
                                     <button type="submit" class="btn btn-primary" style="float: right;">Save changes</button>
