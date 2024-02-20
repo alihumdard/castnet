@@ -27,7 +27,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                    <div class="img-padding">
                     <img src="{{ asset('assets/web/images/'.$section1->image) }}" alt="map" class="img-map">
+                    </div>
                 </div>
             </div>
         </div>
