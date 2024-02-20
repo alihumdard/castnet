@@ -4114,6 +4114,10 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
     max-width: 100%;
 }
 
+.section_map .img-padding {
+    padding: 4rem 1rem 9rem;
+}
+
 @media screen and (min-width:992px) {
     .section_map {
         margin-bottom: -25rem;
@@ -4121,7 +4125,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
     .section_map .img-map {
         height: auto;
-        max-width: 90rem;
+        max-width: 70rem;
     }
 }
 
