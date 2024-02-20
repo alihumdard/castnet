@@ -43,6 +43,7 @@ class ContactController extends Controller
             'email1' => $request->email1,
             'email2' => $request->email2,
             'address' => $request->address,
+            'map' => $request->map,
         ];
         $contact->update($data);
 
