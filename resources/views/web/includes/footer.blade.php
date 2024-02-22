@@ -87,6 +87,22 @@ $result = socialLinks();
             </div>
         </div>
     </div>
+
+    {{-- Back to Top --}}
+    <a href="#top" class="btn-top">
+        <img src="/assets/web/images/angle_down.png" alt="">
+    </a>
 </footer>
+
 <!-- REQUIRED SCRIPTS -->
 @include('web.includes.script')
+<script>
+$(window).scroll(function() {
+	var $height = $(window).scrollTop();
+	if($height > 500) {
+            $('.btn-top').addClass('scrollVisible');
+        } else {
+            $('.btn-top').removeClass('scrollVisible');
+        }
+    });
+</script>
