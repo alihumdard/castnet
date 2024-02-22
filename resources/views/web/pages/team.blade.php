@@ -9,12 +9,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h2 class="breadcrumb_title">our team</h2>
+                    <h2 class="breadcrumb_title">{{$banner->title}}</h2>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
                             <li class="breadcrumb-item"><a href="{{ route('web.index') }}">home</a></li>
                             <li class="breadcrumb-item"><a href="{{ route('web.about') }}">about us</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">our team</li>
+                            <li class="breadcrumb-item active" aria-current="page">{{$banner->title}}</li>
                         </ol>
                     </nav>
                 </div>
@@ -41,6 +41,9 @@
                                 <div class="card-body">
                                     <h3 class="card-title">{{ $item->name }}</h3>
                                     <p class="card-text">{{ $item->profession }}</p>
+                                    <a href="{{ !empty($item->linkedin) ? $item->linkedin : '#' }}" class="social_link">
+                                        <img src="{{ asset('assets/web/images/icon_li.png') }}" alt="social icons" class="img-icon">
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -70,6 +73,9 @@
                                 <div class="card-body">
                                     <h3 class="card-title">{{ $item->name }}</h3>
                                     <p class="card-text">{{ $item->profession }}</p>
+                                    <a href="{{ !empty($item->linkedin) ? $item->linkedin : '#' }}" class="social_link">
+                                        <img src="{{ asset('assets/web/images/icon_li.png') }}" alt="social icons" class="img-icon">
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -99,6 +105,9 @@
                                 <div class="card-body">
                                     <h3 class="card-title">{{ $item->name }}</h3>
                                     <p class="card-text">{{ $item->profession }}</p>
+                                    <a href="{{ !empty($item->linkedin) ? $item->linkedin : '#' }}" class="social_link">
+                                        <img src="{{ asset('assets/web/images/icon_li.png') }}" alt="social icons" class="img-icon">
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -128,6 +137,9 @@
                                 <div class="card-body">
                                     <h3 class="card-title">{{ $item->name }}</h3>
                                     <p class="card-text">{{ $item->profession }}</p>
+                                    <a href="{{ !empty($item->linkedin) ? $item->linkedin : '#' }}" class="social_link">
+                                        <img src="{{ asset('assets/web/images/icon_li.png') }}" alt="social icons" class="img-icon">
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -157,6 +169,9 @@
                                 <div class="card-body">
                                     <h3 class="card-title">{{ $item->name }}</h3>
                                     <p class="card-text">{{ $item->profession }}</p>
+                                    <a href="{{ !empty($item->linkedin) ? $item->linkedin : '#' }}" class="social_link">
+                                        <img src="{{ asset('assets/web/images/icon_li.png') }}" alt="social icons" class="img-icon">
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -186,6 +201,9 @@
                                 <div class="card-body">
                                     <h3 class="card-title">{{ $item->name }}</h3>
                                     <p class="card-text">{{ $item->profession }}</p>
+                                    <a href="{{ !empty($item->linkedin) ? $item->linkedin : '#' }}" class="social_link">
+                                        <img src="{{ asset('assets/web/images/icon_li.png') }}" alt="social icons" class="img-icon">
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -215,6 +233,9 @@
                                 <div class="card-body">
                                     <h3 class="card-title">{{ $item->name }}</h3>
                                     <p class="card-text">{{ $item->profession }}</p>
+                                    <a href="{{ !empty($item->linkedin) ? $item->linkedin : '#' }}" class="social_link">
+                                        <img src="{{ asset('assets/web/images/icon_li.png') }}" alt="social icons" class="img-icon">
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -222,11 +243,6 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="row justify-content-center" data-aos="fade-up" data-aos-duration="1000">
-                <a href="#" class="btn btn-primary">see more team</a>
-            </div> --}}
         </div>
     </section>
-    <!-- Staff End -->
-
 @stop

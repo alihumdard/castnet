@@ -24,7 +24,6 @@ class ZimbabweController extends Controller
     
     public function banner(){
         $banner = PageBanner::where('type',39)->first();
-        $page = "Zimbabwe";
-        return view('admin.pages.banner',compact('banner','page'));
+        return view('admin.pages.banner',compact('banner'));
     }
 }

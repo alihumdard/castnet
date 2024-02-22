@@ -8,12 +8,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h2 class="breadcrumb_title">Become a Partner</h2>
+                    <h2 class="breadcrumb_title">{{$banner->title}}</h2>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
                             <li class="breadcrumb-item"><a href="{{ route('web.index') }}">home</a></li>
                             <li class="breadcrumb-item"><a href="{{ route('web.partners_sponsors') }}">partners/sponsors</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Become a Partner</li>
+                            <li class="breadcrumb-item active" aria-current="page">{{$banner->title}}</li>
                         </ol>
                     </nav>
                 </div>

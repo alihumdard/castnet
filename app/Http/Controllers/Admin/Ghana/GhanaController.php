@@ -24,7 +24,6 @@ class GhanaController extends Controller
     
     public function banner(){
         $banner = PageBanner::where('type',37)->first();
-        $page = "Ghana";
-        return view('admin.pages.banner',compact('banner','page'));
+        return view('admin.pages.banner',compact('banner'));
     }
 }

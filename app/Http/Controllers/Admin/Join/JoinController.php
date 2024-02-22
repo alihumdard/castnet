@@ -104,7 +104,6 @@ class JoinController extends Controller
 
     public function banner(){
         $banner = PageBanner::where('type',6)->first();
-        $page = "Join";
-        return view('admin.pages.banner',compact('banner','page'));
+        return view('admin.pages.banner',compact('banner'));
     }
 }

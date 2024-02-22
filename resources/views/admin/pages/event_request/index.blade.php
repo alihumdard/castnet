@@ -1,17 +1,17 @@
 @extends('admin.layouts.default')
-@section('title',$banner->title)
+@section('title','Event Request')
 @section('content')
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">{{$banner->title}}</h1>
+                        <h1 class="m-0">Event Request</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Banner</li>
+                            <li class="breadcrumb-item active">Event Request</li>
                         </ol>
                     </div>
                 </div>
@@ -20,27 +20,17 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="col-md-12">
-                    <div class="card ">
+                    <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('banner.update',$banner->id) }}" method="post" id="banner" enctype="multipart/form-data">
+                            <form action="{{ route('event-request.update',$title->id) }}" id="contactus" method="post">
                                 @csrf
                                 @method('PUT')
                                 <div class="row mb-2">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <div class="form-group errorshow">
-                                            <label for="prin_title">Page Title</label>
-                                            <input type="text" name="title" value="{{$banner->title}}" placeholder="Enter the page title..." class="form-control" id="">
+                                            <label for="prin_title">Section Title</label>
+                                            <input type="text" name="title" class="form-control" placeholder="Enter section title..." value="{{ $title->title }}">
                                         </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group errorshow">
-                                            <label for="prin_title">Banner Image <span class="text-danger">(1920 x 546)</span></label>
-                                            <input type="file" name="image" class="form-control" id="">
-                                            <input type="hidden" name="type" value="1">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <img src="{{ asset('assets/web/images/'.$banner->image) }}" width="50" height="50">
                                     </div>
                                 </div>
                                 <div class="card-footer" style="background:none;">
@@ -56,7 +46,7 @@
 @stop
 @push('scripts')
 <script>
-    $('#banner').validate({
+    $('#eventRequest').validate({ 
         rules: {
             title: {
                 required: true,

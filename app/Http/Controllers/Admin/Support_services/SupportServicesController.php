@@ -12,8 +12,7 @@ class SupportServicesController extends Controller
 {
     public function banner(){
         $banner = PageBanner::where('type',23)->first();
-        $page = "Support Services";
-        return view('admin.pages.banner',compact('banner','page'));
+        return view('admin.pages.banner',compact('banner'));
     }
 
     public function section1(){

@@ -11,8 +11,7 @@ class OpporAgricultureController extends Controller
 {
     public function banner(){
         $banner = PageBanner::where('type',45)->first();
-        $page = "Agriculture";
-        return view('admin.pages.banner',compact('banner','page'));
+        return view('admin.pages.banner',compact('banner'));
     }
 
     public function section1(){

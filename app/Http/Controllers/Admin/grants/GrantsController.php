@@ -13,8 +13,7 @@ class GrantsController extends Controller
     // GRANTS
     public function banner(){
         $banner = PageBanner::where('type',30)->first();
-        $page = "Grants";
-        return view('admin.pages.banner',compact('banner','page'));
+        return view('admin.pages.banner',compact('banner'));
     }
     public function section2(){
         $section = FinancialCommonModel1::where(['page'=>'grants','section'=>2])->get();

@@ -11,8 +11,7 @@ class OpporRfxController extends Controller
 {
     public function banner(){
         $banner = PageBanner::where('type',48)->first();
-        $page = "Rfx";
-        return view('admin.pages.banner',compact('banner','page'));
+        return view('admin.pages.banner',compact('banner'));
     }
 
     public function section1(){
