@@ -44,6 +44,7 @@ class TeamSectionController extends Controller
         $teamData = [
             'image' => $file,
             'name' => $request->name,
+            'linkedin' => $request->linkedin,
             'profession' => $request->profession,
             'type' => $request->type,
         ];
@@ -94,6 +95,7 @@ class TeamSectionController extends Controller
         $data = [
             'image' => $file,
             'name' => $request->name,
+            'linkedin' => $request->linkedin,
             'profession' => $request->profession,
             'type' => $request->type,
         ];
@@ -125,7 +127,6 @@ class TeamSectionController extends Controller
 
     public function banner(){
         $banner = PageBanner::where('type',3)->first();
-        $page = "Team";
-        return view('admin.pages.banner',compact('banner','page'));
+        return view('admin.pages.banner',compact('banner'));
     }
 }

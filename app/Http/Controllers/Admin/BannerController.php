@@ -17,6 +17,7 @@ class BannerController extends Controller
         }
         PageBanner::where('id',$banner->id)->update([
             'image' => $file,
+            'title' => $request->title,
             'type' => $banner->type,
         ]);
 

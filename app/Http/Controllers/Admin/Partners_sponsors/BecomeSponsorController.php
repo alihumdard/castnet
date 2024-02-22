@@ -13,8 +13,7 @@ class BecomeSponsorController extends Controller
 {
     public function banner(){
         $banner = PageBanner::where('type',34)->first();
-        $page = "Become A Sponsor";
-        return view('admin.pages.banner',compact('banner','page'));
+        return view('admin.pages.banner',compact('banner'));
     }
 
     public function section1(){

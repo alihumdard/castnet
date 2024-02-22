@@ -24,7 +24,6 @@ class DrcController extends Controller
     
     public function banner(){
         $banner = PageBanner::where('type',41)->first();
-        $page = "DRC";
-        return view('admin.pages.banner',compact('banner','page'));
+        return view('admin.pages.banner',compact('banner'));
     }
 }

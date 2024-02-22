@@ -2,15 +2,17 @@
 @section('content')
 
     <!-- Breadcrumb Start -->
-    <section class="section_breadcrumb event_calendar_bg">
+    <section class="section_breadcrumb event_calendar_bg" style="
+    background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $banner->image) }}) center no-repeat;
+    background-size: cover;">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h2 class="breadcrumb_title">Event Request</h2>
+                    <h2 class="breadcrumb_title">{{$banner->title}}</h2>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
                             <li class="breadcrumb-item"><a href="{{ route('web.index') }}">home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Event Request</li>
+                            <li class="breadcrumb-item active" aria-current="page">{{$banner->title}}</li>
                         </ol>
                     </nav>
                 </div>
@@ -24,7 +26,7 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12">
-                    <h2 class="section_title" data-aos="fade-up" data-aos-duration="1000">event calendar request form</h2>
+                    <h2 class="section_title" data-aos="fade-up" data-aos-duration="1000">{{$title->title}}</h2>
                 </div>
             </div>
             <div class="row">

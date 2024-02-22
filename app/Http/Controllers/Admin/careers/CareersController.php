@@ -13,8 +13,7 @@ class CareersController extends Controller
 {
     public function banner(){
         $banner = PageBanner::where('type',49)->first();
-        $page = "Careers";
-        return view('admin.pages.banner',compact('banner','page'));
+        return view('admin.pages.banner',compact('banner'));
     }
 
     public function section1(){

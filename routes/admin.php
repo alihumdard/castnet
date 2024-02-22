@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\Small_businesses\SmallBusinessController;
 use App\Http\Controllers\Admin\Sectors\SectorsCommonSection1Controller;
 use App\Http\Controllers\Admin\Sectors\SectorsCommonSection2Controller;
 use App\Http\Controllers\Admin\Event_calender\EventCalenderController;
+use App\Http\Controllers\Admin\Event_request\EventRequestController;
 use App\Http\Controllers\Admin\HomePage\HomePageSection1Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageSection2Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageSection3Controller;
@@ -142,6 +143,10 @@ Route::middleware('auth')->group(function() {
 
             Route::resource('event-calender', EventCalenderController::class);
             Route::get('/event-calender-banner', [EventCalenderController::class, 'banner'])->name('event-calender.banner');
+            
+            Route::get('/event-request-banner', [EventRequestController::class, 'banner'])->name('event-request.banner');
+            Route::get('/event-request-section', [EventRequestController::class, 'index'])->name('event-request.section');
+            Route::put('/event-request-update/{id}', [EventRequestController::class, 'update'])->name('event-request.update');
 
             Route::resource('international_events', InternationalEventsController::class);
             Route::get('/international_events-banner', [InternationalEventsController::class, 'banner'])->name('international_events.banner');

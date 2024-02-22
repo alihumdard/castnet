@@ -800,7 +800,7 @@
                     {{--  Advocacy Page End  --}}
 
                     {{--  EVENTS Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['myEvent*','event-calender*','international_events*'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['myEvent*','event-calender*','international_events*','event-request*'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link"> <i class="nav-icon far fa-plus-square"></i>
                             <p> EVENTS <i class="fas fa-angle-left right"></i> </p>
                         </a>
@@ -851,6 +851,25 @@
                                         <a href="{{ route('event-calender.index') }}" class="nav-link {{(request()->routeIs('event-calender.index','event-calender.create','event-calender.edit','event-calender.udpate')) ? 'active' : ''}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Events</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item {{ (request()->routeIs('event-request*')) ? 'menu-is-opening menu-open' : '' }}">
+                                <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
+                                    <p> EVENT REQUEST <i class="fas fa-angle-left right"></i> </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ route('event-request.banner') }}" class="nav-link {{(request()->routeIs('event-request.banner')) ? 'active' : ''}}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Banner</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('event-request.section') }}" class="nav-link {{(request()->routeIs('event-request.section')) ? 'active' : ''}}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Section</p>
                                         </a>
                                     </li>
                                 </ul>

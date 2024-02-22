@@ -12,8 +12,7 @@ class FundingController extends Controller
 {
     public function banner(){
         $banner = PageBanner::where('type',31)->first();
-        $page = "Funding";
-        return view('admin.pages.banner',compact('banner','page'));
+        return view('admin.pages.banner',compact('banner'));
     }
     public function section1(){
         $section = FinancialCommonModel::where(['page'=>'funding','section'=>1])->first();

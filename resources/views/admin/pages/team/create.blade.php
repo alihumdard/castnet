@@ -27,25 +27,29 @@
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
-                                            <label for="prin_title">Image <span class="text-danger">(280 x 285)</span></label>
-                                            <input type="file" name="image" class="form-control" id="">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group errorshow">
                                             <label for="prin_title">Name</label>
                                             <input type="text" name="name" class="form-control" placeholder="Enter Name">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row mb-2">
                                     <div class="col-sm-6">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">Linkedin Account Link</label>
+                                            <input type="text" name="linkedin" class="form-control" placeholder="Enter Linkedin account link...">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">Image <span class="text-danger">(280 x 285)</span></label>
+                                            <input type="file" name="image" class="form-control" id="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
                                         <div class="form-group errorshow">
                                             <label for="prin_title">Profession</label>
                                             <input type="text" name="profession" class="form-control" placeholder="Enter Profession">
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                         <div class="form-group errorshow">
                                             <label for="prin_title">Type</label>
                                             <select class="form-control" name="type">
@@ -83,6 +87,9 @@
                 required: true,
             },
             profession: {
+                required: true,
+            },
+            linkedin: {
                 required: true,
             },
             type: {

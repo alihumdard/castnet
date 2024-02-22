@@ -16,8 +16,7 @@ class ContactController extends Controller
 
     public function banner(){
         $banner = PageBanner::where('type',4)->first();
-        $page = "Contact us";
-        return view('admin.pages.banner',compact('banner','page'));
+        return view('admin.pages.banner',compact('banner'));
     }
 
     public function contactUsData(){
