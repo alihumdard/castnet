@@ -1461,6 +1461,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 .footer {
     background: var(--light-blue);
     padding: 2rem 0 0;
+    position: relative;
 }
 
 .footer .footer_logo {
@@ -1995,6 +1996,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 /* Contact Info */
 .section_contact_info {
     padding: 4rem 0;
+    overflow-x: hidden;
 }
 
 .section_contact_info .card {
@@ -5106,4 +5108,29 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
     .gap-lg-70 {
         gap: 7rem !important;
     }
+}
+
+/* BAck to Top */
+.btn-top {
+    background: var(--primary);
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 5rem;
+    right: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease-in-out;
+}
+
+.btn-top img {
+    filter: brightness(0) invert(1);
+}
+
+.scrollVisible {
+    opacity: 1;
+    visibility: visible;
 }

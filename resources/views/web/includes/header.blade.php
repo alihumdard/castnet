@@ -4,7 +4,7 @@
 <!-- Header Start -->
     <header>
         <!-- Topbar Start -->
-        <section class="section_topbar">
+        <section id="top" class="section_topbar">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6 col-lg-6">
