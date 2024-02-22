@@ -91,8 +91,6 @@ Route::get('/commands', function () {
     \Artisan::call('optimize');
     \Artisan::call('view:clear');
     \Artisan::call('optimize:clear');
-    \Artisan::call('dump-autoload --optimize');
-    \Artisan::call('clear-compiled');
     return 'Commands executed successfully!';
 });
 

@@ -787,6 +787,12 @@
                                             <p>Section 2</p>
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('supportser.section3') }}" class="nav-link {{(request()->routeIs('supportser.section3')) ? 'active' : ''}}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Section 3</p>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
