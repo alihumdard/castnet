@@ -47,7 +47,7 @@
                     <div class="card">
                         <img src="{{ asset('assets/web/images/'.$section2->image) }}" alt="main" class="card-img-top">
                         <div class="card-header">
-                            <p class="card-meta">{{ $section2->created_at->diffForHumans() }}</p>
+                            <p class="card-meta">{{ $section2->updated_at->diffForHumans() }}</p>
                             <h3 class="card-title">
                                 {{ $section2->title }}
                             </h3>
@@ -55,9 +55,9 @@
                         <div class="card-body">
                             <p class="card-text">{!! $section2->description !!}</p>
                         </div>
-                        <div class="card-footer">
+                        {{-- <div class="card-footer">
                             <a href="#" class="btn btn-secondary">read more</a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-lg-7" data-aos="fade-left" data-aos-duration="1000">
@@ -70,7 +70,7 @@
                             <h3 class="blog_title">
                                 {{ $item->title }}
                             </h3>
-                            <p class="blog_meta">{{ \Carbon\Carbon::parse($item->created_at)->format('l, F j, Y') }}</p>
+                            <p class="blog_meta">{{ \Carbon\Carbon::parse($item->updated_at)->format('l, F j, Y') }}</p>
                             <p class="blog_desc">{{ $item->description }}</p>
                         </div>
                     </div>
