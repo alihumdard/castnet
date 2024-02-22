@@ -81,7 +81,7 @@
                                         <label class="form-check-label" for="free">FREE</label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="radio" class="form-cmainheck-input" id="fee" name="event_cost" value="fee">
+                                        <input type="radio" class="form-check-input" id="fee" name="event_cost" value="fee">
                                         <label class="form-check-label" for="fee">FEE</label>
                                     </div>
 

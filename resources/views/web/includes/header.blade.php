@@ -72,7 +72,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-start">
                 <li class="nav-item"><a class="nav-link active" href="{{ route('web.index') }}">home</a></li>
                 <li class="nav-item dropdown-link">
                     <a class="nav-link" href="{{ route('web.about') }}">about us</a>
