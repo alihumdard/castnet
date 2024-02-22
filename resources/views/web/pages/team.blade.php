@@ -36,7 +36,7 @@
                     <div class="row row-cols-md-3 row-cols-lg-5 justify-content-center gy-5">
                         @foreach($founder as $item)
                         <div class="col-12 d-flex">
-                            <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
+                            <div class="card flex-grow-1" data-aos="zoom-in-right" data-aos-duration="1000">
                                 <img src="{{ asset('assets/web/images/' . $item->image) }}" alt="team" class="card-img-top img-height">
                                 <div class="card-body">
                                     <h3 class="card-title">{{ $item->name }}</h3>
@@ -68,7 +68,7 @@
                     <div class="row row-cols-md-3 row-cols-lg-5 justify-content-center gy-5">
                         @foreach($boardd as $item)
                         <div class="col-12 d-flex">
-                            <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
+                            <div class="card flex-grow-1" data-aos="zoom-in-right" data-aos-duration="1000">
                                 <img src="{{ asset('assets/web/images/' . $item->image) }}" alt="team" class="card-img-top img-height">
                                 <div class="card-body">
                                     <h3 class="card-title">{{ $item->name }}</h3>
@@ -97,10 +97,10 @@
             </div>
             <div class="row">
                 <div class="col-xxl-8 mx-auto">
-                    <div class="row row-cols-5 justify-content-center gy-5">
+                    <div class="row row-cols-md-3 row-cols-lg-5 justify-content-center gy-5">
                         @foreach($management as $item)
-                        <div class="col d-flex">
-                            <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
+                        <div class="col-12 d-flex">
+                            <div class="card flex-grow-1" data-aos="zoom-in-right" data-aos-duration="1000">
                                 <img src="{{ asset('assets/web/images/' . $item->image) }}" alt="team" class="card-img-top img-height">
                                 <div class="card-body">
                                     <h3 class="card-title">{{ $item->name }}</h3>
@@ -129,10 +129,10 @@
             </div>
             <div class="row">
                 <div class="col-xxl-8 mx-auto">
-                    <div class="row row-cols-5 justify-content-center gy-5">
+                    <div class="row row-cols-md-3 row-cols-lg-5 justify-content-center gy-5">
                         @foreach($councilc as $item)
-                        <div class="col d-flex">
-                            <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
+                        <div class="col-12 d-flex">
+                            <div class="card flex-grow-1" data-aos="zoom-in-right" data-aos-duration="1000">
                                 <img src="{{ asset('assets/web/images/' . $item->image) }}" alt="team" class="card-img-top img-height">
                                 <div class="card-body">
                                     <h3 class="card-title">{{ $item->name }}</h3>
@@ -161,10 +161,10 @@
             </div>
             <div class="row">
                 <div class="col-xxl-8 mx-auto">
-                    <div class="row row-cols-5 justify-content-center gy-5">
+                    <div class="row row-cols-md-3 row-cols-lg-5 justify-content-center gy-5">
                         @foreach($councili as $item)
-                        <div class="col d-flex">
-                            <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
+                        <div class="col-12 d-flex">
+                            <div class="card flex-grow-1" data-aos="zoom-in-right" data-aos-duration="1000">
                                 <img src="{{ asset('assets/web/images/' . $item->image) }}" alt="team" class="card-img-top img-height">
                                 <div class="card-body">
                                     <h3 class="card-title">{{ $item->name }}</h3>
@@ -193,10 +193,10 @@
             </div>
             <div class="row">
                 <div class="col-xxl-8 mx-auto">
-                    <div class="row row-cols-5 justify-content-center gy-5">
+                    <div class="row row-cols-md-3 row-cols-lg-5 justify-content-center gy-5">
                         @foreach($program as $item)
-                        <div class="col d-flex">
-                            <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
+                        <div class="col-12 d-flex">
+                            <div class="card flex-grow-1" data-aos="zoom-in-right" data-aos-duration="1000">
                                 <img src="{{ asset('assets/web/images/' . $item->image) }}" alt="team" class="card-img-top img-height">
                                 <div class="card-body">
                                     <h3 class="card-title">{{ $item->name }}</h3>
@@ -225,10 +225,10 @@
             </div>
             <div class="row">
                 <div class="col-xxl-8 mx-auto">
-                    <div class="row row-cols-5 justify-content-center gy-5">
+                    <div class="row row-cols-md-3 row-cols-lg-5 justify-content-center gy-5">
                         @foreach($staff as $item)
-                        <div class="col d-flex">
-                            <div class="card" data-aos="zoom-in-right" data-aos-duration="1000">
+                        <div class="col-12 d-flex">
+                            <div class="card flex-grow-1" data-aos="zoom-in-right" data-aos-duration="1000">
                                 <img src="{{ asset('assets/web/images/' . $item->image) }}" alt="team" class="card-img-top img-height">
                                 <div class="card-body">
                                     <h3 class="card-title">{{ $item->name }}</h3>
