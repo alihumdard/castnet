@@ -264,6 +264,10 @@ header .navbar .img-menu {
     text-align: center;
 }
 
+.navbar .navbar-nav .nav-item {
+    text-align: start !important;
+}
+
 .navbar .navbar-nav .nav-item.dropdown-link {
     position: relative;
 }
