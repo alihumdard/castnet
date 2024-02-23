@@ -9,7 +9,7 @@ use App\Models\Membership_Level;
 use Illuminate\Http\Request;
 
 class JoinFormSettingController extends Controller
-{
+{ 
     /**
      * Display a listing of the resource.
      *
