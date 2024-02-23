@@ -82,9 +82,15 @@
                           </div>
                         <hr>
                           <div class="row">
-                            <div class="col-sm-2"><h6>Area Chamber:</h6></div>
-                            <div class="col-sm-10"><p>{{ $eventInfo->area_chamber }}</p></div>
+                            <div class="col-sm-2"><h6>Event Location:</h6></div>
+                            <div class="col-sm-10"><p>{{ $eventInfo->eventLocation }}</p></div>
                           </div>
+                          <hr>
+                          <div class="row">
+                            <div class="col-sm-2"><h6>Event Type:</h6></div>
+                            <div class="col-sm-10"><p>{{ $eventInfo->event }}</p></div>
+                          </div>
+                          
                         </div>
                         <!-- /.card-body -->
                     </div>

@@ -78,7 +78,7 @@ Route::middleware('admin-not-access')->group(function() {
     Route::get('/user-login', [PagesController::class, 'login'])->name('user.login');
     Route::get('/user-register', [PagesController::class, 'register'])->name('user.register');
     Route::post('/user-registration', [PagesController::class, 'registration'])->name('user.registration');
-    Route::post('/event_request', [PagesController::class, 'event_request_form'])->name('event.request');
+    Route::post('/eventRequest', [PagesController::class, 'event_request_form'])->name('eventrequest');
     Route::post('/welcome-modal', [DefaultController::class, 'weclome'])->name('welcom.modal');
     Route::post('/job-application/{id}', [DefaultController::class, 'jobApply'])->name('job.application');
 });

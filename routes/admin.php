@@ -465,6 +465,14 @@ Route::middleware('auth')->group(function() {
             Route::get('/experience/{id}', [UsersDataController::class, 'experienceDetail'])->name('experience.detail');
             Route::delete('/experience-delete/{id}', [UsersDataController::class, 'destroyexperience'])->name('experience.delete');
             // ---------------------Users Data route end-----------------------------
+            
+            
+            // -------------------------------------------Users route start------------------------------------------------------
+            Route::get('/members-info', [UsersDataController::class, 'membersData'])->name('members.Info');
+            Route::delete('/members-delete/{id}', [UsersDataController::class, 'deleteMember'])->name('members.delete');
+            Route::get('/sponsors-info', [UsersDataController::class, 'sponsorsData'])->name('sponsors.Info');
+            Route::delete('/sponsors-delete/{id}', [UsersDataController::class, 'deleteSponsor'])->name('sponsors.delete');
+            // -------------------------------------------Users route end--------------------------------------------------------
         });
     });
 });
