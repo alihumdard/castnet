@@ -45,8 +45,8 @@
                                     </td>
                                     <td>{{ $item->title }}</td>
                                     <td>
-                                        <a href="{{ route('careers.edit',$item->id) }}"><i class="fa fa-edit"></i></a>
-                                        <button class="btn-outline-danger delete_btn" data-url="/admin/careers"
+                                        <a class="btn btn-sm btn-outline-success" href="{{ route('careers.edit',$item->id) }}"><i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/careers"
                                             data-id="{{ $item->id }}" type="submit"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>

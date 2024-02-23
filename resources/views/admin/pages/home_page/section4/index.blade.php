@@ -78,8 +78,8 @@
                                     <td>{{$item->title}}</td>
                                     <td>{!! $item->features !!}</td>
                                     <td>
-                                        <a href="{{ route('homesection4.edit',$item->id)}}"><i class="fa fa-edit"></i></a>
-                                        <button class="btn-outline-danger delete_btn" data-url="/admin/homesection4"
+                                        <a class="btn btn-sm btn-outline-success" href="{{ route('homesection4.edit',$item->id)}}"><i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/homesection4"
                                             data-id="{{ $item->id }}" type="submit"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>

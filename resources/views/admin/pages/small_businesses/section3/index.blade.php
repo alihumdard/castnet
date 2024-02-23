@@ -60,7 +60,5 @@
                 </div>
             </div>
         </div>
-        <!-- Main content end -->
-        <!-- /.content-wrapper -->
     </div>
 @stop

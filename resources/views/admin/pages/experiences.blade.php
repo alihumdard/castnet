@@ -45,8 +45,8 @@
                                         {{ $item->challenge }}
                                     </td>
                                     <td>
-                                        <a href="{{ route('experience.detail',$item->id) }}" class="btn-outline-info"><i class="fa fa-eye"></i></a>
-                                        <button class="btn-outline-danger delete_btn" data-url="/admin/experience-delete"
+                                        <a class="btn btn-sm btn-outline-info" href="{{ route('experience.detail',$item->id) }}"><i class="fa fa-eye"></i></a>
+                                        <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/experience-delete"
                                             data-id="{{ $item->id }}" type="submit"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>

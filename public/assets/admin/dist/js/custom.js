@@ -90,3 +90,57 @@ function changeStatus(id, status, passurl) {
 
 	});
 }
+
+$("body").on("click", ".editDropdown", function () {
+	let baseUrl = $(this).attr("data-url");
+	let id = $(this).attr("data-id");
+	$.ajax({
+		type: "get",
+		url: baseUrl,
+		dataType: "json",
+		data: {
+			'id': id,
+		},
+		success: function (response) {
+			$("#dropUpdDownadd #drptitle").val(response.title);
+			$("#dropUpdDownadd #dataID").val(response.id);
+			$("#updModal").modal("show");
+		},
+	});
+});
+
+$("body").on("submit", "#dropUpdDownadd", function (e) {
+	e.preventDefault();
+	let id = $("#dataID").val();
+	let title = $("#drptitle").val();
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
+	});
+	$.ajax({
+		type: "post",
+		url: "event-request-upt/" + id,
+		data: {
+			'id': id,
+			'title': title,
+		},
+		dataType: "json",
+		beforeSend: function () {
+			$(".loader-wrapper").fadeIn("slow");
+		},
+		success: function (response) {
+			if (response.status == "success") {
+				$("#updModal").modal("hide");
+				Swal.fire("Success!", response.message, "success");
+				setTimeout(function () {
+					location.reload();
+				}, 3000);
+			}
+		},
+		error: function (response) {},
+		complete: function () {
+			$(".loader-wrapper").fadeOut("slow");
+		},
+	});
+});

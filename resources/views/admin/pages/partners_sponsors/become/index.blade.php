@@ -71,8 +71,8 @@
                                     <td>{{ $item->title }}</td>
                                     <td><img src="{{ asset('assets/web/images/'.$item->image) }}" alt="" width="70" height="80"></td>
                                     <td>
-                                        <a href="{{ route('becomepartner.edit',$item->id)}}"><i class="fa fa-edit"></i></a>
-                                        <button class="btn-outline-danger delete_btn" data-url="/admin/becomepartner"
+                                        <a class="btn btn-sm btn-outline-success" href="{{ route('becomepartner.edit',$item->id)}}"><i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/becomepartner"
                                             data-id="{{ $item->id }}" type="submit"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>

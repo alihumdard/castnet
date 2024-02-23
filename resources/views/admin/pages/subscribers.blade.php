@@ -33,7 +33,7 @@
                                         {{ $item->email }}
                                     </td>
                                     <td>
-                                        <button class="btn-outline-danger delete_btn" data-url="/admin/subscribers-delete"
+                                        <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/subscribers-delete"
                                             data-id="{{ $item->id }}" type="submit"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>

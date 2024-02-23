@@ -41,8 +41,8 @@
                                     <td>{{ $item->dropdowns }}</td>
                                     <td>{{ $item->type }}</td>
                                     <td>
-                                        <a href="{{ route('join-form-setting.edit',$item->id) }}"><i class="fa fa-edit"></i></a>
-                                        <button class="btn-outline-danger delete_btn" data-url="/admin/join-form-setting"
+                                        <a class="btn btn-sm btn-outline-success" href="{{ route('join-form-setting.edit',$item->id) }}"><i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/join-form-setting"
                                             data-id="{{ $item->id }}" type="submit"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
