@@ -1,6 +1,13 @@
 @extends('web.layouts.default')
 @section('content')
-
+<style>
+    .fee{
+        display:none;
+    }
+    .radiofull{
+        display:none;
+    }
+</style>
     <!-- Breadcrumb Start -->
     <section class="section_breadcrumb event_calendar_bg" style="
     background: linear-gradient(90deg, rgba(7, 27, 52, 0.80) 0%, rgba(7, 27, 52, 0.61) 51.46%, rgba(7, 27, 52, 0.42) 99.24%, rgba(7, 27, 52, 0.28) 99.7%, rgba(7, 27, 52, 0.00) 100%), url({{ asset('assets/web/images/' . $banner->image) }}) center no-repeat;
@@ -74,23 +81,23 @@
                                 <input type="text" class="form-control" name="endTime" placeholder="End Time" onfocus="(this.type='time')" onblur="(this.type='text')">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 selectfree">
                                 <div class="checkbox-border">
                                     <h3 class="checkbox-title">event cost</h3>
                                     <div class="form-group errorshow">
                                     <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="free" name="event_cost" value="free">
+                                        <input type="radio" onclick="selectfree()" class="form-check-input" id="free" name="event_cost" value="free" checked>
                                         <label class="form-check-label" for="free">FREE</label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="fee" name="event_cost" value="fee">
+                                        <input type="radio" onclick="selectfee()" class="form-check-input" id="fee" name="event_cost" value="fee">
                                         <label class="form-check-label" for="fee">FEE</label>
                                     </div>
 
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 fee">
                                 <div class="form-group errorshow">
                                 <input type="text" name="fee" class="form-control" placeholder="Fee">
                                 </div>
@@ -110,7 +117,7 @@
                                 <input type="email" name="email" class="form-control" placeholder="Email">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 align-self-center">
                                 <div class="form-group errorshow">
                                 <input type="text" name="telephone" class="form-control" placeholder="Telephone">
                                 </div>
@@ -120,7 +127,22 @@
                                 <input type="text" name="eventLocation" class="form-control" placeholder="Event Location">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-6 radioinline">
+                                <div class="checkbox-border mt-0 h-100">
+                                    <h3 class="checkbox-title">Event Type</h3>
+                                    <div class="form-group d-flex align-items-center errorshow h-100 gap-5">
+                                    <div class="form-check mt-0">
+                                        <input type="radio" name="event" class="form-check-input" id="yes" value="Virtual">
+                                        <label class="form-check-label" for="virtual">Virtual</label>
+                                    </div>
+                                    <div class="form-check mb-0">
+                                        <input type="radio" name="event" class="form-check-input" id="no" value="Onsite">
+                                        <label class="form-check-label" for="onsite">Onsite</label>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 radiofull">
                                 <div class="checkbox-border">
                                     <h3 class="checkbox-title">Event Type</h3>
                                     <div class="form-group errorshow">
@@ -211,5 +233,17 @@
             $(element).removeClass('is-invalid');
         }
     });
+
+    function selectfee(){
+        $('.radioinline').hide();
+        $('.fee').show();
+        $('.radiofull').show();
+    }
+
+    function selectfree(){
+        $('.radioinline').show();
+        $('.fee').hide();
+        $('.radiofull').hide();
+    }
 </script>
 @endpush
