@@ -47,7 +47,7 @@
                     @endif
                 @endif
                 <div class="col-md-12">
-                    <div class="card">
+                    <div class="card"> 
                         <div class="card-header">
                             <button type="button" class="btn btn-sm btn-primary" style="float: right;" data-toggle="modal" data-target="#newModal">
                                 Add New
@@ -72,8 +72,8 @@
                                         <img src="{{ asset('assets/web/images/'.$item->image) }}" class="bgchange" height="50" width="50">
                                     </td>
                                     <td>
-                                        <a href="{{ route('advocacy.edit',$item->id) }}"><i class="fa fa-edit"></i></a>
-                                        <button class="btn-outline-danger delete_btn" data-url="/admin/advocacy"
+                                        <a class="btn btn-sm btn-outline-success" href="{{ route('advocacy.edit',$item->id) }}"><i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/advocacy"
                                             data-id="{{ $item->id }}" type="submit"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>

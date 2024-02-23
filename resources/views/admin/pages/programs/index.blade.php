@@ -71,9 +71,8 @@
                                     <td>{{ $item->title }}</td>
                                     <td>{!! $item->description !!}</td>
                                     <td>
-                                        <a href="{{ route('programs.edit',$item->id) }}"><i class="fa fa-edit"></i></a>
-
-                                        <button class="btn-outline-danger delete_btn" data-url="/admin/programs"
+                                        <a class="btn btn-sm btn-outline-success" href="{{ route('programs.edit',$item->id) }}"><i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/programs"
                                             data-id="{{ $item->id }}" type="submit"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>

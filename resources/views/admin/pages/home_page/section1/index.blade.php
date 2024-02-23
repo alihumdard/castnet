@@ -47,8 +47,8 @@
                                 <img style="border:1px solid black;" src="{{ asset('assets/web/images/'.$item->image) }}" alt="section img" height="50" width="50">
                               </td>
                               <td>
-                                <a href="{{ route('homesection1.edit',$item->id) }}"><i class="fa fa-edit"></i></a>
-                                <button class="btn-outline-danger delete_btn" data-url="/admin/homesection1"
+                                <a class="btn btn-sm btn-outline-success" href="{{ route('homesection1.edit',$item->id) }}"><i class="fa fa-edit"></i></a>
+                                <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/homesection1"
                                     data-id="{{ $item->id }}" type="submit"><i class="fa fa-trash"></i></button>
                               </td>
                             </tr>

@@ -855,19 +855,19 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs('event-request*','event-category.update')) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('event_request*','event-category.update')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> EVENT REQUEST <i class="fas fa-angle-left right"></i> </p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{ route('event-request.banner') }}" class="nav-link {{(request()->routeIs('event-request.banner')) ? 'active' : ''}}">
+                                        <a href="{{ route('event_request.banner') }}" class="nav-link {{(request()->routeIs('event_request.banner')) ? 'active' : ''}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Banner</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('event-request.section') }}" class="nav-link {{(request()->routeIs('event-request.section','event-category.update','event-request.create')) ? 'active' : ''}}">
+                                        <a href="{{ route('event_request.index') }}" class="nav-link {{(request()->routeIs('event_request.index')) ? 'active' : ''}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Section</p>
                                         </a>

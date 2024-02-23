@@ -81,8 +81,8 @@
                                     <td>{{ $item->title }}</td>
                                     <td><img src="{{ asset('assets/web/images/'.$item->image)}}" alt="" height="60" width="50"></td>
                                     <td>
-                                        <a href="{{ route('sector-c2.edit',$item->id)}}"><i class="fa fa-edit"></i></a>
-                                        <button class="btn-outline-danger delete_btn" data-url="/admin/sector-c2"
+                                        <a class="btn btn-sm btn-outline-success" href="{{ route('sector-c2.edit',$item->id)}}"><i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/sector-c2"
                                             data-id="{{ $item->id }}" type="submit"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>

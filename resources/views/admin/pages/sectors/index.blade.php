@@ -45,8 +45,8 @@
                                     </td>
                                     <td>{{ $sector->link }}</td>
                                     <td>
-                                        <a href="{{ route('sectors.edit',$sector->id) }}"><i class="fa fa-edit"></i></a>
-                                        <button class="btn-outline-danger delete_btn" data-url="/admin/sectors"
+                                        <a class="btn btn-sm btn-outline-success" href="{{ route('sectors.edit',$sector->id) }}"><i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/sectors"
                                             data-id="{{ $sector->id }}" type="submit"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>

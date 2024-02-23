@@ -43,8 +43,8 @@
                                     <td>{{ $item->date }}</td>
                                     <td><img src="{{ asset('assets/web/images/'.$item->image) }}" alt="" width="50" height="60"></td>
                                     <td>
-                                        <a href="{{ route('international_events.edit',$item->id)}}"><i class="fa fa-edit"></i></a>
-                                        <button class="btn-outline-danger delete_btn" data-url="/admin/international_events"
+                                        <a class="btn btn-sm btn-outline-success" href="{{ route('international_events.edit',$item->id)}}"><i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/international_events"
                                             data-id="{{ $item->id }}" type="submit"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>

@@ -69,8 +69,8 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('our-team.edit',$team->id) }}"><i class="fa fa-edit"></i></a>
-                                        <button class="btn-outline-danger delete_btn" data-url="/admin/our-team"
+                                        <a class="btn btn-sm btn-outline-success" href="{{ route('our-team.edit',$team->id) }}"><i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/our-team"
                                             data-id="{{ $team->id }}" type="submit"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
