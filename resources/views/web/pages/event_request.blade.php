@@ -110,12 +110,32 @@
                                 <input type="email" name="email" class="form-control" placeholder="Email">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group errorshow">
                                 <input type="text" name="telephone" class="form-control" placeholder="Telephone">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group errorshow">
+                                <input type="text" name="eventLocation" class="form-control" placeholder="Event Location">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="checkbox-border">
+                                    <h3 class="checkbox-title">Event Type</h3>
+                                    <div class="form-group errorshow">
+                                    <div class="form-check">
+                                        <input type="radio" name="event" class="form-check-input" id="yes" value="Virtual">
+                                        <label class="form-check-label" for="virtual">Virtual</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="event" class="form-check-input" id="no" value="Onsite">
+                                        <label class="form-check-label" for="onsite">Onsite</label>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="checkbox-border">
                                     <h3 class="checkbox-title">Are you a current Area Chamber Member</h3>
                                     <div class="form-group errorshow">
@@ -188,6 +208,12 @@
                 required: true,
             },
             area: {
+                required: true,
+            },
+            event: {
+                required: true,
+            },
+            eventLocation: {
                 required: true,
             }
         },

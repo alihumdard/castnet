@@ -7,14 +7,25 @@ use App\Models\CompanyInformation;
 use App\Models\EventRequestForm;
 use App\Models\Experience;
 use App\Models\NewsletterModel;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UsersDataController extends Controller
 {
     public function companyInfoData(){
         $data= CompanyInformation::all();
-
+        
         return view('admin.pages.companyInfoData',compact('data'));
+    }
+    public function membersData(){
+        // type 3= members and type 2 = sponsors
+        $members = User::where('type', 3)->get();
+        return view('admin.pages.users.members.index',compact('members'));
+    }
+    public function sponsorsData(){
+        // type 3= members and type 2 = sponsors
+        $sponsors = User::where('type', 2)->get();
+        return view('admin.pages.users.sponsors.index',compact('sponsors'));
     }
     public function subscribers(){
 
@@ -70,6 +81,26 @@ class UsersDataController extends Controller
     public function destroyexperience($id)
     {
         Experience::destroy($id);
+
+        return response()->json(array(
+            'data' => true,
+            'message' => 'Team member deleted successfully.',
+            'status' => 'success',
+        ));
+    }
+    public function deleteMember($id)
+    {
+        User::destroy($id);
+
+        return response()->json(array(
+            'data' => true,
+            'message' => 'Team member deleted successfully.',
+            'status' => 'success',
+        ));
+    }
+    public function deleteSponsor($id)
+    {
+        User::destroy($id);
 
         return response()->json(array(
             'data' => true,
