@@ -28,7 +28,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
                                             <label for="prin_title">Dropdown Name</label>
-                                            <input type="text" name="title" class="form-control" placeholder="Enter Menu Name">
+                                            <input type="text" name="title" class="form-control" placeholder="Enter Dropdown Name">
                                         </div>
                                     </div>
                                 </div>
