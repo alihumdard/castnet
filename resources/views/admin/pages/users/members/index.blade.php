@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('title','Contact Us')
+@section('title','Members')
 @section('content')
     <div class="content-wrapper">
         <div class="content-header">

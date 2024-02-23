@@ -31,7 +31,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <form action="{{ route('event.request') }}" id="event_request" data-aos="zoom-in" method="post" data-aos-duration="1000">
+                    <form action="{{ route('eventrequest') }}" id="event_request" data-aos="zoom-in" method="post" data-aos-duration="1000">
                         @csrf
                         <div class="row gy-4">
                             <div class="col-md-6">
@@ -120,7 +120,7 @@
                                 <input type="text" name="eventLocation" class="form-control" placeholder="Event Location">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="checkbox-border">
                                     <h3 class="checkbox-title">Event Type</h3>
                                     <div class="form-group errorshow">
@@ -131,21 +131,6 @@
                                     <div class="form-check">
                                         <input type="radio" name="event" class="form-check-input" id="no" value="Onsite">
                                         <label class="form-check-label" for="onsite">Onsite</label>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="checkbox-border">
-                                    <h3 class="checkbox-title">Are you a current Area Chamber Member</h3>
-                                    <div class="form-group errorshow">
-                                    <div class="form-check">
-                                        <input type="radio" name="area" class="form-check-input" id="yes" value="yes">
-                                        <label class="form-check-label" for="yes">Yes</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="radio" name="area" class="form-check-input" id="no" value="no">
-                                        <label class="form-check-label" for="no">No</label>
                                     </div>
                                     </div>
                                 </div>
@@ -205,9 +190,6 @@
                 required: true,
             },
             telephone: {
-                required: true,
-            },
-            area: {
                 required: true,
             },
             event: {

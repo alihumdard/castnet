@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('title','Contact Us')
+@section('title','Sponsors')
 @section('content')
     <div class="content-wrapper">
         <div class="content-header">
@@ -45,11 +45,10 @@
                                         <button class="btn-outline-danger delete_btn" data-url="/admin/sponsors-delete" data-id="{{ $member->id }}" type="submit"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
-                            @endforeach
-                                                            </tbody>
+                                @endforeach
+                            </tbody>
                           </table>
                         </div>
-                        <!-- /.card-body -->
                     </div>
                 </div>
             </div>

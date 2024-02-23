@@ -248,12 +248,13 @@ class PagesController extends Controller
             'event_contact_LN' => $request->lastName,
             'event_contact_email' => $request->email,
             'telephone' => $request->telephone,
-            'area_chamber' => $request->area,
+            'eventLocation' => $request->eventLocation,
+            'event' => $request->event,
         ];
 
         EventRequestForm::create($event);
         $message = 'Event Request added successfully';
-        return redirect()->back()->with('message', $message);
+        return redirect()->back()->with('success', $message);
     }
     public function contactUsData(Request $request){
         $contactUs = [
