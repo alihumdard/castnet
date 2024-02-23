@@ -298,6 +298,7 @@ class PagesController extends Controller
     public function event_request(){
         $banner = PageBanner::where('type', 26)->first();
         $title = PartnerSponsorPageTitleModel::where(['page'=>'event_request','section'=>1])->first();
+        $eventCategory = CompanyInfoFormSetting::where('type', 'event_category')->get();
         return view('web.pages.event_request',get_defined_vars());
     }
     public function event_calendar(){

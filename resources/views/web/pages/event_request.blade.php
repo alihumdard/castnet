@@ -43,9 +43,9 @@
                                 <div class="form-group errorshow">
                                 <select name="event_category" class="form-select">
                                     <option selected disabled>Event Category</option>
-                                    <option value="One">One</option>
-                                    <option value="Two">Two</option>
-                                    <option value="Three">Three</option>
+                                    @foreach ($eventCategory as $level) 
+                                        <option value="{{ $level->dropdowns }}">{{ $level->dropdowns }}</option>
+                                    @endforeach
                                 </select>
                                 </div>
                             </div>

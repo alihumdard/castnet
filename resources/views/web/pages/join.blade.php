@@ -173,7 +173,7 @@ background-size: cover;">
                                 <div class="form-group errorshow">
                                 <select class="form-select" name="about_organization">
                                     <option selected disabled>Please select a category that best describes your business</option>
-                                    @foreach ($businessDescription as $level)
+                                    @foreach ($businessDescription as $level) 
                                         <option value="{{ $level->dropdowns }}">{{ $level->dropdowns }}</option>
                                     @endforeach
                                 </select>
