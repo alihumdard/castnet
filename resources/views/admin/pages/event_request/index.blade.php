@@ -41,6 +41,41 @@
                     </div>
                 </div>
             </div>
+            <div class="container-fluid">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <a href="{{ route('event-request.create') }}" class="btn btn-sm btn-primary" style="float: right;">Add Dropdown</a>
+                        </div>
+                        <div class="card-body">
+                          <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Dropdown Value</th>
+                              <th>Dropdown Title</th>
+                              <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($eventCategory as $item)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->dropdowns }}</td>
+                                    <td>{{ $item->type }}</td>
+                                    <td>
+                                        <a href="{{ route('event-category.update',$item->id) }}"><i class="fa fa-edit"></i></a>
+                                        <button class="btn-outline-danger delete_btn" data-url="/admin/delete_event"
+                                            data-id="{{ $item->id }}" type="submit"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                          </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @stop

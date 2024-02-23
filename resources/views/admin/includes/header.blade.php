@@ -800,7 +800,7 @@
                     {{--  Advocacy Page End  --}}
 
                     {{--  EVENTS Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['myEvent*','event-calender*','international_events*','event-request*'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['myEvent*','event-calender*','international_events*','event-request*','event-category.update'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link"> <i class="nav-icon far fa-plus-square"></i>
                             <p> EVENTS <i class="fas fa-angle-left right"></i> </p>
                         </a>
@@ -855,7 +855,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs('event-request*')) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('event-request*','event-category.update')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> EVENT REQUEST <i class="fas fa-angle-left right"></i> </p>
                                 </a>
@@ -867,7 +867,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('event-request.section') }}" class="nav-link {{(request()->routeIs('event-request.section')) ? 'active' : ''}}">
+                                        <a href="{{ route('event-request.section') }}" class="nav-link {{(request()->routeIs('event-request.section','event-category.update','event-request.create')) ? 'active' : ''}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Section</p>
                                         </a>

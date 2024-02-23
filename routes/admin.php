@@ -146,7 +146,13 @@ Route::middleware('auth')->group(function() {
             
             Route::get('/event-request-banner', [EventRequestController::class, 'banner'])->name('event-request.banner');
             Route::get('/event-request-section', [EventRequestController::class, 'index'])->name('event-request.section');
+            Route::get('/event-request-create', [EventRequestController::class, 'create'])->name('event-request.create');
+            Route::post('/event-request-store', [EventRequestController::class, 'store'])->name('event-request.store');
+            Route::get('/event-category-update/{id}', [EventRequestController::class, 'categoryUpdate'])->name('event-category.update');
+           
             Route::put('/event-request-update/{id}', [EventRequestController::class, 'update'])->name('event-request.update');
+            Route::put('/event-category-updateion/{id}', [EventRequestController::class, 'updateCategory'])->name('category-form-setting');
+            Route::delete('/delete_event/{id}', [EventRequestController::class, 'deleteEvent'])->name('delete_event');
 
             Route::resource('international_events', InternationalEventsController::class);
             Route::get('/international_events-banner', [InternationalEventsController::class, 'banner'])->name('international_events.banner');
