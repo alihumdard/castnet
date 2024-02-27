@@ -77,14 +77,18 @@
                         </div>
                     </form>
                     <div id="dataShow">
-                        @foreach($items as $item)
+                        @forelse($items as $item)
                         <div class="event_box">
                             <h3 class="event_title">{{ $item->title }}</h3>
                             <p class="event_meta">{{ \Carbon\Carbon::parse($item->event_date)->format('d F Y') }} At {{ \Carbon\Carbon::parse($item->from_time)->format('h:i A') }} - {{ \Carbon\Carbon::parse($item->to_time)->format('h:i A') }} PT</p>
                             <p class="event_desc">{{ $item->description }}</p>
                             <a href="#" class="btn btn-primary">{{ $item->category == 1 ? 'Chamber Events' : 'Community Events' }}</a>
                         </div>
-                        @endforeach
+                        @empty
+                        <div class="event_box">
+                            <p class="text-center">No records were found.</p>
+                        </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
@@ -112,84 +116,84 @@
         </div>
     </section>
     <!-- Event CTA End -->
-    @stop
-    @push('scripts')
-    <script>
-        $("body").on("submit", "#search_keywords", function (e) {
-            e.preventDefault();
-            let title = $('#keyword').val();
-            let date = $('#date').val();
-            $.ajaxSetup({
-				headers: {
-					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-				}
-			});
-            $.ajax({
-                type: "post",
-                url: "{{ route('filter.keywords') }}",
-                data: {
-                    'title': title,
-                    'date': date,
-                },
-                dataType: "json",
-                beforeSend: function () {
-                    $('#overlay').show();
-                },
-                success: function (response) {
-                    $("#dataShow").html(response.data);
-                    $('#overlay').hide();
-                },
-            });
+@stop
+@push('scripts')
+<script>
+    $("body").on("submit", "#search_keywords", function (e) {
+        e.preventDefault();
+        let title = $('#keyword').val();
+        let date = $('#date').val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         });
+        $.ajax({
+            type: "post",
+            url: "{{ route('filter.keywords') }}",
+            data: {
+                'title': title,
+                'date': date,
+            },
+            dataType: "json",
+            beforeSend: function () {
+                $('#overlay').show();
+            },
+            success: function (response) {
+                $("#dataShow").html(response.data);
+                $('#overlay').hide();
+            },
+        });
+    });
 
-        function filterChange(){
-            var all = $('#all').is(':checked') ? $('#all').val() : '';
-            var chamber = $('#chamber').is(':checked') ? $('#chamber').val() : '';
-            var community = $('#community').is(':checked') ? $('#community').val() : '';
-            var location = $('#location').val();
-            $.ajax({
-                type: "get",
-                url: "{{ route('filter.search') }}",
-                data: {
-                    'all': all,
-                    'chamber': chamber,
-                    'community': community,
-                    'location': location,
-                },
-                dataType: "json",
-                beforeSend: function () {
-                    $('#overlay').show();
-                },
-                success: function (response) {
-                    $("#dataShow").html(response.data);
-                    $('#overlay').hide();
-                },
-            });
-        }
+    function filterChange(){
+        var all = $('#all').is(':checked') ? $('#all').val() : '';
+        var chamber = $('#chamber').is(':checked') ? $('#chamber').val() : '';
+        var community = $('#community').is(':checked') ? $('#community').val() : '';
+        var location = $('#location').val();
+        $.ajax({
+            type: "get",
+            url: "{{ route('filter.search') }}",
+            data: {
+                'all': all,
+                'chamber': chamber,
+                'community': community,
+                'location': location,
+            },
+            dataType: "json",
+            beforeSend: function () {
+                $('#overlay').show();
+            },
+            success: function (response) {
+                $("#dataShow").html(response.data);
+                $('#overlay').hide();
+            },
+        });
+    }
 
-        function searchFilter(){
-            var all = $('#all').is(':checked') ? $('#all').val() : '';
-            var chamber = $('#chamber').is(':checked') ? $('#chamber').val() : '';
-            var community = $('#community').is(':checked') ? $('#community').val() : '';
-            var location = $('#location').val();
-            $.ajax({
-                type: "get",
-                url: "{{ route('filter.search') }}",
-                data: {
-                    'all': all,
-                    'chamber': chamber,
-                    'community': community,
-                    'location': location,
-                },
-                dataType: "json",
-                beforeSend: function () {
-                    $('#overlay').show();
-                },
-                success: function (response) {
-                    $("#dataShow").html(response.data);
-                    $('#overlay').hide();
-                },
-            });
-        }
-    </script>
-    @endpush
+    function searchFilter(){
+        var all = $('#all').is(':checked') ? $('#all').val() : '';
+        var chamber = $('#chamber').is(':checked') ? $('#chamber').val() : '';
+        var community = $('#community').is(':checked') ? $('#community').val() : '';
+        var location = $('#location').val();
+        $.ajax({
+            type: "get",
+            url: "{{ route('filter.search') }}",
+            data: {
+                'all': all,
+                'chamber': chamber,
+                'community': community,
+                'location': location,
+            },
+            dataType: "json",
+            beforeSend: function () {
+                $('#overlay').show();
+            },
+            success: function (response) {
+                $("#dataShow").html(response.data);
+                $('#overlay').hide();
+            },
+        });
+    }
+</script>
+@endpush
