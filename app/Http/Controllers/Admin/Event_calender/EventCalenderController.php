@@ -42,6 +42,8 @@ class EventCalenderController extends Controller
             'event_date' => $request->event_date,
             'from_time' => $request->from_time,
             'to_time' => $request->to_time,
+            'category' => $request->category,
+            'location' => $request->location,
             'description' => $request->description,
         ];
         OurEventCalenderModel::create($event);
@@ -87,6 +89,8 @@ class EventCalenderController extends Controller
             'event_date' => $request->event_date,
             'from_time' => $request->from_time,
             'to_time' => $request->to_time,
+            'category' => $request->category,
+            'location' => $request->location,
             'description' => $request->description,
         ];
         $event->update($data);

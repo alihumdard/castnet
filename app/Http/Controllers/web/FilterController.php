@@ -28,4 +28,31 @@ class FilterController extends Controller
         $html = view('web.ajax_load.event_filter', compact('results'))->render();
         return response()->json(['data' => $html]);
     }
+
+    public function filterSearch(Request $request){
+        $query = OurEventCalenderModel::query();
+        if (isset($request->location)) {
+            $location = '%' . trim($request->location) . '%';
+            $query->whereRaw('LOWER(location) LIKE ?', [strtolower($location)]);
+        }
+        
+        if(empty($request->all)){
+            if(isset($request->chamber) && isset($request->community)){
+
+            }else{
+                if (isset($request->chamber)) {
+                    $query->where('category',1);
+                }
+        
+                if (isset($request->community)) {
+                    $query->where('category',2);
+                }
+            }
+        }
+        
+        $results = $query->get();
+        
+        $html = view('web.ajax_load.event_filter', compact('results'))->render();
+        return response()->json(['data' => $html]);
+    }
 }
