@@ -28,7 +28,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
                                             <label for="prin_title">Title</label>
-                                            <input type="text" name="title" class="form-control" placeholder="Enter Title...">
+                                            <input type="text" name="title" class="form-control" placeholder="Enter event title...">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -47,6 +47,22 @@
                                         <div class="form-group errorshow">
                                             <label for="prin_title">To Time</label>
                                             <input type="Time" name="to_time" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">Event Category</label>
+                                            <select name="category" id="" class="form-control">
+                                                <option value="" selected disabled>Select Category</option>
+                                                <option value="1">Chamber Events</option>
+                                                <option value="2">Community Events</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">Location</label>
+                                            <input type="text" name="location" class="form-control" placeholder="Enter events location...">
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
@@ -81,6 +97,12 @@
                 required: true,
             },
             to_time: {
+                required: true,
+            },
+            category: {
+                required: true,
+            },
+            location: {
                 required: true,
             },
         },
