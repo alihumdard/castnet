@@ -44,18 +44,18 @@
                                 </div>
                                 <h3 class="card-title">category</h3>
                                 <div class="form-check">
-                                    <input class="form-check-input" value="all" type="checkbox" value="" id="all" onchange="filterChange()">
+                                    <input class="form-check-input" value="all" type="radio" name="category" onclick="filterChange('all')">
                                     <label class="form-check-label" for="all"> All </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" value="chamber" type="checkbox" value="" id="chamber" onchange="filterChange()">
+                                    <input class="form-check-input" value="chamber" type="radio" name="category" onclick="filterChange('chamber')">
                                     <label class="form-check-label" for="chamber"> Chamber Events </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" value="community" type="checkbox" value="" id="community" onchange="filterChange()">
+                                    <input class="form-check-input" value="community" type="radio" name="category" onclick="filterChange('community')">
                                     <label class="form-check-label" for="community"> Community Events </label>
                                 </div>
-                                <button type="reset" class="btn btn-primary">reset filters</button>
+                                <button type="reset" onclick="filterReset()" class="btn btn-primary">reset filters</button>
                             </form>
                         </div>
                     </div>
@@ -146,18 +146,13 @@
         });
     });
 
-    function filterChange(){
-        var all = $('#all').is(':checked') ? $('#all').val() : '';
-        var chamber = $('#chamber').is(':checked') ? $('#chamber').val() : '';
-        var community = $('#community').is(':checked') ? $('#community').val() : '';
+    function filterChange(category){
         var location = $('#location').val();
         $.ajax({
             type: "get",
             url: "{{ route('filter.search') }}",
             data: {
-                'all': all,
-                'chamber': chamber,
-                'community': community,
+                'category': category,
                 'location': location,
             },
             dataType: "json",
@@ -172,19 +167,30 @@
     }
 
     function searchFilter(){
-        var all = $('#all').is(':checked') ? $('#all').val() : '';
-        var chamber = $('#chamber').is(':checked') ? $('#chamber').val() : '';
-        var community = $('#community').is(':checked') ? $('#community').val() : '';
+        var category = $('input[name="category"]:checked').val();
         var location = $('#location').val();
         $.ajax({
             type: "get",
             url: "{{ route('filter.search') }}",
             data: {
-                'all': all,
-                'chamber': chamber,
-                'community': community,
+                'category': category,
                 'location': location,
             },
+            dataType: "json",
+            beforeSend: function () {
+                $('#overlay').show();
+            },
+            success: function (response) {
+                $("#dataShow").html(response.data);
+                $('#overlay').hide();
+            },
+        });
+    }
+
+    function filterReset(){
+        $.ajax({
+            type: "get",
+            url: "{{ route('filter.search') }}",
             dataType: "json",
             beforeSend: function () {
                 $('#overlay').show();
