@@ -35,18 +35,13 @@ class FilterController extends Controller
             $location = '%' . trim($request->location) . '%';
             $query->whereRaw('LOWER(location) LIKE ?', [strtolower($location)]);
         }
-        
-        if(empty($request->all)){
-            if(isset($request->chamber) && isset($request->community)){
 
-            }else{
-                if (isset($request->chamber)) {
-                    $query->where('category',1);
-                }
-        
-                if (isset($request->community)) {
-                    $query->where('category',2);
-                }
+        if(isset($request->category)){
+            if($request->category=="chamber"){
+                $query->where('category',1);
+            }
+            if($request->category=="community"){
+                $query->where('category',2);
             }
         }
         
