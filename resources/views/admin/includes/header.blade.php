@@ -1110,7 +1110,7 @@
 
 
                     {{--  OUTREACH Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['outreach*','chad*','ghana*','southafrica*','zimbabwe*','cameroon*','drc*','cotedivoire*','usa*'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['outreach*','chad*','ghana*','southafrica*','zimbabwe*','cameroon*','drc*','cotedivoire*','usa*','india*','south_america*','uganda*'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link"> <i class="nav-icon far fa-plus-square"></i>
                             <p> OUTREACH <i class="fas fa-angle-left right"></i> </p>
                         </a>
@@ -1340,6 +1340,81 @@
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ route('usa.section2') }}" class="nav-link {{(request()->routeIs('usa.section2')) ? 'active' : ''}}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Section 2</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item {{ (request()->routeIs('india*')) ? 'menu-is-opening menu-open' : '' }}">
+                                <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
+                                    <p> INDIA <i class="fas fa-angle-left right"></i> </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ route('india.banner') }}" class="nav-link {{(request()->routeIs('india.banner')) ? 'active' : ''}}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Banner</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('india.section1') }}" class="nav-link {{(request()->routeIs('india.section1')) ? 'active' : ''}}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Section 1</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('india.section2') }}" class="nav-link {{(request()->routeIs('india.section2')) ? 'active' : ''}}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Section 2</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item {{ (request()->routeIs('south_america*')) ? 'menu-is-opening menu-open' : '' }}">
+                                <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
+                                    <p> SOUTH AMERICA <i class="fas fa-angle-left right"></i> </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ route('south_america.banner') }}" class="nav-link {{(request()->routeIs('south_america.banner')) ? 'active' : ''}}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Banner</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('south_america.section1') }}" class="nav-link {{(request()->routeIs('south_america.section1')) ? 'active' : ''}}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Section 1</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('south_america.section2') }}" class="nav-link {{(request()->routeIs('south_america.section2')) ? 'active' : ''}}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Section 2</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item {{ (request()->routeIs('uganda*')) ? 'menu-is-opening menu-open' : '' }}">
+                                <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
+                                    <p> UGANDA <i class="fas fa-angle-left right"></i> </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ route('uganda.banner') }}" class="nav-link {{(request()->routeIs('uganda.banner')) ? 'active' : ''}}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Banner</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('uganda.section1') }}" class="nav-link {{(request()->routeIs('uganda.section1')) ? 'active' : ''}}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Section 1</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('uganda.section2') }}" class="nav-link {{(request()->routeIs('uganda.section2')) ? 'active' : ''}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Section 2</p>
                                         </a>

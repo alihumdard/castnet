@@ -78,6 +78,18 @@ class OutreachController extends Controller
             $route = "southafrica.section1";
         }elseif($outreach->page=='southafrica' && $outreach->section==2){
             $route = "southafrica.section2";
+        }elseif($outreach->page=='india' && $outreach->section==1){
+            $route = "india.section1";
+        }elseif($outreach->page=='india' && $outreach->section==2){
+            $route = "india.section2";
+        }elseif($outreach->page=='south_america' && $outreach->section==1){
+            $route = "south_america.section1";
+        }elseif($outreach->page=='south_america' && $outreach->section==2){
+            $route = "south_america.section2";
+        }elseif($outreach->page=='uganda' && $outreach->section==1){
+            $route = "uganda.section1";
+        }elseif($outreach->page=='uganda' && $outreach->section==2){
+            $route = "uganda.section2";
         }
         if($request->image){
             $path = $outreach->image;

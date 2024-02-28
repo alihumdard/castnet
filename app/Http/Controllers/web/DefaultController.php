@@ -37,7 +37,7 @@ class DefaultController extends Controller
         Experience::create($experienceInfo);
         Cookie::queue('user_ip', $request->ip(), 30 * 24 * 60);
         $message = 'Experience added successfully';
-        return redirect()->back();
+        return redirect()->back()->with('success',$message);
     }
 
     public function jobApply(Request $request,$id){

@@ -364,49 +364,67 @@ class PagesController extends Controller
         $banner = PageBanner::where('type', 36)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'chad','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'chad','section'=>2])->first();
-        return view('web.pages.chad',get_defined_vars());
+        return view('web.pages.outreach_pages',get_defined_vars());
     }
     public function ghana(){
         $banner = PageBanner::where('type', 37)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'ghana','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'ghana','section'=>2])->first();
-        return view('web.pages.ghana',get_defined_vars());
+        return view('web.pages.outreach_pages',get_defined_vars());
     }
     public function south_africa(){
         $banner = PageBanner::where('type', 38)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'southafrica','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'southafrica','section'=>2])->first();
-        return view('web.pages.south_africa',get_defined_vars());
+        return view('web.pages.outreach_pages',get_defined_vars());
     }
     public function zimbabwe(){
         $banner = PageBanner::where('type', 39)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'zimbabwe','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'zimbabwe','section'=>2])->first();
-        return view('web.pages.zimbabwe',get_defined_vars());
+        return view('web.pages.outreach_pages',get_defined_vars());
     }
     public function cameroon(){
         $banner = PageBanner::where('type', 40)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'cameroon','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'cameroon','section'=>2])->first();
-        return view('web.pages.cameroon',get_defined_vars());
+        return view('web.pages.outreach_pages',get_defined_vars());
     }
     public function drc(){
         $banner = PageBanner::where('type', 41)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'drc','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'drc','section'=>2])->first();
-        return view('web.pages.drc',get_defined_vars());
+        return view('web.pages.outreach_pages',get_defined_vars());
     }
     public function cote_divoire(){
         $banner = PageBanner::where('type', 42)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'cotedivoire','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'cotedivoire','section'=>2])->first();
-        return view('web.pages.cote_divoire',get_defined_vars());
+        return view('web.pages.outreach_pages',get_defined_vars());
     }
     public function usa(){
         $banner = PageBanner::where('type', 43)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'usa','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'usa','section'=>2])->first();
-        return view('web.pages.usa',get_defined_vars());
+        return view('web.pages.outreach_pages',get_defined_vars());
+    }
+    public function india(){
+        $banner = PageBanner::where('type', 51)->first();
+        $section1 = OutreachCommonSectionModel::where(['page'=>'india','section'=>1])->first();
+        $section2 = OutreachCommonSectionModel::where(['page'=>'india','section'=>2])->first();
+        return view('web.pages.outreach_pages',get_defined_vars());
+    }
+    public function south_america(){
+        $banner = PageBanner::where('type', 52)->first();
+        $section1 = OutreachCommonSectionModel::where(['page'=>'south_america','section'=>1])->first();
+        $section2 = OutreachCommonSectionModel::where(['page'=>'south_america','section'=>2])->first();
+        return view('web.pages.outreach_pages',get_defined_vars());
+    }
+    public function uganda(){
+        $banner = PageBanner::where('type', 53)->first();
+        $section1 = OutreachCommonSectionModel::where(['page'=>'uganda','section'=>1])->first();
+        $section2 = OutreachCommonSectionModel::where(['page'=>'uganda','section'=>2])->first();
+        return view('web.pages.outreach_pages',get_defined_vars());
     }
     public function opportunities(){
         $banner = PageBanner::where('type',44)->first();
