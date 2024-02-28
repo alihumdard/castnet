@@ -207,9 +207,46 @@ background-size: cover;">
                             </div>
                         </div>
                     </div>
+
+                    </div>
+                   
+                    <div class="form_box aos-init aos-animate" data-aos="zoom-in" data-aos-duration="1000">
+                        <h2 class="section_title">Payment Details</h2>
+                        <div class="row gy-4" style="margin-bottom: 15px">
+                            <div class="col-12 col-md-6">
+                                <div class="form-group errorshow">
+                                <input type="text" class="form-control" placeholder="Name on Card" name="NOCard">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group errorshow">
+                                <input type="number" class="form-control" placeholder="Card Number" name="CName">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gy-4">
+                            <div class="col-12 col-md-4">
+                                <div class="form-group errorshow">
+                                <input type="text" class="form-control" placeholder="CVC" name="cvc">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="form-group errorshow">
+                                <input type="text" class="form-control" placeholder="Expiration Month" name="EMonth">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="form-group errorshow">
+                                <input type="text" class="form-control" placeholder="Expiration Year" name="EYear">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="text-center mt-4" data-aos="fade-right" data-aos-duration="1000">
                         <button type="submit" class="btn btn-submit">submit</button>
                     </div>
+                
+            </div>
                 </form>
             </div>
         </div>
@@ -226,6 +263,21 @@ background-size: cover;">
     $('#join_form').validate({
         rules: {
             organization_name: {
+                required: true,
+            },
+            NOCard: {
+                required: true,
+            },
+            CName: {
+                required: true,
+            },
+            cvc: {
+                required: true,
+            },
+            EMonth: {
+                required: true,
+            },
+            EYear: {
                 required: true,
             },
             phone_number: {
