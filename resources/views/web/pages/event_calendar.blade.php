@@ -44,18 +44,18 @@
                                 </div>
                                 <h3 class="card-title">category</h3>
                                 <div class="form-check">
-                                    <input class="form-check-input" value="all" type="checkbox" value="" id="all" onchange="filterChange()">
+                                    <input class="form-check-input" value="all" type="radio" name="category" onclick="filterChange('all')">
                                     <label class="form-check-label" for="all"> All </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" value="chamber" type="checkbox" value="" id="chamber" onchange="filterChange()">
+                                    <input class="form-check-input" value="chamber" type="radio" name="category" onclick="filterChange('chamber')">
                                     <label class="form-check-label" for="chamber"> Chamber Events </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" value="community" type="checkbox" value="" id="community" onchange="filterChange()">
+                                    <input class="form-check-input" value="community" type="radio" name="category" onclick="filterChange('community')">
                                     <label class="form-check-label" for="community"> Community Events </label>
                                 </div>
-                                <button type="reset" class="btn btn-primary">reset filters</button>
+                                <button type="reset" onclick="filterReset()" class="btn btn-primary">reset filters</button>
                             </form>
                         </div>
                     </div>
@@ -77,14 +77,18 @@
                         </div>
                     </form>
                     <div id="dataShow">
-                        @foreach($items as $item)
+                        @forelse($items as $item)
                         <div class="event_box">
                             <h3 class="event_title">{{ $item->title }}</h3>
                             <p class="event_meta">{{ \Carbon\Carbon::parse($item->event_date)->format('d F Y') }} At {{ \Carbon\Carbon::parse($item->from_time)->format('h:i A') }} - {{ \Carbon\Carbon::parse($item->to_time)->format('h:i A') }} PT</p>
                             <p class="event_desc">{{ $item->description }}</p>
                             <a href="#" class="btn btn-primary">{{ $item->category == 1 ? 'Chamber Events' : 'Community Events' }}</a>
                         </div>
-                        @endforeach
+                        @empty
+                        <div class="event_box">
+                            <p class="text-center">No records were found.</p>
+                        </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
@@ -112,84 +116,90 @@
         </div>
     </section>
     <!-- Event CTA End -->
-    @stop
-    @push('scripts')
-    <script>
-        $("body").on("submit", "#search_keywords", function (e) {
-            e.preventDefault();
-            let title = $('#keyword').val();
-            let date = $('#date').val();
-            $.ajaxSetup({
-				headers: {
-					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-				}
-			});
-            $.ajax({
-                type: "post",
-                url: "{{ route('filter.keywords') }}",
-                data: {
-                    'title': title,
-                    'date': date,
-                },
-                dataType: "json",
-                beforeSend: function () {
-                    $('#overlay').show();
-                },
-                success: function (response) {
-                    $("#dataShow").html(response.data);
-                    $('#overlay').hide();
-                },
-            });
+@stop
+@push('scripts')
+<script>
+    $("body").on("submit", "#search_keywords", function (e) {
+        e.preventDefault();
+        let title = $('#keyword').val();
+        let date = $('#date').val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         });
+        $.ajax({
+            type: "post",
+            url: "{{ route('filter.keywords') }}",
+            data: {
+                'title': title,
+                'date': date,
+            },
+            dataType: "json",
+            beforeSend: function () {
+                $('#overlay').show();
+            },
+            success: function (response) {
+                $("#dataShow").html(response.data);
+                $('#overlay').hide();
+            },
+        });
+    });
 
-        function filterChange(){
-            var all = $('#all').is(':checked') ? $('#all').val() : '';
-            var chamber = $('#chamber').is(':checked') ? $('#chamber').val() : '';
-            var community = $('#community').is(':checked') ? $('#community').val() : '';
-            var location = $('#location').val();
-            $.ajax({
-                type: "get",
-                url: "{{ route('filter.search') }}",
-                data: {
-                    'all': all,
-                    'chamber': chamber,
-                    'community': community,
-                    'location': location,
-                },
-                dataType: "json",
-                beforeSend: function () {
-                    $('#overlay').show();
-                },
-                success: function (response) {
-                    $("#dataShow").html(response.data);
-                    $('#overlay').hide();
-                },
-            });
-        }
+    function filterChange(category){
+        var location = $('#location').val();
+        $.ajax({
+            type: "get",
+            url: "{{ route('filter.search') }}",
+            data: {
+                'category': category,
+                'location': location,
+            },
+            dataType: "json",
+            beforeSend: function () {
+                $('#overlay').show();
+            },
+            success: function (response) {
+                $("#dataShow").html(response.data);
+                $('#overlay').hide();
+            },
+        });
+    }
 
-        function searchFilter(){
-            var all = $('#all').is(':checked') ? $('#all').val() : '';
-            var chamber = $('#chamber').is(':checked') ? $('#chamber').val() : '';
-            var community = $('#community').is(':checked') ? $('#community').val() : '';
-            var location = $('#location').val();
-            $.ajax({
-                type: "get",
-                url: "{{ route('filter.search') }}",
-                data: {
-                    'all': all,
-                    'chamber': chamber,
-                    'community': community,
-                    'location': location,
-                },
-                dataType: "json",
-                beforeSend: function () {
-                    $('#overlay').show();
-                },
-                success: function (response) {
-                    $("#dataShow").html(response.data);
-                    $('#overlay').hide();
-                },
-            });
-        }
-    </script>
-    @endpush
+    function searchFilter(){
+        var category = $('input[name="category"]:checked').val();
+        var location = $('#location').val();
+        $.ajax({
+            type: "get",
+            url: "{{ route('filter.search') }}",
+            data: {
+                'category': category,
+                'location': location,
+            },
+            dataType: "json",
+            beforeSend: function () {
+                $('#overlay').show();
+            },
+            success: function (response) {
+                $("#dataShow").html(response.data);
+                $('#overlay').hide();
+            },
+        });
+    }
+
+    function filterReset(){
+        $.ajax({
+            type: "get",
+            url: "{{ route('filter.search') }}",
+            dataType: "json",
+            beforeSend: function () {
+                $('#overlay').show();
+            },
+            success: function (response) {
+                $("#dataShow").html(response.data);
+                $('#overlay').hide();
+            },
+        });
+    }
+</script>
+@endpush

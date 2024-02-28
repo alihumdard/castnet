@@ -60,8 +60,6 @@
     @endphp
  
 
-
-
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg bg-white">
     <div class="container">
@@ -76,7 +74,7 @@
                 <li class="nav-item"><a class="nav-link active" href="{{ route('web.index') }}">home</a></li>
                 <li class="nav-item dropdown-link">
                     <a class="nav-link" href="{{ route('web.about') }}">about us</a>
-                    <img src="/assets/web/images/angle_down.png" alt="angle_down" class="img-icon">
+                    <img src="{{ asset('assets/web/images/angle_down.png') }}" alt="angle_down" class="img-icon">
                     <ul class="dropdown-content">
                         <li><a href="{{ route('web.who-we-are') }}">who we are</a></li>
                         <li><a href="{{ route('web.team') }}">team</a></li>
@@ -85,7 +83,7 @@
                 </li>
                 <li class="nav-item dropdown-link">
                     <a class="nav-link" href="{{ route('web.membership') }}">membership</a>
-                    <img src="/assets/web/images/angle_down.png" alt="angle_down" class="img-icon">
+                    <img src="{{ asset('assets/web/images/angle_down.png') }}" alt="angle_down" class="img-icon">
                     <ul class="dropdown-content">
                         <li><a href="{{ route('web.join') }}">join</a></li>
                         <li><a href="{{ route('web.benefits') }}">benefits</a></li>
@@ -96,7 +94,7 @@
                 </li>
                 <li class="nav-item dropdown-link">
                     <a class="nav-link" href="{{ route('web.sectors') }}">sectors</a>
-                    <img src="/assets/web/images/angle_down.png" alt="angle_down" class="img-icon">
+                    <img src="{{ asset('assets/web/images/angle_down.png') }}" alt="angle_down" class="img-icon">
                     <ul class="dropdown-content">
                         <li><a href="{{ route('web.construction') }}">construction</a></li>
                         <li><a href="{{ route('web.agriculture') }}">agriculture</a></li>
@@ -109,7 +107,7 @@
                 </li>
                 <li class="nav-item dropdown-link">
                     <a class="nav-link" href="{{ route('web.advocacy') }}">advocacy</a>
-                    <img src="/assets/web/images/angle_down.png" alt="angle_down" class="img-icon">
+                    <img src="{{ asset('assets/web/images/angle_down.png') }}" alt="angle_down" class="img-icon">
                     <ul class="dropdown-content">
                         <li><a href="{{ route('web.small_businesses') }}">small businesses</a></li>
                         <li><a href="{{ route('web.women') }}">women</a></li>
@@ -119,7 +117,7 @@
                 </li>
                 <li class="nav-item dropdown-link">
                     <a class="nav-link" href="{{ route('web.events') }}">events</a>
-                    <img src="/assets/web/images/angle_down.png" alt="angle_down" class="img-icon">
+                    <img src="{{ asset('assets/web/images/angle_down.png') }}" alt="angle_down" class="img-icon">
                     <ul class="dropdown-content">
                         <li><a href="{{ route('web.event_calendar') }}">event calendar</a></li>
                         <li><a href="{{ route('web.event_request') }}">event request</a></li>
@@ -131,7 +129,7 @@
                 </li>
                 <li class="nav-item">
                     <a data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasExample">
-                        <img src="assets/web/images/icon_menu.png" alt="menu" class="img-menu">
+                        <img src="{{ asset('assets/web/images/icon_menu.png') }}" alt="menu" class="img-menu">
                     </a>
                 </li>
             </ul>
@@ -146,7 +144,7 @@
         <ul class="ps-0">
             <li class="offcanvas-menu">
                 <a href="{{ route('web.financial') }}" class="link">financial</a>
-                <img src="/assets/web/images/angle_down.png" alt="icon" class="img-icon">
+                <img src="{{ asset('assets/web/images/angle_down.png') }}" alt="icon" class="img-icon">
                 <ul class="sub_menu">
                     <li><a href="{{ route('web.grants') }}">grants</a></li>
                     <li><a href="{{ route('web.funding') }}">funding</a></li>
@@ -156,7 +154,7 @@
         <ul class="ps-0">
             <li class="offcanvas-menu">
                 <a href="{{ route('web.partners_sponsors') }}" class="link">partners / sponsors</a>
-                <img src="/assets/web/images/angle_down.png" alt="icon" class="img-icon">
+                <img src="{{ asset('assets/web/images/angle_down.png') }}" alt="icon" class="img-icon">
                 <ul class="sub_menu">
                     <li><a href="{{ route('web.become_partner') }}">become a partner</a></li>
                     <li><a href="{{ route('web.become_sponsor') }}">become a sponsor</a></li>
@@ -166,35 +164,38 @@
         <ul class="ps-0">
             <li class="offcanvas-menu">
                 <a href="{{ route('web.outreach') }}" class="link">outreach</a>
-                <img src="/assets/web/images/angle_down.png" alt="icon" class="img-icon">
+                <img src="{{ asset('assets/web/images/angle_down.png') }}" alt="icon" class="img-icon">
                 <ul class="sub_menu">
                     <li><a href="{{ route('web.chad') }}">chad</a></li>
-                            <li><a href="{{ route('web.ghana') }}">ghana</a></li>
-                            <li><a href="{{ route('web.south_africa') }}">south africa</a></li>
-                            <li><a href="{{ route('web.zimbabwe') }}">zimbabwe</a></li>
-                            <li><a href="{{ route('web.cameroon') }}">cameroon</a></li>
-                            <li><a href="{{ route('web.drc') }}">drc</a></li>
-                            <li><a href="{{ route('web.cote_divoire') }}">cote d'ivoire</a></li>
-                            <li><a href="{{ route('web.usa') }}">usa</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="{{ route('web.ghana') }}">ghana</a></li>
+                    <li><a href="{{ route('web.south_africa') }}">south africa</a></li>
+                    <li><a href="{{ route('web.zimbabwe') }}">zimbabwe</a></li>
+                    <li><a href="{{ route('web.cameroon') }}">cameroon</a></li>
+                    <li><a href="{{ route('web.drc') }}">drc</a></li>
+                    <li><a href="{{ route('web.cote_divoire') }}">cote d'ivoire</a></li>
+                    <li><a href="{{ route('web.usa') }}">usa</a></li>
+                    <li><a href="{{ route('web.india') }}">india</a></li>
+                    <li><a href="{{ route('web.south_america') }}">south america</a></li>
+                    <li><a href="{{ route('web.uganda') }}">uganda</a></li>
                 </ul>
-                <ul class="ps-0">
-                    <li class="offcanvas-menu">
-                        <a href="{{ route('web.opportunities') }}" class="link">opportunities</a>
-                        <img src="/assets/web/images/angle_down.png" alt="icon" class="img-icon">
-                        <ul class="sub_menu">
-                            <li><a href="{{ route('web.opportunities_agriculture') }}">agriculture</a></li>
-                            <li><a href="{{ route('web.opportunities_construction') }}">construction</a></li>
-                            <li><a href="{{ route('web.mining') }}">mining</a></li>
-                            <li><a href="{{ route('web.rfx') }}">rfx</a></li>
-                        </ul>
-                    </li>
+            </li>
+        </ul>
+        <ul class="ps-0">
+            <li class="offcanvas-menu">
+                <a href="{{ route('web.opportunities') }}" class="link">opportunities</a>
+                <img src="{{ asset('assets/web/images/angle_down.png') }}" alt="icon" class="img-icon">
+                <ul class="sub_menu">
+                    <li><a href="{{ route('web.opportunities_agriculture') }}">agriculture</a></li>
+                    <li><a href="{{ route('web.opportunities_construction') }}">construction</a></li>
+                    <li><a href="{{ route('web.mining') }}">mining</a></li>
+                    <li><a href="{{ route('web.rfx') }}">rfx</a></li>
                 </ul>
-                <ul class="ps-0">
+            </li>
+        </ul>
+        <ul class="ps-0">
             <li class="offcanvas-menu">
                 <a href="{{ route('web.careers') }}"class="link">careers</a>
-                <img src="/assets/web/images/angle_down.png" alt="icon" class="img-icon">
+                <img src="{{ asset('assets/web/images/angle_down.png') }}" alt="icon" class="img-icon">
                 <ul class="sub_menu">
                     <li><a href="{{ route('web.job_openings') }}">job openings</a></li>
                 </ul>
