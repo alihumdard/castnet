@@ -1984,6 +1984,7 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
 
 .section_team .img-height {
     min-height: 25rem;
+    max-height: 25rem;
     object-fit: cover;
 }
 
