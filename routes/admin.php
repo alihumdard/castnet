@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\Sectors\SectorsCommonSection1Controller;
 use App\Http\Controllers\Admin\Sectors\SectorsCommonSection2Controller;
 use App\Http\Controllers\Admin\Event_calender\EventCalenderController;
 use App\Http\Controllers\Admin\Event_request\EventRequestController;
+use App\Http\Controllers\Admin\South_america\SouthAmericaController;
 use App\Http\Controllers\Admin\HomePage\HomePageSection1Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageSection2Controller;
 use App\Http\Controllers\Admin\HomePage\HomePageSection3Controller;
@@ -52,6 +53,8 @@ use App\Http\Controllers\Admin\Careers\CareersController;
 use App\Http\Controllers\Admin\Funding\FundingController;
 use App\Http\Controllers\Admin\Sectors\SectorController;
 use App\Http\Controllers\Admin\Grants\GrantsController;
+use App\Http\Controllers\Admin\Uganda\UgandaController;
+use App\Http\Controllers\Admin\India\IndiaController;
 use App\Http\Controllers\Admin\Oppor\OpporController;
 use App\Http\Controllers\Admin\Ghana\GhanaController;
 use App\Http\Controllers\Admin\Women\WomenController;
@@ -353,6 +356,24 @@ Route::middleware('auth')->group(function() {
             Route::get('/usa-section1', [UsaController::class, 'section1'])->name('usa.section1');
             Route::get('/usa-section2', [UsaController::class, 'section2'])->name('usa.section2');
             // ---- USA page routes end ----
+
+            // ---- India page routes start ----
+            Route::get('/india-banner', [IndiaController::class, 'banner'])->name('india.banner');
+            Route::get('/india-section1', [IndiaController::class, 'section1'])->name('india.section1');
+            Route::get('/india-section2', [IndiaController::class, 'section2'])->name('india.section2');
+            // ---- India page routes end ----
+
+            // ---- South america page routes start ----
+            Route::get('/south_america-banner', [SouthAmericaController::class, 'banner'])->name('south_america.banner');
+            Route::get('/south_america-section1', [SouthAmericaController::class, 'section1'])->name('south_america.section1');
+            Route::get('/south_america-section2', [SouthAmericaController::class, 'section2'])->name('south_america.section2');
+            // ---- South america page routes end ----
+
+            // ---- Uganda page routes start ----
+            Route::get('/uganda-banner', [UgandaController::class, 'banner'])->name('uganda.banner');
+            Route::get('/uganda-section1', [UgandaController::class, 'section1'])->name('uganda.section1');
+            Route::get('/uganda-section2', [UgandaController::class, 'section2'])->name('uganda.section2');
+            // ---- Uganda page routes end ----
 
             // ---- Partners Sponsor page routes start ----
             Route::resource('partnersponsor', PartnerSponsorController::class);

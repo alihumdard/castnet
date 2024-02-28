@@ -65,6 +65,9 @@ Route::middleware('admin-not-access')->group(function() {
     Route::get('/drc', [PagesController::class, 'drc'])->name('web.drc');
     Route::get('/cote_divoire', [PagesController::class, 'cote_divoire'])->name('web.cote_divoire');
     Route::get('/usa', [PagesController::class, 'usa'])->name('web.usa');
+    Route::get('/india', [PagesController::class, 'india'])->name('web.india');
+    Route::get('/south_america', [PagesController::class, 'south_america'])->name('web.south_america');
+    Route::get('/uganda', [PagesController::class, 'uganda'])->name('web.uganda');
     Route::get('/opportunities', [PagesController::class, 'opportunities'])->name('web.opportunities');
     Route::get('/opportunities_agriculture', [PagesController::class, 'opportunities_agriculture'])->name('web.opportunities_agriculture');
     Route::get('/opportunities_construction', [PagesController::class, 'opportunities_construction'])->name('web.opportunities_construction');
