@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\evaluation;
+namespace App\Http\Controllers\Admin\Evaluation;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
