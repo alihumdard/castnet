@@ -58,6 +58,11 @@
                           </div>
                         <hr>
                           <div class="row">
+                            <div class="col-sm-2"><h6>EVENT REQUEST TYPE:</h6></div>
+                            <div class="col-sm-10"><p>{{ $eventInfo->event_req_type }}</p></div>
+                          </div>
+                        <hr>
+                          <div class="row">
                             <div class="col-sm-2"><h6>Fee:</h6></div>
                             <div class="col-sm-10"><p>{{ $eventInfo->event_fee }}</p></div>
                           </div>
