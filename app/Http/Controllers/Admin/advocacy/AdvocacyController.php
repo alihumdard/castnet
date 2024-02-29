@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\advocacy;
+namespace App\Http\Controllers\Admin\Advocacy;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;

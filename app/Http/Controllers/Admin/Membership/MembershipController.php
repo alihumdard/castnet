@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\membership;
+namespace App\Http\Controllers\Admin\Membership;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;

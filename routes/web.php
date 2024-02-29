@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\web\FeedbackController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Web\Payment\MemberPaymentController;
+use App\Http\Controllers\Web\Payment\EventPaymentController;
+use App\Http\Controllers\Web\FeedbackController;
 use App\Http\Controllers\Web\DefaultController;
 use App\Http\Controllers\Web\FilterController;
 use App\Http\Controllers\Web\PagesController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,6 +87,11 @@ Route::middleware('admin-not-access')->group(function() {
     Route::post('/eventRequest', [PagesController::class, 'event_request_form'])->name('eventrequest');
     Route::post('/welcome-modal', [DefaultController::class, 'weclome'])->name('welcom.modal');
     Route::post('/job-application/{id}', [DefaultController::class, 'jobApply'])->name('job.application');
+
+    /////--------* Stripe Payment Integration Routes *--------/////
+    Route::post('charge-member', [MemberPaymentController::class,'payment'])->name('charge.member');
+    Route::post('charge-event', [EventPaymentController::class,'payment'])->name('charge.event');
+    //////------ End Stripe Payment Integration Routes ------/////
 });
 include __DIR__.'/admin.php';
 
