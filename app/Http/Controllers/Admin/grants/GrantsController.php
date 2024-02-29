@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\grants;
+namespace App\Http\Controllers\Admin\Grants;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

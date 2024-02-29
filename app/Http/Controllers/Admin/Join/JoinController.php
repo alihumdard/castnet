@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\join;
+namespace App\Http\Controllers\Admin\Join;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
