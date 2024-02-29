@@ -58,6 +58,7 @@ use App\Models\ContactUs;
 use App\Models\OurTeam;
 use App\Models\Banner;
 use App\Models\CompanyInfoFormSetting;
+use App\Models\Event_Request_Type;
 use App\Models\MyBlog;
 use App\Models\User;
 use App\Models\Job;
@@ -303,6 +304,11 @@ class PagesController extends Controller
         $banner = PageBanner::where('type', 26)->first();
         $title = PartnerSponsorPageTitleModel::where(['page'=>'event_request','section'=>1])->first();
         $eventCategory = CompanyInfoFormSetting::where('type', 'event_category')->get();
+        $eventReqType = Event_Request_Type::first();
+        $secondEventReqType = Event_Request_Type::skip(1)->first();
+
+        // dd($eventReqType);
+            
         return view('web.pages.event_request',get_defined_vars());
     }
     public function event_calendar(){
