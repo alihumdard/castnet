@@ -157,6 +157,38 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form_box aos-init aos-animate" data-aos="zoom-in" data-aos-duration="1000">
+                                <h2 class="section_title" style="margin-bottom: 15px">Payment Details</h2>
+                                <div class="row gy-4" style="margin-bottom: 15px">
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group errorshow">
+                                        <input type="text" class="form-control" placeholder="Name on Card" name="NOCard">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group errorshow">
+                                        <input type="number" class="form-control" placeholder="Card Number" name="CName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row gy-4">
+                                    <div class="col-12 col-md-4">
+                                        <div class="form-group errorshow">
+                                        <input type="text" class="form-control" placeholder="CVC" name="cvc">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="form-group errorshow">
+                                        <input type="text" class="form-control" placeholder="Expiration Month" name="EMonth">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="form-group errorshow">
+                                        <input type="text" class="form-control" placeholder="Expiration Year" name="EYear">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-12 text-center">
                                 <button type="submit" class="btn btn-primary">submit</button>
                             </div>
@@ -176,6 +208,21 @@
     $('#event_request').validate({
         rules: {
             title: {
+                required: true,
+            },
+            NOCard: {
+                required: true,
+            },
+            CName: {
+                required: true,
+            },
+            cvc: {
+                required: true,
+            },
+            EMonth: {
+                required: true,
+            },
+            EYear: {
                 required: true,
             },
             event_category: {
