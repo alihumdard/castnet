@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\CompanyInfoFormSetting;
 use App\Models\CompanyInformation;
 use App\Models\EventRequestForm;
 use App\Models\Experience;

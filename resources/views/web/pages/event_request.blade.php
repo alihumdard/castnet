@@ -81,6 +81,22 @@
                                 <input type="text" class="form-control" name="endTime" placeholder="End Time" onfocus="(this.type='time')" onblur="(this.type='text')">
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="checkbox-border">
+                                    <h3 class="checkbox-title">event request type</h3>
+                                    <div class="form-group errorshow">
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" id="free" name="event_req" value="GLOBAL EVENT CALENDER REQUEST" checked>
+                                        <label class="form-check-label" for="free">GLOBAL EVENT CALENDER REQUEST</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" id="fee" name="event_req" value="COMMUNITY CALENDER REQUEST">
+                                        <label class="form-check-label" for="fee">COMMUNITY CALENDER REQUEST</label>
+                                    </div>
+
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-md-12 selectfree">
                                 <div class="checkbox-border">
                                     <h3 class="checkbox-title">event cost</h3>

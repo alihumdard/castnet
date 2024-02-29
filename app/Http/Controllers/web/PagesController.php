@@ -242,6 +242,7 @@ class PagesController extends Controller
             'end_date' => $request->endDate,
             'start_time' => $request->startTime,
             'end_time' => $request->endTime,
+            'event_req_type' => $request->event_req,
             'event_cost' => $request->event_cost,
             'event_fee' => $request->fee,
             'event_contact_FN' => $request->firstName,
@@ -252,7 +253,9 @@ class PagesController extends Controller
             'event' => $request->event,
         ];
 
+
         EventRequestForm::create($event);
+
         $message = 'Event Request added successfully';
         return redirect()->back()->with('success', $message);
     }
