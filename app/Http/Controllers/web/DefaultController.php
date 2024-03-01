@@ -44,6 +44,7 @@ class DefaultController extends Controller
 
     public function satisfiedMembers(Request $request){
         $memberExperiecne = [
+            'user_id' => Auth::user()->id,
             'feedback' => $request->membership_experience_satisfaction,
             'member_events' => $request->member_events_participation,
             'feedback_responses' => $request->overall_experience,
@@ -53,6 +54,7 @@ class DefaultController extends Controller
         $message = 'Experience added successfully';
         return redirect()->back()->with('success',$message);
     }
+
     public function jobApply(Request $request,$id){
         $validator = Validator::make($request->all(), [
             'cv' => 'required|file|mimes:pdf,doc,docx,txt,rtf,html,jpg,png,odt,tex|max:2048',
