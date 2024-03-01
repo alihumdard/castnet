@@ -58,6 +58,7 @@ use App\Models\ContactUs;
 use App\Models\OurTeam;
 use App\Models\Banner;
 use App\Models\CompanyInfoFormSetting;
+use App\Models\Event_Request_Type;
 use App\Models\MyBlog;
 use App\Models\User;
 use App\Models\Job;
@@ -242,6 +243,7 @@ class PagesController extends Controller
             'end_date' => $request->endDate,
             'start_time' => $request->startTime,
             'end_time' => $request->endTime,
+            'event_req_type' => $request->event_req,
             'event_cost' => $request->event_cost,
             'event_fee' => $request->fee,
             'event_contact_FN' => $request->firstName,
@@ -252,7 +254,9 @@ class PagesController extends Controller
             'event' => $request->event,
         ];
 
+
         EventRequestForm::create($event);
+
         $message = 'Event Request added successfully';
         return redirect()->back()->with('success', $message);
     }
@@ -273,6 +277,10 @@ class PagesController extends Controller
         $banner = PageBanner::where('type', 26)->first();
         $title = PartnerSponsorPageTitleModel::where(['page'=>'event_request','section'=>1])->first();
         $eventCategory = CompanyInfoFormSetting::where('type', 'event_category')->get();
+        $eventReqType = Event_Request_Type::first();
+        $secondEventReqType = Event_Request_Type::skip(1)->first();
+
+            
         return view('web.pages.event_request',get_defined_vars());
     }
     public function event_calendar(){

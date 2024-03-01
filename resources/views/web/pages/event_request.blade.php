@@ -1,5 +1,6 @@
 @extends('web.layouts.default')
 @section('content')
+
 <style>
     .fee{
         display:none;
@@ -81,6 +82,22 @@
                                 <input type="text" class="form-control" name="endTime" placeholder="End Time" onfocus="(this.type='time')" onblur="(this.type='text')">
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="checkbox-border">
+                                    <h3 class="checkbox-title">event request type</h3>
+                                    <div class="form-group errorshow">
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" onclick="setFree()" name="event_req" value="{{ $eventReqType->event_req_type  }}" checked>
+                                        <label class="form-check-label" for="eventReqType1">{{ $eventReqType->event_req_type }}</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" onclick="setFree1()" name="event_req" value="{{ $secondEventReqType->event_req_type }}">
+                                        <label class="form-check-label" for="eventReqType2">{{ $secondEventReqType->event_req_type }}</label>
+                                    </div>
+
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-md-12 selectfree">
                                 <div class="checkbox-border">
                                     <h3 class="checkbox-title">event cost</h3>
@@ -99,7 +116,7 @@
                             </div>
                             <div class="col-md-6 fee">
                                 <div class="form-group errorshow">
-                                <input type="text" name="fee" class="form-control" placeholder="Fee">
+                                    <input type="text" name="fee" class="form-control" placeholder="Fee" disabled value="${{ $eventReqType->fee }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -280,7 +297,14 @@
             $(element).removeClass('is-invalid');
         }
     });
-
+    function setFree1(){
+        var feeInput = document.querySelector('input[name="fee"]');
+        feeInput.value = '${{$secondEventReqType->fee}}';
+    }
+    function setFree(){
+        var feeInput = document.querySelector('input[name="fee"]');
+        feeInput.value = '${{$eventReqType->fee}}';
+    }
     function selectfee(){
         $('.radioinline').hide();
         $('.fee').show();

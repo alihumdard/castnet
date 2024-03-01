@@ -1,6 +1,7 @@
 @extends('admin.layouts.default')
 @section('title','Event Request')
 @section('content')
+
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
@@ -30,6 +31,35 @@
                                         <div class="form-group errorshow">
                                             <label for="prin_title">Section Title</label>
                                             <input type="text" name="title" class="form-control" placeholder="Enter section title..." value="{{ $title->title }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-sm-6">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">EVENT REQUEST TYPE</label>
+                                            <input type="text" name="eventreq1" class="form-control" placeholder="Enter Type..." value="{{ $firstEventReq->event_req_type }}">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">FEE</label>
+                                            <input type="text" name="eventreq1fee" class="form-control" placeholder="Enter Fee..." value="{{ $firstEventReq->fee }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-sm-6">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">EVENT REQUEST TYPE</label>
+                                            <input type="text" name="eventreq2" class="form-control" placeholder="Enter Event Type..." value="{{ $secondEventReq->event_req_type }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">FEE</label>
+                                            <input type="text" name="eventreq2fee" class="form-control" placeholder="Enter Fee..." value="{{ $secondEventReq->fee }}">
                                         </div>
                                     </div>
                                 </div>

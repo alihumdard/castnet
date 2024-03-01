@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PageBanner;
 use App\Models\CompanyInfoFormSetting;
+use App\Models\Event_Request_Type;
 use App\Models\PartnerSponsorPageTitleModel;
 class EventRequestController extends Controller
 {
@@ -23,8 +24,10 @@ class EventRequestController extends Controller
     public function index()
     {
         $title = PartnerSponsorPageTitleModel::where(['page'=>'event_request','section'=>1])->first();
+        $firstEventReq = Event_Request_Type::first();
+        $secondEventReq = Event_Request_Type::skip(1)->first();
         $eventCategory = CompanyInfoFormSetting::where('type', 'event_category')->get();
-        return view('admin.pages.event_request.index',compact('title','eventCategory'));
+        return view('admin.pages.event_request.index',compact('title','eventCategory','firstEventReq','secondEventReq'));
     }
 
     /**
@@ -93,6 +96,19 @@ class EventRequestController extends Controller
         $data = [
             'title' => $request->title,
         ];
+        $firstEventReq = Event_Request_Type::first();
+        $secondEventReq = Event_Request_Type::skip(1)->first();
+
+        $firstEventReq->update([
+            'event_req_type' => $request->eventreq1,
+            'fee' => $request->eventreq1fee,
+        ]);
+
+
+        $secondEventReq->update([
+            'event_req_type' => $request->eventreq2,
+            'fee' => $request->eventreq2fee,
+        ]);
         $title->update($data);
 
         return redirect()->route('event_request.index')->with('success', "Title Updated Successfully");
