@@ -32,7 +32,6 @@ use App\Models\HomeSectionFeature;
 use App\Models\InternationalEvent;
 use App\Models\HomeSectionEvent;
 use App\Models\Membership_Level;
-use App\Models\EventRequestForm;
 use App\Models\ProgramSection1;
 use App\Models\ProgramSection2;
 use App\Models\ContactUsModel;
@@ -234,32 +233,6 @@ class PagesController extends Controller
         $widget = CommonEventSection::first();
         return view('web.pages.international_events',get_defined_vars());
     }
-    public function event_request_form(Request $request){
-        $event = [
-            'event_title' => $request->title,
-            'event_category' => $request->event_category,
-            'event_info' => $request->event_info,
-            'start_date' => $request->startDate,
-            'end_date' => $request->endDate,
-            'start_time' => $request->startTime,
-            'end_time' => $request->endTime,
-            'event_req_type' => $request->event_req,
-            'event_cost' => $request->event_cost,
-            'event_fee' => $request->fee,
-            'event_contact_FN' => $request->firstName,
-            'event_contact_LN' => $request->lastName,
-            'event_contact_email' => $request->email,
-            'telephone' => $request->telephone,
-            'eventLocation' => $request->eventLocation,
-            'event' => $request->event,
-        ];
-
-
-        EventRequestForm::create($event);
-
-        $message = 'Event Request added successfully';
-        return redirect()->back()->with('success', $message);
-    }
     public function contactUsData(Request $request){
         $contactUs = [
             'first_name' => $request->fName,
@@ -273,16 +246,24 @@ class PagesController extends Controller
         $message = 'Event Request added successfully';
         return redirect()->back()->with('message', $message);
     }
+    
     public function event_request(){
-        $banner = PageBanner::where('type', 26)->first();
-        $title = PartnerSponsorPageTitleModel::where(['page'=>'event_request','section'=>1])->first();
-        $eventCategory = CompanyInfoFormSetting::where('type', 'event_category')->get();
-        $eventReqType = Event_Request_Type::first();
-        $secondEventReqType = Event_Request_Type::skip(1)->first();
-
-            
-        return view('web.pages.event_request',get_defined_vars());
+        if (auth()->check()) {
+            if (auth()->user()->member == 1) {
+                $banner = PageBanner::where('type', 26)->first();
+                $title = PartnerSponsorPageTitleModel::where(['page' => 'event_request', 'section' => 1])->first();
+                $eventCategory = CompanyInfoFormSetting::where('type', 'event_category')->get();
+                $eventReqType = Event_Request_Type::first();
+                $secondEventReqType = Event_Request_Type::skip(1)->first();
+                return view('web.pages.event_request', get_defined_vars());
+            } else {
+                return redirect()->back()->with('error', 'Access to this page is restricted to members only.');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Access to this page is restricted to members only.');
+        }
     }
+
     public function event_calendar(){
         $banner = PageBanner::where('type', 25)->first();
         $items = OurEventCalenderModel::get();
