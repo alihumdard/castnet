@@ -31,8 +31,21 @@ class UsersDataController extends Controller
     }
     public function membersData(){
         // type 3= members and type 2 = sponsors
+        
+        $data = CompanyInformation::with('user')->get();
+        $membr = [];
+
+        foreach ($data as $companyInformation) {
+            $companyName = $companyInformation->organization_name;
+        
+            if ($companyInformation->user && $companyInformation->user->member == 1) {
+                $membr[] = $companyInformation;
+            }
+        }
+        
+        
         $members = User::where('type', 3)->get();
-        return view('admin.pages.users.members.index',compact('members'));
+        return view('admin.pages.users.members.index',compact('members','membr'));
     }
     public function sponsorsData(){
         // type 3= members and type 2 = sponsors
