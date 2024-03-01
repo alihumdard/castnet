@@ -39,7 +39,8 @@
         </div>
     </section>
     <!-- Evaluation End -->
-
+    @auth
+    @if(Auth::user()->member==1)
     <!-- Evaluation Form Start -->
     <section class="evaluation_form">
         <div class="container">
@@ -86,7 +87,8 @@
         </div>
     </section>
     <!-- Evaluation Form End -->
-
+    @endif
+    @endauth
     <!-- Accessibility Start -->
     <section class="section_block accessibility">
         <div class="container">

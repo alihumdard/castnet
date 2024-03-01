@@ -25,10 +25,11 @@
             <div class="col-md-8 mx-auto">
                 <div class="login_form" data-aos="zoom-in" data-aos-duration="1000">
                     <h2 class="form_title">Log in to your account</h2>
-                    <form action="#">
-                        <input type="email" class="form-control" placeholder="Email">
+                    <form action="{{ route('login') }}" method="post" id="login">
+                        @csrf
+                        <input type="email" class="form-control" name="email" placeholder="Email">
                         <div class="input-group mt-3">
-                            <input type="password" id="passinput" class="form-control border-end-0" placeholder="Password">
+                            <input type="password" name="password" id="passinput" class="form-control border-end-0" placeholder="Password">
                             <span class="input-group-text" onclick="showPassword()">
                                 <img src="{{asset('assets/web/images/icon_eye.png')}}" alt="eye">
                             </span>
@@ -55,5 +56,27 @@
             passwordField.attr('type', 'password');
         } 
     }
+    
+    $('#login').validate({ 
+        rules: {
+            email: {
+                required: true,
+            },
+            password: {
+                required: true,
+            },
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.errorshow').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        }
+    });
 </script>
 @endpush
