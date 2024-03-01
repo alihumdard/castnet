@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\NewsletterModel;
 use Illuminate\Support\Facades\Cookie;
+use App\Models\User;
 class DefaultController extends Controller
 {
     public function subscribe(Request $request){
@@ -43,6 +44,7 @@ class DefaultController extends Controller
 
     public function satisfiedMembers(Request $request){
         $memberExperiecne = [
+            'user_id' => Auth::user()->id,
             'feedback' => $request->membership_experience_satisfaction,
             'member_events' => $request->member_events_participation,
             'feedback_responses' => $request->overall_experience,
@@ -52,6 +54,7 @@ class DefaultController extends Controller
         $message = 'Experience added successfully';
         return redirect()->back()->with('success',$message);
     }
+
     public function jobApply(Request $request,$id){
         $validator = Validator::make($request->all(), [
             'cv' => 'required|file|mimes:pdf,doc,docx,txt,rtf,html,jpg,png,odt,tex|max:2048',
@@ -83,6 +86,15 @@ class DefaultController extends Controller
             return redirect()->route('admin.index');
         }else{
             return redirect()->route('web.index')->with('success','You have successfully login your account.');
+        }
+    }
+
+    public function checkEmail(Request $request){
+        $user = User::where('email',$request->email_check)->first();
+        if($user) {
+            echo "false";
+        } else {
+            echo "true";
         }
     }
 }

@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('title')->nullable();
-            $table->string('primary_phone_number', 20)->nullable();
+            $table->string('primary_phone', 20)->nullable();
             $table->string('primary_email')->nullable();
             $table->string('membership_level')->nullable();
             $table->string('about_organization')->nullable();
