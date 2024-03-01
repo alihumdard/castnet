@@ -17,7 +17,7 @@ class AdminAccess
     public function handle(Request $request, Closure $next, ...$guards)
     {
         if(Auth::user()){
-            if (Auth::user()->type != 1) {
+            if (Auth::user()->type != 0) {
                 return redirect(route('web.index'))->with('error', "The User does not have access to the Admin site.");
             }
         }

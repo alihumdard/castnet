@@ -41,7 +41,6 @@
     <!-- Evaluation End -->
 
     <!-- Evaluation Form Start -->
-    @if(Auth::check() && Auth::user()->type == 3)
     <section class="evaluation_form">
         <div class="container">
             <div class="row">
@@ -86,7 +85,6 @@
             </div>
         </div>
     </section>
-    @endif
     <!-- Evaluation Form End -->
 
     <!-- Accessibility Start -->

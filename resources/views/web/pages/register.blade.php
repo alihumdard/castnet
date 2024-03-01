@@ -42,13 +42,6 @@
                         <div class="errorshow">
                             <input type="password" name="password" class="form-control mt-3" placeholder="Password">
                         </div>
-                        <div class="errorshow">
-                            <select name="type" id="" class="form-control mt-3">
-                                <option disabled selected>Select Account Type</option>
-                                <option value="2" @if(old('type')==2) selected @endif>Sponsor</option>
-                                <option value="3" @if(old('type')==3) selected @endif>Member</option>
-                            </select>
-                        </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-login mt-3">Register</button>
                         </div>

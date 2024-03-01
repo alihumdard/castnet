@@ -67,7 +67,7 @@ class DefaultController extends Controller
     }
 
     public function logged(){
-        if(Auth::user()->type==1){
+        if(Auth::user()->type==0){
             return redirect()->route('admin.index');
         }else{
             return redirect()->route('web.index')->with('success','You have successfully login your account.');

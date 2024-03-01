@@ -26,7 +26,6 @@ Route::middleware('admin-not-access')->group(function() {
     Route::get('/team', [PagesController::class, 'team'])->name('web.team');
     Route::get('/contactus', [PagesController::class, 'contactUs'])->name('web.contactus');
     Route::post('/contactUsData', [PagesController::class, 'contactUsData'])->name('contactus.form');
-    Route::post('/joinData', [PagesController::class, 'joinData'])->name('join.form');
     Route::get('/membership', [PagesController::class, 'membership'])->name('web.membership');
     Route::get('/join', [PagesController::class, 'join'])->name('web.join');
     Route::get('/benefits', [PagesController::class, 'benefits'])->name('web.benefits');

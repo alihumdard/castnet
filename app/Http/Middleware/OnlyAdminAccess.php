@@ -17,7 +17,7 @@ class OnlyAdminAccess
     public function handle(Request $request, Closure $next, ...$guards)
     {
         if(Auth::user()){
-            if (Auth::user()->type == 1) {
+            if (Auth::user()->type == 0) {
                 return redirect(route('admin.index'))->with('error', "The Admin does not have access to the user site.");
             }
         }
