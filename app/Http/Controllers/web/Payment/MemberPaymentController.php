@@ -143,7 +143,7 @@ class MemberPaymentController extends Controller
                 'amount' => $amount,
                 'currency' => 'usd',
                 'source' => $tokenId,
-                'description' => 'Congratulations, you have received this payment successfully from the new user subscription with Bidlock.'
+                'description' => 'Congratulations, You have received a new payment for the creation of a new member account.'
             ]);
         } catch (InvalidRequestException $e) {
             $charge['error'] = $e->getMessage();
