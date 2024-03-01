@@ -89,6 +89,254 @@
     </section>
     <!-- Sponsors End -->
 
+<!-- Become Sponsor Form Start -->
+<section class="section_block become_sponsor_form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="section_title">Sponsorship Form</h2>
+                <form action="#">
+                    <div class="form_box aos-init aos-animate" data-aos="zoom-in" data-aos-duration="1000">
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h3 class="form_box_title">Sponsor Information:</h3>
+                            </div>
+                        </div>
+                        <div class="row gy-4 mb-4 row_padding">
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="form-control" placeholder="Sponsor's Name">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="form-control" placeholder="Contact Person's Name">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="email" class="form-control" placeholder="Email Address">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="form-control" placeholder="Phone Number">
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <input type="text" class="form-control" placeholder="Website URL (optional)">
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h3 class="form_box_title">Sponsorship Interest Area:</h3>
+                            </div>
+                        </div>
+                        <div class="row gy-4 mb-4 row_padding">
+                            <div class="col-12 col-md-6">
+                                <select class="form-select">
+                                    <option selected="">Industry Sectors</option>
+                                    <option value="construction">Construction</option>
+                                    <option value="agriculture">Agriculture</option>
+                                    <option value="supply chain">Supply Chain</option>
+                                    <option value="technology">Technology</option>
+                                    <option value="natural_resources">Natural Resources</option>
+                                    <option value="energy">Energy</option>
+                                    <option value="textiles">Textiles</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <select class="form-select">
+                                    <option selected="">Interest in Sponsorship</option>
+                                    <option value="construction">Construction</option>
+                                    <option value="agriculture">Agriculture</option>
+                                    <option value="supply chain">Supply Chain</option>
+                                    <option value="technology">Technology</option>
+                                    <option value="natural_resources">Natural Resources</option>
+                                    <option value="energy">Energy</option>
+                                    <option value="textiles">Textiles</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control" placeholder="Preferred Geographic Focus">
+                            </div>
+                            <div class="col-12">
+                                <div class="checkbox-border">
+                                    <h3 class="checkbox-title">Sponsorship Level Preferences</h3>
+                                    <div class="row gy-3">
+                                        <div class="col-md-4">
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" name="sponsorship_level" id="platinum_sponsor">
+                                                <label class="form-check-label" for="platinum_sponsor">Platinum Sponsor</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" name="sponsorship_level" id="gold_sponsor">
+                                                <label class="form-check-label" for="gold_sponsor">Gold Sponsor</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" name="sponsorship_level" id="silver_sponsor">
+                                                <label class="form-check-label" for="silver_sponsor">Silver Sponsor</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" name="sponsorship_level" id="custom_sponsorship">
+                                                <label class="form-check-label" for="custom_sponsorship">Custom Sponsorship</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h3 class="form_box_title">Sponsorship Goals and Objectives:</h3>
+                            </div>
+                        </div>
+                        <div class="row gy-4 mb-4 row_padding">
+                            <div class="col-12">
+                                <textarea cols="30" rows="7" class="form-control" placeholder="what you hope to achieve through their sponsorship"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <div class="checkbox-border">
+                                    <h3 class="checkbox-title">Previous Sponsorship Experiences</h3>
+                                    <div class="row gy-3">
+                                        <div class="col-12">
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" name="sponsorship_experiences" id="prev_yes">
+                                                <label class="form-check-label" for="prev_yes">Yes</label>
+                                                <input type="text" class="form-control w-md-50" placeholder="details about past sponsorships">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" name="sponsorship_experiences" id="prev_no">
+                                                <label class="form-check-label" for="prev_no">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h3 class="form_box_title">Budget Information:</h3>
+                            </div>
+                        </div>
+                        <div class="row gy-4 mb-4 row_padding">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Estimated Budget for Sponsorship">
+                            </div>
+                            <div class="col-md-6">
+                                <select class="form-select">
+                                    <option selected="">Preferred Payment Schedule</option>
+                                    <option value="construction">Construction</option>
+                                    <option value="agriculture">Agriculture</option>
+                                    <option value="supply chain">Supply Chain</option>
+                                    <option value="technology">Technology</option>
+                                    <option value="natural_resources">Natural Resources</option>
+                                    <option value="energy">Energy</option>
+                                    <option value="textiles">Textiles</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <div class="checkbox-border">
+                                    <h3 class="checkbox-title">Sponsorship Agreement Preferences</h3>
+                                    <div class="row gy-3">
+                                        <div class="col-12">
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" name="sponsorship_preferences" id="pref_yes">
+                                                <label class="form-check-label" for="pref_yes">Yes</label>
+                                                <input type="text" class="form-control w-md-50" placeholder="Specific terms or conditions">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" name="sponsorship_preferences" id="pref_no">
+                                                <label class="form-check-label" for="pref_no">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="checkbox-border">
+                                    <h3 class="checkbox-title">Additional Support Offered</h3>
+                                    <div class="row gy-3">
+                                        <div class="col-md-4">
+                                            <div class="form-check d-inline-block">
+                                                <input type="radio" class="form-check-input" name="additional_support" id="kind_support">
+                                                <label class="form-check-label" for="kind_support">In-kind Support (services, products, expertise)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 text-md-center">
+                                            <div class="form-check d-inline-block">
+                                                <input type="radio" class="form-check-input" name="additional_support" id="volunteer_support">
+                                                <label class="form-check-label" for="volunteer_support">Volunteer Support</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 text-md-center">
+                                            <div class="form-check d-inline-block">
+                                                <input type="radio" class="form-check-input" name="additional_support" id="other">
+                                                <label class="form-check-label" for="other">Other</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h3 class="form_box_title">How Did You Hear About Us?</h3>
+                            </div>
+                        </div>
+                        <div class="row gy-4 row_padding">
+                            <div class="col-12">
+                                <select class="form-select">
+                                    <option selected="">Select</option>
+                                    <option value="construction">Construction</option>
+                                    <option value="agriculture">Agriculture</option>
+                                    <option value="supply chain">Supply Chain</option>
+                                    <option value="technology">Technology</option>
+                                    <option value="natural_resources">Natural Resources</option>
+                                    <option value="energy">Energy</option>
+                                    <option value="textiles">Textiles</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <div class="checkbox-border">
+                                    <h3 class="checkbox-title">Data Protection Consent</h3>
+                                    <div class="row gy-3">
+                                        <div class="col-md-4">
+                                            <div class="form-check d-inline-block">
+                                                <input type="radio" class="form-check-input" name="data_protection_consent" id="compliance">
+                                                <label class="form-check-label" for="compliance">GDPR compliance</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 text-md-center">
+                                            <div class="form-check d-inline-block">
+                                                <input type="radio" class="form-check-input" name="data_protection_consent" id="consent_to_store">
+                                                <label class="form-check-label" for="consent_to_store">Consent to Store</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 text-md-center">
+                                            <div class="form-check d-inline-block">
+                                                <input type="radio" class="form-check-input" name="data_protection_consent" id="data_protection_consent_other">
+                                                <label class="form-check-label" for="data_protection_consent_other">Other</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-5 aos-init aos-animate" data-aos="fade-right" data-aos-duration="1000">
+                        <button type="submit" class="btn btn-submit">Submit Your Sponsorship Inquiry</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Become Sponsor Form End -->
+
+
     <!-- Ready to Join Start -->
     <section class="section_block ready_to_join">
         <div class="container">
