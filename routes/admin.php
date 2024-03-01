@@ -492,6 +492,9 @@ Route::middleware('auth')->group(function() {
             Route::get('/members-info', [UsersDataController::class, 'membersData'])->name('members.Info');
             Route::delete('/members-delete/{id}', [UsersDataController::class, 'deleteMember'])->name('members.delete');
             Route::get('/sponsors-info', [UsersDataController::class, 'sponsorsData'])->name('sponsors.Info');
+            Route::get('/member-feedback', [UsersDataController::class, 'satisfiedFeedback'])->name('member.feedback');
+            Route::get('/memberFeedback/{id}', [UsersDataController::class, 'memberFeedbackDetail'])->name('memberFeedback.detail');
+            Route::delete('/member-feedback/{id}', [UsersDataController::class, 'destroyeFeedback'])->name('memberFeedback.delete');
             Route::delete('/sponsors-delete/{id}', [UsersDataController::class, 'deleteSponsor'])->name('sponsors.delete');
             // -------------------------------------------Users route end--------------------------------------------------------
         });
