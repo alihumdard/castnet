@@ -46,34 +46,35 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <form action="#">
+                    <form action="{{ route('satisfied.members')}}" id="member_feedback" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="col-12">
-                                <div class="mb-4">
+                                <div class="mb-4 errorshow">
                                     <label for="q1" class="form-label">How satisfied are you with your membership experience?</label>
-                                    <textarea id="q1" class="form-control" placeholder="Write Your Answer Here..." cols="30" rows="5"></textarea>
+                                    <textarea id="q1" class="form-control" name="membership_experience_satisfaction" placeholder="Write Your Answer Here..." cols="30" rows="5"></textarea>
                                 </div>
                                 <div class="mb-4">
-                                    <div class="checkbox-border">
+                                    <div class="checkbox-border errorshow">
                                         <h3 class="checkbox-title">Have you participated in any member events?</h3>
                                         <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="yes">
+                                            <input type="radio" class="form-check-input" id="yes" name="member_events_participation" value="yes">
                                             <label class="form-check-label" for="yes">Yes</label>
                                         </div>
                                         <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="no">
+                                            <input type="radio" class="form-check-input" id="no" name="member_events_participation" value="no">
                                             <label class="form-check-label" for="no">No</label>
                                         </div>
-                                    </div>
+                                    </div>                                    
                                 </div>
-                                <div class="mb-4">
+                                <div class="mb-4 errorshow">
                                     <label for="q2" class="form-label">How would you describe your overall experience as a member of our program?</label>
-                                    <textarea id="q2" class="form-control" placeholder="Write Your Answer Here..." cols="30" rows="5"></textarea>
-                                </div>
-                                <div class="mb-0">
+                                    <textarea id="q2" name="overall_experience" class="form-control" placeholder="Write Your Answer Here..." cols="30" rows="5"></textarea>
+                                </div>                                
+                                <div class="mb-0 errorshow">
                                     <label for="q3" class="form-label">Are there specific demographics or groups that you believe the program could better serve?</label>
-                                    <textarea id="q3" class="form-control" placeholder="Write Your Answer Here..." cols="30" rows="5"></textarea>
-                                </div>
+                                    <textarea id="q3" name="demographics_feedback" class="form-control" placeholder="Write Your Answer Here..." cols="30" rows="5"></textarea>
+                                </div>                                
                             </div>
                         </div>
                         <div class="row mt-5">
@@ -145,3 +146,35 @@
     </section>
     <!-- Ready to Join end -->
 @stop
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script>
+    $('#member_feedback').validate({
+        rules: {
+            membership_experience_satisfaction: {
+                required: true,
+            },
+            member_events_participation: {
+                required: true,
+            },
+            overall_experience: {
+                required: true,
+            },
+            demographics_feedback: {
+                required: true,
+            },
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.errorshow').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        }
+    });
+</script>
+@endpush
