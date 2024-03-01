@@ -28,20 +28,13 @@
                     <form action="#">
                         <input type="email" class="form-control" placeholder="Email">
                         <div class="input-group mt-3">
-                            <input type="password" class="form-control border-end-0" placeholder="Password">
-                            <span class="input-group-text" id="basic-addon1">
+                            <input type="password" id="passinput" class="form-control border-end-0" placeholder="Password">
+                            <span class="input-group-text" onclick="showPassword()">
                                 <img src="{{asset('assets/web/images/icon_eye.png')}}" alt="eye">
                             </span>
                         </div>
-                        <div class="forgot_password">
-                            <a href="#">Forgot your password?</a>
-                        </div>
-                        <div class="text-center">
+                        <div class="text-center mt-4">
                             <button type="submit" class="btn btn-login">login</button>
-                        </div>
-                        <span class="form-border"></span>
-                        <div class="creat_account">
-                            <p>No account? Create one <a href="{{route('user.register')}}" class="text-success">here</a></p>
                         </div>
                     </form>
                 </div>
@@ -51,3 +44,16 @@
 </section>
 <!-- Login End -->
 @stop
+@push('scripts')
+<script>
+    function showPassword(){
+        var passwordField = $('#passinput');
+        var fieldType = passwordField.attr('type');
+        if (fieldType === 'password') {
+            passwordField.attr('type', 'text');
+        } else {
+            passwordField.attr('type', 'password');
+        } 
+    }
+</script>
+@endpush

@@ -49,7 +49,7 @@ background-size: cover;">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <form action="{{ route('join.form')}}" id="join_form" method="POST">
+                <form action="{{ route('charge.member')}}" id="join_form" method="POST">
                     @csrf
                     <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
                         <h2 class="section_title">company information</h2>
@@ -126,27 +126,32 @@ background-size: cover;">
                         <div class="row gy-4">
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="First Name" name="PFName">
+                                <input type="text" class="form-control" placeholder="First Name" name="first_name">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="Last Number" name="PLName">
+                                <input type="text" class="form-control" placeholder="Last Number" name="last_name">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="Title" name="PTitle">
+                                <input type="text" class="form-control" placeholder="Title" name="title">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="Phone" name="PPhone">
+                                <input type="text" class="form-control" placeholder="Phone" name="primary_phone">
                                 </div>
                             </div>
-                            <div class="col-12 col-md-12">
+                            <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="email" class="form-control" placeholder="Email" name="PEmail">
+                                <input type="email" class="form-control" placeholder="Email" name="primary_email">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group errorshow">
+                                <input type="password" class="form-control" placeholder="Password" name="password">
                                 </div>
                             </div>
                         </div>
@@ -198,55 +203,61 @@ background-size: cover;">
                         <div class="row gy-4">
                             <div class="col-12 col-md-12">
                                 <div class="form-group errorshow">
-                                <select class="form-select" name="reason_to_join">
-                                    <option selected disabled>Select Options</option>
-                                    @foreach ($reasonsForJoining as $level)
-                                        <option value="{{ $level->dropdowns }}">{{ $level->dropdowns }}</option>
-                                    @endforeach
-                                </select>
+                                    <select class="form-select" name="reason_to_join">
+                                        <option selected disabled>Select Options</option>
+                                        @foreach ($reasonsForJoining as $level)
+                                            <option value="{{ $level->dropdowns }}">{{ $level->dropdowns }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    </div>
-                   
-                    <div class="form_box aos-init aos-animate" data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
                         <h2 class="section_title">Payment Details</h2>
                         <div class="row gy-4" style="margin-bottom: 15px">
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="Name on Card" name="NOCard">
+                                <input type="text" class="form-control" placeholder="Name on Card" name="full_name">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="number" class="form-control" placeholder="Card Number" name="CName">
+                                <input type="number" class="form-control" min="1" placeholder="Card Number" name="card_number">
                                 </div>
                             </div>
                         </div>
                         <div class="row gy-4">
                             <div class="col-12 col-md-4">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="CVC" name="cvc">
+                                <input type="number" class="form-control" placeholder="CVC" name="cvv">
                                 </div>
                             </div>
                             <div class="col-12 col-md-4">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="Expiration Month" name="EMonth">
+                                    <select class="form-control" name="expiry_month">
+                                        <option disabled selected>MM</option>
+                                        @foreach(range(1, 12) as $month)
+                                            <option value="{{$month}}">{{$month}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-12 col-md-4">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="Expiration Year" name="EYear">
+                                    <select class="form-control" name="expiry_year">
+                                        <option disabled selected>YYYY</option>
+                                        @foreach(range(date('Y'), date('Y') + 10) as $year)
+                                            <option value="{{$year}}">{{$year}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
+                        <div class="text-center mt-4" data-aos="fade-right" data-aos-duration="1000">
+                            <button type="submit" class="btn btn-submit">submit</button>
+                        </div>
                     </div>
-                    <div class="text-center mt-4" data-aos="fade-right" data-aos-duration="1000">
-                        <button type="submit" class="btn btn-submit">submit</button>
-                    </div>
-                
-            </div>
                 </form>
             </div>
         </div>
@@ -256,29 +267,31 @@ background-size: cover;">
 
 @stop
 @push('scripts')
-<script src="{{ asset('assets/web/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
-<script src="{{ asset('assets/web/plugins/jquery-validation/additional-methods.min.js') }}"></script>
-
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 <script>
     $('#join_form').validate({
         rules: {
             organization_name: {
                 required: true,
             },
-            NOCard: {
+            full_name: {
                 required: true,
             },
-            CName: {
+            card_number: {
+                required: true,
+                number: true,
+                creditcard: true,
+            },
+            expiry_month: {
                 required: true,
             },
-            cvc: {
+            expiry_year: {
                 required: true,
             },
-            EMonth: {
+            cvv: {
                 required: true,
-            },
-            EYear: {
-                required: true,
+                number: true,
+                maxlength: 4,
             },
             phone_number: {
                 required: true,
@@ -310,19 +323,22 @@ background-size: cover;">
             address_check: {
                 required: true,
             },
-            PFName: {
+            first_name: {
                 required: true,
             },
-            PLName: {
+            last_name: {
                 required: true,
             },
-            PTitle: {
+            title: {
                 required: true,
             },
-            PPhone: {
+            primary_phone: {
                 required: true,
             },
-            PEmail: {
+            primary_email: {
+                required: true,
+            },
+            password: {
                 required: true,
             },
             membership_level: {

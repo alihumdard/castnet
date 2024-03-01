@@ -18,8 +18,8 @@ class EventPaymentController extends Controller
 
     public function payment(Request $request){
         $validator = Validator::make($request->all(), [
-            'fullName' => 'required',
-            'cardNumber' => 'required',
+            'full_name' => 'required',
+            'card_number' => 'required',
             'expiry_month' => 'required',
             'expiry_year' => 'required',
             'cvv' => 'required'
@@ -57,7 +57,7 @@ class EventPaymentController extends Controller
         try {
             $token = $this->stripe->tokens->create([
                 'card' => [
-                    'number' => $cardData['cardNumber'],
+                    'number' => $cardData['card_number'],
                     'exp_month' => $cardData['expiry_month'],
                     'exp_year' => $cardData['expiry_year'],
                     'cvc' => $cardData['cvv']

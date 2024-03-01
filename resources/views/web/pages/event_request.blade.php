@@ -1,6 +1,5 @@
 @extends('web.layouts.default')
 @section('content')
-
 <style>
     .fee{
         display:none;
@@ -174,34 +173,44 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form_box aos-init aos-animate" data-aos="zoom-in" data-aos-duration="1000">
+                            <div class="form_box aos-init aos-animate fee" data-aos="zoom-in" data-aos-duration="1000">
                                 <h2 class="section_title" style="margin-bottom: 15px">Payment Details</h2>
                                 <div class="row gy-4" style="margin-bottom: 15px">
                                     <div class="col-12 col-md-6">
                                         <div class="form-group errorshow">
-                                        <input type="text" class="form-control" placeholder="Name on Card" name="NOCard">
+                                        <input type="text" class="form-control" placeholder="Name on Card" name="full_name">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group errorshow">
-                                        <input type="number" class="form-control" placeholder="Card Number" name="CName">
+                                        <input type="number" class="form-control" min="1" placeholder="Card Number" name="card_number">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row gy-4">
                                     <div class="col-12 col-md-4">
                                         <div class="form-group errorshow">
-                                        <input type="text" class="form-control" placeholder="CVC" name="cvc">
+                                            <input type="text" class="form-control" placeholder="CVC" name="cvv">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-4">
                                         <div class="form-group errorshow">
-                                        <input type="text" class="form-control" placeholder="Expiration Month" name="EMonth">
+                                            <select class="form-control" name="expiry_month">
+                                                <option disabled selected>MM</option>
+                                                @foreach(range(1, 12) as $month)
+                                                    <option value="{{$month}}">{{$month}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-4">
                                         <div class="form-group errorshow">
-                                        <input type="text" class="form-control" placeholder="Expiration Year" name="EYear">
+                                            <select class="form-control" name="expiry_year">
+                                                <option disabled selected>YYYY</option>
+                                                @foreach(range(date('Y'), date('Y') + 10) as $year)
+                                                    <option value="{{$year}}">{{$year}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -216,31 +225,33 @@
         </div>
     </section>
     <!-- Event Request Form End -->
-    @stop
-    @push('scripts')
-<script src="{{ asset('assets/web/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
-<script src="{{ asset('assets/web/plugins/jquery-validation/additional-methods.min.js') }}"></script>
-
+@stop
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 <script>
     $('#event_request').validate({
         rules: {
             title: {
                 required: true,
             },
-            NOCard: {
+            full_name: {
                 required: true,
             },
-            CName: {
+            card_number: {
+                required: true,
+                number: true,
+                creditcard: true,
+            },
+            expiry_month: {
                 required: true,
             },
-            cvc: {
+            expiry_year: {
                 required: true,
             },
-            EMonth: {
+            cvv: {
                 required: true,
-            },
-            EYear: {
-                required: true,
+                number: true,
+                maxlength: 4,
             },
             event_category: {
                 required: true,

@@ -273,33 +273,6 @@ class PagesController extends Controller
         $message = 'Event Request added successfully';
         return redirect()->back()->with('message', $message);
     }
-    public function joinData(Request $request){
-        $companyInfo = [
-            'organization_name' => $request->organization_name,
-            'phone_number' => $request->phone_number,
-            'website_address' => $request->website_address,
-            'number_of_employees' => $request->number_of_employees,
-            'billing_email' => $request->billing_email,
-            'billing_address' => $request->billing_address,
-            'billing_city' => $request->billing_city,
-            'billing_state' => $request->billing_state,
-            'billing_zip' => $request->zip,
-            'billing_country' => $request->billing_country,
-            'billing_address_check' => $request->address_check,
-            'first_name' => $request->PFName,
-            'last_name' => $request->PLName,
-            'title' => $request->PTitle,
-            'primary_phone_number' => $request->PPhone,
-            'primary_email' => $request->PEmail,
-            'membership_level' => $request->membership_level,
-            'about_organization' => $request->about_organization,
-            'ownership_structure' => $request->ownership_structure,
-            'reason_joining' => $request->reason_to_join,
-        ];
-        CompanyInformation::create($companyInfo);
-        $message = 'Event Request added successfully';
-        return redirect()->back();
-    }
     public function event_request(){
         $banner = PageBanner::where('type', 26)->first();
         $title = PartnerSponsorPageTitleModel::where(['page'=>'event_request','section'=>1])->first();
@@ -527,23 +500,5 @@ class PagesController extends Controller
     }
     public function register(){
         return view('web.pages.register');
-    }
-    public function registration(Request $request){
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|string|email|max:255|unique:users',
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-        $user = User::create([
-            'first_name'=>$request->first_name,
-            'last_name'=>$request->last_name,
-            'email'=>$request->email,
-            'password'=>bcrypt($request->password),
-            'type'=>$request->type,
-        ]);
-        Auth::login($user);
-        return redirect()->route('web.index');
     }
 }

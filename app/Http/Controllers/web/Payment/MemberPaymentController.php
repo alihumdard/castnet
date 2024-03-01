@@ -7,8 +7,10 @@ use Stripe\Exception\InvalidRequestException;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Stripe\Exception\CardException;
+use App\Models\CompanyInformation;
 use Illuminate\Http\Request;
 use Stripe\StripeClient;
+use App\Models\User;
 class MemberPaymentController extends Controller
 {
     private $stripe;
@@ -18,8 +20,8 @@ class MemberPaymentController extends Controller
 
     public function payment(Request $request){
         $validator = Validator::make($request->all(), [
-            'fullName' => 'required',
-            'cardNumber' => 'required',
+            'full_name' => 'required',
+            'card_number' => 'required',
             'expiry_month' => 'required',
             'expiry_year' => 'required',
             'cvv' => 'required'
@@ -36,16 +38,41 @@ class MemberPaymentController extends Controller
         if (empty($token['id'])) {
             return redirect()->back()->with('error', 'Payment failed.');
         }
-
-        $charge = $this->createCharge($token['id'], $request->amount*100);
+        $amount = intval(preg_replace('/[^0-9]+/', '', $request->membership_level));
+        $charge = $this->createCharge($token['id'], $amount*100);
         if (!empty($charge) && $charge['status'] == 'succeeded') {      
-            PlanAmount::create([
-                'plan_id'=>$pln->id,
-                'user_id'=>Auth::user()->id,
-                'trx_id'=>$charge->id,
-                'amount'=>$request->amount,
+            CompanyInformation::create([
+                'organization_name' => $request->organization_name,
+                'phone_number' => $request->phone_number,
+                'website_address' => $request->website_address,
+                'number_of_employees' => $request->number_of_employees,
+                'billing_email' => $request->billing_email,
+                'billing_address' => $request->billing_address,
+                'billing_city' => $request->billing_city,
+                'billing_state' => $request->billing_state,
+                'billing_zip' => $request->zip,
+                'billing_country' => $request->billing_country,
+                'billing_address_check' => $request->address_check,
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'title' => $request->title,
+                'primary_phone_number' => $request->primary_phone,
+                'primary_email' => $request->primary_email,
+                'membership_level' => $request->membership_level,
+                'about_organization' => $request->about_organization,
+                'ownership_structure' => $request->ownership_structure,
+                'reason_joining' => $request->reason_to_join,
+                'stripe_id' => $charge->id,
             ]);
-            return redirect()->route('plans')->with('success','Congratulations! You have successfully subscribed to a new plan. The Stripe payment transaction is '.$charge->id);
+            User::create([
+                'first_name'=>$request->first_name,
+                'last_name'=>$request->last_name,
+                'email'=>$request->primary_email,
+                'password'=>bcrypt($request->password),
+                'type'=>1,
+                'member'=>1,
+            ]);
+            return redirect()->back()->with('success','Congratulations! You have successfully joined the membership program. Transaction ID is #'.$charge->id);
         } else {
             return redirect()->back()->with('error', 'Payment failed.');
         }
@@ -57,7 +84,7 @@ class MemberPaymentController extends Controller
         try {
             $token = $this->stripe->tokens->create([
                 'card' => [
-                    'number' => $cardData['cardNumber'],
+                    'number' => $cardData['card_number'],
                     'exp_month' => $cardData['expiry_month'],
                     'exp_year' => $cardData['expiry_year'],
                     'cvc' => $cardData['cvv']

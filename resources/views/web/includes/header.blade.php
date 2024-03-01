@@ -42,11 +42,7 @@
                             </form>
                             @else
                             <a href="{{route('user.login')}}" class="btn btn-primary">
-                                <span>sponsors login</span>
-                                <img src="{{ asset('assets/web/images/icon_log.png') }}" alt="icon login" class="icon-login">
-                            </a>
-                            <a href="{{route('user.login')}}" class="btn btn-primary">
-                                <span>Member login</span>
+                                <span>Login</span>
                                 <img src="{{ asset('assets/web/images/icon_log.png') }}" alt="icon login" class="icon-login">
                             </a>
                             @endauth
