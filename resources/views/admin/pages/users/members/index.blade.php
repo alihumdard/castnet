@@ -27,15 +27,15 @@
                             <thead>
                             <tr>
                               <th>#</th>
-                              <th>Name</th>
+                              <th>First Name</th>
+                              <th>Last Name</th>
                               <th>Email</th>
-                              <th>Phone</th>
-                              <th>View</th>
+                              <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
                                 
-                                @foreach($members as $member)
+                                @foreach($membr as $member)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td> 
                                     <td>{{ $member->first_name }}</td> 
