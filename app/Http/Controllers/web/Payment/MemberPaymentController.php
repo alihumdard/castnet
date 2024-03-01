@@ -10,6 +10,7 @@ use Stripe\Exception\CardException;
 use App\Models\CompanyInformation;
 use Illuminate\Http\Request;
 use Stripe\StripeClient;
+use App\Models\User;
 class MemberPaymentController extends Controller
 {
     private $stripe;
@@ -62,6 +63,14 @@ class MemberPaymentController extends Controller
                 'ownership_structure' => $request->ownership_structure,
                 'reason_joining' => $request->reason_to_join,
                 'stripe_id' => $charge->id,
+            ]);
+            User::create([
+                'first_name'=>$request->first_name,
+                'last_name'=>$request->last_name,
+                'email'=>$request->primary_email,
+                'password'=>bcrypt($request->password),
+                'type'=>1,
+                'member'=>1,
             ]);
             return redirect()->back()->with('success','Congratulations! You have successfully joined the membership program. Transaction ID is #'.$charge->id);
         } else {

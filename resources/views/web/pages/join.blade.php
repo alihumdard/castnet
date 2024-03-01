@@ -144,9 +144,14 @@ background-size: cover;">
                                 <input type="text" class="form-control" placeholder="Phone" name="primary_phone">
                                 </div>
                             </div>
-                            <div class="col-12 col-md-12">
+                            <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
                                 <input type="email" class="form-control" placeholder="Email" name="primary_email">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group errorshow">
+                                <input type="password" class="form-control" placeholder="Password" name="password">
                                 </div>
                             </div>
                         </div>
@@ -331,6 +336,9 @@ background-size: cover;">
                 required: true,
             },
             primary_email: {
+                required: true,
+            },
+            password: {
                 required: true,
             },
             membership_level: {

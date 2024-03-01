@@ -501,22 +501,4 @@ class PagesController extends Controller
     public function register(){
         return view('web.pages.register');
     }
-    public function registration(Request $request){
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|string|email|max:255|unique:users',
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-        $user = User::create([
-            'first_name'=>$request->first_name,
-            'last_name'=>$request->last_name,
-            'email'=>$request->email,
-            'password'=>bcrypt($request->password),
-            'type'=>2,
-        ]);
-        Auth::login($user);
-        return redirect()->route('web.index');
-    }
 }
