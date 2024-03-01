@@ -116,7 +116,7 @@
                             </div>
                             <div class="col-md-6 fee">
                                 <div class="form-group errorshow">
-                                <input type="text" name="fee" class="form-control" placeholder="Fee" disabled value={{ $eventReqType->fee }}>
+                                    <input type="text" name="fee" class="form-control" placeholder="Fee" disabled value="${{ $eventReqType->fee }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -299,13 +299,11 @@
     });
     function setFree1(){
         var feeInput = document.querySelector('input[name="fee"]');
-        feeInput.value = '{{ $secondEventReqType->fee }}';
-        
+        feeInput.value = '${{$secondEventReqType->fee}}';
     }
     function setFree(){
         var feeInput = document.querySelector('input[name="fee"]');
-        feeInput.value = '{{ $eventReqType->fee }}';
-    
+        feeInput.value = '${{$eventReqType->fee}}';
     }
     function selectfee(){
         $('.radioinline').hide();
