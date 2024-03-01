@@ -56,52 +56,52 @@ background-size: cover;">
                         <div class="row gy-4">
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="Organization Name" name="organization_name">
+                                <input type="text" class="form-control" placeholder="Organization Name" name="organization_name" value="{{ session('userMemberData.organization_name') }}">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="Phone Number" name="phone_number">
+                                <input type="text" class="form-control" placeholder="Phone Number" name="phone_number" value="{{ session('userMemberData.phone_number') }}">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="Website Address" name="website_address">
+                                <input type="text" class="form-control" placeholder="Website Address" name="website_address" value="{{ session('userMemberData.website_address') }}">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="number" class="form-control" placeholder="Number of Employees" name="number_of_employees">
+                                <input type="number" class="form-control" placeholder="Number of Employees" name="number_of_employees" value="{{ session('userMemberData.number_of_employees') }}">
                                 </div>
                             </div>
                             <div class="col-12 col-md-12">
                                 <div class="form-group errorshow">
-                                <input type="email" class="form-control" placeholder="Billing Email" name="billing_email">
+                                <input type="email" class="form-control" placeholder="Billing Email" name="billing_email" value="{{ session('userMemberData.billing_email') }}">
                                 </div>
                             </div>
                             <div class="col-12 col-md-12">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="Billing Address" name="billing_address">
+                                <input type="text" class="form-control" placeholder="Billing Address" name="billing_address" value="{{ session('userMemberData.billing_address') }}">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="Billing City" name="billing_city">
+                                <input type="text" class="form-control" placeholder="Billing City" name="billing_city" value="{{ session('userMemberData.billing_city') }}">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="Billing State" name="billing_state">
+                                <input type="text" class="form-control" placeholder="Billing State" name="billing_state" value="{{ session('userMemberData.billing_state') }}">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="Billing Zip (Billing zip code must match credit card billing address)" name="zip">
+                                <input type="text" class="form-control" placeholder="Billing Zip (Billing zip code must match credit card billing address)" name="billing_zip" value="{{ session('userMemberData.billing_zip') }}">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="Billing Country" name="billing_country">
+                                <input type="text" class="form-control" placeholder="Billing Country" name="billing_country" value="{{ session('userMemberData.billing_country') }}">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -109,11 +109,11 @@ background-size: cover;">
                                 <div class="checkbox-border">
                                     <h3 class="checkbox-title">Is the billing address the same as the Physical Address?</h3>
                                     <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="yes" name="address_check" value="1">
+                                        <input type="radio" class="form-check-input" id="yes" name="address_check" value="1" {{ session('userMemberData.address_check') == 1 ? 'checked' : '' }}>
                                         <label class="form-check-label" for="yes">Yes</label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="no" name="address_check" value="0">
+                                        <input type="radio" class="form-check-input" id="no" name="address_check" value="0" {{ session('userMemberData.address_check') == 0 ? 'checked' : '' }}>
                                         <label class="form-check-label" for="no">No</label>
                                     </div>
                                 </div>
@@ -126,32 +126,34 @@ background-size: cover;">
                         <div class="row gy-4">
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="First Name" name="first_name">
+                                    <input type="text" class="form-control" placeholder="First Name" name="first_name" value="{{ session('userMemberData.first_name') }}">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="Last Number" name="last_name">
+                                <input type="text" class="form-control" placeholder="Last Number" name="last_name" value="{{ session('userMemberData.last_name') }}">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="Title" name="title">
+                                    <input type="text" class="form-control" placeholder="Title" name="title" value="{{ session('userMemberData.title') }}">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="Phone" name="primary_phone">
+                                    <input type="text" class="form-control" placeholder="Phone" name="primary_phone" value="{{ session('userMemberData.primary_phone') }}">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="email" class="form-control" placeholder="Email" name="primary_email">
+                                    <input type="email" class="form-control" placeholder="Email" name="email" id="email_check" value="{{ session('userMemberData.email') }}">
+                                    <input type="hidden" name="email_valid" id="email_valid">
                                 </div>
+                                <div id="email_message"></div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="password" class="form-control" placeholder="Password" name="password">
+                                    <input type="password" class="form-control" placeholder="Password" name="password">
                                 </div>
                             </div>
                         </div>
@@ -164,7 +166,7 @@ background-size: cover;">
                                 <select class="form-select" name="membership_level">
                                     <option selected disabled>Please Select A Member Level</option>
                                     @foreach ($memberLevel as $level)
-                                        <option value="{{ $level->dropdowns }}">{{ $level->dropdowns }}</option>
+                                        <option value="{{ $level->dropdowns }}" {{ session('userMemberData.membership_level') == $level->dropdowns ? 'selected' : '' }}>{{ $level->dropdowns }}</option>
                                     @endforeach
                                 </select>
                                 </div>
@@ -179,7 +181,7 @@ background-size: cover;">
                                 <select class="form-select" name="about_organization">
                                     <option selected disabled>Please select a category that best describes your business</option>
                                     @foreach ($businessDescription as $level) 
-                                        <option value="{{ $level->dropdowns }}">{{ $level->dropdowns }}</option>
+                                        <option value="{{ $level->dropdowns }}" {{ session('userMemberData.about_organization') == $level->dropdowns ? 'selected' : '' }}>{{ $level->dropdowns }}</option>
                                     @endforeach
                                 </select>
                                 </div>
@@ -189,7 +191,7 @@ background-size: cover;">
                                 <select class="form-select" name="ownership_structure">
                                     <option selected disabled>Ownership Structure</option>
                                     @foreach ($ownershipStructure as $level)
-                                        <option value="{{ $level->dropdowns }}">{{ $level->dropdowns }}</option>
+                                        <option value="{{ $level->dropdowns }}" {{ session('userMemberData.ownership_structure') == $level->dropdowns ? 'selected' : '' }}>{{ $level->dropdowns }}</option>
                                     @endforeach
                                 </select>
 
@@ -203,10 +205,10 @@ background-size: cover;">
                         <div class="row gy-4">
                             <div class="col-12 col-md-12">
                                 <div class="form-group errorshow">
-                                    <select class="form-select" name="reason_to_join">
+                                    <select class="form-select" name="reason_joining">
                                         <option selected disabled>Select Options</option>
                                         @foreach ($reasonsForJoining as $level)
-                                            <option value="{{ $level->dropdowns }}">{{ $level->dropdowns }}</option>
+                                            <option value="{{ $level->dropdowns }}" {{ session('userMemberData.reason_joining') == $level->dropdowns ? 'selected' : '' }}>{{ $level->dropdowns }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -218,19 +220,19 @@ background-size: cover;">
                         <div class="row gy-4" style="margin-bottom: 15px">
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="text" class="form-control" placeholder="Name on Card" name="full_name">
+                                <input type="text" class="form-control" placeholder="Name on Card" name="full_name" value="{{ session('userMemberData.full_name') }}">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group errorshow">
-                                <input type="number" class="form-control" min="1" placeholder="Card Number" name="card_number">
+                                <input type="number" class="form-control" min="1" placeholder="Card Number" name="card_number" value="{{ session('userMemberData.card_number') }}">
                                 </div>
                             </div>
                         </div>
                         <div class="row gy-4">
                             <div class="col-12 col-md-4">
                                 <div class="form-group errorshow">
-                                <input type="number" class="form-control" placeholder="CVC" name="cvv">
+                                <input type="number" class="form-control" placeholder="CVC" name="cvv" value="{{ session('userMemberData.cvv') }}">
                                 </div>
                             </div>
                             <div class="col-12 col-md-4">
@@ -238,7 +240,7 @@ background-size: cover;">
                                     <select class="form-control" name="expiry_month">
                                         <option disabled selected>MM</option>
                                         @foreach(range(1, 12) as $month)
-                                            <option value="{{$month}}">{{$month}}</option>
+                                            <option value="{{$month}}" {{ session('userMemberData.expiry_month') == $month ? 'selected' : '' }}>{{$month}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -248,7 +250,7 @@ background-size: cover;">
                                     <select class="form-control" name="expiry_year">
                                         <option disabled selected>YYYY</option>
                                         @foreach(range(date('Y'), date('Y') + 10) as $year)
-                                            <option value="{{$year}}">{{$year}}</option>
+                                            <option value="{{$year}}" {{ session('userMemberData.expiry_year') == $year ? 'selected' : '' }}>{{$year}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -304,6 +306,7 @@ background-size: cover;">
             },
             billing_email: {
                 required: true,
+                email: true,
             },
             billing_address: {
                 required: true,
@@ -314,7 +317,7 @@ background-size: cover;">
             billing_state: {
                 required: true,
             },
-            zip: {
+            billing_zip: {
                 required: true,
             },
             billing_country: {
@@ -335,8 +338,9 @@ background-size: cover;">
             primary_phone: {
                 required: true,
             },
-            primary_email: {
+            email: {
                 required: true,
+                email: true,
             },
             password: {
                 required: true,
@@ -350,8 +354,18 @@ background-size: cover;">
             ownership_structure: {
                 required: true,
             },
-            reason_to_join: {
+            reason_joining: {
                 required: true,
+            },
+        },
+        messages: {
+            email: {
+                required: "Please enter your email address.",
+                email: "Please enter a valid email address."
+            },
+            billing_email: {
+                required: "Please enter your email address.",
+                email: "Please enter a valid email address."
             },
         },
         errorElement: 'span',
@@ -366,5 +380,12 @@ background-size: cover;">
             $(element).removeClass('is-invalid');
         }
     });
+
+    $("body").on("submit", "#join_form", function (e) {
+        var data = $('#email_valid').val();
+        if(data=='not valid'){
+            e.preventDefault();
+        }
+   });
 </script>
 @endpush

@@ -89,6 +89,8 @@ Route::middleware('admin-not-access')->group(function() {
     Route::post('charge-member', [MemberPaymentController::class,'payment'])->name('charge.member');
     Route::post('charge-event', [EventPaymentController::class,'payment'])->name('charge.event');
     //////------ End Stripe Payment Integration Routes ------/////
+
+    Route::post('check-email',[DefaultController::class,'checkEmail']);
 });
 include __DIR__.'/admin.php';
 

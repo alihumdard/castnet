@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\NewsletterModel;
 use Illuminate\Support\Facades\Cookie;
+use App\Models\User;
 class DefaultController extends Controller
 {
     public function subscribe(Request $request){
@@ -71,6 +72,15 @@ class DefaultController extends Controller
             return redirect()->route('admin.index');
         }else{
             return redirect()->route('web.index')->with('success','You have successfully login your account.');
+        }
+    }
+
+    public function checkEmail(Request $request){
+        $user = User::where('email',$request->email_check)->first();
+        if($user) {
+            echo "false";
+        } else {
+            echo "true";
         }
     }
 }
