@@ -307,7 +307,6 @@ class PagesController extends Controller
         $eventReqType = Event_Request_Type::first();
         $secondEventReqType = Event_Request_Type::skip(1)->first();
 
-        // dd($eventReqType);
             
         return view('web.pages.event_request',get_defined_vars());
     }

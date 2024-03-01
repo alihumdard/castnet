@@ -1,5 +1,6 @@
 @extends('web.layouts.default')
 @section('content')
+
 <style>
     .fee{
         display:none;
@@ -298,11 +299,13 @@
     });
     function setFree1(){
         var feeInput = document.querySelector('input[name="fee"]');
-        feeInput.value = {{ $secondEventReqType->fee }};
+        feeInput.value = '{{ $secondEventReqType->fee }}';
+        
     }
     function setFree(){
         var feeInput = document.querySelector('input[name="fee"]');
-        feeInput.value = {{ $eventReqType->fee }};
+        feeInput.value = '{{ $eventReqType->fee }}';
+    
     }
     function selectfee(){
         $('.radioinline').hide();
