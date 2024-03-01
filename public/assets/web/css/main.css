@@ -5135,3 +5135,245 @@ header .offcanvas.offcanvas-end .offcanvas-body ul a {
     opacity: 1;
     visibility: visible;
 }
+
+
+/* Partner Form */
+
+.become_partner_form .section_title {
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.become_partner_form .joining_text {
+    color: var(--dark-charcoal);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 150%;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.become_partner_form .form_box .form-control,
+.become_partner_form .form_box .form-select {
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--gray-seven);
+    color: var(--gray);
+    font-size: 1.4rem;
+    font-weight: 400;
+    padding: 1.4rem;
+}
+
+.become_partner_form .form_box .form-control::placeholder {
+    color: var(--gray);
+}
+
+.become_partner_form .form_box .form-control:focus,
+.become_partner_form .form_box .form-select:focus {
+    box-shadow: 0 0 0 0.25rem rgba(7, 27, 52,.25);
+}
+
+.become_partner_form .form_box .checkbox-title {
+    background: var(--white);
+    color: var(--primary);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.become_partner_form .form_box .form-label,
+.become_partner_form .form_box .form_box_title {
+    color: var(--primary);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.become_partner_form .form_box .form-check {
+    margin-top: 1rem;
+}
+
+.become_partner_form .form_box .form-check-label {
+    color: var(--primary);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.become_partner_form .form_box .form-check-input[type=checkbox] {
+    border-radius: 50%;
+}
+
+.become_partner_form .btn-submit {
+    background: var(--primary);
+    color: var(--white);
+    font-size: 1.2rem;
+    padding: 1.2rem 3rem;
+    width: auto;
+}
+
+.become_partner_form .btn-submit:hover {
+    background: var(--secondary);
+    color: var(--white);
+}
+
+.become_partner_form textarea.form-control {
+    resize: none;
+}
+
+@media screen and (min-width:992px) {
+    .become_partner_form .row_padding {
+        padding-left: 3rem;
+    }
+
+    .become_partner_form .btn-submit {
+        font-size: 1.6rem;
+    }
+
+    .become_partner_form .form_box .checkbox-title {
+        background: var(--white);
+        font-size: 2rem;
+        padding: 0 1rem;
+        position: absolute;
+        top: -1.2rem;
+        left: 3rem;
+    }
+    
+    .become_partner_form .form_box .form-label,
+    .become_partner_form .form_box .form_box_title {
+        font-size: 2rem;
+    }
+
+    .become_partner_form .form_box .checkbox-border {
+        border: 0.1rem solid var(--secondary);
+        padding: 3rem 2rem;
+        margin-top: 2rem;
+        position: relative;
+    }
+
+    .become_partner_form .form_box .form-check-label {
+        font-size: 1.4rem;
+    }
+}
+
+/* Sponsor Form */
+.become_sponsor_form .section_title {
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.become_sponsor_form .joining_text {
+    color: var(--dark-charcoal);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 150%;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.become_sponsor_form .form_box .form-control,
+.become_sponsor_form .form_box .form-select {
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--gray-seven);
+    color: var(--gray);
+    font-size: 1.4rem;
+    font-weight: 400;
+    padding: 1.4rem;
+}
+
+.become_sponsor_form .form_box .form-control::placeholder {
+    color: var(--gray);
+}
+
+.become_sponsor_form .form_box .form-control:focus,
+.become_sponsor_form .form_box .form-select:focus {
+    box-shadow: 0 0 0 0.25rem rgba(7, 27, 52,.25);
+}
+
+.become_sponsor_form .form_box .checkbox-title {
+    background: var(--white);
+    color: var(--primary);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.become_sponsor_form .form_box .form-label,
+.become_sponsor_form .form_box .form_box_title {
+    color: var(--primary);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.become_sponsor_form .form_box .form-check-label {
+    color: var(--primary);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.become_sponsor_form .form_box .form-check-input[type=checkbox] {
+    border-radius: 50%;
+}
+
+.become_sponsor_form .btn-submit {
+    background: var(--primary);
+    color: var(--white);
+    font-size: 1.2rem;
+    padding: 1.2rem 3rem;
+    width: auto;
+}
+
+.become_sponsor_form .btn-submit:hover {
+    background: var(--secondary);
+    color: var(--white);
+}
+
+.become_sponsor_form textarea.form-control {
+    resize: none;
+}
+
+@media screen and (min-width:768px) {
+    .w-md-50 {
+        width: 50%!important;
+    }
+}
+
+@media screen and (min-width:992px) {
+    .become_sponsor_form .row_padding {
+        padding-left: 3rem;
+    }
+
+    .become_sponsor_form .form_box .checkbox-title {
+        background: var(--white);
+        font-size: 2rem;
+        padding: 0 1rem;
+        position: absolute;
+        top: -1.2rem;
+        left: 3rem;
+    }
+    
+    .become_sponsor_form .form_box .form-label,
+    .become_sponsor_form .form_box .form_box_title {
+        font-size: 2rem;
+    }
+
+    .become_sponsor_form .form_box .checkbox-border {
+        border: 0.1rem solid var(--secondary);
+        padding: 3rem 2rem;
+        margin-top: 2rem;
+        position: relative;
+    }
+
+    .become_sponsor_form .form_box .form-check-label {
+        font-size: 1.4rem;
+    }
+
+    .become_sponsor_form .btn-submit {
+        font-size: 1.6rem;
+    }
+}
