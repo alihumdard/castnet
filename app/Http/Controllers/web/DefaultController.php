@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Application;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Experience;
+use App\Models\MembersSatisfiedFeedback;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\NewsletterModel;
@@ -40,6 +41,17 @@ class DefaultController extends Controller
         return redirect()->back()->with('success',$message);
     }
 
+    public function satisfiedMembers(Request $request){
+        $memberExperiecne = [
+            'feedback' => $request->membership_experience_satisfaction,
+            'member_events' => $request->member_events_participation,
+            'feedback_responses' => $request->overall_experience,
+            'demographic_feedback' => $request->demographics_feedback,
+        ];
+        MembersSatisfiedFeedback::create($memberExperiecne);
+        $message = 'Experience added successfully';
+        return redirect()->back()->with('success',$message);
+    }
     public function jobApply(Request $request,$id){
         $validator = Validator::make($request->all(), [
             'cv' => 'required|file|mimes:pdf,doc,docx,txt,rtf,html,jpg,png,odt,tex|max:2048',

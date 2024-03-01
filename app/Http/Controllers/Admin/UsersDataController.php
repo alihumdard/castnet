@@ -7,12 +7,23 @@ use App\Models\CompanyInfoFormSetting;
 use App\Models\CompanyInformation;
 use App\Models\EventRequestForm;
 use App\Models\Experience;
+use App\Models\MembersSatisfiedFeedback;
 use App\Models\NewsletterModel;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class UsersDataController extends Controller
 {
+    public function satisfiedFeedback(){
+        $data= MembersSatisfiedFeedback::all();
+
+        return view('admin.pages.memberFeedback',compact('data'));
+    }
+    public function memberFeedbackDetail($id){
+        $data = MembersSatisfiedFeedback::findOrFail($id);
+ 
+        return view('admin.pages.memberFeedbackDetail', compact('data'));
+    }
     public function companyInfoData(){
         $data= CompanyInformation::all();
         
@@ -82,6 +93,16 @@ class UsersDataController extends Controller
     public function destroyexperience($id)
     {
         Experience::destroy($id);
+
+        return response()->json(array(
+            'data' => true,
+            'message' => 'Team member deleted successfully.',
+            'status' => 'success',
+        ));
+    }
+    public function destroyeFeedback($id)
+    {
+        MembersSatisfiedFeedback::destroy($id);
 
         return response()->json(array(
             'data' => true,
