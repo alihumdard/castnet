@@ -80,6 +80,8 @@ Route::middleware('admin-not-access')->group(function() {
     Route::post('/filter-keywords', [FilterController::class, 'filterKeywords'])->name('filter.keywords');
     Route::get('/filter-search', [FilterController::class, 'filterSearch'])->name('filter.search');
     Route::post('/subscribe-newsletter', [DefaultController::class, 'subscribe'])->name('subscribe.newsletter');
+    Route::post('/partners-data', [DefaultController::class, 'partners'])->name('partners.data');
+    Route::post('/sponsors', [DefaultController::class, 'sponsors'])->name('sponsors.data');
 
     Route::post('/satisfied_members', [DefaultController::class, 'satisfiedMembers'])->name('satisfied.members');
     

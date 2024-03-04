@@ -1050,7 +1050,7 @@
                             </li>
                             <li class="nav-item {{ (request()->routeIs('becomepartner*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
-                                    <p> ECOME A PARTNER <i class="fas fa-angle-left right"></i> </p>
+                                    <p> BECOME A PARTNER <i class="fas fa-angle-left right"></i> </p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
