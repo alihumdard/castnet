@@ -129,8 +129,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="section_title">Partnership Form</h2>
-                    <form action="#">
-                        <div class="form_box aos-init aos-animate" data-aos="zoom-in" data-aos-duration="1000">
+                    <form action="{{ route('partners.data') }}" method="POST">
+                        @csrf
+                        <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
                             <div class="row mb-4">
                                 <div class="col-12">
                                     <h3 class="form_box_title">Partner Information:</h3>
@@ -138,124 +139,45 @@
                             </div>
                             <div class="row gy-4 mb-4 row_padding">
                                 <div class="col-12 col-md-6">
-                                    <input type="text" class="form-control" placeholder="Organization/Individual Name">
+                                    <input type="text" class="form-control" placeholder="Organization/Individual Name" name="organization_name">
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <input type="text" class="form-control" placeholder="Contact Person's Name">
+                                    <input type="text" class="form-control" placeholder="Contact Person's Name" name="contact_person_name">
+
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <input type="email" class="form-control" placeholder="Email Address">
+                                    <input type="email" class="form-control" placeholder="Email Address" name="email">
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <input type="text" class="form-control" placeholder="Phone Number">
+                                    <input type="text" class="form-control" placeholder="Phone Number" name="phone_number">
                                 </div>
                                 <div class="col-12 col-md-12">
-                                    <input type="text" class="form-control" placeholder="Organization's Website (if applicable)">
+                                    <input type="text" class="form-control" placeholder="Organization's Website (if applicable)" name="organization_website">
                                 </div>
                             </div>
-                            <div class="row mb-4">
-                                <div class="col-12">
-                                    <h3 class="form_box_title">Partnership Interest Area:</h3>
-                                </div>
-                            </div>
-                            <div class="row gy-4 mb-4 row_padding">
-                                <div class="col-12">
-                                    <select class="form-select">
-                                        <option selected="">Industry Sectors</option>
-                                        <option value="construction">Construction</option>
-                                        <option value="agriculture">Agriculture</option>
-                                        <option value="supply chain">Supply Chain</option>
-                                        <option value="technology">Technology</option>
-                                        <option value="natural_resources">Natural Resources</option>
-                                        <option value="energy">Energy</option>
-                                        <option value="textiles">Textiles</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <div class="checkbox-border">
-                                        <h3 class="checkbox-title">Type of Partnership Interest</h3>
-                                        <div class="row gy-3">
-                                            <div class="col-md-4">
-                                                <div class="form-check">
-                                                    <input type="radio" class="form-check-input" name="partnership_interest" id="project_collaboration">
-                                                    <label class="form-check-label" for="project_collaboration">Project Collaboration</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-check">
-                                                    <input type="radio" class="form-check-input" name="partnership_interest" id="kind_support">
-                                                    <label class="form-check-label" for="kind_support">In‐Kind Support</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-check">
-                                                    <input type="radio" class="form-check-input" name="partnership_interest" id="expertise_sharing">
-                                                    <label class="form-check-label" for="expertise_sharing">Expertise Sharing</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-check">
-                                                    <input type="radio" class="form-check-input" name="partnership_interest" id="advocacy_programs">
-                                                    <label class="form-check-label" for="advocacy_programs">Advocacy Programs</label>
-                                                </div>
-                                            </div>
+                            <div class="row gy-4 gy-md-0 mb-4">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h3 class="form_box_title mb-4">Partnership Interest Area:</h3>
+                                        </div>
+                                        <div class="col-12 row_padding">
+                                            <select class="form-select" name="industry_sector">
+                                                <option selected disabled>Industry Sectors</option>
+                                                <option value="construction">Construction</option>
+                                                <option value="agriculture">Agriculture</option>
+                                                <option value="supply chain">Supply Chain</option>
+                                                <option value="technology">Technology</option>
+                                                <option value="natural_resources">Natural Resources</option>
+                                                <option value="energy">Energy</option>
+                                                <option value="textiles">Textiles</option>
+                                                <option value="advocacy">Advocacy</option>
+                                            </select>
+                                            
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <input type="text" class="form-control" placeholder="Target Geographic Region(s) for Partnership">
-                                </div>
-                            </div>
-                            <div class="row mb-4">
-                                <div class="col-12">
-                                    <h3 class="form_box_title">Partnership Contribution Details:</h3>
-                                </div>
-                            </div>
-                            <div class="row gy-4 mb-4 row_padding">
-                                <div class="col-12">
-                                    <textarea cols="30" rows="7" class="form-control" placeholder="Project Opportunities"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <textarea cols="30" rows="7" class="form-control" placeholder="Non-Monetary Support Offered (e.g., services, expertise, equipment, software)"></textarea>
-                                </div>
-                            </div>
-                            <div class="row mb-4">
-                                <div class="col-12">
-                                    <h3 class="form_box_title">Goals and Objectives of Partnership:</h3>
-                                </div>
-                            </div>
-                            <div class="row gy-4 mb-4 row_padding">
-                                <div class="col-12">
-                                    <input type="text" class="form-control" placeholder="goals or objectives in partnering with C.A.S.T.N.E.T. (e.g., community impact, market expansion, technology transfer)">
-                                </div>
-                                <div class="col-12">
-                                    <div class="checkbox-border">
-                                        <h3 class="checkbox-title">Previous Partnership Experiences:</h3>
-                                        <div class="row gy-3">
-                                            <div class="col-12">
-                                                <div class="form-check">
-                                                    <input type="radio" class="form-check-input" name="previous_partnership" id="prev_yes">
-                                                    <label class="form-check-label" for="prev_yes">Yes</label>
-                                                    <input type="text" class="form-control w-md-50" placeholder="Details about past partnership experiences">
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-check">
-                                                    <input type="radio" class="form-check-input" name="previous_partnership" id="prev_no">
-                                                    <label class="form-check-label" for="prev_no">No</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-4">
-                                <div class="col-12">
-                                    <h3 class="form_box_title">Preferred Terms of Partnership:</h3>
-                                </div>
-                            </div>
-                            <div class="row gy-4 mb-4 row_padding">
-                                <div class="col-12">
+                                <div class="col-md-6">
                                     <div class="checkbox-border">
                                         <h3 class="checkbox-title">Duration of Partnership</h3>
                                         <div class="row gy-3">
@@ -274,11 +196,97 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <textarea cols="30" rows="7" class="form-control" placeholder="Expected Outcomes and Deliverables"></textarea>
+                            </div>
+                            <div class="row gy-4 mb-4 row_padding">
+                                <div class="col-12 col-md-6 d-flex">
+                                    <div class="checkbox-border flex-grow-1">
+                                        <h3 class="checkbox-title">Type of Partnership Interest</h3>
+                                        <div class="row gy-3">
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" name="partnership_interest" id="project_collaboration">
+                                                    <label class="form-check-label" for="project_collaboration">Project Collaboration</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" name="partnership_interest" id="kind_support">
+                                                    <label class="form-check-label" for="kind_support">In&dash;Kind Support</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" name="partnership_interest" id="expertise_sharing">
+                                                    <label class="form-check-label" for="expertise_sharing">Expertise Sharing</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" name="partnership_interest" id="advocacy_programs">
+                                                    <label class="form-check-label" for="advocacy_programs">Advocacy Programs</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 d-flex">
+                                    <div class="checkbox-border flex-grow-1">
+                                        <h3 class="checkbox-title">Previous Partnership Experiences:</h3>
+                                        <div class="row gy-3">
+                                            <div class="col-12">
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" name="previous_partnership" id="prev_yes">
+                                                    <label class="form-check-label" for="prev_yes">Yes</label>
+                                                    <input type="text" class="form-control" placeholder="Details about past partnership experiences" name="past_partnership_details">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" name="previous_partnership" id="prev_no">
+                                                    <label class="form-check-label" for="prev_no">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-12">
-                                    <textarea cols="30" rows="7" class="form-control" placeholder="Non-Monetary Support Offered (e.g., services, expertise, equipment, software)"></textarea>
+                                    <input type="text" class="form-control" placeholder="Target Geographic Region(s) for Partnership" name="target_geographic_regions">
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-12">
+                                    <h3 class="form_box_title">Partnership Contribution Details:</h3>
+                                </div>
+                            </div>
+                            <div class="row gy-4 mb-4 row_padding">
+                                <div class="col-12">
+                                    <textarea cols="30" rows="7" class="form-control" placeholder="Project Opportunities" name="project_opportunities"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <textarea cols="30" rows="7" class="form-control" placeholder="Non-Monetary Support Offered (e.g., services, expertise, equipment, software)" name="non_monetary_support"></textarea>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-12">
+                                    <h3 class="form_box_title">Goals and Objectives of Partnership:</h3>
+                                </div>
+                            </div>
+                            <div class="row gy-4 mb-4 row_padding">
+                                <div class="col-12">
+                                    <input type="text" class="form-control" placeholder="Goals or Objectives in Partnering with C.A.S.T.N.E.T. (e.g., community impact, market expansion, technology transfer)" name="partnering_goals">
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-12">
+                                    <h3 class="form_box_title">Preferred Terms of Partnership:</h3>
+                                </div>
+                            </div>
+                            <div class="row gy-4 mb-4 row_padding">
+                                <div class="col-12">
+                                    <textarea cols="30" rows="7" class="form-control" placeholder="Expected Outcomes and Deliverables" name="expected_outcomes"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <textarea cols="30" rows="7" class="form-control" placeholder="Non-Monetary Support Offered (e.g., services, expertise, equipment, software)" name="non_monetary_support_offered"></textarea>
                                 </div>
                             </div>
                             <div class="row gy-4 mb-4 row_padding">
@@ -288,16 +296,16 @@
                                         <div class="row gy-3">
                                             <div class="col-12">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" name="legal_compliance" id="legal_compliance_agrre">
-                                                    <label class="form-check-label" for="legal_compliance_agrre">Agreement to discuss legal terms and conditions</label>
+                                                    <input type="checkbox" class="form-check-input" name="legal_compliance_agree" id="legal_compliance_agree">
+                                                    <label class="form-check-label" for="legal_compliance_agree">Agreement to discuss legal terms and conditions</label>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" name="legal_compliance" id="legal_compliance_under">
-                                                    <label class="form-check-label" for="legal_compliance_under">Understanding of data protection and privacy policy</label>
+                                                    <input type="checkbox" class="form-check-input" name="legal_compliance_understanding" id="legal_compliance_understanding">
+                                                    <label class="form-check-label" for="legal_compliance_understanding">Understanding of data protection and privacy policy</label>
                                                 </div>
-                                            </div>
+                                            </div>                                            
                                         </div>
                                     </div>
                                 </div>
@@ -355,7 +363,7 @@
                                 <div class="col-12">
                                     <div class="row gy-4 mb-4">
                                         <div class="col-12">
-                                            <textarea cols="30" rows="7" class="form-control" placeholder="Information"></textarea>
+                                            <textarea cols="30" rows="7" class="form-control" placeholder="Information" name="additional_information"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -376,7 +384,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="text-center mt-5 aos-init aos-animate" data-aos="fade-right" data-aos-duration="1000">
+                        <div class="text-center mt-5" data-aos="fade-right" data-aos-duration="1000">
                             <button type="submit" class="btn btn-submit">Submit Partnership Inquiry</button>
                         </div>
                     </form>
