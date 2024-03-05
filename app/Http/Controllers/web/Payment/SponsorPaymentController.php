@@ -7,6 +7,7 @@ use Stripe\Exception\InvalidRequestException;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Stripe\Exception\CardException;
+use App\Models\Event_Request_Type;
 use App\Models\PaymentModel;
 use Illuminate\Http\Request;
 use App\Models\SponsorUser;
@@ -67,8 +68,8 @@ class SponsorPaymentController extends Controller
         if (empty($token['id'])) {
             return redirect()->back()->with('error', 'Payment failed.');
         }
-        $amount = 5;
-        $charge = $this->createCharge($token['id'], $amount*100);
+        $amount = Event_Request_Type::where('id',4)->first('fee');
+        $charge = $this->createCharge($token['id'], $amount->fee*100);
         if (!empty($charge) && $charge['status'] == 'succeeded') {      
             $user = User::create([
                 'first_name'=>$request->contact_person_name,

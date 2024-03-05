@@ -392,7 +392,7 @@
                                 <div class="row gy-4" style="margin-bottom: 15px">
                                     <div class="col-12 col-md-4">
                                         <div class="form-group errorshow">
-                                            <input type="text" value="$5" class="form-control" disabled>
+                                            <input type="text" value="${{$amount->fee}}" class="form-control" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-4">

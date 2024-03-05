@@ -298,6 +298,7 @@ class PagesController extends Controller
     }
     public function become_partner(){
         $banner = PageBanner::where('type', 33)->first();
+        $amount = Event_Request_Type::where('id',3)->first('fee');
         $section1 = PartnerCommonSection1::where(['section'=>1,'page'=>'become_partner'])->first();
         $section1s = PartnerCommonSection2::where(['section'=>1,'page'=>'become_partner'])->get();
         $section2 = PartnerCommonSection1::where(['section'=>2,'page'=>'become_partner'])->first();
@@ -308,6 +309,7 @@ class PagesController extends Controller
     }
     public function become_sponsor(){
         $banner = PageBanner::where('type', 34)->first();
+        $amount = Event_Request_Type::where('id',4)->first('fee');
         $section1 = PartnerCommonSection1::where(['section'=>1,'page'=>'become_sponsor'])->first();
         $title = PartnerSponsorPageTitleModel::where(['page'=>'become_sponsor','section'=>2])->first();
         $title2 = PartnerSponsorPageTitleModel::where(['page'=>'partners_sponsors','section'=>2])->first();
