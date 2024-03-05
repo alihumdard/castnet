@@ -215,6 +215,7 @@ background-size: cover;">
                             </div>
                         </div>
                     </div>
+                    {{-- payment detail start --}}
                     <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
                         <h2 class="section_title">Payment Details</h2>
                         <div class="row gy-4" style="margin-bottom: 15px">
@@ -260,6 +261,7 @@ background-size: cover;">
                             <button type="submit" class="btn btn-submit">submit</button>
                         </div>
                     </div>
+                    {{-- payment deatil end --}}
                 </form>
             </div>
         </div>

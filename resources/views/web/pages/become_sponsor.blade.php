@@ -95,7 +95,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h2 class="section_title">Sponsorship Form</h2>
-                <form action="{{ route('sponsors.data') }}" method="POST">
+                <form action="{{ route('sponsors.data') }}" id="sponsor_form" method="POST">
                     @csrf
                     <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
                         <div class="row mb-4">
@@ -104,19 +104,19 @@
                             </div>
                         </div>
                         <div class="row gy-4 mb-4 row_padding">
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-6 errorshow">
                                 <input type="text" class="form-control" placeholder="Sponsor's Name" name="sponsor_name">
                             </div>
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-6 errorshow">
                                 <input type="text" class="form-control" placeholder="Contact Person's Name" name="contact_person_name">
                             </div>
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-6 errorshow">
                                 <input type="email" class="form-control" placeholder="Email Address" name="email_address">
                             </div>
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-6 errorshow">
                                 <input type="text" class="form-control" placeholder="Phone Number" name="phone_number">
                             </div>
-                            <div class="col-12 col-md-12">
+                            <div class="col-12 col-md-12 errorshow">
                                 <input type="text" class="form-control" placeholder="Website URL (optional)" name="website_url">
                             </div>
                         </div>
@@ -126,7 +126,7 @@
                             </div>
                         </div>
                         <div class="row gy-4 mb-4 row_padding">
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-6 errorshow">
                                 <select class="form-select" name="industry_sector">
                                     <option selected disabled>Industry Sectors</option>
                                     <option value="construction">Construction</option>
@@ -139,7 +139,7 @@
                                     <option value="advocacy">Advocacy</option>
                                 </select>                                
                             </div>
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-6 errorshow">
                                 <select class="form-select" name="specific_interest">
                                     <option selected disabled>Specific Interest in Sponsorship</option>
                                     <option value="events">Events</option>
@@ -151,11 +151,11 @@
                                     <option value="young_entrepreneurs">Young Entrepreneurs</option>
                                 </select>                                
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 errorshow">
                                 <input type="text" class="form-control" placeholder="Preferred Geographic Focus" name="geographic_focus">
                             </div>
                             <div class="col-12">
-                                <div class="checkbox-border">
+                                <div class="checkbox-border errorshow">
                                     <h3 class="checkbox-title">Sponsorship Level Preferences</h3>
                                     <div class="row gy-3">
                                         <div class="col-md-3">
@@ -192,11 +192,11 @@
                             </div>
                         </div>
                         <div class="row gy-4 mb-4 row_padding">
-                            <div class="col-12">
+                            <div class="col-12 errorshow">
                                 <textarea cols="30" rows="7" class="form-control" placeholder="What you hope to achieve through their sponsorship" name="sponsorship_goals"></textarea>
                             </div>
                             <div class="col-12 col-md-6">
-                                <div class="checkbox-border">
+                                <div class="checkbox-border errorshow">
                                     <h3 class="checkbox-title">Previous Sponsorship Experiences</h3>
                                     <div class="row gy-3">
                                         <div class="col-12">
@@ -216,7 +216,7 @@
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <div class="checkbox-border">
+                                <div class="checkbox-border errorshow">
                                     <h3 class="checkbox-title">Sponsorship Agreement Preferences</h3>
                                     <div class="row gy-3">
                                         <div class="col-12">
@@ -242,10 +242,10 @@
                             </div>
                         </div>
                         <div class="row gy-4 mb-4 row_padding">
-                            <div class="col-md-6">
+                            <div class="col-md-6 errorshow">
                                 <input type="text" class="form-control" placeholder="Estimated Budget for Sponsorship" name="sponsorship_budget">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 errorshow">
                                 <select class="form-select" name="payment_schedule">
                                     <option selected disabled>Preferred Payment Schedule</option>
                                     <option value="one_time">One-Time</option>
@@ -253,7 +253,7 @@
                                 </select>                                
                             </div>
                             <div class="col-12">
-                                <div class="checkbox-border">
+                                <div class="checkbox-border errorshow">
                                     <h3 class="checkbox-title">Additional Support Offered</h3>
                                     <div class="row gy-3">
                                         <div class="col-md-4">
@@ -280,7 +280,7 @@
                         </div>
                         <div class="row gy-4 mb-4 row_padding">
                             <div class="col-12">
-                                <div class="checkbox-border">
+                                <div class="checkbox-border errorshow">
                                     <h3 class="checkbox-title">How Did You Hear About Us?</h3>
                                     <div class="row gy-3">
                                         <div class="col-lg-3">
@@ -324,7 +324,7 @@
                         </div>
                         <div class="row gy-4 row_padding">
                             <div class="col-12">
-                                <div class="checkbox-border">
+                                <div class="checkbox-border errorshow">
                                     <h3 class="checkbox-title">Data Protection Consent</h3>
                                     <div class="row gy-3">
                                         <div class="col-md-4">
@@ -350,6 +350,53 @@
                             </div>
                         </div>
                     </div>
+                        {{-- payment detail start --}}
+                        <div class="form_box" data-aos="zoom-in" data-aos-duration="1000" style="padding: 40px 50px 0 50px">
+                            <h2 class="section_title">Payment Details</h2>
+                            <div class="row gy-4" style="margin-bottom: 15px">
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group errorshow">
+                                    {{-- <input type="text" class="form-control" placeholder="Name on Card" name="full_name" value="{{ session('userMemberData.full_name') }}"> --}}
+                                    <input type="text" class="form-control" placeholder="Name on Card" name="full_name">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group errorshow">
+                                    <input type="number" class="form-control" min="1" placeholder="Card Number" name="card_number">
+                                    {{-- <input type="number" class="form-control" min="1" placeholder="Card Number" name="card_number" value="{{ session('userMemberData.card_number') }}"> --}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row gy-4">
+                                <div class="col-12 col-md-4">
+                                    <div class="form-group errorshow">
+                                    <input type="number" class="form-control" placeholder="CVC" name="cvv">
+                                    {{-- <input type="number" class="form-control" placeholder="CVC" name="cvv" value="{{ session('userMemberData.cvv') }}"> --}}
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="form-group errorshow">
+                                        <select class="form-control" name="expiry_month">
+                                            <option disabled selected>MM</option>
+                                            @foreach(range(1, 12) as $month)
+                                                <option value="{{$month}}" {{ session('userMemberData.expiry_month') == $month ? 'selected' : '' }}>{{$month}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="form-group errorshow">
+                                        <select class="form-control" name="expiry_year">
+                                            <option disabled selected>YYYY</option>
+                                            @foreach(range(date('Y'), date('Y') + 10) as $year)
+                                                <option value="{{$year}}" {{ session('userMemberData.expiry_year') == $year ? 'selected' : '' }}>{{$year}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{-- payment deatil end --}}
                     <div class="text-center mt-5" data-aos="fade-right" data-aos-duration="1000">
                         <button type="submit" class="btn btn-submit">Submit Your Sponsorship Inquiry</button>
                     </div>
@@ -382,3 +429,107 @@
     <!-- Ready to Join end -->
 
     @stop
+    @push('scripts')
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script>
+        $('#sponsor_form').validate({
+            rules: {
+                sponsor_name: {
+                    required: true,
+                },
+                contact_person_name: {
+                    required: true,
+                },
+                email_address: {
+                    required: true,
+                },
+                phone_number: {
+                    required: true,
+                },
+                website_url: {
+                    required: true,
+                },
+                industry_sector: {
+                    required: true,
+                },
+                specific_interest: {
+                    required: true,
+                },
+                geographic_focus: {
+                    required: true,
+                },
+                sponsorship_level: {
+                    required: true,
+                },
+                sponsorship_goals: {
+                    required: true,
+                },
+                sponsorship_experiences: {
+                    required: true,
+                },
+                sponsorship_preferences: {
+                    required: true,
+                },
+                sponsorship_budget: {
+                    required: true,
+                },
+                payment_schedule: {
+                    required: true,
+                },
+                additional_support: {
+                    required: true,
+                },
+                hear_about: {
+                    required: true,
+                },
+                data_protection_consent: {
+                    required: true,
+                },
+                full_name: {
+                    required: true,
+                },
+                card_number: {
+                    required: true,
+                    number: true,
+                    creditcard: true,
+                },
+                cvv: {
+                    required: true,
+                },
+                expiry_month: {
+                    required: true,
+                },
+                expiry_year: {
+                    required: true,
+                },
+            },
+            messages: {
+                email: {
+                    required: "Please enter your email address.",
+                    email: "Please enter a valid email address."
+                },
+                billing_email: {
+                    required: "Please enter your email address.",
+                    email: "Please enter a valid email address."
+                },
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.errorshow').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            }
+        });
+        $("body").on("submit", "#sponsor_form", function (e) {
+            var data = $('#email_valid').val();
+            if(data=='not valid'){
+                e.preventDefault();
+            }
+       });
+    </script>
+    @endpush

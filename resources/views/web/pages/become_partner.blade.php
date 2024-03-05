@@ -129,7 +129,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="section_title">Partnership Form</h2>
-                    <form action="{{ route('partners.data') }}" method="POST">
+                    <form action="{{ route('partners.data') }}" id="partner_form" method="POST">
                         @csrf
                         <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
                             <div class="row mb-4">
@@ -138,20 +138,20 @@
                                 </div>
                             </div>
                             <div class="row gy-4 mb-4 row_padding">
-                                <div class="col-12 col-md-6">
+                                <div class="col-12 col-md-6 errorshow">
                                     <input type="text" class="form-control" placeholder="Organization/Individual Name" name="organization_name">
                                 </div>
-                                <div class="col-12 col-md-6">
+                                <div class="col-12 col-md-6 errorshow">
                                     <input type="text" class="form-control" placeholder="Contact Person's Name" name="contact_person_name">
 
                                 </div>
-                                <div class="col-12 col-md-6">
+                                <div class="col-12 col-md-6 errorshow">
                                     <input type="email" class="form-control" placeholder="Email Address" name="email">
                                 </div>
-                                <div class="col-12 col-md-6">
+                                <div class="col-12 col-md-6 errorshow">
                                     <input type="text" class="form-control" placeholder="Phone Number" name="phone_number">
                                 </div>
-                                <div class="col-12 col-md-12">
+                                <div class="col-12 col-md-12 errorshow">
                                     <input type="text" class="form-control" placeholder="Organization's Website (if applicable)" name="organization_website">
                                 </div>
                             </div>
@@ -161,7 +161,7 @@
                                         <div class="col-12">
                                             <h3 class="form_box_title mb-4">Partnership Interest Area:</h3>
                                         </div>
-                                        <div class="col-12 row_padding">
+                                        <div class="col-12 row_padding errorshow">
                                             <select class="form-select" name="industry_sector">
                                                 <option selected disabled>Industry Sectors</option>
                                                 <option value="construction">Construction</option>
@@ -172,12 +172,11 @@
                                                 <option value="energy">Energy</option>
                                                 <option value="textiles">Textiles</option>
                                                 <option value="advocacy">Advocacy</option>
-                                            </select>
-                                            
+                                            </select> 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 errorshow">
                                     <div class="checkbox-border">
                                         <h3 class="checkbox-title">Duration of Partnership</h3>
                                         <div class="row gy-3">
@@ -199,7 +198,7 @@
                             </div>
                             <div class="row gy-4 mb-4 row_padding">
                                 <div class="col-12 col-md-6 d-flex">
-                                    <div class="checkbox-border flex-grow-1">
+                                    <div class="checkbox-border flex-grow-1 errorshow">
                                         <h3 class="checkbox-title">Type of Partnership Interest</h3>
                                         <div class="row gy-3">
                                             <div class="col-md-6">
@@ -230,7 +229,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6 d-flex">
-                                    <div class="checkbox-border flex-grow-1">
+                                    <div class="checkbox-border flex-grow-1 errorshow">
                                         <h3 class="checkbox-title">Previous Partnership Experiences:</h3>
                                         <div class="row gy-3">
                                             <div class="col-12">
@@ -249,43 +248,43 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 errorshow">
                                     <input type="text" class="form-control" placeholder="Target Geographic Region(s) for Partnership" name="target_geographic_regions">
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <div class="col-12">
+                                <div class="col-12 errorshow">
                                     <h3 class="form_box_title">Partnership Contribution Details:</h3>
                                 </div>
                             </div>
                             <div class="row gy-4 mb-4 row_padding">
-                                <div class="col-12">
+                                <div class="col-12 errorshow">
                                     <textarea cols="30" rows="7" class="form-control" placeholder="Project Opportunities" name="project_opportunities"></textarea>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 errorshow">
                                     <textarea cols="30" rows="7" class="form-control" placeholder="Non-Monetary Support Offered (e.g., services, expertise, equipment, software)" name="non_monetary_support"></textarea>
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <div class="col-12">
+                                <div class="col-12 errorshow">
                                     <h3 class="form_box_title">Goals and Objectives of Partnership:</h3>
                                 </div>
                             </div>
                             <div class="row gy-4 mb-4 row_padding">
-                                <div class="col-12">
+                                <div class="col-12 errorshow">
                                     <input type="text" class="form-control" placeholder="Goals or Objectives in Partnering with C.A.S.T.N.E.T. (e.g., community impact, market expansion, technology transfer)" name="partnering_goals">
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <div class="col-12">
+                                <div class="col-12 errorshow">
                                     <h3 class="form_box_title">Preferred Terms of Partnership:</h3>
                                 </div>
                             </div>
                             <div class="row gy-4 mb-4 row_padding">
-                                <div class="col-12">
+                                <div class="col-12 errorshow">
                                     <textarea cols="30" rows="7" class="form-control" placeholder="Expected Outcomes and Deliverables" name="expected_outcomes"></textarea>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 errorshow">
                                     <textarea cols="30" rows="7" class="form-control" placeholder="Non-Monetary Support Offered (e.g., services, expertise, equipment, software)" name="non_monetary_support_offered"></textarea>
                                 </div>
                             </div>
@@ -295,13 +294,13 @@
                                         <h3 class="checkbox-title">Legal Compliance and Agreements</h3>
                                         <div class="row gy-3">
                                             <div class="col-12">
-                                                <div class="form-check">
+                                                <div class="form-check errorshow">
                                                     <input type="checkbox" class="form-check-input" name="legal_compliance_agree" id="legal_compliance_agree">
                                                     <label class="form-check-label" for="legal_compliance_agree">Agreement to discuss legal terms and conditions</label>
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <div class="form-check">
+                                                <div class="form-check errorshow">
                                                     <input type="checkbox" class="form-check-input" name="legal_compliance_understanding" id="legal_compliance_understanding">
                                                     <label class="form-check-label" for="legal_compliance_understanding">Understanding of data protection and privacy policy</label>
                                                 </div>
@@ -316,32 +315,32 @@
                                         <h3 class="checkbox-title">How Did You Hear About Us?</h3>
                                         <div class="row gy-3">
                                             <div class="col-lg-3">
-                                                <div class="form-check">
+                                                <div class="form-check errorshow">
                                                     <input type="radio" class="form-check-input" name="hear_about" id="social_media">
                                                     <label class="form-check-label" for="social_media">Social Media</label>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
-                                                <div class="form-check">
+                                                <div class="form-check errorshow">
                                                     <input type="radio" class="form-check-input" name="hear_about" id="referral">
                                                     <label class="form-check-label" for="referral">Referral</label>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
-                                                <div class="form-check">
+                                                <div class="form-check errorshow">
                                                     <input type="radio" class="form-check-input" name="hear_about" id="event">
                                                     <label class="form-check-label" for="event">Event</label>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
-                                                <div class="form-check">
+                                                <div class="form-check errorshow">
                                                     <input type="radio" class="form-check-input" name="hear_about" id="online_search">
                                                     <label class="form-check-label" for="online_search">Online Search</label>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-check">
-                                                    <div class="d-flex gap-4 align-items-center">
+                                                    <div class="d-flex gap-4 align-items-center errorshow">
                                                         <div>
                                                             <input type="radio" class="form-check-input" name="hear_about" id="hear_other">
                                                             <label class="form-check-label" for="hear_other">Other</label>
@@ -362,7 +361,7 @@
                             <div class="row gy-4 row_padding">
                                 <div class="col-12">
                                     <div class="row gy-4 mb-4">
-                                        <div class="col-12">
+                                        <div class="col-12 errorshow">
                                             <textarea cols="30" rows="7" class="form-control" placeholder="Information" name="additional_information"></textarea>
                                         </div>
                                     </div>
@@ -374,7 +373,7 @@
                                         <h3 class="checkbox-title">Data Protection Consent</h3>
                                         <div class="row gy-3">
                                             <div class="col-12">
-                                                <div class="form-check d-inline-block">
+                                                <div class="form-check d-inline-block errorshow">
                                                     <input type="radio" class="form-check-input" name="data_protection_consent" id="data_consent">
                                                     <label class="form-check-label" for="data_consent">Store and use the provided information for partnership purposes according to privacy laws</label>
                                                 </div>
@@ -384,6 +383,53 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- payment detail start --}}
+                            <div class="form_box" data-aos="zoom-in" data-aos-duration="1000" style="padding: 40px 50px 0 50px">
+                                <h2 class="section_title">Payment Details</h2>
+                                <div class="row gy-4" style="margin-bottom: 15px">
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group errorshow">
+                                        <input type="text" class="form-control" placeholder="Name on Card" name="full_name">
+                                        {{-- <input type="text" class="form-control" placeholder="Name on Card" name="full_name" value="{{ session('userMemberData.full_name') }}"> --}}
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group errorshow">
+                                        <input type="number" class="form-control" min="1" placeholder="Card Number" name="card_number">
+                                        {{-- <input type="number" class="form-control" min="1" placeholder="Card Number" name="card_number" value="{{ session('userMemberData.card_number') }}"> --}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row gy-4">
+                                    <div class="col-12 col-md-4">
+                                        <div class="form-group errorshow">
+                                        <input type="number" class="form-control" placeholder="CVC" name="cvv">
+                                        {{-- <input type="number" class="form-control" placeholder="CVC" name="cvv" value="{{ session('userMemberData.cvv') }}"> --}}
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="form-group errorshow">
+                                            <select class="form-control" name="expiry_month">
+                                                <option disabled selected>MM</option>
+                                                @foreach(range(1, 12) as $month)
+                                                    <option value="{{$month}}" {{ session('userMemberData.expiry_month') == $month ? 'selected' : '' }}>{{$month}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="form-group errorshow">
+                                            <select class="form-control" name="expiry_year">
+                                                <option disabled selected>YYYY</option>
+                                                @foreach(range(date('Y'), date('Y') + 10) as $year)
+                                                    <option value="{{$year}}" {{ session('userMemberData.expiry_year') == $year ? 'selected' : '' }}>{{$year}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {{-- payment deatil end --}}
                         <div class="text-center mt-5" data-aos="fade-right" data-aos-duration="1000">
                             <button type="submit" class="btn btn-submit">Submit Partnership Inquiry</button>
                         </div>
@@ -415,3 +461,116 @@
     <!-- Ready to Join end -->
 
     @stop
+    @push('scripts')
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script>
+    $('#partner_form').validate({
+        rules: {
+            organization_name: {
+                required: true,
+            },
+            contact_person_name: {
+                required: true,
+            },
+            email: {
+                required: true,
+            },
+            phone_number: {
+                required: true,
+            },
+            organization_website: {
+                required: true,
+            },
+            industry_sector: {
+                required: true,
+            },
+            partnership_dur: {
+                required: true,
+            },
+            partnership_interest: {
+                required: true,
+            },
+            previous_partnership: {
+                required: true,
+            },
+            target_geographic_regions: {
+                required: true,
+            },
+            project_opportunities: {
+                required: true,
+            },
+            non_monetary_support: {
+                required: true,
+            },
+            partnering_goals: {
+                required: true,
+            },
+            expected_outcomes: {
+                required: true,
+            },
+            non_monetary_support_offered: {
+                required: true,
+            },
+            legal_compliance_agree: {
+                required: true,
+            },
+            legal_compliance_understanding: {
+                required: true,
+            },
+            hear_about: {
+                required: true,
+            },
+            additional_information: {
+                required: true,
+            },
+            data_protection_consent: {
+                required: true,
+            },
+            full_name: {
+                required: true,
+            },
+            card_number: {
+                required: true,
+                number: true,
+                creditcard: true,
+            },
+            cvv: {
+                required: true,
+            },
+            expiry_month: {
+                required: true,
+            },
+            expiry_year: {
+                required: true,
+            },
+        },
+        messages: {
+            email: {
+                required: "Please enter your email address.",
+                email: "Please enter a valid email address."
+            },
+            billing_email: {
+                required: "Please enter your email address.",
+                email: "Please enter a valid email address."
+            },
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.errorshow').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        }
+    });
+    $("body").on("submit", "#partner_form", function (e) {
+        var data = $('#email_valid').val();
+        if(data=='not valid'){
+            e.preventDefault();
+        }
+   });
+</script>
+@endpush
