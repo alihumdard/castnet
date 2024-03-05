@@ -380,6 +380,8 @@ Route::middleware('auth')->group(function() {
             Route::get('/partnersponsor-banner', [PartnerSponsorController::class, 'banner'])->name('partnersponsor.banner');
             Route::get('/partnersponsor-section2', [PartnerSponsorController::class, 'section2'])->name('partnersponsor.section2');
             Route::post('/partnersponsor-title', [PartnerSponsorController::class, 'titleSave'])->name('partnersponsor.title');
+            Route::get('/partnersponsor-fees', [PartnerSponsorController::class, 'fees'])->name('partnersponsor.fees');
+            Route::post('/partnersponsorFee-update', [PartnerSponsorController::class, 'feesUpdate'])->name('partnersponsor.feeUpdate');
             // ---- Partners Sponsor page routes end ----
 
             // ---- Become Partner page routes start ----
