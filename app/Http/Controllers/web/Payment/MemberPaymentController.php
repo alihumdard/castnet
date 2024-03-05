@@ -12,6 +12,8 @@ use App\Models\PaymentModel;
 use Illuminate\Http\Request;
 use Stripe\StripeClient;
 use App\Models\User;
+use Exception;
+
 class MemberPaymentController extends Controller
 {
     private $stripe;
@@ -116,7 +118,7 @@ class MemberPaymentController extends Controller
         }
         return redirect()->back()->with('error', 'Payment failed.');
     }
-
+ 
     private function createToken($cardData){
         $token = null;
         try {
