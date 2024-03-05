@@ -7,9 +7,9 @@ use Stripe\Exception\InvalidRequestException;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Stripe\Exception\CardException;
-use App\Models\CompanyInformation;
 use App\Models\PaymentModel;
 use Illuminate\Http\Request;
+use App\Models\PartnerUser;
 use Stripe\StripeClient;
 use App\Models\User;
 class PartnerPaymentController extends Controller
@@ -22,32 +22,33 @@ class PartnerPaymentController extends Controller
     public function payment(Request $request){
         $userData = [
             'organization_name' => $request->organization_name,
-            'phone_number' => $request->phone_number,
-            'website_address' => $request->website_address,
-            'number_of_employees' => $request->number_of_employees,
-            'billing_email' => $request->billing_email,
-            'billing_address' => $request->billing_address,
-            'billing_city' => $request->billing_city,
-            'billing_state' => $request->billing_state,
-            'billing_zip' => $request->billing_zip,
-            'billing_country' => $request->billing_country,
-            'billing_address_check' => $request->address_check,
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'title' => $request->title,
-            'primary_phone' => $request->primary_phone,
+            'contact_person_name' => $request->contact_person_name,
             'email' => $request->email,
-            'membership_level' => $request->membership_level,
-            'about_organization' => $request->about_organization,
-            'ownership_structure' => $request->ownership_structure,
-            'reason_joining' => $request->reason_joining,
+            'phone_number' => $request->phone_number,
+            'organization_website' => $request->organization_website,
+            'industry_sector' => $request->industry_sector,
+            'partnership_dur' => $request->partnership_dur,
+            'partnership_interest' => $request->partnership_interest, 
+            'previous_partnership' => $request->previous_partnership,
+            'past_partnership_details' => $request->past_partnership_details,
+            'target_geographic_regions' => $request->target_geographic_regions,
+            'project_opportunities' => $request->project_opportunities,
+            'non_monetary_support' => $request->non_monetary_support,
+            'partnering_goals' => $request->partnering_goals,
+            'expected_outcomes' => $request->expected_outcomes,
+            'non_monetary_support_offered' => $request->non_monetary_support_offered,
+            'legal_compliance_agree' => $request->legal_compliance_agree,
+            'legal_compliance_understanding' => $request->legal_compliance_understanding,
+            'hear_about' => $request->hear_about,
+            'additional_information' => $request->additional_information,
+            'data_protection_consent' => $request->data_protection_consent,
             'full_name' => $request->full_name,
             'card_number' => $request->card_number,
             'expiry_month' => $request->expiry_month,
             'expiry_year' => $request->expiry_year,
             'cvv' => $request->cvv,
         ];
-        session()->put('userMemberData', $userData);
+        session()->put('partnerData', $userData);
         
         $validator = Validator::make($request->all(), [
             'full_name' => 'required',
@@ -70,38 +71,38 @@ class PartnerPaymentController extends Controller
             return redirect()->back()->with('error', 'Payment failed.');
         }
         $amount = intval(preg_replace('/[^0-9]+/', '', $request->membership_level));
-        $charge = $this->createCharge($token['id'], $amount*100);
+        $charge = $this->createCharge($token['id'], 5*100);
         if (!empty($charge) && $charge['status'] == 'succeeded') {      
             $user = User::create([
-                'first_name'=>$request->first_name,
-                'last_name'=>$request->last_name,
+                'first_name'=>$request->contact_person_name,
                 'email'=>$request->email,
                 'password'=>bcrypt($request->password),
                 'type'=>1,
-                'member'=>1,
+                'partner'=>1,
             ]);
-            CompanyInformation::create([
+            PartnerUser::create([
                 'user_id' => $user->id,
                 'organization_name' => $request->organization_name,
-                'phone_number' => $request->phone_number,
-                'website_address' => $request->website_address,
-                'number_of_employees' => $request->number_of_employees,
-                'billing_email' => $request->billing_email,
-                'billing_address' => $request->billing_address,
-                'billing_city' => $request->billing_city,
-                'billing_state' => $request->billing_state,
-                'billing_zip' => $request->billing_zip,
-                'billing_country' => $request->billing_country,
-                'billing_address_check' => $request->address_check,
-                'first_name' => $request->first_name,
-                'last_name' => $request->last_name,
-                'title' => $request->title,
-                'primary_phone' => $request->primary_phone,
+                'contact_person_name' => $request->contact_person_name,
                 'email' => $request->email,
-                'membership_level' => $request->membership_level,
-                'about_organization' => $request->about_organization,
-                'ownership_structure' => $request->ownership_structure,
-                'reason_joining' => $request->reason_joining,
+                'phone_number' => $request->phone_number,
+                'organization_website' => $request->organization_website,
+                'industry_sector' => $request->industry_sector,
+                'partnership_dur' => $request->partnership_dur,
+                'partnership_interest' => $request->partnership_interest, 
+                'previous_partnership' => $request->previous_partnership,
+                'past_partnership_details' => $request->past_partnership_details,
+                'target_geographic_regions' => $request->target_geographic_regions,
+                'project_opportunities' => $request->project_opportunities,
+                'non_monetary_support' => $request->non_monetary_support,
+                'partnering_goals' => $request->partnering_goals,
+                'expected_outcomes' => $request->expected_outcomes,
+                'non_monetary_support_offered' => $request->non_monetary_support_offered,
+                'legal_compliance_agree' => $request->legal_compliance_agree,
+                'legal_compliance_understanding' => $request->legal_compliance_understanding,
+                'hear_about' => $request->hear_about,
+                'additional_information' => $request->additional_information,
+                'data_protection_consent' => $request->data_protection_consent,
             ]);
             PaymentModel::create([
                 'user_id'=>$user->id,
@@ -109,8 +110,8 @@ class PartnerPaymentController extends Controller
                 'amount'=>$amount,
                 'type'=>1,
             ]);
-            session()->forget('userMemberData');
-            return redirect()->back()->with('success','Congratulations! You have successfully joined the membership program. Transaction ID is #'.$charge->id);
+            session()->forget('partnerData');
+            return redirect()->back()->with('success','Congratulations! You have successfully joined the partnership. Transaction ID is #'.$charge->id);
         } else {
             return redirect()->back()->with('error', 'Payment failed.');
         }
@@ -143,7 +144,7 @@ class PartnerPaymentController extends Controller
                 'amount' => $amount,
                 'currency' => 'usd',
                 'source' => $tokenId,
-                'description' => 'Congratulations, You have received a new payment for the creation of a new member account.'
+                'description' => 'Congratulations, You have received a new payment for the creation of a new partnership account.'
             ]);
         } catch (InvalidRequestException $e) {
             $charge['error'] = $e->getMessage();

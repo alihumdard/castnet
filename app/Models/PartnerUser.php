@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Partnership extends Model
+class PartnerUser extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $table = 'partner_users';
 }

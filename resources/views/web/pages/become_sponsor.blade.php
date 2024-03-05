@@ -95,7 +95,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h2 class="section_title">Sponsorship Form</h2>
-                <form action="{{ route('sponsors.data') }}" id="sponsor_form" method="POST">
+                <form action="{{ route('charge.sponsor') }}" id="sponsor_form" method="POST">
                     @csrf
                     <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
                         <div class="row mb-4">
@@ -111,12 +111,15 @@
                                 <input type="text" class="form-control" placeholder="Contact Person's Name" name="contact_person_name">
                             </div>
                             <div class="col-12 col-md-6 errorshow">
-                                <input type="email" class="form-control" placeholder="Email Address" name="email_address">
+                                <input type="email" class="form-control" placeholder="Email Address" name="email">
+                            </div>
+                            <div class="col-12 col-md-6 errorshow">
+                                <input type="password" class="form-control" placeholder="Password" name="password">
                             </div>
                             <div class="col-12 col-md-6 errorshow">
                                 <input type="text" class="form-control" placeholder="Phone Number" name="phone_number">
                             </div>
-                            <div class="col-12 col-md-12 errorshow">
+                            <div class="col-12 col-md-6 errorshow">
                                 <input type="text" class="form-control" placeholder="Website URL (optional)" name="website_url">
                             </div>
                         </div>
@@ -354,13 +357,18 @@
                         <div class="form_box" data-aos="zoom-in" data-aos-duration="1000" style="padding: 40px 50px 0 50px">
                             <h2 class="section_title">Payment Details</h2>
                             <div class="row gy-4" style="margin-bottom: 15px">
-                                <div class="col-12 col-md-6">
+                                <div class="col-12 col-md-4">
+                                    <div class="form-group errorshow">
+                                        <input type="text" value="$5" class="form-control" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
                                     <div class="form-group errorshow">
                                     {{-- <input type="text" class="form-control" placeholder="Name on Card" name="full_name" value="{{ session('userMemberData.full_name') }}"> --}}
                                     <input type="text" class="form-control" placeholder="Name on Card" name="full_name">
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-6">
+                                <div class="col-12 col-md-4">
                                     <div class="form-group errorshow">
                                     <input type="number" class="form-control" min="1" placeholder="Card Number" name="card_number">
                                     {{-- <input type="number" class="form-control" min="1" placeholder="Card Number" name="card_number" value="{{ session('userMemberData.card_number') }}"> --}}
@@ -440,7 +448,11 @@
                 contact_person_name: {
                     required: true,
                 },
-                email_address: {
+                email: {
+                    required: true,
+                    email: true,
+                },
+                password: {
                     required: true,
                 },
                 phone_number: {
@@ -505,10 +517,6 @@
             },
             messages: {
                 email: {
-                    required: "Please enter your email address.",
-                    email: "Please enter a valid email address."
-                },
-                billing_email: {
                     required: "Please enter your email address.",
                     email: "Please enter a valid email address."
                 },

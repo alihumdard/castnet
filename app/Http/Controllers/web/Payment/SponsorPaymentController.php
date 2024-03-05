@@ -7,9 +7,9 @@ use Stripe\Exception\InvalidRequestException;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Stripe\Exception\CardException;
-use App\Models\CompanyInformation;
 use App\Models\PaymentModel;
 use Illuminate\Http\Request;
+use App\Models\SponsorUser;
 use Stripe\StripeClient;
 use App\Models\User;
 
@@ -22,33 +22,30 @@ class SponsorPaymentController extends Controller
 
     public function payment(Request $request){
         $userData = [
-            'organization_name' => $request->organization_name,
-            'phone_number' => $request->phone_number,
-            'website_address' => $request->website_address,
-            'number_of_employees' => $request->number_of_employees,
-            'billing_email' => $request->billing_email,
-            'billing_address' => $request->billing_address,
-            'billing_city' => $request->billing_city,
-            'billing_state' => $request->billing_state,
-            'billing_zip' => $request->billing_zip,
-            'billing_country' => $request->billing_country,
-            'billing_address_check' => $request->address_check,
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'title' => $request->title,
-            'primary_phone' => $request->primary_phone,
+            'sponsor_name' => $request->sponsor_name,
+            'contact_person_name' => $request->contact_person_name,
             'email' => $request->email,
-            'membership_level' => $request->membership_level,
-            'about_organization' => $request->about_organization,
-            'ownership_structure' => $request->ownership_structure,
-            'reason_joining' => $request->reason_joining,
+            'phone_number' => $request->phone_number,
+            'website_url' => $request->website_url,
+            'industry_sector' => $request->industry_sector,
+            'specific_interest' => $request->specific_interest,
+            'geographic_focus' => $request->geographic_focus,
+            'sponsorship_level' => $request->sponsorship_level,
+            'sponsorship_goals' => $request->sponsorship_goals,
+            'sponsorship_experiences' => $request->sponsorship_experiences,
+            'sponsorship_preferences' => $request->sponsorship_preferences,
+            'sponsorship_budget' => $request->sponsorship_budget,
+            'payment_schedule' => $request->payment_schedule,
+            'additional_support' => $request->additional_support,
+            'hear_about' => $request->hear_about,
+            'data_protection_consent' => $request->data_protection_consent,
             'full_name' => $request->full_name,
             'card_number' => $request->card_number,
             'expiry_month' => $request->expiry_month,
             'expiry_year' => $request->expiry_year,
             'cvv' => $request->cvv,
         ];
-        session()->put('userMemberData', $userData);
+        session()->put('sponsorData', $userData);
         
         $validator = Validator::make($request->all(), [
             'full_name' => 'required',
@@ -70,39 +67,35 @@ class SponsorPaymentController extends Controller
         if (empty($token['id'])) {
             return redirect()->back()->with('error', 'Payment failed.');
         }
-        $amount = intval(preg_replace('/[^0-9]+/', '', $request->membership_level));
+        $amount = 5;
         $charge = $this->createCharge($token['id'], $amount*100);
         if (!empty($charge) && $charge['status'] == 'succeeded') {      
             $user = User::create([
-                'first_name'=>$request->first_name,
-                'last_name'=>$request->last_name,
+                'first_name'=>$request->contact_person_name,
                 'email'=>$request->email,
                 'password'=>bcrypt($request->password),
                 'type'=>1,
-                'member'=>1,
+                'sponsor'=>1,
             ]);
-            CompanyInformation::create([
+            SponsorUser::create([
                 'user_id' => $user->id,
-                'organization_name' => $request->organization_name,
-                'phone_number' => $request->phone_number,
-                'website_address' => $request->website_address,
-                'number_of_employees' => $request->number_of_employees,
-                'billing_email' => $request->billing_email,
-                'billing_address' => $request->billing_address,
-                'billing_city' => $request->billing_city,
-                'billing_state' => $request->billing_state,
-                'billing_zip' => $request->billing_zip,
-                'billing_country' => $request->billing_country,
-                'billing_address_check' => $request->address_check,
-                'first_name' => $request->first_name,
-                'last_name' => $request->last_name,
-                'title' => $request->title,
-                'primary_phone' => $request->primary_phone,
+                'sponsor_name' => $request->sponsor_name,
+                'contact_person_name' => $request->contact_person_name,
                 'email' => $request->email,
-                'membership_level' => $request->membership_level,
-                'about_organization' => $request->about_organization,
-                'ownership_structure' => $request->ownership_structure,
-                'reason_joining' => $request->reason_joining,
+                'phone_number' => $request->phone_number,
+                'website_url' => $request->website_url,
+                'industry_sector' => $request->industry_sector,
+                'specific_interest' => $request->specific_interest,
+                'geographic_focus' => $request->geographic_focus,
+                'sponsorship_level' => $request->sponsorship_level,
+                'sponsorship_goals' => $request->sponsorship_goals,
+                'sponsorship_experiences' => $request->sponsorship_experiences,
+                'sponsorship_preferences' => $request->sponsorship_preferences,
+                'sponsorship_budget' => $request->sponsorship_budget,
+                'payment_schedule' => $request->payment_schedule,
+                'additional_support' => $request->additional_support,
+                'hear_about' => $request->hear_about,
+                'data_protection_consent' => $request->data_protection_consent,
             ]);
             PaymentModel::create([
                 'user_id'=>$user->id,
@@ -110,8 +103,8 @@ class SponsorPaymentController extends Controller
                 'amount'=>$amount,
                 'type'=>1,
             ]);
-            session()->forget('userMemberData');
-            return redirect()->back()->with('success','Congratulations! You have successfully joined the membership program. Transaction ID is #'.$charge->id);
+            session()->forget('sponsorData');
+            return redirect()->back()->with('success','Congratulations! You have successfully joined the sponsorship. Transaction ID is #'.$charge->id);
         } else {
             return redirect()->back()->with('error', 'Payment failed.');
         }
@@ -144,7 +137,7 @@ class SponsorPaymentController extends Controller
                 'amount' => $amount,
                 'currency' => 'usd',
                 'source' => $tokenId,
-                'description' => 'Congratulations, You have received a new payment for the creation of a new member account.'
+                'description' => 'Congratulations, You have received a new payment for the creation of a new sponsorship account.'
             ]);
         } catch (InvalidRequestException $e) {
             $charge['error'] = $e->getMessage();
