@@ -1018,7 +1018,7 @@
 
 
                     {{--  PARTNERS SPONSORS Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['partnersponsor*','becomepartner*','becomesponsor*'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['partnersponsor*','becomepartner*','becomesponsor*','partnersponsor.fees'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link"> <i class="nav-icon far fa-plus-square"></i>
                             <p> PARTNERS SPONSORS <i class="fas fa-angle-left right"></i> </p>
                         </a>
@@ -1103,6 +1103,12 @@
                                         </a>
                                     </li>
                                 </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('partnersponsor.fees') }}" class="nav-link {{(request()->routeIs('partnersponsor.fees')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Fees</p>
+                                </a>
                             </li>
                         </ul>
                     </li>

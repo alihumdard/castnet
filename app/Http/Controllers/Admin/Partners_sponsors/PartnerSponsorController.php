@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Partners_sponsors;
 
 use App\Http\Controllers\Controller;
+use App\Models\Event_Request_Type;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Models\PageBanner;
@@ -22,6 +23,25 @@ class PartnerSponsorController extends Controller
         $title = PartnerSponsorPageTitleModel::where(['page'=>'partners_sponsors','section'=>2])->first();
         $sn = "Section 2";
         return view('admin.pages.partners_sponsors.index',get_defined_vars());
+    }
+    public function fees(){
+        $partnerFee = Event_Request_Type::where('event_req_type', 'PARTNER FEE')->first();
+        $sponsorFee = Event_Request_Type::where('event_req_type', 'SPONSOR FEE')->first();
+
+        $sn = "Fees";
+        return view('admin.pages.partners_sponsors.fees',get_defined_vars());
+    }
+    public function feesUpdate(Request $request){
+
+        $partnerFee = Event_Request_Type::where('event_req_type', 'PARTNER FEE')->first();
+        $sponsorFee = Event_Request_Type::where('event_req_type', 'SPONSOR FEE')->first();
+        $partnerFee->update([
+            'fee' => $request->Partner_Fee,
+        ]);
+        $sponsorFee->update([
+            'fee' => $request->Sponsor_Fee,
+        ]);
+        return redirect()->back()->with('success', 'Record updated successfully');
     }
 
     /**
