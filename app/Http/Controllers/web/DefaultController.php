@@ -71,6 +71,7 @@ class DefaultController extends Controller
         return redirect()->back()->with('success',$message);
     }
     public function partners(Request $request){
+
         $partner = [
             'organization_name' => $request->organization_name,
             'contact_person_name' => $request->contact_person_name,
@@ -79,7 +80,7 @@ class DefaultController extends Controller
             'organization_website' => $request->organization_website,
             'industry_sector' => $request->industry_sector,
             'partnership_dur' => $request->partnership_dur,
-            'partnership_interest' => $request->partnership_interest,
+            'partnership_interest' => $request->partnership_interest, 
             'previous_partnership' => $request->previous_partnership,
             'past_partnership_details' => $request->past_partnership_details,
             'target_geographic_regions' => $request->target_geographic_regions,
