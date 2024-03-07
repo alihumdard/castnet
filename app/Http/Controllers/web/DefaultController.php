@@ -10,6 +10,7 @@ use App\Models\MembersSatisfiedFeedback;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\NewsletterModel;
+use App\Models\FinancialPayment;
 use Illuminate\Support\Facades\Cookie;
 use App\Models\User;
 use Egulias\EmailValidator\Parser\PartParser;
@@ -97,6 +98,17 @@ class DefaultController extends Controller
             echo "false";
         } else {
             echo "true";
+        }
+    }
+
+    public function getAmount(Request $request){
+        $financial = FinancialPayment::first();
+        if($request->amount=="Investments"){
+            echo 'Payment $'.$financial->investment;
+        }elseif($request->amount=="Loans"){
+            echo 'Payment $'.$financial->loans;
+        }else{
+            echo 'Payment $'.$financial->grants;
         }
     }
 }

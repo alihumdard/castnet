@@ -54,16 +54,16 @@
                                 <input type="text" class="form-control" placeholder="Business Address" name="business_address" value="{{ session('formData.business_address') }}">
                             </div>
                             <div class="col-md-4 errorshow">
-                                <select class="form-select" name="fund_purpose">
+                                <select class="form-select" id="getAmount" name="fund_purpose">
                                     <option selected disabled>Purpose of Funding</option>
-                                    <option value="Investments" {{ session('formData.fund_purpose') == 'Investments' ? 'selected' : '' }}>Investments</option>
-                                    <option value="Loans" {{ session('formData.fund_purpose') == 'Loans' ? 'selected' : '' }}>Loans</option>
-                                    <option value="Grants" {{ session('formData.fund_purpose') == 'Grants' ? 'selected' : '' }}>Grants</option>
+                                    <option value="Investments">Investments</option>
+                                    <option value="Loans">Loans</option>
+                                    <option value="Grants">Grants</option>
                                 </select>
                             </div>
                             <div class="col-12 col-md-4">
                                 <div class="form-group errorshow">
-                                    <input type="text" class="form-control" value="$20" disabled>
+                                    <input type="text" class="form-control" value="Payment $0" id="displayamount" readonly>
                                 </div>
                             </div>
                             <div class="col-md-4 errorshow">

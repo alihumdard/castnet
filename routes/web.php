@@ -104,6 +104,7 @@ Route::middleware('admin-not-access')->group(function() {
     //////------ End Stripe Payment Integration Routes ------/////
 
     Route::post('check-email',[DefaultController::class,'checkEmail']);
+    Route::post('get-financial-amount',[DefaultController::class,'getAmount']);
 });
 include __DIR__.'/admin.php';
 

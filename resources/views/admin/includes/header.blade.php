@@ -1013,19 +1013,19 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {{ (request()->routeIs('form.banner','funding.fee')) ? 'menu-is-opening menu-open' : '' }}">
+                            <li class="nav-item {{ (request()->routeIs('forms*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
                                     <p> FORM <i class="fas fa-angle-left right"></i> </p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{ route('form.banner') }}" class="nav-link {{(request()->routeIs('form.banner')) ? 'active' : ''}}">
+                                        <a href="{{ route('forms.banner') }}" class="nav-link {{(request()->routeIs('forms.banner')) ? 'active' : ''}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Banner</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('funding.fee') }}" class="nav-link {{(request()->routeIs('funding.fee')) ? 'active' : ''}}">
+                                        <a href="{{ route('forms.index') }}" class="nav-link {{(request()->routeIs('forms.index')) ? 'active' : ''}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Fund Types Amount</p>
                                         </a>

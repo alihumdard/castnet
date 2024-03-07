@@ -57,7 +57,6 @@ class MemberPaymentController extends Controller
             'expiry_month' => 'required',
             'expiry_year' => 'required',
             'cvv' => 'required',
-            'email' => 'required|string|email|max:255|unique:users',
         ]);
 
         if ($validator->fails()) {

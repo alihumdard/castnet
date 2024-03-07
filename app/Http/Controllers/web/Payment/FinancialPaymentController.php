@@ -60,7 +60,14 @@ class FinancialPaymentController extends Controller
         if (empty($token['id'])) {
             return redirect()->back()->with('error', 'Payment failed.');
         }
-        $amount = Event_Request_Type::where('id',4)->first('fee');
+        $financial = FinancialPayment::first();
+        if($request->fundfund_purpose=="Investments"){
+            $amount = intval(preg_replace('/[^0-9]+/', '', $financial->investment));
+        }elseif($request->fundfund_purpose=="Loans"){
+            $amount = intval(preg_replace('/[^0-9]+/', '',$financial->loans));
+        }else{
+            $amount = intval(preg_replace('/[^0-9]+/', '', $financial->grants));
+        }
         $charge = $this->createCharge($token['id'], $amount*100);
         if (!empty($charge) && $charge['status'] == 'succeeded') {
 

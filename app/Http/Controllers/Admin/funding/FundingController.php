@@ -15,20 +15,19 @@ class FundingController extends Controller
         $banner = PageBanner::where('type',31)->first();
         return view('admin.pages.banner',compact('banner'));
     }
-    public function fees(){
+    public function forms(){
         $fee = FinancialPayment::first();
-        $sn = "Fees";
-        return view('admin.pages.financial.fees',get_defined_vars());
+        return view('admin.pages.financial.forms',get_defined_vars());
     }
-    public function feesUpdate(Request $request){
+    public function financialPayment(Request $request){
 
         $fee = FinancialPayment::first();
     
         if($fee){
             $fee->update([
-                'investment' => $request->INVESTMENT_Fee,
-                'loans' => $request->LOANS_Fee,
-                'grants' => $request->GRANTS_Fee
+                'investment' => $request->investment,
+                'loans' => $request->loans,
+                'grants' => $request->grants
             ]);
     
             return redirect()->back()->with('success', 'Record updated successfully');
