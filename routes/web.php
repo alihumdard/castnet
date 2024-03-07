@@ -53,6 +53,7 @@ Route::middleware('admin-not-access')->group(function() {
     Route::get('/financial', [PagesController::class, 'financial'])->name('web.financial');
     Route::get('/grants', [PagesController::class, 'grants'])->name('web.grants');
     Route::get('/funding', [PagesController::class, 'funding'])->name('web.funding');
+    Route::get('/forms', [PagesController::class, 'forms'])->name('web.forms');
     Route::post('/feedback', [FeedbackController::class, 'feedback'])->name('feedbacks');
     Route::get('/partners_sponsors', [PagesController::class, 'partners_sponsors'])->name('web.partners_sponsors');
     Route::get('/become_partner', [PagesController::class, 'become_partner'])->name('web.become_partner');
@@ -86,6 +87,8 @@ Route::middleware('admin-not-access')->group(function() {
     Route::post('/satisfied_members', [DefaultController::class, 'satisfiedMembers'])->name('satisfied.members');
     
     Route::get('/user-login', [PagesController::class, 'login'])->name('user.login');
+    Route::get('/privact-policy', [PagesController::class, 'privacypolicy'])->name('web.privacypolicy');
+    Route::get('/term-use', [PagesController::class, 'termsuse'])->name('web.termsuse');
     Route::post('/welcome-modal', [DefaultController::class, 'weclome'])->name('welcom.modal');
     Route::post('/job-application/{id}', [DefaultController::class, 'jobApply'])->name('job.application');
 

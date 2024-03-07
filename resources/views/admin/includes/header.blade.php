@@ -1628,6 +1628,58 @@
                     </li>
                     {{--  CAREERS Page End  --}}
 
+                    {{-- Privacy policy start --}}
+                    <li class="nav-item {{(request()->routeIs(['privacy.section1','privacy.section2'])) ? 'menu-is-opening menu-open' : ''}}">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                PRIVACY POLICY
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('privacy.section1') }}" class="nav-link {{(request()->routeIs('privacy.section1')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 1</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('privacy.section2') }}" class="nav-link {{(request()->routeIs('privacy.section2')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 2</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{-- Privacy policy end --}}
+
+                    {{-- terms and use start --}}
+                    <li class="nav-item {{(request()->routeIs(['term.section1','term.section2'])) ? 'menu-is-opening menu-open' : ''}}">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                TERM OF USE
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('term.section1') }}" class="nav-link {{(request()->routeIs('term.section1')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 1</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('term.section2') }}" class="nav-link {{(request()->routeIs('term.section2')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Section 2</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{-- terms and use end --}}
+
                     {{-- widgets section start  --}}
                     <li class="nav-item {{(request()->routeIs(['joinWidget*','eventWidget*'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
