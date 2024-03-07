@@ -12,6 +12,7 @@ use App\Models\PaymentModel;
 use Illuminate\Http\Request;
 use Stripe\StripeClient;
 use App\Models\User;
+use Exception;
 class EventPaymentController extends Controller
 {
     private $stripe;

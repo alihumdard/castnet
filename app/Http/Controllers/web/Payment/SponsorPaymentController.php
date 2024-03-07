@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use App\Models\SponsorUser;
 use Stripe\StripeClient;
 use App\Models\User;
-
+use Exception;
 class SponsorPaymentController extends Controller
 {
     private $stripe;
@@ -102,7 +102,7 @@ class SponsorPaymentController extends Controller
                 'user_id'=>$user->id,
                 'trx_id'=>$charge->id,
                 'amount'=>$amount,
-                'type'=>1,
+                'type'=>4,
             ]);
             session()->forget('sponsorData');
             return redirect()->back()->with('success','Congratulations! You have successfully joined the sponsorship. Transaction ID is #'.$charge->id);

@@ -11,6 +11,7 @@ use App\Models\FinancialForm;
 use App\Models\PaymentModel;
 use Illuminate\Http\Request;
 use Stripe\StripeClient;
+use Exception;
 class FinancialPaymentController extends Controller
 {
     private $stripe;
@@ -46,7 +47,6 @@ class FinancialPaymentController extends Controller
             'expiry_month' => 'required',
             'expiry_year' => 'required',
             'cvv' => 'required',
-            'email' => 'required|string|email|max:255|unique:users',
         ]);
 
         if ($validator->fails()) {
@@ -62,7 +62,8 @@ class FinancialPaymentController extends Controller
         }
         $amount = Event_Request_Type::where('id',4)->first('fee');
         $charge = $this->createCharge($token['id'], $amount*100);
-        if (!empty($charge) && $charge['status'] == 'succeeded') { 
+        if (!empty($charge) && $charge['status'] == 'succeeded') {
+
             $file = time().'.'.$request->file->extension();
             $request->file->move(public_path('assets/web/images'), $file);
                  
@@ -86,7 +87,7 @@ class FinancialPaymentController extends Controller
                 'user_id'=>Auth::user()->id,
                 'trx_id'=>$charge->id,
                 'amount'=>$amount,
-                'type'=>1,
+                'type'=>5,
             ]);
             session()->forget('formData');
             return redirect()->back()->with('success','Congratulations! You have successfully sumbitted the request. Transaction ID is #'.$charge->id);
