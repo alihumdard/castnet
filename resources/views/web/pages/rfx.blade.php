@@ -40,6 +40,24 @@
     </section>
     <!-- Section Alt End -->
 
+    <!-- Section Alt Start -->
+    <section class="section_block section_block_alt">
+        <div class="container">
+            <div class="row gx-md-5">
+                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="img_border">
+                        <img src="{{ asset('assets/web/images/'.$section2->image) }}" alt="rfx_intro">
+                    </div>
+                </div>
+                <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="section_title fw-bold">{{$section2->title}}</h2>
+                    <p class="about_text">{!! $section2->description !!}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section Alt End -->
+
     <!-- Ready to Join Start -->
     <section class="section_block ready_to_join">
         <div class="container">
@@ -60,22 +78,19 @@
     </section>
     <!-- Ready to Join end -->
 
-    <!-- Section Alt Start -->
+    <!-- Project Opportunities -->
     <section class="section_block section_block_alt">
         <div class="container">
             <div class="row gx-md-5">
-                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
-                    <div class="img_border">
-                        <img src="{{ asset('assets/web/images/'.$section2->image) }}" alt="rfx_intro">
-                    </div>
-                </div>
-                <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="section_title fw-bold">{{$section2->title}}</h2>
-                    <p class="about_text">{!! $section2->description !!}</p>
+                <div class="col-lg-12 order-2 order-lg-1 content-center" data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="section_title fw-bold text-center">{{$project->title}}</h2>
+                    <p class="about_text">{!! $project->description !!}</p>
+                    <a href="{{ $project->button_link }}" class="btn btn-project text-center">{{ $project->button_text }}<img
+                        src="{{ asset('assets/web/images/pro-arrow.png') }}" alt="icon login" class="icon-login">
+                    </a>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Section Alt End -->
-
-    @stop
+    <!-- Project Opportunities end -->
+@stop

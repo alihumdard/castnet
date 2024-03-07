@@ -87,6 +87,9 @@ Route::middleware('admin-not-access')->group(function() {
     Route::get('/user-login', [PagesController::class, 'login'])->name('user.login');
     Route::post('/welcome-modal', [DefaultController::class, 'weclome'])->name('welcom.modal');
     Route::post('/job-application/{id}', [DefaultController::class, 'jobApply'])->name('job.application');
+    
+    Route::get('/list_projects', [PagesController::class, 'listProject'])->name('web.projects');
+    Route::get('/member_directory', [PagesController::class, 'member_directory'])->name('web.member_directory');
 
     /////--------* Stripe Payment Integration Routes *--------/////
     Route::post('charge-member', [MemberPaymentController::class,'payment'])->name('charge.member');

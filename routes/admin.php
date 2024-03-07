@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\Oppor_construction\OpporConstructionController;
 use App\Http\Controllers\Admin\Oppor_agriculture\OpporAgricultureController;
 use App\Http\Controllers\Admin\Partners_sponsors\PartnerSponsorController;
 use App\Http\Controllers\Admin\Support_services\SupportServicesController;
+use App\Http\Controllers\Admin\Member_directory\MemberDirectoryController;
 use App\Http\Controllers\Admin\Partners_sponsors\BecomePartnerController;
 use App\Http\Controllers\Admin\Partners_sponsors\BecomeSponsorController;
 use App\Http\Controllers\Admin\Small_businesses\SmallBusinessController;
@@ -32,6 +33,7 @@ use App\Http\Controllers\Admin\Who_we_are\WhoWeArePageController;
 use App\Http\Controllers\Admin\Job_openings\JobOpeningController;
 use App\Http\Controllers\Admin\Evaluation\EvaluationController;
 use App\Http\Controllers\Admin\Membership\MembershipController;
+use App\Http\Controllers\Admin\OpporProjects\ProjectController;
 use App\Http\Controllers\Admin\Join\JoinFormSettingController;
 use App\Http\Controllers\Admin\Events\EventSection1Controller;
 use App\Http\Controllers\Admin\Financial\FinancialController;
@@ -427,7 +429,20 @@ Route::middleware('auth')->group(function() {
             Route::get('/opporrfx-banner', [OpporRfxController::class, 'banner'])->name('opporrfx.banner');
             Route::get('/opporrfx-section1', [OpporRfxController::class, 'section1'])->name('opporrfx.section1');
             Route::get('/opporrfx-section2', [OpporRfxController::class, 'section2'])->name('opporrfx.section2');
+            Route::get('/opporrfx-section3', [OpporRfxController::class, 'section3'])->name('opporrfx.section3');
+            Route::put('/opporrfx-update/{id}', [OpporRfxController::class, 'update'])->name('opporrfx.update');
             // ---- Oppor Rfx page routes end ----
+
+            // ---- Oppor Projects page routes start ----
+            Route::resource('listofpro', ProjectController::class);
+            Route::get('/listofpro-banner', [ProjectController::class, 'banner'])->name('listofpro.banner');
+            Route::put('/listofpro-updation/{id}',[ProjectController::class,'updation'])->name('listofpro.updation');
+            // ---- Oppor Projects page routes end ----
+
+            // ---- Member directory page routes start ----
+            Route::resource('memberdirectory', MemberDirectoryController::class);
+            Route::get('/memberdirectory-banner', [MemberDirectoryController::class, 'banner'])->name('memberdirectory.banner');
+            // ---- Member directory page routes end ----
 
             // ------------- FINANCIAL page routes start -----------------
             Route::resource('financial', FinancialController::class);
