@@ -10,8 +10,6 @@ use App\Models\MembersSatisfiedFeedback;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\NewsletterModel;
-use App\Models\Partnership;
-use App\Models\SponsorshipForm;
 use Illuminate\Support\Facades\Cookie;
 use App\Models\User;
 use Egulias\EmailValidator\Parser\PartParser;
@@ -43,60 +41,6 @@ class DefaultController extends Controller
         Experience::create($experienceInfo);
         Cookie::queue('user_ip', $request->ip(), 30 * 24 * 60);
         $message = 'Experience added successfully';
-        return redirect()->back()->with('success',$message);
-    }
-
-    public function sponsors(Request $request){
-        $sponsor = [
-            'sponsor_name' => $request->sponsor_name,
-            'contact_person_name' => $request->contact_person_name,
-            'email_address' => $request->email_address,
-            'phone_number' => $request->phone_number,
-            'website_url' => $request->website_url,
-            'industry_sector' => $request->industry_sector,
-            'specific_interest' => $request->specific_interest,
-            'geographic_focus' => $request->geographic_focus,
-            'sponsorship_level' => $request->sponsorship_level,
-            'sponsorship_goals' => $request->sponsorship_goals,
-            'sponsorship_experiences' => $request->sponsorship_experiences,
-            'sponsorship_preferences' => $request->sponsorship_preferences,
-            'sponsorship_budget' => $request->sponsorship_budget,
-            'payment_schedule' => $request->payment_schedule,
-            'additional_support' => $request->additional_support,
-            'hear_about' => $request->hear_about,
-            'data_protection_consent' => $request->data_protection_consent,
-        ];
-        SponsorshipForm::create($sponsor);
-        $message = 'Sponsor added successfully';
-        return redirect()->back()->with('success',$message);
-    }
-    public function partners(Request $request){
-
-        $partner = [
-            'organization_name' => $request->organization_name,
-            'contact_person_name' => $request->contact_person_name,
-            'email' => $request->email,
-            'phone_number' => $request->phone_number,
-            'organization_website' => $request->organization_website,
-            'industry_sector' => $request->industry_sector,
-            'partnership_dur' => $request->partnership_dur,
-            'partnership_interest' => $request->partnership_interest, 
-            'previous_partnership' => $request->previous_partnership,
-            'past_partnership_details' => $request->past_partnership_details,
-            'target_geographic_regions' => $request->target_geographic_regions,
-            'project_opportunities' => $request->project_opportunities,
-            'non_monetary_support' => $request->non_monetary_support,
-            'partnering_goals' => $request->partnering_goals,
-            'expected_outcomes' => $request->expected_outcomes,
-            'non_monetary_support_offered' => $request->non_monetary_support_offered,
-            'legal_compliance_agree' => $request->legal_compliance_agree,
-            'legal_compliance_understanding' => $request->legal_compliance_understanding,
-            'hear_about' => $request->hear_about,
-            'additional_information' => $request->additional_information,
-            'data_protection_consent' => $request->data_protection_consent,
-        ];
-        Partnership::create($partner);
-        $message = 'Partner added successfully';
         return redirect()->back()->with('success',$message);
     }
 

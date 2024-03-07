@@ -186,6 +186,7 @@
                     <li><a href="{{ route('web.opportunities_construction') }}">construction</a></li>
                     <li><a href="{{ route('web.mining') }}">mining</a></li>
                     <li><a href="{{ route('web.rfx') }}">rfx</a></li>
+                    <li><a href="{{ route('web.member_directory') }}">Member Directory</a></li>
                 </ul>
             </li>
         </ul>

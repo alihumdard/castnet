@@ -1433,7 +1433,7 @@
 
 
                     {{--  OPPORTUNITIES Page Start  --}}
-                    <li class="nav-item {{(request()->routeIs(['opportunities*','opporagr*','opporcons*','oppormining*','opporrfx*'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['opportunities*','opporagr*','opporcons*','oppormining*','opporrfx*','listofpro*'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link"> <i class="nav-icon far fa-plus-square"></i>
                             <p> OPPORTUNITIES <i class="fas fa-angle-left right"></i> </p>
                         </a>
@@ -1559,6 +1559,50 @@
                                         <a href="{{ route('opporrfx.section2') }}" class="nav-link {{(request()->routeIs('opporrfx.section2')) ? 'active' : ''}}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Section 2</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('opporrfx.section3') }}" class="nav-link {{(request()->routeIs('opporrfx.section3')) ? 'active' : ''}}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Section 3</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item {{ (request()->routeIs('listofpro*')) ? 'menu-is-opening menu-open' : '' }}">
+                                <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
+                                    <p> List Of Projects <i class="fas fa-angle-left right"></i> </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ route('listofpro.banner') }}" class="nav-link {{(request()->routeIs('listofpro.banner')) ? 'active' : ''}}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Banner</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{route('listofpro.index') }}" class="nav-link {{(request()->routeIs('listofpro.index','listofpro.create','listofpro.edit')) ? 'active' : ''}}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Projects</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item {{ (request()->routeIs('memberdirectory*')) ? 'menu-is-opening menu-open' : '' }}">
+                                <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
+                                    <p> Member Directroy <i class="fas fa-angle-left right"></i> </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ route('memberdirectory.banner') }}" class="nav-link {{(request()->routeIs('memberdirectory.banner')) ? 'active' : ''}}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Banner</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{route('memberdirectory.index') }}" class="nav-link {{(request()->routeIs('memberdirectory.index','memberdirectory.create','memberdirectory.edit')) ? 'active' : ''}}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Members</p>
                                         </a>
                                     </li>
                                 </ul>

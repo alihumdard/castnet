@@ -129,7 +129,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="section_title">Partnership Form</h2>
-                    <form action="{{ route('partners.data') }}" id="partner_form" method="POST">
+                    <form action="{{ route('charge.partner') }}" id="partner_form" method="POST">
                         @csrf
                         <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
                             <div class="row mb-4">
@@ -139,20 +139,23 @@
                             </div>
                             <div class="row gy-4 mb-4 row_padding">
                                 <div class="col-12 col-md-6 errorshow">
-                                    <input type="text" class="form-control" placeholder="Organization/Individual Name" name="organization_name">
+                                    <input type="text" class="form-control" placeholder="Organization/Individual Name" name="organization_name" value="{{ session('partnerData.organization_name') }}">
                                 </div>
                                 <div class="col-12 col-md-6 errorshow">
-                                    <input type="text" class="form-control" placeholder="Contact Person's Name" name="contact_person_name">
+                                    <input type="text" class="form-control" placeholder="Contact Person's Name" name="contact_person_name" value="{{ session('partnerData.contact_person_name') }}">
 
                                 </div>
                                 <div class="col-12 col-md-6 errorshow">
-                                    <input type="email" class="form-control" placeholder="Email Address" name="email">
+                                    <input type="email" class="form-control" placeholder="Email Address" name="email" value="{{ session('partnerData.email') }}">
                                 </div>
                                 <div class="col-12 col-md-6 errorshow">
-                                    <input type="text" class="form-control" placeholder="Phone Number" name="phone_number">
+                                    <input type="password" class="form-control" placeholder="Password" name="password">
                                 </div>
-                                <div class="col-12 col-md-12 errorshow">
-                                    <input type="text" class="form-control" placeholder="Organization's Website (if applicable)" name="organization_website">
+                                <div class="col-12 col-md-6 errorshow">
+                                    <input type="text" class="form-control" placeholder="Phone Number" name="phone_number" value="{{ session('partnerData.phone_number') }}">
+                                </div>
+                                <div class="col-12 col-md-6 errorshow">
+                                    <input type="text" class="form-control" placeholder="Organization's Website (if applicable)" name="organization_website" value="{{ session('partnerData.organization_website') }}">
                                 </div>
                             </div>
                             <div class="row gy-4 gy-md-0 mb-4">
@@ -164,14 +167,14 @@
                                         <div class="col-12 row_padding errorshow">
                                             <select class="form-select" name="industry_sector">
                                                 <option selected disabled>Industry Sectors</option>
-                                                <option value="construction">Construction</option>
-                                                <option value="agriculture">Agriculture</option>
-                                                <option value="supply chain">Supply Chain</option>
-                                                <option value="technology">Technology</option>
-                                                <option value="natural_resources">Natural Resources</option>
-                                                <option value="energy">Energy</option>
-                                                <option value="textiles">Textiles</option>
-                                                <option value="advocacy">Advocacy</option>
+                                                <option value="construction" {{ session('partnerData.industry_sector') == 'construction' ? 'selected' : '' }}>Construction</option>
+                                                <option value="agriculture" {{ session('partnerData.industry_sector') == 'agriculture' ? 'selected' : '' }}>Agriculture</option>
+                                                <option value="supply chain" {{ session('partnerData.industry_sector') == 'supply chain' ? 'selected' : '' }}>Supply Chain</option>
+                                                <option value="technology" {{ session('partnerData.industry_sector') == 'technology' ? 'selected' : '' }}>Technology</option>
+                                                <option value="natural_resources" {{ session('partnerData.industry_sector') == 'natural_resources' ? 'selected' : '' }}>Natural Resources</option>
+                                                <option value="energy" {{ session('partnerData.industry_sector') == 'energy' ? 'selected' : '' }}>Energy</option>
+                                                <option value="textiles" {{ session('partnerData.industry_sector') == 'textiles' ? 'selected' : '' }}>Textiles</option>
+                                                <option value="advocacy" {{ session('partnerData.industry_sector') == 'advocacy' ? 'selected' : '' }}>Advocacy</option>
                                             </select> 
                                         </div>
                                     </div>
@@ -182,14 +185,14 @@
                                         <div class="row gy-3">
                                             <div class="col-md-4">
                                                 <div class="form-check d-inline-block">
-                                                    <input type="radio" class="form-check-input" name="partnership_dur" id="short_term">
+                                                    <input type="radio" class="form-check-input" value="Short-Term" name="partnership_dur" id="short_term" {{ session('partnerData.partnership_dur') == 'Short-Term' ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="short_term">Short-Term</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 text-md-center">
                                                 <div class="form-check d-inline-block">
-                                                    <input type="radio" class="form-check-input" name="partnership_dur" id="long_term">
-                                                    <label class="form-check-label" for="long_term">Long Term</label>
+                                                    <input type="radio" class="form-check-input" value="Long Term" name="partnership_dur" id="long_term" {{ session('partnerData.partnership_dur') == 'Long-Term' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="long_term">Long-Term</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -203,25 +206,25 @@
                                         <div class="row gy-3">
                                             <div class="col-md-6">
                                                 <div class="form-check">
-                                                    <input type="radio" class="form-check-input" name="partnership_interest" id="project_collaboration">
+                                                    <input type="radio" class="form-check-input" value="Project Collaboration" name="partnership_interest" id="project_collaboration" {{ session('partnerData.partnership_interest') == 'Project Collaboration' ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="project_collaboration">Project Collaboration</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-check">
-                                                    <input type="radio" class="form-check-input" name="partnership_interest" id="kind_support">
-                                                    <label class="form-check-label" for="kind_support">In&dash;Kind Support</label>
+                                                    <input type="radio" class="form-check-input" value="In-Kind Support" name="partnership_interest" id="kind_support" {{ session('partnerData.partnership_interest') == 'In-Kind Suppor' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="kind_support">In-Kind Support</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-check">
-                                                    <input type="radio" class="form-check-input" name="partnership_interest" id="expertise_sharing">
+                                                    <input type="radio" class="form-check-input" value="Expertise Sharing" name="partnership_interest" id="expertise_sharing" {{ session('partnerData.partnership_interest') == 'Expertise Sharing' ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="expertise_sharing">Expertise Sharing</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-check">
-                                                    <input type="radio" class="form-check-input" name="partnership_interest" id="advocacy_programs">
+                                                    <input type="radio" class="form-check-input" value="Advocacy Programs" name="partnership_interest" id="advocacy_programs" {{ session('partnerData.partnership_interest') == 'Advocacy Program' ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="advocacy_programs">Advocacy Programs</label>
                                                 </div>
                                             </div>
@@ -234,14 +237,14 @@
                                         <div class="row gy-3">
                                             <div class="col-12">
                                                 <div class="form-check">
-                                                    <input type="radio" class="form-check-input" name="previous_partnership" id="prev_yes">
+                                                    <input type="radio" value="Yes" {{ session('partnerData.previous_partnership') == 'Yes' ? 'checked' : '' }} class="form-check-input" name="previous_partnership" id="prev_yes">
                                                     <label class="form-check-label" for="prev_yes">Yes</label>
-                                                    <input type="text" class="form-control" placeholder="Details about past partnership experiences" name="past_partnership_details">
+                                                    <input type="text" class="form-control" placeholder="Details about past partnership experiences" name="past_partnership_details" value="{{ session('partnerData.past_partnership_details') }}">
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-check">
-                                                    <input type="radio" class="form-check-input" name="previous_partnership" id="prev_no">
+                                                    <input type="radio" value="No" {{ session('partnerData.previous_partnership') == 'No' ? 'checked' : '' }} class="form-check-input" name="previous_partnership" id="prev_no">
                                                     <label class="form-check-label" for="prev_no">No</label>
                                                 </div>
                                             </div>
@@ -249,7 +252,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 errorshow">
-                                    <input type="text" class="form-control" placeholder="Target Geographic Region(s) for Partnership" name="target_geographic_regions">
+                                    <input type="text" class="form-control" placeholder="Target Geographic Region(s) for Partnership" name="target_geographic_regions" value="{{ session('partnerData.target_geographic_regions') }}">
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -259,10 +262,10 @@
                             </div>
                             <div class="row gy-4 mb-4 row_padding">
                                 <div class="col-12 errorshow">
-                                    <textarea cols="30" rows="7" class="form-control" placeholder="Project Opportunities" name="project_opportunities"></textarea>
+                                    <textarea cols="30" rows="7" class="form-control" placeholder="Project Opportunities" name="project_opportunities">{{ session('partnerData.project_opportunities') }}</textarea>
                                 </div>
                                 <div class="col-12 errorshow">
-                                    <textarea cols="30" rows="7" class="form-control" placeholder="Non-Monetary Support Offered (e.g., services, expertise, equipment, software)" name="non_monetary_support"></textarea>
+                                    <textarea cols="30" rows="7" class="form-control" placeholder="Non-Monetary Support Offered (e.g., services, expertise, equipment, software)" name="non_monetary_support">{{ session('partnerData.non_monetary_support') }}</textarea>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -272,7 +275,7 @@
                             </div>
                             <div class="row gy-4 mb-4 row_padding">
                                 <div class="col-12 errorshow">
-                                    <input type="text" class="form-control" placeholder="Goals or Objectives in Partnering with C.A.S.T.N.E.T. (e.g., community impact, market expansion, technology transfer)" name="partnering_goals">
+                                    <input type="text" class="form-control" placeholder="Goals or Objectives in Partnering with C.A.S.T.N.E.T. (e.g., community impact, market expansion, technology transfer)" name="partnering_goals" value="{{ session('partnerData.partnering_goals') }}">
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -282,10 +285,10 @@
                             </div>
                             <div class="row gy-4 mb-4 row_padding">
                                 <div class="col-12 errorshow">
-                                    <textarea cols="30" rows="7" class="form-control" placeholder="Expected Outcomes and Deliverables" name="expected_outcomes"></textarea>
+                                    <textarea cols="30" rows="7" class="form-control" placeholder="Expected Outcomes and Deliverables" name="expected_outcomes">{{ session('partnerData.expected_outcomes') }}</textarea>
                                 </div>
                                 <div class="col-12 errorshow">
-                                    <textarea cols="30" rows="7" class="form-control" placeholder="Non-Monetary Support Offered (e.g., services, expertise, equipment, software)" name="non_monetary_support_offered"></textarea>
+                                    <textarea cols="30" rows="7" class="form-control" placeholder="Non-Monetary Support Offered (e.g., services, expertise, equipment, software)" name="non_monetary_support_offered">{{ session('partnerData.non_monetary_support_offered') }}</textarea>
                                 </div>
                             </div>
                             <div class="row gy-4 mb-4 row_padding">
@@ -295,13 +298,13 @@
                                         <div class="row gy-3">
                                             <div class="col-12">
                                                 <div class="form-check errorshow">
-                                                    <input type="checkbox" class="form-check-input" name="legal_compliance_agree" id="legal_compliance_agree">
+                                                    <input type="checkbox" class="form-check-input" name="legal_compliance_agree" id="legal_compliance_agree" value="Agreement to discuss legal terms and conditions" {{ session('partnerData.legal_compliance_agree') == 'Agreement to discuss legal terms and conditions' ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="legal_compliance_agree">Agreement to discuss legal terms and conditions</label>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-check errorshow">
-                                                    <input type="checkbox" class="form-check-input" name="legal_compliance_understanding" id="legal_compliance_understanding">
+                                                    <input type="checkbox" class="form-check-input" name="legal_compliance_understanding" id="legal_compliance_understanding" value="Understanding of data protection and privacy policy" {{ session('partnerData.legal_compliance_understanding') == 'Understanding of data protection and privacy polic' ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="legal_compliance_understanding">Understanding of data protection and privacy policy</label>
                                                 </div>
                                             </div>                                            
@@ -316,25 +319,25 @@
                                         <div class="row gy-3">
                                             <div class="col-lg-3">
                                                 <div class="form-check errorshow">
-                                                    <input type="radio" class="form-check-input" name="hear_about" id="social_media">
+                                                    <input type="radio" class="form-check-input" name="hear_about" id="social_media" value="Social Media" {{ session('partnerData.hear_about') == 'Social Media' ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="social_media">Social Media</label>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
                                                 <div class="form-check errorshow">
-                                                    <input type="radio" class="form-check-input" name="hear_about" id="referral">
+                                                    <input type="radio" class="form-check-input" name="hear_about" id="referral" value="Referral" {{ session('partnerData.hear_about') == 'Referral' ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="referral">Referral</label>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
                                                 <div class="form-check errorshow">
-                                                    <input type="radio" class="form-check-input" name="hear_about" id="event">
+                                                    <input type="radio" class="form-check-input" name="hear_about" id="event" value="Event" {{ session('partnerData.hear_about') == 'Event' ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="event">Event</label>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
                                                 <div class="form-check errorshow">
-                                                    <input type="radio" class="form-check-input" name="hear_about" id="online_search">
+                                                    <input type="radio" class="form-check-input" name="hear_about" id="online_search" value="Online Search" {{ session('partnerData.hear_about') == 'Online Search' ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="online_search">Online Search</label>
                                                 </div>
                                             </div>
@@ -374,7 +377,7 @@
                                         <div class="row gy-3">
                                             <div class="col-12">
                                                 <div class="form-check d-inline-block errorshow">
-                                                    <input type="radio" class="form-check-input" name="data_protection_consent" id="data_consent">
+                                                    <input type="radio" class="form-check-input" name="data_protection_consent" id="data_consent" value="Store and use the provided information for partnership purposes according to privacy laws">
                                                     <label class="form-check-label" for="data_consent">Store and use the provided information for partnership purposes according to privacy laws</label>
                                                 </div>
                                             </div>
@@ -387,16 +390,19 @@
                             <div class="form_box" data-aos="zoom-in" data-aos-duration="1000" style="padding: 40px 50px 0 50px">
                                 <h2 class="section_title">Payment Details</h2>
                                 <div class="row gy-4" style="margin-bottom: 15px">
-                                    <div class="col-12 col-md-6">
+                                    <div class="col-12 col-md-4">
                                         <div class="form-group errorshow">
-                                        <input type="text" class="form-control" placeholder="Name on Card" name="full_name">
-                                        {{-- <input type="text" class="form-control" placeholder="Name on Card" name="full_name" value="{{ session('userMemberData.full_name') }}"> --}}
+                                            <input type="text" value="${{$amount->fee}}" class="form-control" disabled>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-md-6">
+                                    <div class="col-12 col-md-4">
+                                        <div class="form-group errorshow">
+                                        <input type="text" class="form-control" placeholder="Name on Card" name="full_name">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
                                         <div class="form-group errorshow">
                                         <input type="number" class="form-control" min="1" placeholder="Card Number" name="card_number">
-                                        {{-- <input type="number" class="form-control" min="1" placeholder="Card Number" name="card_number" value="{{ session('userMemberData.card_number') }}"> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -404,7 +410,6 @@
                                     <div class="col-12 col-md-4">
                                         <div class="form-group errorshow">
                                         <input type="number" class="form-control" placeholder="CVC" name="cvv">
-                                        {{-- <input type="number" class="form-control" placeholder="CVC" name="cvv" value="{{ session('userMemberData.cvv') }}"> --}}
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-4">
@@ -473,6 +478,10 @@
                 required: true,
             },
             email: {
+                required: true,
+                email: true,
+            },
+            password: {
                 required: true,
             },
             phone_number: {
@@ -546,10 +555,6 @@
         },
         messages: {
             email: {
-                required: "Please enter your email address.",
-                email: "Please enter a valid email address."
-            },
-            billing_email: {
                 required: "Please enter your email address.",
                 email: "Please enter a valid email address."
             },

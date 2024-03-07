@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Web\Payment\SponsorPaymentController;
+use App\Http\Controllers\Web\Payment\PartnerPaymentController;
 use App\Http\Controllers\Web\Payment\MemberPaymentController;
 use App\Http\Controllers\Web\Payment\EventPaymentController;
 use App\Http\Controllers\Web\FeedbackController;
@@ -81,9 +83,6 @@ Route::middleware('admin-not-access')->group(function() {
     Route::post('/filter-keywords', [FilterController::class, 'filterKeywords'])->name('filter.keywords');
     Route::get('/filter-search', [FilterController::class, 'filterSearch'])->name('filter.search');
     Route::post('/subscribe-newsletter', [DefaultController::class, 'subscribe'])->name('subscribe.newsletter');
-    Route::post('/partners-data', [DefaultController::class, 'partners'])->name('partners.data');
-    Route::post('/sponsors', [DefaultController::class, 'sponsors'])->name('sponsors.data');
-
     Route::post('/satisfied_members', [DefaultController::class, 'satisfiedMembers'])->name('satisfied.members');
     
     Route::get('/user-login', [PagesController::class, 'login'])->name('user.login');
@@ -91,10 +90,15 @@ Route::middleware('admin-not-access')->group(function() {
     Route::get('/term-use', [PagesController::class, 'termsuse'])->name('web.termsuse');
     Route::post('/welcome-modal', [DefaultController::class, 'weclome'])->name('welcom.modal');
     Route::post('/job-application/{id}', [DefaultController::class, 'jobApply'])->name('job.application');
+    
+    Route::get('/list_projects', [PagesController::class, 'listProject'])->name('web.projects');
+    Route::get('/member_directory', [PagesController::class, 'member_directory'])->name('web.member_directory');
 
     /////--------* Stripe Payment Integration Routes *--------/////
     Route::post('charge-member', [MemberPaymentController::class,'payment'])->name('charge.member');
     Route::post('charge-event', [EventPaymentController::class,'payment'])->name('charge.event');
+    Route::post('charge-sponsor', [SponsorPaymentController::class,'payment'])->name('charge.sponsor');
+    Route::post('charge-partner', [PartnerPaymentController::class,'payment'])->name('charge.partner');
     //////------ End Stripe Payment Integration Routes ------/////
 
     Route::post('check-email',[DefaultController::class,'checkEmail']);

@@ -32,6 +32,7 @@ use App\Models\HomeSectionFeature;
 use App\Models\InternationalEvent;
 use App\Models\HomeSectionEvent;
 use App\Models\Membership_Level;
+use App\Models\MemberDirectory;
 use App\Models\ProgramSection1;
 use App\Models\ProgramSection2;
 use App\Models\ContactUsModel;
@@ -48,6 +49,7 @@ use App\Models\HomeSection6;
 use App\Models\HomeSection7;
 use App\Models\HomeSection8;
 use App\Models\HomeSection9;
+use App\Models\ProjectModel;
 use App\Models\SectorModel;
 use App\Models\PageBanner;
 use App\Models\JoinWidget;
@@ -58,6 +60,7 @@ use App\Models\OurTeam;
 use App\Models\Banner;
 use App\Models\CompanyInfoFormSetting;
 use App\Models\Event_Request_Type;
+use App\Models\ProjectsModel;
 use App\Models\MyBlog;
 use App\Models\User;
 use App\Models\Job;
@@ -302,6 +305,7 @@ class PagesController extends Controller
     }
     public function become_partner(){
         $banner = PageBanner::where('type', 33)->first();
+        $amount = Event_Request_Type::where('id',3)->first('fee');
         $section1 = PartnerCommonSection1::where(['section'=>1,'page'=>'become_partner'])->first();
         $section1s = PartnerCommonSection2::where(['section'=>1,'page'=>'become_partner'])->get();
         $section2 = PartnerCommonSection1::where(['section'=>2,'page'=>'become_partner'])->first();
@@ -312,6 +316,7 @@ class PagesController extends Controller
     }
     public function become_sponsor(){
         $banner = PageBanner::where('type', 34)->first();
+        $amount = Event_Request_Type::where('id',4)->first('fee');
         $section1 = PartnerCommonSection1::where(['section'=>1,'page'=>'become_sponsor'])->first();
         $title = PartnerSponsorPageTitleModel::where(['page'=>'become_sponsor','section'=>2])->first();
         $title2 = PartnerSponsorPageTitleModel::where(['page'=>'partners_sponsors','section'=>2])->first();
@@ -420,6 +425,7 @@ class PagesController extends Controller
         $banner = PageBanner::where('type',48)->first();
         $section1 = OpportunitiesModel::where(['section'=>1,'page'=>'rfx'])->first();
         $section2 = OpportunitiesModel::where(['section'=>2,'page'=>'rfx'])->first();
+        $project = ProjectModel::where('page','rfx')->first();
         return view('web.pages.rfx',get_defined_vars());
     }
     public function job_openings(){
@@ -473,6 +479,7 @@ class PagesController extends Controller
         $staff = OurTeam::where('type', 7)->get();
         return view('web.pages.team',get_defined_vars());
     }
+
     public function whoweare(){
         $banner = PageBanner::where('type',2)->first();
         $section4 = AboutPage::where('section',4)->first();
@@ -480,6 +487,7 @@ class PagesController extends Controller
         $section6 = HomeSection3::first();
         return view('web.pages.whoweare',get_defined_vars());
     }
+
     public function privacypolicy(){
         $section1 = LegalDocument::where(['page'=>'privacy policy','section'=>'section1'])->first();
         $section2 = LegalDocument::where(['page'=>'privacy policy','section'=>'section2'])->first();
@@ -493,7 +501,21 @@ class PagesController extends Controller
     public function login(){
         return view('web.pages.login');
     }
+
     public function register(){
         return view('web.pages.register');
+    }
+
+    public function listProject(){
+        $banner = PageBanner::where('type', 54)->first();
+        $section1 = ProjectsModel::where('section',1)->first();
+        $section2 = ProjectsModel::where('section',2)->get();
+        return view('web.pages.list_project',get_defined_vars());
+    }
+
+    public function member_directory(){
+        $banner = PageBanner::where('type', 55)->first();
+        $members = MemberDirectory::get();
+        return view('web.pages.member_directory',get_defined_vars());
     }
 }
