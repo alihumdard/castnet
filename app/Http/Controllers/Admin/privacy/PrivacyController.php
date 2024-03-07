@@ -4,10 +4,15 @@ namespace App\Http\Controllers\Admin\Privacy;
 
 use App\Http\Controllers\Controller;
 use App\Models\LegalDocument;
+use App\Models\PageBanner;
 use Illuminate\Http\Request;
 
 class PrivacyController extends Controller
 {
+    public function index(){
+        $banner = PageBanner::where('type',56)->first();
+        return view('admin.pages.banner',compact('banner'));
+    }
     public function section1(){
         $section = LegalDocument::where('page', 'privacy policy')
     ->where('section', 'section1')
