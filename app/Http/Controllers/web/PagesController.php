@@ -64,6 +64,7 @@ use App\Models\ProjectsModel;
 use App\Models\MyBlog;
 use App\Models\User;
 use App\Models\Job;
+use App\Models\LegalDocument;
 use Illuminate\Support\Facades\Mail;
 
 class PagesController extends Controller
@@ -291,6 +292,9 @@ class PagesController extends Controller
         $section2 = FinancialCommonModel1::where(['page'=>'funding','section'=>2])->get();
         return view('web.pages.funding',get_defined_vars());
     }
+    public function forms(){
+        return view('web.pages.form',get_defined_vars());
+    }
     public function partners_sponsors(){
         $banner = PageBanner::where('type', 32)->first();
         $section1 = PartnersModel::where('section',1)->get();
@@ -484,6 +488,16 @@ class PagesController extends Controller
         return view('web.pages.whoweare',get_defined_vars());
     }
 
+    public function privacypolicy(){
+        $section1 = LegalDocument::where(['page'=>'privacy policy','section'=>'section1'])->first();
+        $section2 = LegalDocument::where(['page'=>'privacy policy','section'=>'section2'])->first();
+        return view('web.pages.privacypolicy',get_defined_vars());
+    }
+    public function termsuse(){
+        $section1 = LegalDocument::where(['page'=>'term of use','section'=>'section1'])->first();
+        $section2 = LegalDocument::where(['page'=>'term of use','section'=>'section2'])->first();
+        return view('web.pages.termsuse',get_defined_vars());
+    }
     public function login(){
         return view('web.pages.login');
     }

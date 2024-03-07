@@ -144,6 +144,7 @@
                 <ul class="sub_menu">
                     <li><a href="{{ route('web.grants') }}">grants</a></li>
                     <li><a href="{{ route('web.funding') }}">funding</a></li>
+                    <li><a href="{{ route('web.forms') }}">forms</a></li>
                 </ul>
             </li>
         </ul>

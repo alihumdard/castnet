@@ -72,6 +72,8 @@ use App\Http\Controllers\Admin\WidgetsController;
 use App\Http\Controllers\Admin\AdvocacyCSection;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\PagesController;
+use App\Http\Controllers\Admin\Privacy\PrivacyController;
+use App\Http\Controllers\Admin\termOfUse\TermOfUseController;
 
 Route::get('/administrator', [PagesController::class, 'login'])->name('admin.login');
 Route::middleware('auth')->group(function() {
@@ -115,6 +117,18 @@ Route::middleware('auth')->group(function() {
             Route::get('/about-us-section2', [AboutPageController::class, 'section2'])->name('aboutus.section2');
             Route::get('/about-us-section3', [AboutPageController::class, 'section3'])->name('aboutus.section3');
             //--- About Page Routes End -----
+            
+            // Privacy & policy routes start
+            Route::get('/privacy-section1', [PrivacyController::class, 'section1'])->name('privacy.section1');
+            Route::post('/privacy-section1Update', [PrivacyController::class, 'section1Update'])->name('privacy.section1Update');
+            Route::get('/privacy-section2', [PrivacyController::class, 'section2'])->name('privacy.section2');
+            // Privacy & policy routes end
+
+            // terms and use routes start
+            Route::get('/term-section1', [TermOfUseController::class, 'section1'])->name('term.section1');
+            Route::post('/term-sectionUpdate', [TermOfUseController::class, 'sectionUpdate'])->name('term.sectionUpdate');
+            Route::get('/term-section2', [TermOfUseController::class, 'section2'])->name('term.section2');
+            // terms and use routes end
 
             // --------- who_we_are Page Routes Start ------------
             Route::get('/whoweare-banner', [WhoWeArePageController::class, 'index'])->name('whoweare.banner');
