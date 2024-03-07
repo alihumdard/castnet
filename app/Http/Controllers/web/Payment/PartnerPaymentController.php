@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Models\PartnerUser;
 use Stripe\StripeClient;
 use App\Models\User;
+use Exception;
 class PartnerPaymentController extends Controller
 {
     private $stripe;
@@ -57,7 +58,6 @@ class PartnerPaymentController extends Controller
             'expiry_month' => 'required',
             'expiry_year' => 'required',
             'cvv' => 'required',
-            'email' => 'required|string|email|max:255|unique:users',
         ]);
 
         if ($validator->fails()) {
@@ -109,7 +109,7 @@ class PartnerPaymentController extends Controller
                 'user_id'=>$user->id,
                 'trx_id'=>$charge->id,
                 'amount'=>$amount,
-                'type'=>1,
+                'type'=>3,
             ]);
             session()->forget('partnerData');
             return redirect()->back()->with('success','Congratulations! You have successfully joined the partnership. Transaction ID is #'.$charge->id);

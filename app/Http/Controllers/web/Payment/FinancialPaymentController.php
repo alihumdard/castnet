@@ -7,12 +7,11 @@ use Stripe\Exception\InvalidRequestException;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Stripe\Exception\CardException;
-use App\Models\Event_Request_Type;
+use App\Models\FinancialForm;
 use App\Models\PaymentModel;
 use Illuminate\Http\Request;
-use App\Models\PartnerUser;
 use Stripe\StripeClient;
-use App\Models\User;
+use Exception;
 class FinancialPaymentController extends Controller
 {
     private $stripe;
@@ -22,34 +21,25 @@ class FinancialPaymentController extends Controller
 
     public function payment(Request $request){
         $userData = [
-            'organization_name' => $request->organization_name,
-            'contact_person_name' => $request->contact_person_name,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
             'email' => $request->email,
-            'phone_number' => $request->phone_number,
-            'organization_website' => $request->organization_website,
-            'industry_sector' => $request->industry_sector,
-            'partnership_dur' => $request->partnership_dur,
-            'partnership_interest' => $request->partnership_interest, 
-            'previous_partnership' => $request->previous_partnership,
-            'past_partnership_details' => $request->past_partnership_details,
-            'target_geographic_regions' => $request->target_geographic_regions,
-            'project_opportunities' => $request->project_opportunities,
-            'non_monetary_support' => $request->non_monetary_support,
-            'partnering_goals' => $request->partnering_goals,
-            'expected_outcomes' => $request->expected_outcomes,
-            'non_monetary_support_offered' => $request->non_monetary_support_offered,
-            'legal_compliance_agree' => $request->legal_compliance_agree,
-            'legal_compliance_understanding' => $request->legal_compliance_understanding,
-            'hear_about' => $request->hear_about,
-            'additional_information' => $request->additional_information,
-            'data_protection_consent' => $request->data_protection_consent,
+            'phone' => $request->phone,
+            'business_name' => $request->business_name,
+            'business_address' => $request->business_address,
+            'fund_purpose' => $request->fund_purpose,
+            'country' => $request->country, 
+            'business_type' => $request->business_type,
+            'net_worth' => $request->net_worth,
+            'program' => $request->program,
+            'recent_year_income' => $request->recent_year_income,
             'full_name' => $request->full_name,
             'card_number' => $request->card_number,
             'expiry_month' => $request->expiry_month,
             'expiry_year' => $request->expiry_year,
             'cvv' => $request->cvv,
         ];
-        session()->put('partnerData', $userData);
+        session()->put('formData', $userData);
         
         $validator = Validator::make($request->all(), [
             'full_name' => 'required',
@@ -57,7 +47,6 @@ class FinancialPaymentController extends Controller
             'expiry_month' => 'required',
             'expiry_year' => 'required',
             'cvv' => 'required',
-            'email' => 'required|string|email|max:255|unique:users',
         ]);
 
         if ($validator->fails()) {
@@ -71,48 +60,44 @@ class FinancialPaymentController extends Controller
         if (empty($token['id'])) {
             return redirect()->back()->with('error', 'Payment failed.');
         }
-        $amount = Event_Request_Type::where('id',3)->first('fee');;
-        $charge = $this->createCharge($token['id'], $amount->fee*100);
-        if (!empty($charge) && $charge['status'] == 'succeeded') {      
-            $user = User::create([
-                'first_name'=>$request->contact_person_name,
-                'email'=>$request->email,
-                'password'=>bcrypt($request->password),
-                'type'=>1,
-                'partner'=>1,
-            ]);
-            PartnerUser::create([
-                'user_id' => $user->id,
-                'organization_name' => $request->organization_name,
-                'contact_person_name' => $request->contact_person_name,
+        $financial = FinancialPayment::first();
+        if($request->fundfund_purpose=="Investments"){
+            $amount = intval(preg_replace('/[^0-9]+/', '', $financial->investment));
+        }elseif($request->fundfund_purpose=="Loans"){
+            $amount = intval(preg_replace('/[^0-9]+/', '',$financial->loans));
+        }else{
+            $amount = intval(preg_replace('/[^0-9]+/', '', $financial->grants));
+        }
+        $charge = $this->createCharge($token['id'], $amount*100);
+        if (!empty($charge) && $charge['status'] == 'succeeded') {
+
+            $file = time().'.'.$request->file->extension();
+            $request->file->move(public_path('assets/web/images'), $file);
+                 
+            FinancialForm::create([
+                'user_id' => Auth::user()->id,
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
                 'email' => $request->email,
-                'phone_number' => $request->phone_number,
-                'organization_website' => $request->organization_website,
-                'industry_sector' => $request->industry_sector,
-                'partnership_dur' => $request->partnership_dur,
-                'partnership_interest' => $request->partnership_interest, 
-                'previous_partnership' => $request->previous_partnership,
-                'past_partnership_details' => $request->past_partnership_details,
-                'target_geographic_regions' => $request->target_geographic_regions,
-                'project_opportunities' => $request->project_opportunities,
-                'non_monetary_support' => $request->non_monetary_support,
-                'partnering_goals' => $request->partnering_goals,
-                'expected_outcomes' => $request->expected_outcomes,
-                'non_monetary_support_offered' => $request->non_monetary_support_offered,
-                'legal_compliance_agree' => $request->legal_compliance_agree,
-                'legal_compliance_understanding' => $request->legal_compliance_understanding,
-                'hear_about' => $request->hear_about,
-                'additional_information' => $request->additional_information,
-                'data_protection_consent' => $request->data_protection_consent,
+                'phone' => $request->phone,
+                'business_name' => $request->business_name,
+                'business_address' => $request->business_address,
+                'fund_purpose' => $request->fund_purpose,
+                'country' => $request->country, 
+                'business_type' => $request->business_type,
+                'net_worth' => $request->net_worth,
+                'program' => $request->program,
+                'recent_year_income' => $request->recent_year_income,
+                'file' => $file,
             ]);
             PaymentModel::create([
-                'user_id'=>$user->id,
+                'user_id'=>Auth::user()->id,
                 'trx_id'=>$charge->id,
                 'amount'=>$amount,
-                'type'=>1,
+                'type'=>5,
             ]);
-            session()->forget('partnerData');
-            return redirect()->back()->with('success','Congratulations! You have successfully joined the partnership. Transaction ID is #'.$charge->id);
+            session()->forget('formData');
+            return redirect()->back()->with('success','Congratulations! You have successfully sumbitted the request. Transaction ID is #'.$charge->id);
         } else {
             return redirect()->back()->with('error', 'Payment failed.');
         }
@@ -145,7 +130,7 @@ class FinancialPaymentController extends Controller
                 'amount' => $amount,
                 'currency' => 'usd',
                 'source' => $tokenId,
-                'description' => 'Congratulations, You have received a new payment for the creation of a new partnership account.'
+                'description' => 'Congratulations, You have received a new payment for the financial forms creation request.'
             ]);
         } catch (InvalidRequestException $e) {
             $charge['error'] = $e->getMessage();

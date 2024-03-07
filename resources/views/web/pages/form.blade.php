@@ -32,242 +32,170 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <form action="" method="POST" id="financial_form" data-aos="zoom-in" data-aos-duration="1000">
+                    <form action="{{route('charge.financial')}}" method="POST" enctype="multipart/form-data" id="financial_form" data-aos="zoom-in" data-aos-duration="1000">
                         @csrf
                         <div class="row gy-4">
                             <div class="col-md-6 errorshow">
-                                <input type="text" class="form-control" name="name" placeholder="Name">
+                                <input type="text" class="form-control" name="first_name" value="{{ session('formData.first_name') }}" placeholder="First Name">
                             </div>
                             <div class="col-md-6 errorshow">
-                                <input type="text" class="form-control" placeholder="Last Name" name="LName">
+                                <input type="text" class="form-control" placeholder="Last Name" name="last_name" value="{{ session('formData.last_name') }}">
                             </div>
                             <div class="col-md-6 errorshow">
-                                <input type="email" class="form-control" placeholder="Email" name="email">
+                                <input type="email" class="form-control" placeholder="Email" name="email" value="{{ session('formData.email') }}">
                             </div>
                             <div class="col-md-6 errorshow">
-                                <input type="number" class="form-control" placeholder="Phone" name="phone">
+                                <input type="number" class="form-control" placeholder="Phone" name="phone" value="{{ session('formData.phone') }}">
                             </div>
                             <div class="col-md-12 errorshow">
-                                <input type="text" class="form-control" placeholder="Business Name" name="businessName">
+                                <input type="text" class="form-control" placeholder="Business Name" name="business_name" value="{{ session('formData.business_name') }}">
                             </div>
                             <div class="col-md-12 errorshow">
-                                <input type="text" class="form-control" placeholder="Business Address" name="businessAddress">
+                                <input type="text" class="form-control" placeholder="Business Address" name="business_address" value="{{ session('formData.business_address') }}">
                             </div>
-                            <div class="col-md-6 errorshow">
-                                <select class="form-select" name="fundingPurpose">
+                            <div class="col-md-4 errorshow">
+                                <select class="form-select" id="getAmount" name="fund_purpose">
                                     <option selected disabled>Purpose of Funding</option>
-                                    <option value="1">Investments</option>
-                                    <option value="2">Loans</option>
-                                    <option value="3">Grants</option>
+                                    <option value="Investments">Investments</option>
+                                    <option value="Loans">Loans</option>
+                                    <option value="Grants">Grants</option>
                                 </select>
                             </div>
-                            <div class="col-md-6 errorshow">
-                                <input type="text" class="form-control" placeholder="Country" name="country">
+                            <div class="col-12 col-md-4">
+                                <div class="form-group errorshow">
+                                    <input type="text" class="form-control" value="Payment $0" id="displayamount" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-4 errorshow">
+                                <input type="text" class="form-control" placeholder="Country" name="country" value="{{ session('formData.country') }}">
                             </div>
                             <div class="col-md-12">
                                 <div class="errorshow">
                                 <div class="checkbox-border">
                                     <h3 class="checkbox-title">Business Type</h3>
-
                                     <div class="form-check py-5">
                                         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                                             <div class="col">
-                                                <input type="radio" class="form-check-input" id="option1" name="options"
-                                                    value="option1">
-                                                <label class="form-check-label" for="option1">Private Limited
-                                                    Company</label>
+                                                <input type="radio" class="form-check-input" id="btype1" name="business_type" value="Private Limited Company" {{ session('formData.business_type') == 'Private Limited Company' ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="btype1">Private Limited Company</label>
                                             </div>
                                             <div class="col">
-                                                <input type="radio" class="form-check-input" id="option1" name="options"
-                                                    value="option1">
-                                                <label class="form-check-label" for="option1">Public Listed
-                                                    Company</label>
+                                                <input type="radio" class="form-check-input" id="btype2" name="business_type" value="Public Listed Company" {{ session('formData.business_type') == 'Public Listed Company' ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="btype2">Public Listed Company</label>
                                             </div>
                                             <div class="col">
-                                                <input type="radio" class="form-check-input" id="option1" name="options"
-                                                    value="option1">
-                                                <label class="form-check-label" for="option1">Cooperative</label>
+                                                <input type="radio" class="form-check-input" id="btype3" name="business_type" value="Cooperative" {{ session('formData.business_type') == 'Cooperative' ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="btype3">Cooperative</label>
                                             </div>
                                             <div class="col">
-                                                <input type="radio" class="form-check-input" id="option1" name="options"
-                                                    value="option1">
-                                                <label class="form-check-label" for="option1">Sole
-                                                    Proprietorship</label>
+                                                <input type="radio" class="form-check-input" id="btype4" name="business_type" value="Sole Proprietorship" {{ session('formData.business_type') == 'Sole Proprietorship' ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="btype4">Sole Proprietorship</label>
                                             </div>
                                             <div class="col">
-                                                <input type="radio" class="form-check-input" id="option1" name="options"
-                                                    value="option1">
-                                                <label class="form-check-label" for="option1">Partnership</label>
+                                                <input type="radio" class="form-check-input" id="btype5" name="business_type" value="Partnership" {{ session('formData.business_type') == 'Partnership' ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="btype5">Partnership</label>
                                             </div>
                                             <div class="col">
-                                                <input type="radio" class="form-check-input" id="option1" name="options"
-                                                    value="option1">
-                                                <label class="form-check-label" for="option1">Other</label>
+                                                <input type="radio" class="form-check-input" id="btype6" name="business_type" value="Other" {{ session('formData.business_type') == 'Other' ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="btype6">Other</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 </div>
-
                                 <div class="col-md-12 errorshow">
                                     <div class="checkbox-border">
                                         <h3 class="checkbox-title">Your Net Worth</h3>
                                         <div class="form-check py-5">
                                             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
                                                 <div class="col">
-                                                    <input type="radio" class="form-check-input" id="option1"
-                                                        name="option" value="option1">
-                                                    <label class="form-check-label" for="option1">More than
-                                                        $320k</label>
+                                                    <input type="radio" id="newtop1" class="form-check-input" name="net_worth" value="More than $320k" {{ session('formData.net_worth') == 'More than $320k' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="newtop1">More than $320k</label>
                                                 </div>
                                                 <div class="col">
-                                                    <input type="radio" class="form-check-input" id="option1"
-                                                        name="option" value="option1">
-                                                    <label class="form-check-label" for="option1">Less than
-                                                        $320k</label>
+                                                    <input type="radio" id="newtop2" class="form-check-input" name="net_worth" value="Less than $320k" {{ session('formData.net_worth') == 'Less than $320k' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="newtop2">Less than $320k</label>
                                                 </div>
                                                 <div class="col">
-                                                    <input type="radio" class="form-check-input" id="option1"
-                                                        name="option" value="option1">
-                                                    <label class="form-check-label" for="option1">I am not sure</label>
+                                                    <input type="radio" id="newtop3" class="form-check-input" name="net_worth" value="I am not sure" {{ session('formData.net_worth') == 'I am not sure' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="newtop3">I am not sure</label>
                                                 </div>
                                                 <div class="col">
-                                                    <input type="radio" class="form-check-input" id="option1"
-                                                        name="option" value="option1">
-                                                    <label class="form-check-label" for="option1">Other</label>
+                                                    <input type="radio" id="newtop4" class="form-check-input" name="net_worth" value="Other" {{ session('formData.net_worth') == 'Other' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="newtop4">Other</label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-
-
                             <div class="col-md-6">
                                 <div class="form-group errorshow">
-                                <select class="form-select" name="selecProgram">
+                                <select class="form-select" name="program">
                                     <option selected disabled>Select Program</option>
-                                    <option value="1">Advocacy Program</option>
-                                    <option value="2">Active Project</option>
-                                    <option value="3">Planned Project</option>
-                                    <option value="4">Development / Prototype</option>
-                                    <option value="5">Research / Feacibility Reports</option>
-                                    <option value="6">Event / Workshop</option>
-                                    <option value="7">Education / Training</option>
+                                    <option value="Advocacy Program" {{ session('formData.program') == 'Advocacy Program' ? 'selected' : '' }}>Advocacy Program</option>
+                                    <option value="Active Project" {{ session('formData.program') == 'Active Project' ? 'selected' : '' }}>Active Project</option>
+                                    <option value="Planned Project" {{ session('formData.program') == 'Planned Project' ? 'selected' : '' }}>Planned Project</option>
+                                    <option value="Development / Prototype" {{ session('formData.program') == 'Development / Prototype' ? 'selected' : '' }}>Development / Prototype</option>
+                                    <option value="Research / Feacibility Reports" {{ session('formData.program') == 'Research / Feacibility Reports' ? 'selected' : '' }}>Research / Feacibility Reports</option>
+                                    <option value="Event / Workshop" {{ session('formData.program') == 'Event / Workshop' ? 'selected' : '' }}>Event / Workshop</option>
+                                    <option value="Education / Training" {{ session('formData.program') == 'Education / Training' ? 'selected' : '' }}>Education / Training</option>
                                 </select>
                             </div>
                             </div>
                             <div class="col-md-6 errorshow">
-                                <input type="text" class="form-control" name="recent_income"
-                                    placeholder="Declared Personal Income for Recent Year">
+                                <input type="text" class="form-control" name="recent_year_income"
+                                    placeholder="Declared Personal Income for Recent Year" value="{{ session('formData.recent_year_income') }}">
                             </div>
-
                             <div class="upl-head">
                                 <h2 class="form-heading-upl">Please upload related documents about partnerships, shareholder's fund, key management.</h2>
                             </div>
-
-                            <div class="col-md-12">
-                             
-                                    <div class="upload-files-container">
-                                        <div class="drag-file-area">
-                                            <span class="material-icons-outlined upload-icon"><img
-                                                    src="./assets/web/images/upload-icon.png"> </span><br>
-                                        
-                                                      <a href="" id="uploadLink" class="input-button">browse file</a>
-                                                      <input type="file" id="fileInput" style="display: none;" onchange="handleFileUpload(event)">
-                                                      
-                                                      <script>
-                                                        function handleFileUpload(event) {
-                                                          const file = event.target.files[0];
-                                                          if (file) {
-                                                            // You can perform further actions with the selected file here
-                                                            console.log("File selected:", file.name);
-                                                          }
-                                                        }
-                                                    
-                                                        document.getElementById("uploadLink").addEventListener("click", function() {
-                                                          document.getElementById("fileInput").click();
-                                                        });
-                                                      </script>
-
-                                            <h3 class="dynamic-message"> Drag & drop any file here </h3>
-                                        </div>
-                                     
-                                        <!-- <button type="button" class="upload-button"> Upload </button> -->
-                                    </div>
-                           
+                            <div class="col-md-4 mx-auto errorshow">
+                                <input type="file" name="file" class="form-control" id="">
                             </div>
-
-                            <!-- <span class="browse-files-text"
-                            style="align-items: center;">browse file</span> </span> </label> -->
-
-                            <!-- Form Button -->
-                            {{-- <div class="col-12 text-center">
-                                <a href="#" class="btn btn-primary">submit</a>
-                            </div> --}}
                             <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
-                                <h2 class="section_title" style="
-                                margin-bottom: 25px;
-                            ">Payment Details</h2>
+                                <h2 class="section_title" style="margin-bottom: 25px;">Payment Details</h2>
                                 <div class="row gy-4" style="margin-bottom: 15px">
                                     <div class="col-12 col-md-6">
                                         <div class="form-group errorshow">
-                                        <input type="text" class="form-control" placeholder="Name on Card" name="full_name" value="">
+                                            <input type="text" class="form-control" placeholder="Name on Card" name="full_name" value="{{ session('formData.full_name') }}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group errorshow">
-                                        <input type="number" class="form-control" min="1" placeholder="Card Number" name="card_number" value="">
+                                            <input type="number" class="form-control" min="1" placeholder="Card Number" name="card_number" value="{{ session('formData.card_number') }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row gy-4">
                                     <div class="col-12 col-md-4">
                                         <div class="form-group errorshow">
-                                        <input type="number" class="form-control" placeholder="CVC" name="cvv" value="">
+                                        <input type="number" class="form-control" placeholder="CVC" name="cvv" value="{{ session('formData.cvv') }}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-4">
                                         <div class="form-group errorshow">
                                             <select class="form-control" name="expiry_month">
                                                 <option disabled selected>MM</option>
-                                                                                            <option value="1" >1</option>
-                                                                                            <option value="2" >2</option>
-                                                                                            <option value="3" >3</option>
-                                                                                            <option value="4" >4</option>
-                                                                                            <option value="5" >5</option>
-                                                                                            <option value="6" >6</option>
-                                                                                            <option value="7" >7</option>
-                                                                                            <option value="8" >8</option>
-                                                                                            <option value="9" >9</option>
-                                                                                            <option value="10" >10</option>
-                                                                                            <option value="11" >11</option>
-                                                                                            <option value="12" >12</option>
-                                                                                    </select>
+                                                @foreach(range(1, 12) as $month)
+                                                    <option value="{{$month}}" {{ session('formData.expiry_month') == $month ? 'selected' : '' }}>{{$month}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-4">
                                         <div class="form-group errorshow">
                                             <select class="form-control" name="expiry_year">
                                                 <option disabled selected>YYYY</option>
-                                                                                            <option value="2024" >2024</option>
-                                                                                            <option value="2025" >2025</option>
-                                                                                            <option value="2026" >2026</option>
-                                                                                            <option value="2027" >2027</option>
-                                                                                            <option value="2028" >2028</option>
-                                                                                            <option value="2029" >2029</option>
-                                                                                            <option value="2030" >2030</option>
-                                                                                            <option value="2031" >2031</option>
-                                                                                            <option value="2032" >2032</option>
-                                                                                            <option value="2033" >2033</option>
-                                                                                            <option value="2034" >2034</option>
-                                                                                    </select>
+                                                @foreach(range(date('Y'), date('Y') + 10) as $year)
+                                                    <option value="{{$year}}" {{ session('formData.expiry_year') == $year ? 'selected' : '' }}>{{$year}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="text-center mt-4" data-aos="fade-right" data-aos-duration="1000">
-                                        <button type="submit" class="btn btn-submit1">submit</button>
+                                    <button type="submit" class="btn btn-submit1">submit</button>
                                 </div>
                             </div>
         
@@ -285,45 +213,47 @@
 <script>
     $('#financial_form').validate({
         rules: {
-            name: {
+            first_name: {
                 required: true,
             },
-            LName: {
+            last_name: {
                 required: true,
             },
             email: {
                 required: true,
+                email: true,
             },
             phone: {
                 required: true,
             },
-            businessName: {
+            business_name: {
                 required: true,
             },
-            businessAddress: {
+            business_address: {
                 required: true,
             },
-            fundingPurpose: {
+            fund_purpose: {
                 required: true,
             },
             country: {
                 required: true,
             },
-            options: {
+            business_type: {
                 required: true,
             },
-            option: {
+            net_worth: {
                 required: true,
             },
-            selecProgram: {
+            program: {
                 required: true,
             },
-            recent_income: {
+            recent_year_income: {
                 required: true,
             },
-            inputFile: {
+            file: {
                 required: true,
-            }, full_name: {
+            }, 
+            full_name: {
                 required: true,
             },
             card_number: {
@@ -345,10 +275,6 @@
         },
         messages: {
             email: {
-                required: "Please enter your email address.",
-                email: "Please enter a valid email address."
-            },
-            billing_email: {
                 required: "Please enter your email address.",
                 email: "Please enter a valid email address."
             },

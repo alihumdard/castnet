@@ -38,6 +38,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    $("body").on("change", "#getAmount", function (e) {
+        e.preventDefault();
+        let amount = $('#getAmount').val();
+        $.ajax({
+            method: "Post",
+            url: 'get-financial-amount',
+            data: {
+                _token: $('meta[name="csrf-token"]').attr('content'),
+                'amount': amount,
+            },
+            success: function (response) {
+                $("#displayamount").val(response);
+            }
+        });
+    });
+
     $("body").on("submit", "#newsletter", function (e) {
         e.preventDefault();
         let email = $('#email').val();
@@ -75,22 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
             },
         });
     });
-
-
-
-            // Dropdown Script
-const collapsibles = document.querySelectorAll(".dropdown-link .img-icon");
-collapsibles.forEach((item) => item.addEventListener("click", function() {
-    this.classList.toggle("dropdown_expanded");
-})
-);
-
-// Offcanvas Script
-const OffcanvasCollapsibles = document.querySelectorAll(".offcanvas-menu .img-icon");
-OffcanvasCollapsibles.forEach((item) => item.addEventListener("click", function() {
-    this.classList.toggle("dropdown_expanded");
-})
-);
 </script>
 
 
