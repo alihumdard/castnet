@@ -489,11 +489,13 @@ class PagesController extends Controller
     }
 
     public function privacypolicy(){
+        $banner = PageBanner::where('type',56)->first();
         $section1 = LegalDocument::where(['page'=>'privacy policy','section'=>'section1'])->first();
         $section2 = LegalDocument::where(['page'=>'privacy policy','section'=>'section2'])->first();
         return view('web.pages.privacypolicy',get_defined_vars());
     }
     public function termsuse(){
+        $banner = PageBanner::where('type',57)->first();
         $section1 = LegalDocument::where(['page'=>'term of use','section'=>'section1'])->first();
         $section2 = LegalDocument::where(['page'=>'term of use','section'=>'section2'])->first();
         return view('web.pages.termsuse',get_defined_vars());

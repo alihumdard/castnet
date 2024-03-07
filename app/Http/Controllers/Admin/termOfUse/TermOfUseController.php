@@ -4,10 +4,15 @@ namespace App\Http\Controllers\Admin\termOfUse;
 
 use App\Http\Controllers\Controller;
 use App\Models\LegalDocument;
+use App\Models\PageBanner;
 use Illuminate\Http\Request;
 
 class TermOfUseController extends Controller
 {
+    public function index(){
+        $banner = PageBanner::where('type',57)->first();
+        return view('admin.pages.banner',compact('banner'));
+    }
     public function section1(){
         $section = LegalDocument::where('page', 'term of use')
         ->where('section', 'section1')
