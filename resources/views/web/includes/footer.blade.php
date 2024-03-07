@@ -32,10 +32,12 @@ $result = socialLinks();
                     <div class="footer_links">
                         <a href="{{route('web.index')}}" class="footer_link">Home</a>
                         <a href="{{route('web.about')}}" class="footer_link">About us</a>
-                        <a href="{{route('web.membership')}}" class="footer_link">membership</a>
+                        <a href="{{route('web.membership')}}" class="footer_link">Membership</a>
                         <a href="{{route('web.sectors')}}" class="footer_link">Sectors</a>
                         <a href="{{route('web.advocacy')}}" class="footer_link">Advocacy</a>
                         <a href="{{route('web.financial')}}" class="footer_link">Financial</a>
+                        <a href="{{route('web.privacypolicy')}}" class="footer_link">Privacy & Policy</a>
+                        <a href="{{route('web.termsuse')}}" class="footer_link">Term Of Use</a>
                     </div>
                 </div>
             </div>
