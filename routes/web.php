@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\Payment\FinancialPaymentController;
 use App\Http\Controllers\Web\Payment\SponsorPaymentController;
 use App\Http\Controllers\Web\Payment\PartnerPaymentController;
 use App\Http\Controllers\Web\Payment\MemberPaymentController;
@@ -99,6 +100,7 @@ Route::middleware('admin-not-access')->group(function() {
     Route::post('charge-event', [EventPaymentController::class,'payment'])->name('charge.event');
     Route::post('charge-sponsor', [SponsorPaymentController::class,'payment'])->name('charge.sponsor');
     Route::post('charge-partner', [PartnerPaymentController::class,'payment'])->name('charge.partner');
+    Route::post('charge-financial', [FinancialPaymentController::class,'payment'])->name('charge.financial');
     //////------ End Stripe Payment Integration Routes ------/////
 
     Route::post('check-email',[DefaultController::class,'checkEmail']);
