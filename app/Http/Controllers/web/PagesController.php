@@ -293,6 +293,7 @@ class PagesController extends Controller
         return view('web.pages.funding',get_defined_vars());
     }
     public function forms(){
+        $banner = PageBanner::where('type', 58)->first();
         return view('web.pages.form',get_defined_vars());
     }
     public function partners_sponsors(){
