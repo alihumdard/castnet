@@ -1673,7 +1673,7 @@
                     {{--  CAREERS Page End  --}}
 
                     {{-- Privacy policy start --}}
-                    <li class="nav-item {{(request()->routeIs(['privacy.section1','privacy.section2'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['privacy.section1','privacy.section2','privacy.banner'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -1682,6 +1682,12 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('privacy.banner') }}" class="nav-link {{(request()->routeIs('privacy.banner')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Banner</p>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="{{ route('privacy.section1') }}" class="nav-link {{(request()->routeIs('privacy.section1')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
@@ -1699,7 +1705,7 @@
                     {{-- Privacy policy end --}}
 
                     {{-- terms and use start --}}
-                    <li class="nav-item {{(request()->routeIs(['term.section1','term.section2'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['term.section1','term.section2','term.banner'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -1708,6 +1714,12 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('term.banner') }}" class="nav-link {{(request()->routeIs('term.banner')) ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Banner</p>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="{{ route('term.section1') }}" class="nav-link {{(request()->routeIs('term.section1')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
