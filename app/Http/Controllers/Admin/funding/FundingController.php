@@ -7,11 +7,37 @@ use Illuminate\Http\Request;
 use App\Models\PageBanner;
 use App\Models\FinancialCommonModel1;
 use App\Models\FinancialCommonModel;
+use App\Models\FinancialPayment;
 
 class FundingController extends Controller
 {
     public function banner(){
         $banner = PageBanner::where('type',31)->first();
+        return view('admin.pages.banner',compact('banner'));
+    }
+    public function fees(){
+        $fee = FinancialPayment::first();
+        $sn = "Fees";
+        return view('admin.pages.financial.fees',get_defined_vars());
+    }
+    public function feesUpdate(Request $request){
+
+        $fee = FinancialPayment::first();
+    
+        if($fee){
+            $fee->update([
+                'investment' => $request->INVESTMENT_Fee,
+                'loans' => $request->LOANS_Fee,
+                'grants' => $request->GRANTS_Fee
+            ]);
+    
+            return redirect()->back()->with('success', 'Record updated successfully');
+        } else {
+            return redirect()->back()->with('error', 'No record found');
+        }
+    }
+    public function formBanner(){
+        $banner = PageBanner::where('type',58)->first();
         return view('admin.pages.banner',compact('banner'));
     }
     public function section1(){
