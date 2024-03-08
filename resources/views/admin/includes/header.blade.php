@@ -1834,7 +1834,7 @@
                     {{-- User data section end --}}
                     {{-- Users section start --}}
                     <li class="nav-item {{(request()->routeIs(['members.Info','sponsors.Info'])) ? 'menu-is-opening menu-open' : ''}}">
-                        <a href="{{ route('members.Info') }}" class="nav-link {{(request()->routeIs('members.Info')) ? 'active' : ''}}">
+                        <a href="{{ route('members.Info') }}" class="nav-link {{(request()->routeIs('members.Info','user.detail')) ? 'active' : ''}}">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
                                 USERS
