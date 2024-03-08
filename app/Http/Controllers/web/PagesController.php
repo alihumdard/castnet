@@ -286,19 +286,11 @@ class PagesController extends Controller
     }
 
     public function financial(){
-        if (auth()->check()) {
-            if (auth()->user()->member == 1 || auth()->user()->sponsor == 1) {
-                $banner = PageBanner::where('type', 29)->first();
-                $section1 = FinancialCommonModel1::where(['page'=>'financial','section'=>1])->get();
-                $section2 = FinancialCommonModel::where(['page'=>'financial','section'=>2])->first();
-                $section3 = FinancialCommonModel1::where(['page'=>'financial','section'=>3])->get();
-                return view('web.pages.financial',get_defined_vars());
-            } else {
-                return redirect()->back()->with('error', 'Access to this page is restricted to members and sponsors only.');
-            }
-        } else {
-            return redirect()->back()->with('error', 'Access to this page is restricted to members and sponsors only.');
-        }
+        $banner = PageBanner::where('type', 29)->first();
+        $section1 = FinancialCommonModel1::where(['page'=>'financial','section'=>1])->get();
+        $section2 = FinancialCommonModel::where(['page'=>'financial','section'=>2])->first();
+        $section3 = FinancialCommonModel1::where(['page'=>'financial','section'=>3])->get();
+        return view('web.pages.financial',get_defined_vars());  
     }
 
     public function grants(){
@@ -316,8 +308,16 @@ class PagesController extends Controller
     }
 
     public function forms(){
-        $banner = PageBanner::where('type', 58)->first();
-        return view('web.pages.form',get_defined_vars());
+        if (auth()->check()) {
+            if (auth()->user()->member == 1 || auth()->user()->sponsor == 1) {
+                $banner = PageBanner::where('type', 58)->first();
+                return view('web.pages.forms',get_defined_vars());
+            } else {
+                return redirect()->back()->with('error', 'Access to this page is restricted to members and sponsors only.');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Access to this page is restricted to members and sponsors only.');
+        }
     }
 
     public function partners_sponsors(){
