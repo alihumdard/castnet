@@ -9,6 +9,8 @@ use App\Models\EventRequestForm;
 use App\Models\Experience;
 use App\Models\MembersSatisfiedFeedback;
 use App\Models\NewsletterModel;
+use App\Models\PartnerUser;
+use App\Models\SponsorUser;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -30,22 +32,25 @@ class UsersDataController extends Controller
         return view('admin.pages.companyInfoData',compact('data'));
     }
     public function membersData(){
-        // type 3= members and type 2 = sponsors
+        $users= User::all();
+        return view('admin.pages.users.members.index',compact('users'));
+    }
+    public function userDetail($id){
+        $user= $id;
+        $memberRecord = CompanyInformation::where('user_id', $user)->get();
+        $partnerRecord = PartnerUser::where('user_id', $user)->get();
+        $sponsorRecord = SponsorUser::where('user_id', $user)->get();
 
-        $data = CompanyInformation::with('user')->get();
-        $membr = [];
-
-        foreach ($data as $companyInformation) {
-            $companyName = $companyInformation->organization_name;
-        
-            if ($companyInformation->user && $companyInformation->user->member == 1) {
-                $membr[] = $companyInformation;
+            if ($memberRecord->isEmpty()) {
+                $memberRecord = null;
             }
-        }
-        // dd($membr);
-        
-        $members = User::where('type', 3)->get();
-        return view('admin.pages.users.members.index',compact('members','membr'));
+            if ($partnerRecord->isEmpty()) {
+                $partnerRecord = null;
+            }
+            if ($sponsorRecord->isEmpty()) {
+                $sponsorRecord = null;
+            } 
+        return view('admin.pages.users.members.userDetail',compact('memberRecord','partnerRecord','sponsorRecord'));
     }
     public function sponsorsData(){
         // type 3= members and type 2 = sponsors
