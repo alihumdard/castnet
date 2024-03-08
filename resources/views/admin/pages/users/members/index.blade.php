@@ -27,9 +27,9 @@
                             <thead>
                             <tr>
                               <th>#</th>
-                              <th>First Name</th>
-                              <th>Last Name</th>
+                              <th>Name</th>
                               <th>Email</th>
+                              <th>Phone Number</th>
                               <th>Action</th>
                             </tr>
                             </thead>
@@ -38,9 +38,9 @@
                                 @foreach($membr as $member)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td> 
-                                    <td>{{ $member->first_name }}</td> 
-                                    <td>{{ $member->last_name }}</td> 
+                                    <td>{{ $member->first_name . ' ' . $member->last_name }}</td>
                                     <td>{{ $member->email }}</td> 
+                                    <td>{{ $member->primary_phone }}</td> 
                                     <td>
                                         <button class="btn-outline-danger delete_btn" data-url="/admin/members-delete" data-id="{{ $member->id }}" type="submit"><i class="fa fa-trash"></i></button>
                                     </td>
