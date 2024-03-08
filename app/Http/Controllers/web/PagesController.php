@@ -9,6 +9,7 @@ use App\Models\PartnerSponsorPageTitleModel;
 use App\Models\OutreachCommonSectionModel;
 use Illuminate\Support\Facades\Validator;
 use App\Models\RulesOfEngagementModel;
+use App\Models\CompanyInfoFormSetting;
 use App\Models\PartnerCommonSection1;
 use App\Models\PartnerCommonSection2;
 use App\Models\FinancialCommonModel1;
@@ -18,6 +19,7 @@ use App\Models\SectorCommonSection1;
 use App\Models\SectorCommonSection2;
 use App\Models\FinancialCommonModel;
 use App\Models\AdvocacyCommonModel1;
+use Illuminate\Support\Facades\Mail;
 use App\Models\HomeSection9Feature;
 use App\Models\BenefitsDetailModel;
 use App\Models\AdvocacyCommonModel;
@@ -30,6 +32,7 @@ use App\Models\HomeSection4Detail;
 use App\Models\HomeSectionSponser;
 use App\Models\HomeSectionFeature;
 use App\Models\InternationalEvent;
+use App\Models\Event_Request_Type;
 use App\Models\HomeSectionEvent;
 use App\Models\Membership_Level;
 use App\Models\MemberDirectory;
@@ -38,6 +41,8 @@ use App\Models\ProgramSection2;
 use App\Models\ContactUsModel;
 use App\Models\BenefitsModel;
 use App\Models\OurEventModel;
+use App\Models\ProjectsModel;
+use App\Models\LegalDocument;
 use App\Models\PartnersModel;
 use App\Models\CareersModel;
 use App\Models\HomeSection1;
@@ -58,14 +63,9 @@ use App\Models\AboutPage;
 use App\Models\ContactUs;
 use App\Models\OurTeam;
 use App\Models\Banner;
-use App\Models\CompanyInfoFormSetting;
-use App\Models\Event_Request_Type;
-use App\Models\ProjectsModel;
 use App\Models\MyBlog;
 use App\Models\User;
 use App\Models\Job;
-use App\Models\LegalDocument;
-use Illuminate\Support\Facades\Mail;
 
 class PagesController extends Controller
 {
@@ -165,30 +165,35 @@ class PagesController extends Controller
         $section2 = SectorCommonSection2::where('type',3)->first();
         return view('web.pages.supply_chain',get_defined_vars());
     }
+
     public function technology(){
         $banner = PageBanner::where('type', 15)->first();
         $section1 = SectorCommonSection1::where('type',4)->first();
         $section2 = SectorCommonSection2::where('type',4)->first();
         return view('web.pages.technology',get_defined_vars());
     }
+
     public function natural_resources(){
         $banner = PageBanner::where('type', 16)->first();
         $section1 = SectorCommonSection1::where('type',5)->first();
         $section2 = SectorCommonSection2::where('type',5)->first();
         return view('web.pages.natural_resources',get_defined_vars());
     }
+
     public function energy(){
         $banner = PageBanner::where('type', 17)->first();
         $section1 = SectorCommonSection1::where('type',6)->first();
         $section2 = SectorCommonSection2::where('type',6)->first();
         return view('web.pages.energy',get_defined_vars());
     }
+
     public function textiles(){
         $banner = PageBanner::where('type', 18)->first();
         $section1 = SectorCommonSection1::where('type',7)->first();
         $section2 = SectorCommonSection2::where('type',7)->first();
         return view('web.pages.textiles',get_defined_vars());
     }
+
     public function advocacy(){
         $banner = PageBanner::where('type',19)->first();
         $title2 = PartnerSponsorPageTitleModel::where(['page'=>'advocacy','section'=>2])->first();
@@ -198,6 +203,7 @@ class PagesController extends Controller
         $section3 = AdvocacyCommonModel1::where(['page'=>'advocacy','section'=>3])->get();
         return view('web.pages.advocacy',get_defined_vars());
     }
+
     public function small_businesses(){
         $banner = PageBanner::where('type',20)->first();
         $section1 = AdvocacyCommonModel::where(['page'=>'small_business','section'=>1])->first();
@@ -207,6 +213,7 @@ class PagesController extends Controller
         $section5 = AdvocacyCommonModel::where(['page'=>'small_business','section'=>5])->first();
         return view('web.pages.small_businesses',get_defined_vars());
     }
+
     public function women(){
         $banner = PageBanner::where('type',21)->first();
         $section1 = AdvocacyCommonModel::where(['page'=>'women','section'=>1])->first();
@@ -217,6 +224,7 @@ class PagesController extends Controller
         $section6 = AdvocacyCommonModel::where(['page'=>'women','section'=>6])->first();
         return view('web.pages.women',get_defined_vars());
     }
+
     public function veterans(){
         $banner = PageBanner::where('type',22)->first();
         $section1 = AdvocacyCommonModel::where(['page'=>'veterans','section'=>1])->first();
@@ -224,6 +232,7 @@ class PagesController extends Controller
         $section3 = AdvocacyCommonModel::where(['page'=>'veterans','section'=>3])->first();
         return view('web.pages.veterans',get_defined_vars());
     }
+
     public function support_services(){
         $banner = PageBanner::where('type',23)->first();
         $section1 = AdvocacyCommonModel::where(['page'=>'support_services','section'=>1])->first();
@@ -231,12 +240,14 @@ class PagesController extends Controller
         $section3 = AdvocacyCommonModel::where(['page'=>'support_services','section'=>3])->first();
         return view('web.pages.support_services',get_defined_vars());
     }
+
     public function international_events(){
         $banner = PageBanner::where('type', 27)->first();
         $events = InternationalEvent::get();
         $widget = CommonEventSection::first();
         return view('web.pages.international_events',get_defined_vars());
     }
+
     public function contactUsData(Request $request){
         $contactUs = [
             'first_name' => $request->fName,
@@ -253,7 +264,7 @@ class PagesController extends Controller
     
     public function event_request(){
         if (auth()->check()) {
-            if (auth()->user()->member == 1) {
+            if (auth()->user()->member == 1 || auth()->user()->partner == 1 || auth()->user()->sponsor == 1) {
                 $banner = PageBanner::where('type', 26)->first();
                 $title = PartnerSponsorPageTitleModel::where(['page' => 'event_request', 'section' => 1])->first();
                 $eventCategory = CompanyInfoFormSetting::where('type', 'event_category')->get();
@@ -261,10 +272,10 @@ class PagesController extends Controller
                 $secondEventReqType = Event_Request_Type::skip(1)->first();
                 return view('web.pages.event_request', get_defined_vars());
             } else {
-                return redirect()->back()->with('error', 'Access to this page is restricted to members only.');
+                return redirect()->back()->with('error', 'Access to this page is restricted to members, partners, and sponsors only.');
             }
         } else {
-            return redirect()->back()->with('error', 'Access to this page is restricted to members only.');
+            return redirect()->back()->with('error', 'Access to this page is restricted to members, partners, and sponsors only.');
         }
     }
 
@@ -273,29 +284,42 @@ class PagesController extends Controller
         $items = OurEventCalenderModel::get();
         return view('web.pages.event_calendar',get_defined_vars());
     }
+
     public function financial(){
-        $banner = PageBanner::where('type', 29)->first();
-        $section1 = FinancialCommonModel1::where(['page'=>'financial','section'=>1])->get();
-        $section2 = FinancialCommonModel::where(['page'=>'financial','section'=>2])->first();
-        $section3 = FinancialCommonModel1::where(['page'=>'financial','section'=>3])->get();
-        return view('web.pages.financial',get_defined_vars());
+        if (auth()->check()) {
+            if (auth()->user()->member == 1 || auth()->user()->sponsor == 1) {
+                $banner = PageBanner::where('type', 29)->first();
+                $section1 = FinancialCommonModel1::where(['page'=>'financial','section'=>1])->get();
+                $section2 = FinancialCommonModel::where(['page'=>'financial','section'=>2])->first();
+                $section3 = FinancialCommonModel1::where(['page'=>'financial','section'=>3])->get();
+                return view('web.pages.financial',get_defined_vars());
+            } else {
+                return redirect()->back()->with('error', 'Access to this page is restricted to members and sponsors only.');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Access to this page is restricted to members and sponsors only.');
+        }
     }
+
     public function grants(){
         $banner = PageBanner::where('type', 30)->first();
         $section1 = FinancialCommonModel::where(['page'=>'grants','section'=>1])->first();
         $section2 = FinancialCommonModel1::where(['page'=>'grants','section'=>2])->get();
         return view('web.pages.grants',get_defined_vars());
     }
+
     public function funding(){
         $banner = PageBanner::where('type', 31)->first();
         $section1 = FinancialCommonModel::where(['page'=>'funding','section'=>1])->first();
         $section2 = FinancialCommonModel1::where(['page'=>'funding','section'=>2])->get();
         return view('web.pages.funding',get_defined_vars());
     }
+
     public function forms(){
         $banner = PageBanner::where('type', 58)->first();
         return view('web.pages.form',get_defined_vars());
     }
+
     public function partners_sponsors(){
         $banner = PageBanner::where('type', 32)->first();
         $section1 = PartnersModel::where('section',1)->get();
@@ -304,7 +328,13 @@ class PagesController extends Controller
         $title2 = PartnerSponsorPageTitleModel::where(['page'=>'partners_sponsors','section'=>2])->first();
         return view('web.pages.partners_sponsors',get_defined_vars());
     }
+
     public function become_partner(){
+        if(Auth::user()){
+            if(auth()->user()->partner==1){
+                return redirect()->back()->with('error','Oops! You cannot access this page because you are already a partner.');
+            }
+        }
         $banner = PageBanner::where('type', 33)->first();
         $amount = Event_Request_Type::where('id',3)->first('fee');
         $section1 = PartnerCommonSection1::where(['section'=>1,'page'=>'become_partner'])->first();
@@ -315,7 +345,13 @@ class PagesController extends Controller
         $partners = PartnersModel::where('section',1)->get();
         return view('web.pages.become_partner',get_defined_vars());
     }
+
     public function become_sponsor(){
+        if(Auth::user()){
+            if(auth()->user()->sponsor==1){
+                return redirect()->back()->with('error','Oops! You cannot access this page because you are already a sponsor.');
+            }
+        }
         $banner = PageBanner::where('type', 34)->first();
         $amount = Event_Request_Type::where('id',4)->first('fee');
         $section1 = PartnerCommonSection1::where(['section'=>1,'page'=>'become_sponsor'])->first();
@@ -325,6 +361,7 @@ class PagesController extends Controller
         $partners = PartnersModel::where('section',2)->get();
         return view('web.pages.become_sponsor',get_defined_vars());
     }
+
     public function outreach(){
         $banner = PageBanner::where('type', 35)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'outreach','section'=>1])->first();
@@ -332,96 +369,112 @@ class PagesController extends Controller
         $section3 = OutreachCommonSectionModel::where(['page'=>'outreach','section'=>3])->first();
         return view('web.pages.outreach',get_defined_vars());
     }
+
     public function chad(){
         $banner = PageBanner::where('type', 36)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'chad','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'chad','section'=>2])->first();
         return view('web.pages.outreach_pages',get_defined_vars());
     }
+
     public function ghana(){
         $banner = PageBanner::where('type', 37)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'ghana','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'ghana','section'=>2])->first();
         return view('web.pages.outreach_pages',get_defined_vars());
     }
+
     public function south_africa(){
         $banner = PageBanner::where('type', 38)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'southafrica','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'southafrica','section'=>2])->first();
         return view('web.pages.outreach_pages',get_defined_vars());
     }
+
     public function zimbabwe(){
         $banner = PageBanner::where('type', 39)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'zimbabwe','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'zimbabwe','section'=>2])->first();
         return view('web.pages.outreach_pages',get_defined_vars());
     }
+
     public function cameroon(){
         $banner = PageBanner::where('type', 40)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'cameroon','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'cameroon','section'=>2])->first();
         return view('web.pages.outreach_pages',get_defined_vars());
     }
+
     public function drc(){
         $banner = PageBanner::where('type', 41)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'drc','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'drc','section'=>2])->first();
         return view('web.pages.outreach_pages',get_defined_vars());
     }
+
     public function cote_divoire(){
         $banner = PageBanner::where('type', 42)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'cotedivoire','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'cotedivoire','section'=>2])->first();
         return view('web.pages.outreach_pages',get_defined_vars());
     }
+
     public function usa(){
         $banner = PageBanner::where('type', 43)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'usa','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'usa','section'=>2])->first();
         return view('web.pages.outreach_pages',get_defined_vars());
     }
+
     public function india(){
         $banner = PageBanner::where('type', 51)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'india','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'india','section'=>2])->first();
         return view('web.pages.outreach_pages',get_defined_vars());
     }
+
     public function south_america(){
         $banner = PageBanner::where('type', 52)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'south_america','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'south_america','section'=>2])->first();
         return view('web.pages.outreach_pages',get_defined_vars());
     }
+
     public function uganda(){
         $banner = PageBanner::where('type', 53)->first();
         $section1 = OutreachCommonSectionModel::where(['page'=>'uganda','section'=>1])->first();
         $section2 = OutreachCommonSectionModel::where(['page'=>'uganda','section'=>2])->first();
         return view('web.pages.outreach_pages',get_defined_vars());
     }
+
     public function opportunities(){
         $banner = PageBanner::where('type',44)->first();
         $section1 = OpportunitiesModel::where(['section'=>1,'page'=>'oppor'])->first();
         $section2 = OpportunitiesModel::where(['section'=>2,'page'=>'oppor'])->first();
         return view('web.pages.opportunities',get_defined_vars());
     }
+
     public function opportunities_agriculture(){
         $banner = PageBanner::where('type',45)->first();
         $section1 = OpportunitiesModel::where(['section'=>1,'page'=>'agri'])->first();
         $section2 = OpportunitiesModel::where(['section'=>2,'page'=>'agri'])->first();
         return view('web.pages.opportunities_agriculture',get_defined_vars());
     }
+
     public function opportunities_construction(){
         $banner = PageBanner::where('type',46)->first();
         $section1 = OpportunitiesModel::where(['section'=>1,'page'=>'cons'])->first();
         $section2 = OpportunitiesModel::where(['section'=>2,'page'=>'cons'])->first();
         return view('web.pages.opportunities_construction',get_defined_vars());
     }
+
     public function mining(){
         $banner = PageBanner::where('type',47)->first();
         $section1 = OpportunitiesModel::where(['section'=>1,'page'=>'mining'])->first();
         $section2 = OpportunitiesModel::where(['section'=>2,'page'=>'mining'])->first();
         return view('web.pages.mining',get_defined_vars());
     }
+
     public function rfx(){
         $banner = PageBanner::where('type',48)->first();
         $section1 = OpportunitiesModel::where(['section'=>1,'page'=>'rfx'])->first();
@@ -429,12 +482,14 @@ class PagesController extends Controller
         $project = ProjectModel::where('page','rfx')->first();
         return view('web.pages.rfx',get_defined_vars());
     }
+
     public function job_openings(){
         $banner = PageBanner::where('type',50)->first();
         $section1 = CareersModel::where(['page'=>'job','section'=>1])->first();
         $section2 = Job::all();
         return view('web.pages.job_openings',get_defined_vars());
     }
+
     public function job_detail($id){
         $banner = PageBanner::where('type',50)->first();
         $selectedJob = Job::findOrFail($id);
@@ -447,7 +502,13 @@ class PagesController extends Controller
         $section2 = CareersCommonModel1::get();
         return view('web.pages.careers',get_defined_vars());
     }
+
     public function join(){
+        if(Auth::user()){
+            if(auth()->user()->member==1){
+                return redirect()->back()->with('error','Oops! You cannot access this page because you are already a member.');
+            }
+        }
         $banner = PageBanner::where('type',6)->first();
         $joins =  Membership_Level::all();
         $reasonsForJoining = CompanyInfoFormSetting::where('type', 'reason_for_joining')->get();
@@ -456,6 +517,7 @@ class PagesController extends Controller
         $memberLevel = CompanyInfoFormSetting::where('type', 'member_level')->get();
         return view('web.pages.join',get_defined_vars());
     }
+
     public function membership(){
         $banner = PageBanner::where('type',5)->first();
         $section1 = MembershipCommonModel::where(['page'=>'membership','section'=>1])->first();
@@ -463,12 +525,14 @@ class PagesController extends Controller
         $section3 = MembershipCommonModel::where(['page'=>'membership','section'=>3])->first();
         return view('web.pages.membership',get_defined_vars());
     }
+
     public function programs(){
         $banner = PageBanner::where('type',8)->first();
         $section1 = ProgramSection1::first();
         $section2 = ProgramSection2::get();
         return view('web.pages.programs',get_defined_vars());
     }
+
     public function team(){
         $banner = PageBanner::where('type',3)->first();
         $founder = OurTeam::where('type', 1)->get();
@@ -495,12 +559,14 @@ class PagesController extends Controller
         $section2 = LegalDocument::where(['page'=>'privacy policy','section'=>'section2'])->first();
         return view('web.pages.privacypolicy',get_defined_vars());
     }
+
     public function termsuse(){
         $banner = PageBanner::where('type',57)->first();
         $section1 = LegalDocument::where(['page'=>'term of use','section'=>'section1'])->first();
         $section2 = LegalDocument::where(['page'=>'term of use','section'=>'section2'])->first();
         return view('web.pages.termsuse',get_defined_vars());
     }
+
     public function login(){
         return view('web.pages.login');
     }
@@ -510,10 +576,18 @@ class PagesController extends Controller
     }
 
     public function listProject(){
-        $banner = PageBanner::where('type', 54)->first();
-        $section1 = ProjectsModel::where('section',1)->first();
-        $section2 = ProjectsModel::where('section',2)->get();
-        return view('web.pages.list_project',get_defined_vars());
+        if (auth()->check()) {
+            if (auth()->user()->member == 1 || auth()->user()->sponsor == 1) {
+                $banner = PageBanner::where('type', 54)->first();
+                $section1 = ProjectsModel::where('section',1)->first();
+                $section2 = ProjectsModel::where('section',2)->get();
+                return view('web.pages.list_project',get_defined_vars());
+            } else {
+                return redirect()->back()->with('error', 'Access to this page is restricted to members and sponsors only.');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Access to this page is restricted to members and sponsors only.');
+        }
     }
 
     public function member_directory(){
