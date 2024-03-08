@@ -73,7 +73,7 @@ class FinancialPaymentController extends Controller
 
             $file = time().'.'.$request->file->extension();
             $request->file->move(public_path('assets/web/images'), $file);
-                 
+            
             FinancialForm::create([
                 'user_id' => Auth::user()->id,
                 'first_name' => $request->first_name,

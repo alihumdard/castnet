@@ -145,14 +145,22 @@
                                     <input type="text" class="form-control" placeholder="Contact Person's Name" name="contact_person_name" value="{{ session('partnerData.contact_person_name') }}">
 
                                 </div>
-                                <div class="col-12 col-md-6 errorshow">
-                                    <input type="email" class="form-control" id="email_check" placeholder="Email Address" name="email" value="{{ session('partnerData.email') }}">
-                                    <input type="hidden" name="email_valid" id="email_valid">
-                                    <div id="email_message"></div>
-                                </div>
-                                <div class="col-12 col-md-6 errorshow">
-                                    <input type="password" class="form-control" placeholder="Password" name="password">
-                                </div>
+                                @if(isset(auth()->user()->email))
+                                    <div class="col-12 col-md-12">
+                                        <div class="form-group errorshow">
+                                            <input type="email" class="form-control" name="email" value="{{ auth()->user()->email }}" readonly>
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="col-12 col-md-6 errorshow">
+                                        <input type="email" class="form-control" id="email_check" placeholder="Email Address" name="email" value="{{ session('partnerData.email') }}">
+                                        <input type="hidden" name="email_valid" id="email_valid">
+                                        <div id="email_message"></div>
+                                    </div>
+                                    <div class="col-12 col-md-6 errorshow">
+                                        <input type="password" class="form-control" placeholder="Password" name="password">
+                                    </div>
+                                @endif
                                 <div class="col-12 col-md-6 errorshow">
                                     <input type="text" class="form-control" placeholder="Phone Number" name="phone_number" value="{{ session('partnerData.phone_number') }}">
                                 </div>

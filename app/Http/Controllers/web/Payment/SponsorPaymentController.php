@@ -68,15 +68,25 @@ class SponsorPaymentController extends Controller
             return redirect()->back()->with('error', 'Payment failed.');
         }
         $amount = Event_Request_Type::where('id',4)->first('fee');
+        if($amount->fee<0.50){
+            return redirect()->back()->with('error','Stripe requires a minimum transaction amount of $0.50.');
+        }
         $charge = $this->createCharge($token['id'], $amount->fee*100);
-        if (!empty($charge) && $charge['status'] == 'succeeded') {      
-            $user = User::create([
-                'first_name'=>$request->contact_person_name,
-                'email'=>$request->email,
-                'password'=>bcrypt($request->password),
-                'type'=>1,
-                'sponsor'=>1,
-            ]);
+        if (!empty($charge) && $charge['status'] == 'succeeded') { 
+            if(isset(Auth::user()->id)){
+                $user = Auth::user();
+                User::where('id',$user->id)->update([
+                    'sponsor'=>1,
+                ]);
+            }else{
+                $user = User::create([
+                    'first_name'=>$request->contact_person_name,
+                    'email'=>$request->email,
+                    'password'=>bcrypt($request->password),
+                    'type'=>1,
+                    'sponsor'=>1,
+                ]);
+            }
             SponsorUser::create([
                 'user_id' => $user->id,
                 'sponsor_name' => $request->sponsor_name,
