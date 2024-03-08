@@ -129,7 +129,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="section_title">Partnership Form</h2>
-                    <form action="{{ route('charge.partner') }}" id="partner_form" method="POST">
+                    <form action="{{ route('charge.partner') }}" id="partner_form" method="POST"
+                    role="form" 
+                    class="require-validation"
+                    data-cc-on-file="false"
+                    data-stripe-publishable-key="{{ env('STRIPE_PUBLISH_KEY') }}">
                         @csrf
                         <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
                             <div class="row mb-4">
@@ -412,34 +416,39 @@
                                     </div>
                                     <div class="col-12 col-md-4">
                                         <div class="form-group errorshow">
-                                        <input type="number" class="form-control" min="1" placeholder="Card Number" name="card_number">
+                                        <input type="number" class="form-control card-number" min="1" placeholder="Card Number" name="card_number">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row gy-4">
                                     <div class="col-12 col-md-4">
                                         <div class="form-group errorshow">
-                                        <input type="number" class="form-control" placeholder="CVC" name="cvv">
+                                        <input type="number" class="form-control card-cvc" size='4' placeholder="CVC" name="cvv">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-4">
                                         <div class="form-group errorshow">
-                                            <select class="form-control" name="expiry_month">
+                                            <select class="form-control card-expiry-month" name="expiry_month">
                                                 <option disabled selected>MM</option>
                                                 @foreach(range(1, 12) as $month)
-                                                    <option value="{{$month}}" {{ session('userMemberData.expiry_month') == $month ? 'selected' : '' }}>{{$month}}</option>
+                                                    <option value="{{$month}}">{{$month}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-4">
                                         <div class="form-group errorshow">
-                                            <select class="form-control" name="expiry_year">
+                                            <select class="form-control card-expiry-year" name="expiry_year">
                                                 <option disabled selected>YYYY</option>
                                                 @foreach(range(date('Y'), date('Y') + 10) as $year)
-                                                    <option value="{{$year}}" {{ session('userMemberData.expiry_year') == $year ? 'selected' : '' }}>{{$year}}</option>
+                                                    <option value="{{$year}}">{{$year}}</option>
                                                 @endforeach
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class='form-row row mt-2'>
+                                        <div class='col-md-12 error form-group hide'>
+                                            <div class='alert-danger alert'>Please correct the errors and try again.</div>
                                         </div>
                                     </div>
                                 </div>
@@ -478,8 +487,10 @@
     @stop
     @push('scripts')
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script>
-    $('#partner_form').validate({
+    $(function() {
+        $('#partner_form').validate({
         rules: {
             organization_name: {
                 required: true,
@@ -587,5 +598,50 @@
             e.preventDefault();
         }
    });
+
+    $("body").on("submit", "#partner_form", function (e) {
+        var $form = $(this);
+        var $inputs = $form.find('.required');
+        var $errorMessage = $form.find('div.error');
+        $errorMessage.addClass('hide');
+
+        $('.has-error').removeClass('has-error');
+
+        $inputs.each(function(i, el) {
+            var $input = $(el);
+            if ($input.val() === '') {
+                $input.parent().addClass('has-error');
+                $errorMessage.removeClass('hide');
+                e.preventDefault();
+            }
+        });
+
+        if (!$form.data('cc-on-file')) {
+            e.preventDefault();
+            Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+            Stripe.createToken({
+                number: $('.card-number').val(),
+                cvc: $('.card-cvc').val(),
+                exp_month: $('.card-expiry-month').val(),
+                exp_year: $('.card-expiry-year').val()
+            }, stripeResponseHandler);
+        }
+    });
+
+    function stripeResponseHandler(status, response) {
+        var $form = $('.require-validation');
+        if (response.error) {
+            $('.error')
+                .removeClass('hide')
+                .find('.alert')
+                .text(response.error.message);
+        } else {
+            var token = response['id'];
+            $form.find('input[type=text]').empty();
+            $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+            $form.get(0).submit();
+        }
+    }
+});
 </script>
 @endpush

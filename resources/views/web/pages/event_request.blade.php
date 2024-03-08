@@ -38,7 +38,11 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <form action="{{ route('charge.event') }}" id="event_request" data-aos="zoom-in" method="post" data-aos-duration="1000">
+                    <form action="{{ route('charge.event') }}" id="event_request" data-aos="zoom-in" method="post" data-aos-duration="1000"
+                    role="form" 
+                    class="require-validation"
+                    data-cc-on-file="false"
+                    data-stripe-publishable-key="{{ env('STRIPE_PUBLISH_KEY') }}">
                         @csrf
                         <div class="row gy-4">
                             <div class="col-md-6">
@@ -176,39 +180,44 @@
                                 <div class="row gy-4" style="margin-bottom: 15px">
                                     <div class="col-12 col-md-6">
                                         <div class="form-group errorshow">
-                                            <input type="text" class="form-control" placeholder="Name on Card" name="full_name" value="{{ session('eventRequestData.full_name') }}">
+                                        <input type="text" class="form-control" placeholder="Name on Card" name="full_name">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group errorshow">
-                                            <input type="number" class="form-control" min="1" placeholder="Card Number" name="card_number" value="{{ session('eventRequestData.card_number') }}">
+                                        <input type="number" class="form-control card-number" min="1" placeholder="Card Number" name="card_number">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row gy-4">
                                     <div class="col-12 col-md-4">
                                         <div class="form-group errorshow">
-                                            <input type="number" class="form-control" placeholder="CVC" name="cvv" value="{{ session('eventRequestData.cvv') }}">
+                                        <input type="number" class="form-control card-cvc" size='4' placeholder="CVC" name="cvv">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-4">
                                         <div class="form-group errorshow">
-                                            <select class="form-control" name="expiry_month">
+                                            <select class="form-control card-expiry-month" name="expiry_month">
                                                 <option disabled selected>MM</option>
                                                 @foreach(range(1, 12) as $month)
-                                                    <option value="{{$month}}" {{ session('eventRequestData.expiry_month') == $month ? 'selected' : '' }}>{{$month}}</option>
+                                                    <option value="{{$month}}">{{$month}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-4">
                                         <div class="form-group errorshow">
-                                            <select class="form-control" name="expiry_year">
+                                            <select class="form-control card-expiry-year" name="expiry_year">
                                                 <option disabled selected>YYYY</option>
                                                 @foreach(range(date('Y'), date('Y') + 10) as $year)
-                                                    <option value="{{$year}}" {{ session('eventRequestData.expiry_year') == $year ? 'selected' : '' }}>{{$year}}</option>
+                                                    <option value="{{$year}}">{{$year}}</option>
                                                 @endforeach
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class='form-row row mt-2'>
+                                        <div class='col-md-12 error form-group hide'>
+                                            <div class='alert-danger alert'>Please correct the errors and try again.</div>
                                         </div>
                                     </div>
                                 </div>
@@ -226,7 +235,43 @@
 @stop
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script>
+function setFree1(){
+    var feeInput = document.querySelector('input[name="event_fee"]');
+    feeInput.value = '{{$secondEventReqType->fee}}';
+}
+
+function setFree(){
+    var feeInput = document.querySelector('input[name="event_fee"]');
+    feeInput.value = '{{$eventReqType->fee}}';
+}
+
+function selectfee(){
+    var checkedDataIdValue = getCheckedDataId();
+    var feeInput = document.querySelector('input[name="event_fee"]');
+    feeInput.value = checkedDataIdValue;
+    $('.radioinline').hide();
+    $('.fee').show();
+    $('.radiofull').show();
+}
+
+function selectfree(){
+    $('.radioinline').show();
+    $('.fee').hide();
+    $('.radiofull').hide();
+}
+
+function getCheckedDataId() {
+    var radioButtons = document.getElementsByName('event_req_type');
+    for (var i = 0; i < radioButtons.length; i++) {
+        if (radioButtons[i].checked) {
+            var dataIdValue = radioButtons[i].getAttribute('data-id');
+            return dataIdValue;
+        }
+    }
+}
+$(function() {
     $('#event_request').validate({
         rules: {
             title: {
@@ -313,38 +358,50 @@
             $(element).removeClass('is-invalid');
         }
     });
-    function setFree1(){
-        var feeInput = document.querySelector('input[name="event_fee"]');
-        feeInput.value = '{{$secondEventReqType->fee}}';
-    }
-    function setFree(){
-        var feeInput = document.querySelector('input[name="event_fee"]');
-        feeInput.value = '{{$eventReqType->fee}}';
-    }
-    function selectfee(){
-        var checkedDataIdValue = getCheckedDataId();
-        var feeInput = document.querySelector('input[name="event_fee"]');
-        feeInput.value = checkedDataIdValue;
-        $('.radioinline').hide();
-        $('.fee').show();
-        $('.radiofull').show();
-    }
 
-    function selectfree(){
-        $('.radioinline').show();
-        $('.fee').hide();
-        $('.radiofull').hide();
-    }
+   $("body").on("submit", "#event_request", function (e) {
+        var $form = $(this);
+        var $inputs = $form.find('.required');
+        var $errorMessage = $form.find('div.error');
+        $errorMessage.addClass('hide');
 
-    function getCheckedDataId() {
-        var radioButtons = document.getElementsByName('event_req_type');
-        for (var i = 0; i < radioButtons.length; i++) {
-            if (radioButtons[i].checked) {
-                var dataIdValue = radioButtons[i].getAttribute('data-id');
-                return dataIdValue;
+        $('.has-error').removeClass('has-error');
+
+        $inputs.each(function(i, el) {
+            var $input = $(el);
+            if ($input.val() === '') {
+                $input.parent().addClass('has-error');
+                $errorMessage.removeClass('hide');
+                e.preventDefault();
             }
+        });
+
+        if (!$form.data('cc-on-file')) {
+            e.preventDefault();
+            Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+            Stripe.createToken({
+                number: $('.card-number').val(),
+                cvc: $('.card-cvc').val(),
+                exp_month: $('.card-expiry-month').val(),
+                exp_year: $('.card-expiry-year').val()
+            }, stripeResponseHandler);
+        }
+    });
+
+    function stripeResponseHandler(status, response) {
+        var $form = $('.require-validation');
+        if (response.error) {
+            $('.error')
+                .removeClass('hide')
+                .find('.alert')
+                .text(response.error.message);
+        } else {
+            var token = response['id'];
+            $form.find('input[type=text]').empty();
+            $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+            $form.get(0).submit();
         }
     }
-
+});
 </script>
 @endpush
