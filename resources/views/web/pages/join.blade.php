@@ -144,18 +144,26 @@ background-size: cover;">
                                     <input type="text" class="form-control" placeholder="Phone" name="primary_phone" value="{{ session('userMemberData.primary_phone') }}">
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6">
-                                <div class="form-group errorshow">
-                                    <input type="email" class="form-control" placeholder="Email" name="email" id="email_check" value="{{ session('userMemberData.email') }}">
-                                    <input type="hidden" name="email_valid" id="email_valid">
+                            @if(isset(auth()->user()->email))
+                                <div class="col-12 col-md-12">
+                                    <div class="form-group errorshow">
+                                        <input type="email" class="form-control" name="email" value="{{ auth()->user()->email }}" readonly>
+                                    </div>
                                 </div>
-                                <div id="email_message"></div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <div class="form-group errorshow">
-                                    <input type="password" class="form-control" placeholder="Password" name="password">
+                            @else
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group errorshow">
+                                        <input type="email" class="form-control" placeholder="Email" name="email" id="email_check" value="{{ session('userMemberData.email') }}">
+                                        <input type="hidden" name="email_valid" id="email_valid">
+                                    </div>
+                                    <div id="email_message"></div>
                                 </div>
-                            </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group errorshow">
+                                        <input type="password" class="form-control" placeholder="Password" name="password">
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">

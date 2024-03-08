@@ -71,16 +71,26 @@ class MemberPaymentController extends Controller
             return redirect()->back()->with('error', 'Payment failed.');
         }
         $amount = intval(preg_replace('/[^0-9]+/', '', $request->membership_level));
+        if($amount<0.50){
+            return redirect()->back()->with('error','Stripe requires a minimum transaction amount of $0.50.');
+        }
         $charge = $this->createCharge($token['id'], $amount*100);
-        if (!empty($charge) && $charge['status'] == 'succeeded') {      
-            $user = User::create([
-                'first_name'=>$request->first_name,
-                'last_name'=>$request->last_name,
-                'email'=>$request->email,
-                'password'=>bcrypt($request->password),
-                'type'=>1,
-                'member'=>1,
-            ]);
+        if (!empty($charge) && $charge['status'] == 'succeeded') {  
+            if(isset(Auth::user()->id)){
+                $user = Auth::user();
+                User::where('id',$user->id)->update([
+                    'member'=>1,
+                ]);
+            }else{
+                $user = User::create([
+                    'first_name'=>$request->first_name,
+                    'last_name'=>$request->last_name,
+                    'email'=>$request->email,
+                    'password'=>bcrypt($request->password),
+                    'type'=>1,
+                    'member'=>1,
+                ]);
+            }
             CompanyInformation::create([
                 'user_id' => $user->id,
                 'organization_name' => $request->organization_name,

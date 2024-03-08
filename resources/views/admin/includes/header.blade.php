@@ -1015,7 +1015,7 @@
                             </li>
                             <li class="nav-item {{ (request()->routeIs('forms*')) ? 'menu-is-opening menu-open' : '' }}">
                                 <a href="#" class="nav-link"> <i class="far fas fa-book nav-icon"></i>
-                                    <p> FORM <i class="fas fa-angle-left right"></i> </p>
+                                    <p> FORMS <i class="fas fa-angle-left right"></i> </p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
