@@ -71,16 +71,26 @@ class PartnerPaymentController extends Controller
         if (empty($token['id'])) {
             return redirect()->back()->with('error', 'Payment failed.');
         }
-        $amount = Event_Request_Type::where('id',3)->first('fee');;
+        $amount = Event_Request_Type::where('id',3)->first('fee');
+        if($amount->fee<0.50){
+            return redirect()->back()->with('error','Stripe requires a minimum transaction amount of $0.50.');
+        }
         $charge = $this->createCharge($token['id'], $amount->fee*100);
-        if (!empty($charge) && $charge['status'] == 'succeeded') {      
-            $user = User::create([
-                'first_name'=>$request->contact_person_name,
-                'email'=>$request->email,
-                'password'=>bcrypt($request->password),
-                'type'=>1,
-                'partner'=>1,
-            ]);
+        if (!empty($charge) && $charge['status'] == 'succeeded') {  
+            if(isset(Auth::user()->id)){
+                $user = Auth::user();
+                User::where('id',$user->id)->update([
+                    'partner'=>1,
+                ]);
+            }else{
+                $user = User::create([
+                    'first_name'=>$request->first_name,
+                    'email'=>$request->email,
+                    'password'=>bcrypt($request->password),
+                    'type'=>1,
+                    'partner'=>1,
+                ]);
+            }
             PartnerUser::create([
                 'user_id' => $user->id,
                 'organization_name' => $request->organization_name,
