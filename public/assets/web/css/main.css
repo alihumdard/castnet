@@ -5711,4 +5711,7 @@ section.section_block .sec-dir-card .sec-dir-card-med-icon a.media-icon-bg i {
 
 }
 
+.hide{
+    display: none;
+}
 /* Member Directory End*/
