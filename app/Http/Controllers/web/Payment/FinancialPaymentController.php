@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Stripe\Exception\CardException;
 use App\Models\FinancialForm;
+use App\Models\FinancialPayment;
 use App\Models\PaymentModel;
 use Illuminate\Http\Request;
 use Stripe\StripeClient;
@@ -48,7 +49,7 @@ class FinancialPaymentController extends Controller
             'expiry_year' => 'required',
             'cvv' => 'required',
         ]);
-
+ 
         if ($validator->fails()) {
             return redirect()->back()->with('error', $validator->errors()->first());
         }
@@ -73,7 +74,7 @@ class FinancialPaymentController extends Controller
 
             $file = time().'.'.$request->file->extension();
             $request->file->move(public_path('assets/web/images'), $file);
-            
+ 
             FinancialForm::create([
                 'user_id' => Auth::user()->id,
                 'first_name' => $request->first_name,
