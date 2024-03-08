@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Stripe\Exception\ApiErrorException;
 use Illuminate\Support\Facades\Auth;
 use Stripe\Exception\CardException;
+use App\Models\FinancialPayment;
 use App\Models\FinancialForm;
 use App\Models\PaymentModel;
 use Illuminate\Http\Request;
@@ -64,9 +65,9 @@ class FinancialPaymentController extends Controller
             return redirect()->back()->with('error', 'Payment failed.');
         }
         $financial = FinancialPayment::first();
-        if($request->fundfund_purpose=="Investments"){
+        if($request->fund_purpose=="Investments"){
             $amount = intval(preg_replace('/[^0-9]+/', '', $financial->investment));
-        }elseif($request->fundfund_purpose=="Loans"){
+        }elseif($request->fund_purpose=="Loans"){
             $amount = intval(preg_replace('/[^0-9]+/', '',$financial->loans));
         }else{
             $amount = intval(preg_replace('/[^0-9]+/', '', $financial->grants));
