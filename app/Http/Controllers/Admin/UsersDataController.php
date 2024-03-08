@@ -31,7 +31,7 @@ class UsersDataController extends Controller
     }
     public function membersData(){
         // type 3= members and type 2 = sponsors
-        
+
         $data = CompanyInformation::with('user')->get();
         $membr = [];
 
@@ -42,7 +42,7 @@ class UsersDataController extends Controller
                 $membr[] = $companyInformation;
             }
         }
-        
+        // dd($membr);
         
         $members = User::where('type', 3)->get();
         return view('admin.pages.users.members.index',compact('members','membr'));
