@@ -1834,14 +1834,14 @@
                     {{-- User data section end --}}
                     {{-- Users section start --}}
                     <li class="nav-item {{(request()->routeIs(['members.Info','sponsors.Info'])) ? 'menu-is-opening menu-open' : ''}}">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('members.Info') }}" class="nav-link {{(request()->routeIs('members.Info','user.detail')) ? 'active' : ''}}">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
                                 USERS
-                                <i class="right fas fa-angle-left"></i>
+                                {{-- <i class="right fas fa-angle-left"></i> --}}
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
+                        {{-- <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="{{ route('members.Info') }}" class="nav-link {{(request()->routeIs('members.Info')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
@@ -1854,7 +1854,7 @@
                                     <p>SPONSORS</p>
                                 </a>
                             </li>
-                        </ul>
+                        </ul> --}}
                     </li>
                     {{-- Users section end --}}
 

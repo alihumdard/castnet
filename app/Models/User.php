@@ -14,6 +14,14 @@ class User extends Authenticatable
     {
         return $this->hasOne(CompanyInformation::class, 'user_id');
     }
+    public function partnerUser()
+    {
+        return $this->hasOne(PartnerUser::class, 'user_id');
+    }
+    public function sponsorUser()
+    {
+        return $this->hasOne(SponsorUser::class, 'user_id');
+    }
     use HasApiTokens, HasFactory, Notifiable;
 
     /**

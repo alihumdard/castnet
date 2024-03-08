@@ -529,7 +529,8 @@ Route::middleware('auth')->group(function() {
             
             
             // -------------------------------------------Users route start------------------------------------------------------
-            Route::get('/members-info', [UsersDataController::class, 'membersData'])->name('members.Info');
+            Route::get('/users-info', [UsersDataController::class, 'membersData'])->name('members.Info');
+            Route::get('/user-detail/{id}', [UsersDataController::class, 'userDetail'])->name('user.detail');
             Route::delete('/members-delete/{id}', [UsersDataController::class, 'deleteMember'])->name('members.delete');
             Route::get('/sponsors-info', [UsersDataController::class, 'sponsorsData'])->name('sponsors.Info');
             Route::get('/member-feedback', [UsersDataController::class, 'satisfiedFeedback'])->name('member.feedback');

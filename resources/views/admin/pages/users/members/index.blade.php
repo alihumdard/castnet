@@ -27,25 +27,42 @@
                             <thead>
                             <tr>
                               <th>#</th>
-                              <th>First Name</th>
-                              <th>Last Name</th>
+                              <th>Name</th>
                               <th>Email</th>
+                              <th>Type</th>
                               <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
                                 
-                                @foreach($membr as $member)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td> 
-                                    <td>{{ $member->first_name }}</td> 
-                                    <td>{{ $member->last_name }}</td> 
-                                    <td>{{ $member->email }}</td> 
-                                    <td>
-                                        <button class="btn-outline-danger delete_btn" data-url="/admin/members-delete" data-id="{{ $member->id }}" type="submit"><i class="fa fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                            @endforeach
+                               @foreach($users as $user)
+                               @if($user->type != 0)
+                               <tr>
+                                   <td>{{ $loop->iteration-1 }}</td> 
+                                   <td>{{ $user->first_name . ' ' . $user->last_name }}</td>
+                                   <td>{{ $user->email }}</td> 
+                                   <td>
+                                        @if($user->type == 1)
+                                            @if($user->member == 1)
+                                                <small class="badge badge-primary">Member</small>
+                                            @endif
+                                    
+                                            @if($user->partner == 1)
+                                                <small class="badge badge-success">Partner</small>
+                                            @endif
+                                    
+                                            @if($user->sponsor == 1)
+                                                <small class="badge badge-warning">Sponsor</small>
+                                            @endif
+                                        @endif
+                                </td> 
+                                   <td>
+                                    <a class="btn btn-sm btn-outline-info" href="{{ route('user.detail',$user->id) }}"><i class="fa fa-eye"></i></a>
+                                       <button class="btn-outline-danger delete_btn" data-url="/admin/members-delete" data-id="{{ $user->id }}" type="submit"><i class="fa fa-trash"></i></button>
+                                   </td>
+                               </tr>
+                               @endif
+                           @endforeach
                                                             </tbody>
                           </table>
                         </div>
