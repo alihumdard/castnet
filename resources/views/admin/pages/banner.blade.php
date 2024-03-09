@@ -40,7 +40,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
-                                        <img src="{{ asset('assets/web/images/'.$banner->image) }}" width="50" height="50">
+                                        <img src="{{ asset('assets/web/images/'.$banner->image) }}" width="80" height="50">
                                     </div>
                                 </div>
                                 <div class="card-footer" style="background:none;">

@@ -73,7 +73,7 @@ use App\Http\Controllers\Admin\AdvocacyCSection;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\Privacy\PrivacyController;
-use App\Http\Controllers\Admin\termOfUse\TermOfUseController;
+use App\Http\Controllers\Admin\Term_of_use\TermOfUseController;
 
 Route::get('/administrator', [PagesController::class, 'login'])->name('admin.login');
 Route::middleware('auth')->group(function() {
@@ -529,14 +529,12 @@ Route::middleware('auth')->group(function() {
             
             
             // -------------------------------------------Users route start------------------------------------------------------
-            Route::get('/users-info', [UsersDataController::class, 'membersData'])->name('members.Info');
-            Route::get('/user-detail/{id}', [UsersDataController::class, 'userDetail'])->name('user.detail');
-            Route::delete('/members-delete/{id}', [UsersDataController::class, 'deleteMember'])->name('members.delete');
-            Route::get('/sponsors-info', [UsersDataController::class, 'sponsorsData'])->name('sponsors.Info');
+            Route::get('/user-index', [UsersDataController::class, 'userData'])->name('registerusers.index');
+            Route::get('/user-detail/{id}', [UsersDataController::class, 'userDetail'])->name('registerusers.detail');
+
             Route::get('/member-feedback', [UsersDataController::class, 'satisfiedFeedback'])->name('member.feedback');
             Route::get('/memberFeedback/{id}', [UsersDataController::class, 'memberFeedbackDetail'])->name('memberFeedback.detail');
             Route::delete('/member-feedback/{id}', [UsersDataController::class, 'destroyeFeedback'])->name('memberFeedback.delete');
-            Route::delete('/sponsors-delete/{id}', [UsersDataController::class, 'deleteSponsor'])->name('sponsors.delete');
             // -------------------------------------------Users route end--------------------------------------------------------
         });
     });

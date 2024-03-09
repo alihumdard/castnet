@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\termOfUse;
+namespace App\Http\Controllers\Admin\Term_of_use;
 
 use App\Http\Controllers\Controller;
 use App\Models\LegalDocument;

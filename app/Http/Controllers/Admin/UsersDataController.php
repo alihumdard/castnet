@@ -31,10 +31,12 @@ class UsersDataController extends Controller
         
         return view('admin.pages.companyInfoData',compact('data'));
     }
-    public function membersData(){
+
+    public function userData(){
         $users= User::all();
-        return view('admin.pages.users.members.index',compact('users'));
+        return view('admin.pages.users.index',compact('users'));
     }
+
     public function userDetail($id){
         $user= $id;
         $memberRecord = CompanyInformation::where('user_id', $user)->get();
@@ -50,39 +52,38 @@ class UsersDataController extends Controller
             if ($sponsorRecord->isEmpty()) {
                 $sponsorRecord = null;
             } 
-        return view('admin.pages.users.members.userDetail',compact('memberRecord','partnerRecord','sponsorRecord'));
+        return view('admin.pages.users.user_detail',compact('memberRecord','partnerRecord','sponsorRecord'));
     }
-    public function sponsorsData(){
-        // type 3= members and type 2 = sponsors
-        $sponsors = User::where('type', 2)->get();
-        return view('admin.pages.users.sponsors.index',compact('sponsors'));
-    }
+
     public function subscribers(){
-
         $data= NewsletterModel::all();
-
         return view('admin.pages.subscribers',compact('data'));
     }
+
     public function experience(){
 
         $data= Experience::all();
 
         return view('admin.pages.experiences',compact('data'));
     }
+
     public function companyInfoDetail($id){
 
         $companyInfo = CompanyInformation::findOrFail($id);
 
         return view('admin.pages.companyInfoDetail', compact('companyInfo'));
     }
+
     public function eventData(){
         $data= EventRequestForm::all();
         return view('admin.pages.eventData', compact('data'));
     }
+
     public function eventDetail($id){
         $eventInfo = EventRequestForm::findOrFail($id);
         return view('admin.pages.eventDetail', compact('eventInfo'));
     }
+
     public function experienceDetail($id){
         $eventInfo = Experience::findOrFail($id);
 
@@ -122,35 +123,6 @@ class UsersDataController extends Controller
     {
         MembersSatisfiedFeedback::destroy($id);
 
-        return response()->json(array(
-            'data' => true,
-            'message' => 'Team member deleted successfully.',
-            'status' => 'success',
-        ));
-    }
-    public function deleteMember($id)
-    {
-        User::destroy($id);
-
-        return response()->json(array(
-            'data' => true,
-            'message' => 'Team member deleted successfully.',
-            'status' => 'success',
-        ));
-    }
-    public function deleteSponsor($id)
-    {
-        User::destroy($id);
-
-        return response()->json(array(
-            'data' => true,
-            'message' => 'Team member deleted successfully.',
-            'status' => 'success',
-        ));
-    }
-    public function destroyInfo($id)
-    {
-        CompanyInformation::destroy($id);
         return response()->json(array(
             'data' => true,
             'message' => 'Team member deleted successfully.',
