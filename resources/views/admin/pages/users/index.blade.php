@@ -1,17 +1,17 @@
 @extends('admin.layouts.default')
-@section('title','Members')
+@section('title','Registered Users')
 @section('content')
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Users</h1>
+                        <h1 class="m-0">Registered Users</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Users</a></li>
-                            <li class="breadcrumb-item active">Members</li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
+                            <li class="breadcrumb-item active">Registered Users</li>
                         </ol>
                     </div>
                 </div>
@@ -34,8 +34,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                                
-                               @foreach($users as $user)
+                            @foreach($users as $user)
                                @if($user->type != 0)
                                <tr>
                                    <td>{{ $loop->iteration-1 }}</td> 
@@ -55,15 +54,14 @@
                                                 <small class="badge badge-warning">Sponsor</small>
                                             @endif
                                         @endif
-                                </td> 
+                                    </td> 
                                    <td>
-                                    <a class="btn btn-sm btn-outline-info" href="{{ route('user.detail',$user->id) }}"><i class="fa fa-eye"></i></a>
-                                       <button class="btn-outline-danger delete_btn" data-url="/admin/members-delete" data-id="{{ $user->id }}" type="submit"><i class="fa fa-trash"></i></button>
+                                        <a class="btn btn-sm btn-outline-info" href="{{ route('registerusers.detail',$user->id) }}"><i class="fa fa-eye"></i></a>
                                    </td>
                                </tr>
                                @endif
-                           @endforeach
-                                                            </tbody>
+                            @endforeach
+                            </tbody>
                           </table>
                         </div>
                         <!-- /.card-body -->
