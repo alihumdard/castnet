@@ -59,6 +59,9 @@
                                     <th>#</th>
                                     <th>Title</th>
                                     <th>Image</th>
+                                    <th>Button Text</th>
+                                    <th>Button Link</th>
+                                    <th>Image</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -68,7 +71,8 @@
                                     <td>{{ $key+1 }}</td>
                                     <td>{{ $item->title }}</td>
                                     <td><img src="{{asset('assets/web/images/'.$item->image)}}" height="70" width="60"></td>
-                                    <td>
+                                    <td>{{ $item->btn_text }}</td>
+                                    <td>{{ $item->btn_link }}</td><td>
                                         <a class="btn btn-sm btn-outline-success" href="{{ route('listofpro.edit',$item->id)}}"><i class="fa fa-edit"></i></a>
                                         <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/listofpro"
                                             data-id="{{ $item->id }}" type="submit"><i class="fa fa-trash"></i></button>

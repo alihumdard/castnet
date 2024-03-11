@@ -49,6 +49,18 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
+                                            <label for="prin_title">Button Text</label>
+                                            <input type="text" name="btn_text" class="form-control" value="{{$section->btn_text}}" placeholder="Enter Button Text...">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">Button Link</label>
+                                            <input type="text" name="btn_link" class="form-control" value="{{$section->btn_link}}" placeholder="Enter Button Link...">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group errorshow">
                                             <label for="prin_title">Project Industry Sector</label>
                                             <select name="pro_industry_sector" class="form-control">
                                                 <option value="Technology" @if($section->pro_detail->pro_industry_sector=="Technology") selected @endif>Technology</option>
@@ -106,6 +118,12 @@
                 required: true,
             },
             description: {
+                required: true,
+            },
+            btn_text: {
+                required: true,
+            },
+            btn_link: {
                 required: true,
             },
             pro_industry_sector: {

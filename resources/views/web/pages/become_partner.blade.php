@@ -129,11 +129,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="section_title">Partnership Form</h2>
-                    <form action="{{ route('charge.partner') }}" id="partner_form" method="POST"
-                    role="form" 
-                    class="require-validation"
-                    data-cc-on-file="false"
-                    data-stripe-publishable-key="{{ env('STRIPE_PUBLISH_KEY') }}">
+                    <form action="{{ route('store.partneruser') }}" id="partner_form" method="POST">
                         @csrf
                         <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
                             <div class="row mb-4">
@@ -400,62 +396,8 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- payment detail start --}}
-                            <div class="form_box" data-aos="zoom-in" data-aos-duration="1000" style="padding: 40px 50px 0 50px">
-                                <h2 class="section_title">Payment Details</h2>
-                                <div class="row gy-4" style="margin-bottom: 15px">
-                                    <div class="col-12 col-md-4">
-                                        <div class="form-group errorshow">
-                                            <input type="text" value="${{$amount->fee}}" class="form-control" disabled>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="form-group errorshow">
-                                        <input type="text" class="form-control" placeholder="Name on Card" name="full_name">
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="form-group errorshow">
-                                        <input type="number" class="form-control card-number" min="1" placeholder="Card Number" name="card_number">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row gy-4">
-                                    <div class="col-12 col-md-4">
-                                        <div class="form-group errorshow">
-                                        <input type="number" class="form-control card-cvc" size='4' placeholder="CVC" name="cvv">
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="form-group errorshow">
-                                            <select class="form-control card-expiry-month" name="expiry_month">
-                                                <option disabled selected>MM</option>
-                                                @foreach(range(1, 12) as $month)
-                                                    <option value="{{$month}}">{{$month}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="form-group errorshow">
-                                            <select class="form-control card-expiry-year" name="expiry_year">
-                                                <option disabled selected>YYYY</option>
-                                                @foreach(range(date('Y'), date('Y') + 10) as $year)
-                                                    <option value="{{$year}}">{{$year}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class='form-row row mt-2'>
-                                        <div class='col-md-12 error form-group hide'>
-                                            <div class='alert-danger alert'>Please correct the errors and try again.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        {{-- payment deatil end --}}
                         <div class="text-center mt-5" data-aos="fade-right" data-aos-duration="1000">
-                            <button type="submit" class="btn btn-submit">Submit Partnership Inquiry</button>
+                            <button type="submit" class="btn btn-submit">Submit Partnership Form</button>
                         </div>
                     </form>
                 </div>
@@ -484,13 +426,10 @@
     </section>
     <!-- Ready to Join end -->
 
-    @stop
-    @push('scripts')
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+@stop
+@push('scripts')
 <script>
-    $(function() {
-        $('#partner_form').validate({
+    $('#partner_form').validate({
         rules: {
             organization_name: {
                 required: true,
@@ -556,23 +495,6 @@
             data_protection_consent: {
                 required: true,
             },
-            full_name: {
-                required: true,
-            },
-            card_number: {
-                required: true,
-                number: true,
-                creditcard: true,
-            },
-            cvv: {
-                required: true,
-            },
-            expiry_month: {
-                required: true,
-            },
-            expiry_year: {
-                required: true,
-            },
         },
         messages: {
             email: {
@@ -592,56 +514,12 @@
             $(element).removeClass('is-invalid');
         }
     });
+
     $("body").on("submit", "#partner_form", function (e) {
         var data = $('#email_valid').val();
         if(data=='not valid'){
             e.preventDefault();
         }
    });
-
-    $("body").on("submit", "#partner_form", function (e) {
-        var $form = $(this);
-        var $inputs = $form.find('.required');
-        var $errorMessage = $form.find('div.error');
-        $errorMessage.addClass('hide');
-
-        $('.has-error').removeClass('has-error');
-
-        $inputs.each(function(i, el) {
-            var $input = $(el);
-            if ($input.val() === '') {
-                $input.parent().addClass('has-error');
-                $errorMessage.removeClass('hide');
-                e.preventDefault();
-            }
-        });
-
-        if (!$form.data('cc-on-file')) {
-            e.preventDefault();
-            Stripe.setPublishableKey($form.data('stripe-publishable-key'));
-            Stripe.createToken({
-                number: $('.card-number').val(),
-                cvc: $('.card-cvc').val(),
-                exp_month: $('.card-expiry-month').val(),
-                exp_year: $('.card-expiry-year').val()
-            }, stripeResponseHandler);
-        }
-    });
-
-    function stripeResponseHandler(status, response) {
-        var $form = $('.require-validation');
-        if (response.error) {
-            $('.error')
-                .removeClass('hide')
-                .find('.alert')
-                .text(response.error.message);
-        } else {
-            var token = response['id'];
-            $form.find('input[type=text]').empty();
-            $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
-            $form.get(0).submit();
-        }
-    }
-});
 </script>
 @endpush

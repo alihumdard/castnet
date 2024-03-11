@@ -25,13 +25,7 @@
                             <form action="{{ route('partnersponsor.feeUpdate') }}" id="eventRequest" method="post">
                               @csrf
                                 <div class="row mb-2">
-                                    <div class="col-sm-6">
-                                        <div class="form-group errorshow">
-                                            <label for="prin_title">PARTNER FEE</label>
-                                            <input type="text" name="Partner Fee" class="form-control" placeholder="Partner Fee" value="{{ $partnerFee->fee }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <div class="form-group errorshow">
                                             <label for="prin_title">SPONSOR FEE</label>
                                             <input type="text" name="Sponsor Fee" class="form-control" placeholder="Sponsor Fee" value="{{ $sponsorFee->fee }}">

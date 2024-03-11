@@ -484,8 +484,6 @@ Route::middleware('auth')->group(function() {
 
             // -------------------------- form routes start -------------------------------
             Route::get('/forms-banner', [FundingController::class, 'formBanner'])->name('forms.banner');
-            Route::get('/forms-index', [FundingController::class, 'forms'])->name('forms.index');
-            Route::post('/forms-update', [FundingController::class, 'financialPayment'])->name('forms.update');
             // -------------------------- form routes end -------------------------------
 
             // ------------------------ careers page route start ---------------------------

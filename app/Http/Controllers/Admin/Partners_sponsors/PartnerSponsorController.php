@@ -25,19 +25,12 @@ class PartnerSponsorController extends Controller
         return view('admin.pages.partners_sponsors.index',get_defined_vars());
     }
     public function fees(){
-        $partnerFee = Event_Request_Type::where('event_req_type', 'PARTNER FEE')->first();
         $sponsorFee = Event_Request_Type::where('event_req_type', 'SPONSOR FEE')->first();
-
         $sn = "Fees";
         return view('admin.pages.partners_sponsors.fees',get_defined_vars());
     }
     public function feesUpdate(Request $request){
-
-        $partnerFee = Event_Request_Type::where('event_req_type', 'PARTNER FEE')->first();
         $sponsorFee = Event_Request_Type::where('event_req_type', 'SPONSOR FEE')->first();
-        $partnerFee->update([
-            'fee' => $request->Partner_Fee,
-        ]);
         $sponsorFee->update([
             'fee' => $request->Sponsor_Fee,
         ]);

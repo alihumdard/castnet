@@ -45,6 +45,18 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group errorshow">
+                                            <label for="prin_title">Button Text</label>
+                                            <input type="text" name="btn_text" class="form-control" placeholder="Enter Button Text...">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">Button Link</label>
+                                            <input type="text" name="btn_link" class="form-control" placeholder="Enter Button Link...">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group errorshow">
                                             <label for="prin_title">Project Industry Sector</label>
                                             <select name="pro_industry_sector" class="form-control">
                                                 <option selected value="">Select Value</option>
@@ -108,6 +120,12 @@
                 required: true,
             },
             description: {
+                required: true,
+            },
+            btn_text: {
+                required: true,
+            },
+            btn_link: {
                 required: true,
             },
             pro_industry_sector: {
