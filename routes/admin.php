@@ -527,9 +527,9 @@ Route::middleware('auth')->group(function() {
             
             
             // Financial_forms_request routes start
-            Route::get('/financial', [UsersDataController::class, 'financialData'])->name('financial_data');
-            Route::get('/financialDetail/{id}', [UsersDataController::class, 'financialDetail'])->name('financial.detail');
-            Route::delete('/financialInfo-delete/{id}', [UsersDataController::class, 'destroyfinancial'])->name('financialInfo-delete');
+            Route::get('/userfinancialforms', [UsersDataController::class, 'financialData'])->name('userfinancialforms.index');
+            Route::get('/userfinancialforms-detail/{id}', [UsersDataController::class, 'financialDetail'])->name('userfinancialforms.detail');
+            Route::delete('/userfinancialforms-delete/{id}', [UsersDataController::class, 'destroyfinancial'])->name('userfinancialforms.delete');
             // Financial_forms_request routes end
 
             // ---------------------Users Data route end-----------------------------
@@ -542,6 +542,14 @@ Route::middleware('auth')->group(function() {
             Route::get('/member-feedback', [UsersDataController::class, 'satisfiedFeedback'])->name('member.feedback');
             Route::get('/memberFeedback/{id}', [UsersDataController::class, 'memberFeedbackDetail'])->name('memberFeedback.detail');
             Route::delete('/member-feedback/{id}', [UsersDataController::class, 'destroyeFeedback'])->name('memberFeedback.delete');
+            
+            Route::delete('/delete-membership/{id}', [UsersDataController::class, 'destroyMembership'])->name('delete.membership');
+            Route::delete('/delete-partnership/{id}', [UsersDataController::class, 'destroyPartnership'])->name('delete.partnership');
+            Route::delete('/delete-sponsorship/{id}', [UsersDataController::class, 'destroySponsorship'])->name('delete.sponsorship');
+            
+            Route::post('/sponsorship-status', [UsersDataController::class, 'sponsorshipStatus'])->name('sponsorship.status');
+            Route::post('/partnership-status', [UsersDataController::class, 'partnershipStatus'])->name('partnership.status');
+            Route::post('/membership-status', [UsersDataController::class, 'membershipStatus'])->name('membership.status');
             // -------------------------------------------Users route end--------------------------------------------------------
         });
     });

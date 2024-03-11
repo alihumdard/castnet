@@ -1778,7 +1778,7 @@
                     {{-- widgets section end  --}}
 
                     {{-- User data section start --}}
-                    <li class="nav-item {{(request()->routeIs(['contactus.data','contactus.detail','company.Info','companyInfo.detail','experience.detail','event.request','eventRequest.detail','subscribers','experience','member.feedback','memberFeedback.detail','financial_data','financial.detail'])) ? 'menu-is-opening menu-open' : ''}}">
+                    <li class="nav-item {{(request()->routeIs(['contactus.data','contactus.detail','company.Info','companyInfo.detail','experience.detail','event.request','eventRequest.detail','subscribers','experience','member.feedback','memberFeedback.detail','userfinancialforms*'])) ? 'menu-is-opening menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
@@ -1824,7 +1824,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('financial_data') }}" class="nav-link {{(request()->routeIs('financial_data','financial.detail')) ? 'active' : ''}}">
+                                <a href="{{ route('userfinancialforms.index') }}" class="nav-link {{(request()->routeIs('userfinancialforms.index','userfinancialforms.detail')) ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>FINANCIAL_FORMS_REQ...</p>
                                 </a>

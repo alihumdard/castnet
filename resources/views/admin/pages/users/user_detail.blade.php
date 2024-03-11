@@ -155,9 +155,24 @@
                                                         <div class="col-sm-2"><h6>Reason To Join:</h6></div>
                                                         <div class="col-sm-10"><p>{{ $memberRecord->reason_joining }}</p></div>
                                                       </div>
+                                                      <div class="row">
+                                                        <div class="col-sm-2"><h6>Account Status:</h6></div>
+                                                        @if($memberRecord->status==0)
+                                                          <h5><span class="badge badge-success">Active</span></h5>
+                                                        @else
+                                                          <h5><span class="badge badge-danger">Inactive</span></h5>
+                                                        @endif
+                                                      </div>
                                                     </div>
                                                     <!-- /.card-body -->
                                                 </div>
+                                                <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/delete-membership"
+                                                      data-id="{{ $memberRecord->id }}" type="submit">Click To Delete Membership</button>
+                                                @if($memberRecord->status==0)
+                                                  <button class="btn btn-sm btn-outline-danger" onclick="changeStatus({{ $memberRecord->id }},1,'/admin/membership-status')" type="submit">Click To Inactivate Status</button>
+                                                @else
+                                                  <button class="btn btn-sm btn-outline-success activeStatus" onclick="changeStatus({{ $memberRecord->id }},0,'/admin/membership-status')" type="submit">Click To Activate Status</button>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -233,7 +248,7 @@
                                                     <hr>
                                                       <div class="row">
                                                         <div class="col-sm-2"><h6>Legal Compliance And Agreements:</h6></div>
-                                                        <div class="col-sm-10"><p>{{ $partnerRecord->legal_compliance_agree }}</p>><p>{{ $partnerRecord->legal_compliance_understanding }}</p></div>
+                                                        <div class="col-sm-10"><p>{{ $partnerRecord->legal_compliance_agree }}</p><p>{{ $partnerRecord->legal_compliance_understanding }}</p></div>
                                                       </div>
                                                     <hr>
                                                       <div class="row">
@@ -250,9 +265,24 @@
                                                         <div class="col-sm-2"><h6>Data Protection Consent:</h6></div>
                                                         <div class="col-sm-10"><p>{{ $partnerRecord->data_protection_consent }}</p></div>
                                                       </div>
+                                                      <div class="row">
+                                                        <div class="col-sm-2"><h6>Account Status:</h6></div>
+                                                        @if($partnerRecord->status==0)
+                                                        <h5><span class="badge badge-success">Active</span></h5>
+                                                        @else
+                                                        <h5><span class="badge badge-danger">Inactive</span></h5>
+                                                        @endif
+                                                      </div>
                                                     </div>
                                                     <!-- /.card-body -->
                                                 </div>
+                                                <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/delete-partnership"
+                                                      data-id="{{ $partnerRecord->id }}" type="submit">Click To Delete Partnership</button>
+                                                @if($partnerRecord->status==0)
+                                                  <button class="btn btn-sm btn-outline-danger" onclick="changeStatus({{ $partnerRecord->id }},1,'/admin/partnership-status')" type="submit">Click To Inactivate Status</button>
+                                                @else
+                                                  <button class="btn btn-sm btn-outline-success activeStatus" onclick="changeStatus({{ $partnerRecord->id }},0,'/admin/partnership-status')" type="submit">Click To Activate Status</button>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -350,10 +380,26 @@
                                                         <div class="col-sm-2"><h6>DATA PROTECTION CONSENT:</h6></div>
                                                         <div class="col-sm-10"><p>{{ $sponsorRecord->data_protection_consent }}</p></div>
                                                       </div>
+                                                    <hr>
+                                                      <div class="row">
+                                                        <div class="col-sm-2"><h6>Account Status:</h6></div>
+                                                        @if($sponsorRecord->status==0)
+                                                        <h5><span class="badge badge-success">Active</span></h5>
+                                                        @else
+                                                        <h5><span class="badge badge-danger">Inactive</span></h5>
+                                                        @endif
+                                                      </div>
                                                       
                                                     </div>
                                                     <!-- /.card-body -->
                                                 </div>
+                                                <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/delete-sponsorship"
+                                                      data-id="{{ $sponsorRecord->id }}" type="submit">Click To Delete Sponsorship</button>
+                                                @if($sponsorRecord->status==0)
+                                                  <button class="btn btn-sm btn-outline-danger" onclick="changeStatus({{ $sponsorRecord->id }},1,'/admin/sponsorship-status')" type="submit">Click To Inactivate Status</button>
+                                                @else
+                                                  <button class="btn btn-sm btn-outline-success activeStatus" onclick="changeStatus({{ $sponsorRecord->id }},0,'/admin/sponsorship-status')" type="submit">Click To Activate Status</button>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
