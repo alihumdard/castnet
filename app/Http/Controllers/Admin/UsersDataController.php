@@ -7,6 +7,7 @@ use App\Models\CompanyInfoFormSetting;
 use App\Models\CompanyInformation;
 use App\Models\EventRequestForm;
 use App\Models\Experience;
+use App\Models\FinancialForm;
 use App\Models\MembersSatisfiedFeedback;
 use App\Models\NewsletterModel;
 use App\Models\PartnerUser;
@@ -21,14 +22,24 @@ class UsersDataController extends Controller
 
         return view('admin.pages.memberFeedback',compact('data'));
     }
+    
+    public function financialData(){
+        $data= FinancialForm::all();
+        return view('admin.pages.financialFormReq',compact('data'));
+    }
+
+    public function financialDetail($id){
+        $financialData = FinancialForm::findOrFail($id);
+        return view('admin.pages.financialDetail', compact('financialData'));
+    }
+
     public function memberFeedbackDetail($id){
         $data = MembersSatisfiedFeedback::findOrFail($id);
- 
         return view('admin.pages.memberFeedbackDetail', compact('data'));
     }
+
     public function companyInfoData(){
         $data= CompanyInformation::all();
-        
         return view('admin.pages.companyInfoData',compact('data'));
     }
 
@@ -41,9 +52,7 @@ class UsersDataController extends Controller
         $user= $id;
         $memberRecord = CompanyInformation::where('user_id', $user)->first();
         $partnerRecord = PartnerUser::where('user_id', $user)->first();
-        $sponsorRecord = SponsorUser::where('user_id', $user)->first();
-
-           
+        $sponsorRecord = SponsorUser::where('user_id', $user)->first();           
         return view('admin.pages.users.user_detail',compact('memberRecord','partnerRecord','sponsorRecord'));
     }
 
@@ -108,7 +117,17 @@ class UsersDataController extends Controller
         ));
     }
 
-    public function destroyeFeedback($id){
+    public function destroyfinancial($id){
+        FinancialForm::destroy($id);
+        return response()->json(array(
+            'data' => true,
+            'message' => 'Team member deleted successfully.',
+            'status' => 'success',
+        ));
+    }
+
+    public function destroyeFeedback($id)
+    {
         MembersSatisfiedFeedback::destroy($id);
 
         return response()->json(array(
