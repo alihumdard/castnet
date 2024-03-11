@@ -32,33 +32,29 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <form action="{{route('charge.financial')}}" method="POST" enctype="multipart/form-data" id="financial_form" data-aos="zoom-in" data-aos-duration="1000"
-                    role="form" 
-                    class="require-validation"
-                    data-cc-on-file="false"
-                    data-stripe-publishable-key="{{ env('STRIPE_PUBLISH_KEY') }}">
+                    <form action="{{route('store.financial')}}" method="POST" enctype="multipart/form-data" id="financial_form" data-aos="zoom-in" data-aos-duration="1000">
                         @csrf
                         <div class="row gy-4">
                             <div class="col-md-6 errorshow">
-                                <input type="text" class="form-control" name="first_name" value="{{ session('formData.first_name') }}" placeholder="First Name">
+                                <input type="text" class="form-control" name="first_name" placeholder="First Name">
                             </div>
                             <div class="col-md-6 errorshow">
-                                <input type="text" class="form-control" placeholder="Last Name" name="last_name" value="{{ session('formData.last_name') }}">
+                                <input type="text" class="form-control" placeholder="Last Name" name="last_name">
                             </div>
                             <div class="col-md-6 errorshow">
-                                <input type="email" class="form-control" placeholder="Email" name="email" value="{{ session('formData.email') }}">
+                                <input type="email" class="form-control" placeholder="Email" name="email">
                             </div>
                             <div class="col-md-6 errorshow">
-                                <input type="number" class="form-control" placeholder="Phone" name="phone" value="{{ session('formData.phone') }}">
+                                <input type="number" class="form-control" placeholder="Phone" name="phone">
                             </div>
                             <div class="col-md-12 errorshow">
-                                <input type="text" class="form-control" placeholder="Business Name" name="business_name" value="{{ session('formData.business_name') }}">
+                                <input type="text" class="form-control" placeholder="Business Name" name="business_name">
                             </div>
                             <div class="col-md-12 errorshow">
-                                <input type="text" class="form-control" placeholder="Business Address" name="business_address" value="{{ session('formData.business_address') }}">
+                                <input type="text" class="form-control" placeholder="Business Address" name="business_address">
                             </div>
                             <div class="col-md-4 errorshow">
-                                <select class="form-select" id="getAmount" name="fund_purpose">
+                                <select class="form-select" name="fund_purpose">
                                     <option selected disabled>Purpose of Funding</option>
                                     <option value="Investments">Investments</option>
                                     <option value="Loans">Loans</option>
@@ -67,11 +63,11 @@
                             </div>
                             <div class="col-12 col-md-4">
                                 <div class="form-group errorshow">
-                                    <input type="text" class="form-control" value="Payment $0" id="displayamount" readonly>
+                                    <input type="number" class="form-control" name="fund_amount" placeholder="Enter Fund">
                                 </div>
                             </div>
                             <div class="col-md-4 errorshow">
-                                <input type="text" class="form-control" placeholder="Country" name="country" value="{{ session('formData.country') }}">
+                                <input type="text" class="form-control" placeholder="Country" name="country">
                             </div>
                             <div class="col-md-12">
                                 <div class="errorshow">
@@ -80,27 +76,27 @@
                                     <div class="form-check py-5">
                                         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                                             <div class="col">
-                                                <input type="radio" class="form-check-input" id="btype1" name="business_type" value="Private Limited Company" {{ session('formData.business_type') == 'Private Limited Company' ? 'checked' : '' }}>
+                                                <input type="radio" class="form-check-input" id="btype1" name="business_type" value="Private Limited Company">
                                                 <label class="form-check-label" for="btype1">Private Limited Company</label>
                                             </div>
                                             <div class="col">
-                                                <input type="radio" class="form-check-input" id="btype2" name="business_type" value="Public Listed Company" {{ session('formData.business_type') == 'Public Listed Company' ? 'checked' : '' }}>
+                                                <input type="radio" class="form-check-input" id="btype2" name="business_type" value="Public Listed Company">
                                                 <label class="form-check-label" for="btype2">Public Listed Company</label>
                                             </div>
                                             <div class="col">
-                                                <input type="radio" class="form-check-input" id="btype3" name="business_type" value="Cooperative" {{ session('formData.business_type') == 'Cooperative' ? 'checked' : '' }}>
+                                                <input type="radio" class="form-check-input" id="btype3" name="business_type" value="Cooperative">
                                                 <label class="form-check-label" for="btype3">Cooperative</label>
                                             </div>
                                             <div class="col">
-                                                <input type="radio" class="form-check-input" id="btype4" name="business_type" value="Sole Proprietorship" {{ session('formData.business_type') == 'Sole Proprietorship' ? 'checked' : '' }}>
+                                                <input type="radio" class="form-check-input" id="btype4" name="business_type" value="Sole Proprietorship">
                                                 <label class="form-check-label" for="btype4">Sole Proprietorship</label>
                                             </div>
                                             <div class="col">
-                                                <input type="radio" class="form-check-input" id="btype5" name="business_type" value="Partnership" {{ session('formData.business_type') == 'Partnership' ? 'checked' : '' }}>
+                                                <input type="radio" class="form-check-input" id="btype5" name="business_type" value="Partnership">
                                                 <label class="form-check-label" for="btype5">Partnership</label>
                                             </div>
                                             <div class="col">
-                                                <input type="radio" class="form-check-input" id="btype6" name="business_type" value="Other" {{ session('formData.business_type') == 'Other' ? 'checked' : '' }}>
+                                                <input type="radio" class="form-check-input" id="btype6" name="business_type" value="Other">
                                                 <label class="form-check-label" for="btype6">Other</label>
                                             </div>
                                         </div>
@@ -113,19 +109,19 @@
                                         <div class="form-check py-5">
                                             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
                                                 <div class="col">
-                                                    <input type="radio" id="newtop1" class="form-check-input" name="net_worth" value="More than $320k" {{ session('formData.net_worth') == 'More than $320k' ? 'checked' : '' }}>
+                                                    <input type="radio" id="newtop1" class="form-check-input" name="net_worth" value="More than $320k">
                                                     <label class="form-check-label" for="newtop1">More than $320k</label>
                                                 </div>
                                                 <div class="col">
-                                                    <input type="radio" id="newtop2" class="form-check-input" name="net_worth" value="Less than $320k" {{ session('formData.net_worth') == 'Less than $320k' ? 'checked' : '' }}>
+                                                    <input type="radio" id="newtop2" class="form-check-input" name="net_worth" value="Less than $320k">
                                                     <label class="form-check-label" for="newtop2">Less than $320k</label>
                                                 </div>
                                                 <div class="col">
-                                                    <input type="radio" id="newtop3" class="form-check-input" name="net_worth" value="I am not sure" {{ session('formData.net_worth') == 'I am not sure' ? 'checked' : '' }}>
+                                                    <input type="radio" id="newtop3" class="form-check-input" name="net_worth" value="I am not sure">
                                                     <label class="form-check-label" for="newtop3">I am not sure</label>
                                                 </div>
                                                 <div class="col">
-                                                    <input type="radio" id="newtop4" class="form-check-input" name="net_worth" value="Other" {{ session('formData.net_worth') == 'Other' ? 'checked' : '' }}>
+                                                    <input type="radio" id="newtop4" class="form-check-input" name="net_worth" value="Other">
                                                     <label class="form-check-label" for="newtop4">Other</label>
                                                 </div>
                                             </div>
@@ -137,77 +133,29 @@
                                 <div class="form-group errorshow">
                                 <select class="form-select" name="program">
                                     <option selected disabled>Select Program</option>
-                                    <option value="Advocacy Program" {{ session('formData.program') == 'Advocacy Program' ? 'selected' : '' }}>Advocacy Program</option>
-                                    <option value="Active Project" {{ session('formData.program') == 'Active Project' ? 'selected' : '' }}>Active Project</option>
-                                    <option value="Planned Project" {{ session('formData.program') == 'Planned Project' ? 'selected' : '' }}>Planned Project</option>
-                                    <option value="Development / Prototype" {{ session('formData.program') == 'Development / Prototype' ? 'selected' : '' }}>Development / Prototype</option>
-                                    <option value="Research / Feacibility Reports" {{ session('formData.program') == 'Research / Feacibility Reports' ? 'selected' : '' }}>Research / Feacibility Reports</option>
-                                    <option value="Event / Workshop" {{ session('formData.program') == 'Event / Workshop' ? 'selected' : '' }}>Event / Workshop</option>
-                                    <option value="Education / Training" {{ session('formData.program') == 'Education / Training' ? 'selected' : '' }}>Education / Training</option>
+                                    <option value="Advocacy Program">Advocacy Program</option>
+                                    <option value="Active Project">Active Project</option>
+                                    <option value="Planned Project">Planned Project</option>
+                                    <option value="Development / Prototype">Development / Prototype</option>
+                                    <option value="Research / Feacibility Reports">Research / Feacibility Reports</option>
+                                    <option value="Event / Workshop">Event / Workshop</option>
+                                    <option value="Education / Training">Education / Training</option>
                                 </select>
                             </div>
                             </div>
                             <div class="col-md-6 errorshow">
                                 <input type="text" class="form-control" name="recent_year_income"
-                                    placeholder="Declared Personal Income for Recent Year" value="{{ session('formData.recent_year_income') }}">
+                                    placeholder="Declared Personal Income for Recent Year">
                             </div>
                             <div class="upl-head">
-                                <h2 class="form-heading-upl">Please upload related documents about partnerships, shareholder's fund, key management.</h2>
+                                <h2 class="form-heading-upl">Please upload all documents in support of the associated financial request</h2>
                             </div>
                             <div class="col-md-4 mx-auto errorshow">
                                 <input type="file" name="file" class="form-control" id="">
                             </div>
-                            <div class="form_box" data-aos="zoom-in" data-aos-duration="1000">
-                                <h2 class="section_title" style="margin-bottom: 25px;">Payment Details</h2>
-                                <div class="row gy-4" style="margin-bottom: 15px">
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-group errorshow">
-                                        <input type="text" class="form-control" placeholder="Name on Card" name="full_name">
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-group errorshow">
-                                        <input type="number" class="form-control card-number" min="1" placeholder="Card Number" name="card_number">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row gy-4">
-                                    <div class="col-12 col-md-4">
-                                        <div class="form-group errorshow">
-                                        <input type="number" class="form-control card-cvc" size='4' placeholder="CVC" name="cvv">
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="form-group errorshow">
-                                            <select class="form-control card-expiry-month" name="expiry_month">
-                                                <option disabled selected>MM</option>
-                                                @foreach(range(1, 12) as $month)
-                                                    <option value="{{$month}}">{{$month}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="form-group errorshow">
-                                            <select class="form-control card-expiry-year" name="expiry_year">
-                                                <option disabled selected>YYYY</option>
-                                                @foreach(range(date('Y'), date('Y') + 10) as $year)
-                                                    <option value="{{$year}}">{{$year}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class='form-row row mt-2'>
-                                        <div class='col-md-12 error form-group hide'>
-                                            <div class='alert-danger alert'>Please correct the errors and try again.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-center mt-4" data-aos="fade-right" data-aos-duration="1000">
-                                    <button type="submit" class="btn btn-submit1">submit</button>
-                                </div>
-                            </div>
-        
+                            <div class="text-center mt-4" data-aos="fade-right" data-aos-duration="1000">
+                                <button type="submit" class="btn btn-submit1">submit</button>
+                            </div>      
                         </div>
                     </form>
                 </div>
@@ -215,144 +163,75 @@
         </div>
     </section>
     <!-- Event Request Form End -->
-
-    @stop
-    @push('scripts')
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+@stop
+@push('scripts')
 <script>
-$(function() {
-    $('#financial_form').validate({
-        ignore: ":hidden:not(.required-for-payment)",
-        rules: {
-            first_name: {
-                required: true,
-            },
-            last_name: {
-                required: true,
-            },
-            email: {
-                required: true,
-                email: true,
-            },
-            phone: {
-                required: true,
-            },
-            business_name: {
-                required: true,
-            },
-            business_address: {
-                required: true,
-            },
-            fund_purpose: {
-                required: true,
-            },
-            country: {
-                required: true,
-            },
-            business_type: {
-                required: true,
-            },
-            net_worth: {
-                required: true,
-            },
-            program: {
-                required: true,
-            },
-            recent_year_income: {
-                required: true,
-            },
-            file: {
-                required: true,
-            }, 
-            full_name: {
-                required: true,
-            },
-            card_number: {
-                required: true,
-                number: true,
-                creditcard: true,
-            },
-            expiry_month: {
-                required: true,
-            },
-            expiry_year: {
-                required: true,
-            },
-            cvv: {
-                required: true,
-                number: true,
-                maxlength: 4,
-            },
+$('#financial_form').validate({
+    rules: {
+        first_name: {
+            required: true,
         },
-        messages: {
-            email: {
-                required: "Please enter your email address.",
-                email: "Please enter a valid email address."
-            },
+        last_name: {
+            required: true,
         },
-        errorElement: 'span',
-        errorPlacement: function (error, element) {
-            error.addClass('invalid-feedback');
-            element.closest('.errorshow').append(error);
+        email: {
+            required: true,
+            email: true,
         },
-        highlight: function (element, errorClass, validClass) {
-            $(element).addClass('is-invalid');
+        phone: {
+            required: true,
         },
-        unhighlight: function (element, errorClass, validClass) {
-            $(element).removeClass('is-invalid');
-        }
-    });
+        business_name: {
+            required: true,
+        },
+        business_address: {
+            required: true,
+        },
+        fund_purpose: {
+            required: true,
+        },
+        country: {
+            required: true,
+        },
+        business_type: {
+            required: true,
+        },
+        net_worth: {
+            required: true,
+        },
+        program: {
+            required: true,
+        },
+        recent_year_income: {
+            required: true,
+        },
+        file: {
+            required: true,
+        }, 
+    },
+    messages: {
+        email: {
+            required: "Please enter your email address.",
+            email: "Please enter a valid email address."
+        },
+    },
+    errorElement: 'span',
+    errorPlacement: function (error, element) {
+        error.addClass('invalid-feedback');
+        element.closest('.errorshow').append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+        $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+        $(element).removeClass('is-invalid');
+    }
+});
 
-    $("body").on("submit", "#join_form", function (e) {
-        var data = $('#email_valid').val();
-        if(data=='not valid'){
-            e.preventDefault();
-        }
-   });
-
-   $("body").on("submit", "#financial_form", function (e) {
-        var $form = $(this);
-        var $inputs = $form.find('.required');
-        var $errorMessage = $form.find('div.error');
-        $errorMessage.addClass('hide');
-
-        $('.has-error').removeClass('has-error');
-
-        $inputs.each(function(i, el) {
-            var $input = $(el);
-            if ($input.val() === '') {
-                $input.parent().addClass('has-error');
-                $errorMessage.removeClass('hide');
-                e.preventDefault();
-            }
-        });
-
-        if (!$form.data('cc-on-file')) {
-            e.preventDefault();
-            Stripe.setPublishableKey($form.data('stripe-publishable-key'));
-            Stripe.createToken({
-                number: $('.card-number').val(),
-                cvc: $('.card-cvc').val(),
-                exp_month: $('.card-expiry-month').val(),
-                exp_year: $('.card-expiry-year').val()
-            }, stripeResponseHandler);
-        }
-    });
-
-    function stripeResponseHandler(status, response) {
-        var $form = $('.require-validation');
-        if (response.error) {
-            $('.error')
-                .removeClass('hide')
-                .find('.alert')
-                .text(response.error.message);
-        } else {
-            var token = response['id'];
-            $form.find('input[type=text]').empty();
-            $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
-            $form.get(0).submit();
-        }
+$("body").on("submit", "#join_form", function (e) {
+    var data = $('#email_valid').val();
+    if(data=='not valid'){
+        e.preventDefault();
     }
 });
 </script>

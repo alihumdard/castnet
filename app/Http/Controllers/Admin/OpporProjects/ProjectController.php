@@ -53,6 +53,8 @@ class ProjectController extends Controller
             'title' => $request->title,
             'image' => $file,
             'description' => $request->description,
+            'btn_text' => $request->btn_text,
+            'btn_link' => $request->btn_link,
             'section' => 2,
         ]);
         ProjectDetail::create([
@@ -115,6 +117,8 @@ class ProjectController extends Controller
             'title' => $request->title,
             'image' => $file,
             'description' => $request->description,
+            'btn_text' => $request->btn_text,
+            'btn_link' => $request->btn_link,
         ];
         $item->update($data);
         ProjectDetail::where(['project_id'=>$id])->update([

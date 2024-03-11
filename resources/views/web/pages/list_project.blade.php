@@ -55,7 +55,7 @@
                         <div class="col-12 col-md-6 mb-2"><span class="fw-bold">Region / Country (</span>{{$item->pro_detail->region_country}}<span class="fw-bold">)</span></div>
                         <div class="col-12 col-md-6"><span class="fw-bold">Funded (</span>{{$item->pro_detail->funded}}<span class="fw-bold">)</span></div>
                     </div>
-                    <a href="https://bidlock.com/login" class="btn btn-project">View Project <img
+                    <a href="{{$item->btn_link}}" class="btn btn-project">{{$item->btn_text}} <img
                         src="{{ asset('assets/web/images/pro-arrow.png') }}" alt="icon login" class="icon-login"></a>
                 </div>
                 <div class="col-lg-6 order-2 order-lg-2" data-aos="fade-right" data-aos-duration="1000">
@@ -90,8 +90,8 @@
                         <div class="col-12 col-md-6 mb-2"><span class="fw-bold">Region / Country (</span>{{$item->pro_detail->region_country}}<span class="fw-bold">)</span></div>
                         <div class="col-12 col-md-6"><span class="fw-bold">Funded (</span>{{$item->pro_detail->funded}}<span class="fw-bold">)</span></div>
                     </div>
-                    <a href="https://bidlock.com/login" class="btn btn-project">View Project <img
-                            src="{{ asset('assets/web/images/pro-arrow.png') }}" alt="icon login" class="icon-login"></a>
+                    <a href="{{$item->btn_link}}" class="btn btn-project">{{$item->btn_text}} <img
+                        src="{{ asset('assets/web/images/pro-arrow.png') }}" alt="icon login" class="icon-login"></a>
                 </div>
             </div>
         </div>

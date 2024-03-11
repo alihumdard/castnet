@@ -200,20 +200,6 @@ class FinancialController extends Controller
      */
 
 
-    //  if($request->page=='financial' && $request->section==1){
-    //     $route = "financial.section1";
-    // }
-    // if($request->page=='financial' && $request->section==3){
-    //     $route = "financial.section3";
-    // }
-    // elseif($request->page=='grants' && $request->section==2){
-    //     $route = "grants.section2";
-    // }
-    // elseif($request->page=='funding' && $request->section==2){
-    //     $route = "funding.section2";
-    // }
-
-
     public function update(Request $request,$id){
         // dd($id);
         $financial = FinancialCommonModel1::findOrFail($id);

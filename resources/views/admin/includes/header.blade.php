@@ -1024,12 +1024,6 @@
                                             <p>Banner</p>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="{{ route('forms.index') }}" class="nav-link {{(request()->routeIs('forms.index')) ? 'active' : ''}}">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Fund Types Amount</p>
-                                        </a>
-                                    </li>
                                 </ul>
                             </li>
 

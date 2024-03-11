@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\Web\Payment\FinancialPaymentController;
 use App\Http\Controllers\Web\Payment\SponsorPaymentController;
-use App\Http\Controllers\Web\Payment\PartnerPaymentController;
 use App\Http\Controllers\Web\Payment\MemberPaymentController;
 use App\Http\Controllers\Web\Payment\EventPaymentController;
 use App\Http\Controllers\Web\FeedbackController;
@@ -99,12 +97,11 @@ Route::middleware('admin-not-access')->group(function() {
     Route::post('charge-member', [MemberPaymentController::class,'payment'])->name('charge.member');
     Route::post('charge-event', [EventPaymentController::class,'payment'])->name('charge.event');
     Route::post('charge-sponsor', [SponsorPaymentController::class,'payment'])->name('charge.sponsor');
-    Route::post('charge-partner', [PartnerPaymentController::class,'payment'])->name('charge.partner');
-    Route::post('charge-financial', [FinancialPaymentController::class,'payment'])->name('charge.financial');
     //////------ End Stripe Payment Integration Routes ------/////
-
+    
+    Route::post('store-financial', [DefaultController::class,'storeFinancial'])->name('store.financial');
+    Route::post('store-partneruser', [DefaultController::class,'storePartner'])->name('store.partneruser');
     Route::post('check-email',[DefaultController::class,'checkEmail']);
-    Route::post('get-financial-amount',[DefaultController::class,'getAmount']);
 });
 include __DIR__.'/admin.php';
 

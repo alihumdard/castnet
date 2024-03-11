@@ -422,7 +422,7 @@
                         </div>
                     {{-- payment deatil end --}}
                     <div class="text-center mt-5" data-aos="fade-right" data-aos-duration="1000">
-                        <button type="submit" class="btn btn-submit">Submit Your Sponsorship Inquiry</button>
+                        <button type="submit" class="btn btn-submit">Submit Your Sponsorship Form</button>
                     </div>
                 </form>
             </div>

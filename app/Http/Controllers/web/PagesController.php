@@ -583,10 +583,10 @@ class PagesController extends Controller
                 $section2 = ProjectsModel::where('section',2)->get();
                 return view('web.pages.list_project',get_defined_vars());
             } else {
-                return redirect()->back()->with('error', 'Access to this page is restricted to members and sponsors only.');
+                return redirect()->route('web.rfx')->with('error', 'Access to this page is restricted to members and sponsors only.');
             }
         } else {
-            return redirect()->back()->with('error', 'Access to this page is restricted to members and sponsors only.');
+            return redirect()->route('web.rfx')->with('error', 'Access to this page is restricted to members and sponsors only.');
         }
     }
 
