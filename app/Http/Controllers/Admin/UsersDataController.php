@@ -60,9 +60,7 @@ class UsersDataController extends Controller
     }
 
     public function companyInfoDetail($id){
-
         $companyInfo = CompanyInformation::findOrFail($id);
-
         return view('admin.pages.companyInfoDetail', compact('companyInfo'));
     }
 
@@ -78,12 +76,10 @@ class UsersDataController extends Controller
 
     public function experienceDetail($id){
         $eventInfo = Experience::findOrFail($id);
-
         return view('admin.pages.experienceDetail', compact('eventInfo'));
     }
 
-    public function destroyEvent($id)
-    {
+    public function destroyEvent($id){
         EventRequestForm::destroy($id);
         return response()->json(array(
             'data' => true,
@@ -91,8 +87,8 @@ class UsersDataController extends Controller
             'status' => 'success',
         ));
     }
-    public function destroysubscriber($id)
-    {
+
+    public function destroysubscriber($id){
         NewsletterModel::destroy($id);
 
         return response()->json(array(
@@ -101,8 +97,8 @@ class UsersDataController extends Controller
             'status' => 'success',
         ));
     }
-    public function destroyexperience($id)
-    {
+
+    public function destroyexperience($id){
         Experience::destroy($id);
 
         return response()->json(array(
@@ -111,13 +107,89 @@ class UsersDataController extends Controller
             'status' => 'success',
         ));
     }
-    public function destroyeFeedback($id)
-    {
+
+    public function destroyeFeedback($id){
         MembersSatisfiedFeedback::destroy($id);
 
         return response()->json(array(
             'data' => true,
             'message' => 'Team member deleted successfully.',
+            'status' => 'success',
+        ));
+    }
+
+    public function destroyMembership($id){
+        $member = CompanyInformation::find($id);
+        User::where('id',$member->user_id)->update(['member'=>0]);
+        $user = User::find($member->user_id);
+        CompanyInformation::destroy($id);
+        
+        if($user->member==0 && $user->sponsor==0 && $user->partner==0){
+            User::destroy($user->id);
+        }
+        return response()->json(array(
+            'data' => true,
+            'url' => true,
+            'message' => 'Membership deleted successfully.',
+            'status' => 'success',
+        ));
+    }
+
+    public function destroyPartnership($id){
+        $partner = PartnerUser::find($id);
+        User::where('id',$partner->user_id)->update(['partner'=>0]);
+        $user = User::find($partner->user_id);
+        PartnerUser::destroy($id);
+        if($user->member==0 && $user->sponsor==0 && $user->partner==0){
+            User::destroy($user->id);
+        }
+        return response()->json(array(
+            'data' => true,
+            'url' => true,
+            'message' => 'Partnership deleted successfully.',
+            'status' => 'success',
+        ));
+    }
+
+    public function destroySponsorship($id){
+        $sponsor = SponsorUser::find($id);
+        User::where('id',$sponsor->user_id)->update(['sponsor'=>0]);
+        $user = User::find($sponsor->user_id);
+        SponsorUser::destroy($id);
+        if($user->member==0 && $user->sponsor==0 && $user->partner==0){
+            User::destroy($user->id);
+        }
+        return response()->json(array(
+            'data' => true,
+            'url' => true,
+            'message' => 'Sponsorhsip deleted successfully.',
+            'status' => 'success',
+        ));
+    }
+
+    public function sponsorshipStatus(Request $request){
+        SponsorUser::where('id',$request->id)->update(['status'=>$request->status]);
+        return response()->json(array(
+            'data' => true,
+            'message' => 'Sponsorhsip status changed successfully.',
+            'status' => 'success',
+        ));
+    }
+
+    public function partnershipStatus(Request $request){
+        PartnerUser::where('id',$request->id)->update(['status'=>$request->status]);
+        return response()->json(array(
+            'data' => true,
+            'message' => 'Partnership status changed successfully.',
+            'status' => 'success',
+        ));
+    }
+
+    public function membershipStatus(Request $request){
+        CompanyInformation::where('id',$request->id)->update(['status'=>$request->status]);
+        return response()->json(array(
+            'data' => true,
+            'message' => 'Membership status changed successfully.',
             'status' => 'success',
         ));
     }
