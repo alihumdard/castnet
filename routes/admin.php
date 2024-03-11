@@ -523,6 +523,15 @@ Route::middleware('auth')->group(function() {
             Route::get('/experience', [UsersDataController::class, 'experience'])->name('experience');
             Route::get('/experience/{id}', [UsersDataController::class, 'experienceDetail'])->name('experience.detail');
             Route::delete('/experience-delete/{id}', [UsersDataController::class, 'destroyexperience'])->name('experience.delete');
+            
+            
+            
+            // Financial_forms_request routes start
+            Route::get('/financial', [UsersDataController::class, 'financialData'])->name('financial_data');
+            Route::get('/financialDetail/{id}', [UsersDataController::class, 'financialDetail'])->name('financial.detail');
+            Route::delete('/financialInfo-delete/{id}', [UsersDataController::class, 'destroyfinancial'])->name('financialInfo-delete');
+            // Financial_forms_request routes end
+
             // ---------------------Users Data route end-----------------------------
             
             
