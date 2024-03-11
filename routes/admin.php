@@ -527,9 +527,9 @@ Route::middleware('auth')->group(function() {
             
             
             // Financial_forms_request routes start
-            Route::get('/financialforms', [UsersDataController::class, 'financialData'])->name('financialforms.index');
-            Route::get('/financialforms-detail/{id}', [UsersDataController::class, 'financialDetail'])->name('financialforms.detail');
-            Route::delete('/financialforms-delete/{id}', [UsersDataController::class, 'destroyfinancial'])->name('financialforms.delete');
+            Route::get('/userfinancialforms', [UsersDataController::class, 'financialData'])->name('userfinancialforms.index');
+            Route::get('/userfinancialforms-detail/{id}', [UsersDataController::class, 'financialDetail'])->name('userfinancialforms.detail');
+            Route::delete('/userfinancialforms-delete/{id}', [UsersDataController::class, 'destroyfinancial'])->name('userfinancialforms.delete');
             // Financial_forms_request routes end
 
             // ---------------------Users Data route end-----------------------------

@@ -40,8 +40,8 @@
                                     </td>
                                     <td>{{ $item->phone }}</td>
                                     <td>
-                                        <a class="btn btn-sm btn-outline-info" href="{{ route('financialforms.detail',$item->id) }}"><i class="fa fa-eye"></i></a>
-                                        <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/financialforms-delete"
+                                        <a class="btn btn-sm btn-outline-info" href="{{ route('userfinancialforms.detail',$item->id) }}"><i class="fa fa-eye"></i></a>
+                                        <button class="btn btn-sm btn-outline-danger delete_btn" data-url="/admin/userfinancialforms-delete"
                                             data-id="{{ $item->id }}" type="submit"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
