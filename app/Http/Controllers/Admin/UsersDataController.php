@@ -39,19 +39,11 @@ class UsersDataController extends Controller
 
     public function userDetail($id){
         $user= $id;
-        $memberRecord = CompanyInformation::where('user_id', $user)->get();
-        $partnerRecord = PartnerUser::where('user_id', $user)->get();
-        $sponsorRecord = SponsorUser::where('user_id', $user)->get();
+        $memberRecord = CompanyInformation::where('user_id', $user)->first();
+        $partnerRecord = PartnerUser::where('user_id', $user)->first();
+        $sponsorRecord = SponsorUser::where('user_id', $user)->first();
 
-            if ($memberRecord->isEmpty()) {
-                $memberRecord = null;
-            }
-            if ($partnerRecord->isEmpty()) {
-                $partnerRecord = null;
-            }
-            if ($sponsorRecord->isEmpty()) {
-                $sponsorRecord = null;
-            } 
+           
         return view('admin.pages.users.user_detail',compact('memberRecord','partnerRecord','sponsorRecord'));
     }
 
