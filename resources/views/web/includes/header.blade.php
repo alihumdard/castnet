@@ -33,12 +33,34 @@
                                     </button>
                                 </div>
                             </form>
-                            @auth
+                            {{-- @auth
                             <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"> <span>Logout</span>
                                 <img src="{{ asset('assets/web/images/icon_log.png') }}" alt="icon login" class="icon-login"></a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
+                                @csrf   
+                            </form>
+                            @else
+                            <a href="{{route('user.login')}}" class="btn btn-primary">
+                                <span>Login</span>
+                                <img src="{{ asset('assets/web/images/icon_log.png') }}" alt="icon login" class="icon-login">
+                            </a>
+                            @endauth --}}
+                            {{-- dashbord work starttttttttttttttttttttttttttttttttt --}}
+                            @auth
+                            <div class="dropdown profile-dropdown">
+                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="assets/web/images/user.jpg" alt="profile" class="img-profile">
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{ route('web.user-dashboard') }}">edit profile</a></li>
+                                    <li>
+                                    
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"> <span>Logout</span>
+                                <img src="{{ asset('assets/web/images/icon_log.png') }}" alt="icon login" class="icon-login"></a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf   
                             </form>
                             @else
                             <a href="{{route('user.login')}}" class="btn btn-primary">
@@ -46,6 +68,11 @@
                                 <img src="{{ asset('assets/web/images/icon_log.png') }}" alt="icon login" class="icon-login">
                             </a>
                             @endauth
+                                    
+                                    </li>
+                                </ul>
+                            </div>
+                            {{-- dashbord work endddddddddddddddddddddddddddddddddddddddddddddd --}}
                         </div>
                     </div>
                 </div>
