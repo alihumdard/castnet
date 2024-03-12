@@ -49,7 +49,17 @@
                                             <input type="text" name="position" class="form-control" placeholder="Enter Position...">
                                         </div>
                                     </div>
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-6">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">Member Type</label>
+                                            <select name="member_type" class="form-control" id="">
+                                                <option selected disabled>Select Member Type</option>
+                                                <option value="Industry Sector">Industry Sector</option>
+                                                <option value="Advocacy">Advocacy</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
                                         <div class="form-group errorshow">
                                             <label for="prin_title">Linkedin</label>
                                             <input type="text" name="linkedin" class="form-control" placeholder="Enter Lindedin url...">

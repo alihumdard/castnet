@@ -26,32 +26,29 @@
         <div class="container">
             <h2 class="section_title fw-bold text-center mb-5">Our Business Members</h2>
             <div class="row row-cols-1 row-cols-md-3 mb-5 mx-5 mx-md-0 filter-btn gy-3">
-                <!-- <div class="col-12 col-md-4">
-                    <input type="text" placeholder="Search Member" style="width: 100%;">
-                </div> -->
-                <div class="col d-flex justify-content-center">
-                    <div class="btn-div p-0 active">
-                        <a href="#" class="">
+                <div class="col d-flex justify-content-center" id="all">
+                    <div class="btn-div p-0 active" onclick="toggleActiveClass(this, 0)">
+                        <a href="javascript:void(0);">
                             <span>All</span>
                         </a>
                     </div>
                 </div>
-                <div class="col d-flex justify-content-center">
-                    <div class="btn-div p-0">
-                        <a href="#" class="">
+                <div class="col d-flex justify-content-center" id="industry">
+                    <div class="btn-div p-0" onclick="toggleActiveClass(this, 1)">
+                        <a href="javascript:void(0);">
                             <span>Industry Sector</span>
                         </a>
                     </div>
                 </div>
-                <div class="col d-flex justify-content-center">
-                    <div class="btn-div p-0">
-                        <a href="#" class="">
+                <div class="col d-flex justify-content-center" id="advocacy">
+                    <div class="btn-div p-0" onclick="toggleActiveClass(this, 2)">
+                        <a href="javascript:void(0);">
                             <span>Advocacy</span>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xxl-6 gx-md-5 gy-5">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xxl-6 gx-md-5 gy-5" id="loadAjax">
                 @foreach($members as $member)
                 <div class="col" data-aos="fade-right" data-aos-duration="1000">
                     <div class="sec-dir-card text-center">
@@ -65,6 +62,10 @@
                             <p class="sec-dir-card-company">Position:</p>
                             <p class="sec-dir-card-company-text">{{$member->position}}</p>
                         </div>
+                        <div class="sec-dir-card-info">
+                            <p class="sec-dir-card-company">Member Type:</p>
+                            <p class="sec-dir-card-company-text">{{$member->member_type}}</p>
+                        </div>
                         <div class="sec-dir-card-med-icon">
                             <a href="{{$member->lindedin}}" class="media-icon-bg">
                                 <i class="fa-brands fa-linkedin-in"></i>
@@ -77,3 +78,31 @@
         </div>
     </section>
 @stop
+@push('scripts')
+<script>
+    function toggleActiveClass(element, query) {
+        // Remove active class from all div elements with class btn-div
+        $('.btn-div').removeClass('active');
+        
+        // Add active class to the clicked div element
+        $(element).addClass('active');
+
+        // Call the getMembers function
+        getMembers(query);
+    }
+
+    function getMembers(query){
+        $.ajax({
+            type: "get",
+            url: "{{ route('filter.members') }}",
+            dataType: "json",
+            data: {
+                data: query,
+            },
+            success: function (response) {
+                $("#loadAjax").html(response.data);
+            },
+        });
+    }
+</script>
+@endpush

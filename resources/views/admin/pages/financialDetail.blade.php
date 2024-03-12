@@ -132,22 +132,6 @@
                                        </a>
                                    </div>
                                </div>
-                               @elseif(strtolower($ext)=='jpg')
-                               <div class="row">
-                                   <div class="col-4">
-                                       <a download href="{{ asset('assets/web/images/'.$financialData->file) }}" target="_blank">
-                                           <img class="selected_img" src="{{ asset('assets/web/images/'.$item->file) }}" height="50px" width="50px">
-                                       </a>
-                                   </div>
-                               </div>
-                               @elseif(strtolower($ext)=='png')
-                               <div class="row">
-                                   <div class="col-4">
-                                       <a download href="{{ asset('assets/web/images/'.$financialData->file) }}" target="_blank">
-                                           <img class="selected_img" src="{{ asset('assets/web/images/'.$financialData->file) }}" height="50px" width="50px">
-                                       </a>
-                                   </div>
-                               </div>
                                @elseif(strtolower($ext)=='odt')
                                <div class="row">
                                    <div class="col-4">
@@ -168,7 +152,7 @@
                                <div class="row">
                                    <div class="col-4">
                                        <a download href="{{ asset('assets/web/images/'.$financialData->file) }}" target="_blank">
-                                           <img class="selected_img" src="{{ asset('assets/web/images/'.$item->file) }}" height="50px" width="50px">
+                                           <img class="selected_img" src="{{ asset('assets/web/images/'.$financialData->file) }}" height="50px" width="50px">
                                        </a>
                                    </div>
                                </div>

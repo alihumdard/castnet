@@ -14,6 +14,7 @@ use App\Models\FinancialForm;
 use App\Models\PartnerUser;
 use Illuminate\Support\Facades\Cookie;
 use App\Models\User;
+use App\Models\MemberDirectory;
 use Egulias\EmailValidator\Parser\PartParser;
 
 class DefaultController extends Controller
@@ -165,5 +166,17 @@ class DefaultController extends Controller
             'data_protection_consent' => $request->data_protection_consent,
         ]);
         return redirect()->back()->with('success','Congratulations! You have successfully joined the partnership.');
+    }
+
+    public function filterMembers(Request $request){
+        if($request->data=="1"){
+           $members = MemberDirectory::where('member_type','Industry Sector')->get();
+        } elseif($request->data=="0"){
+            $members = MemberDirectory::get();
+        } else{
+            $members = MemberDirectory::where('member_type','Advocacy')->get();
+        }
+        $html = view('web.ajax_load.member_filter', compact('members'))->render();
+        return response()->json(['data' => $html]);
     }
 }
