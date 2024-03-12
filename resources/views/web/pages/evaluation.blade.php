@@ -40,7 +40,7 @@
     </section>
     <!-- Evaluation End -->
     @auth
-    @if(Auth::user()->member==1)
+    @if(Auth::user()->member==1 && Auth::user()->member_status==0)
     <!-- Evaluation Form Start -->
     <section class="evaluation_form">
         <div class="container">

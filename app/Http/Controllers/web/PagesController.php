@@ -264,7 +264,7 @@ class PagesController extends Controller
     
     public function event_request(){
         if (auth()->check()) {
-            if (auth()->user()->member == 1 || auth()->user()->partner == 1 || auth()->user()->sponsor == 1) {
+            if (auth()->user()->member==1 && auth()->user()->member_status==0 || auth()->user()->sponsor==1 && auth()->user()->sponsor_status==0 || auth()->user()->partner==1 && auth()->user()->partner_status==0) {
                 $banner = PageBanner::where('type', 26)->first();
                 $title = PartnerSponsorPageTitleModel::where(['page' => 'event_request', 'section' => 1])->first();
                 $eventCategory = CompanyInfoFormSetting::where('type', 'event_category')->get();
@@ -272,7 +272,7 @@ class PagesController extends Controller
                 $secondEventReqType = Event_Request_Type::skip(1)->first();
                 return view('web.pages.event_request', get_defined_vars());
             } else {
-                return redirect()->back()->with('error', 'Access to this page is restricted to members, partners, and sponsors only.');
+                return redirect()->back()->with('error', 'Oops! Your account has been deactivated by the administrator.');
             }
         } else {
             return redirect()->back()->with('error', 'Access to this page is restricted to members, partners, and sponsors only.');
@@ -309,11 +309,11 @@ class PagesController extends Controller
 
     public function forms(){
         if (auth()->check()) {
-            if (auth()->user()->member == 1 || auth()->user()->sponsor == 1) {
+            if (auth()->user()->member==1 && auth()->user()->member_status==0 || auth()->user()->sponsor==1 && auth()->user()->sponsor_status==0) {
                 $banner = PageBanner::where('type', 58)->first();
                 return view('web.pages.forms',get_defined_vars());
             } else {
-                return redirect()->back()->with('error', 'Access to this page is restricted to members and sponsors only.');
+                return redirect()->back()->with('error', 'Oops! Your account has been deactivated by the administrator.');
             }
         } else {
             return redirect()->back()->with('error', 'Access to this page is restricted to members and sponsors only.');
@@ -577,13 +577,13 @@ class PagesController extends Controller
 
     public function listProject(){
         if (auth()->check()) {
-            if (auth()->user()->member == 1 || auth()->user()->sponsor == 1) {
+            if (auth()->user()->member==1 && auth()->user()->member_status==0 || auth()->user()->sponsor==1 && auth()->user()->sponsor_status==0) {
                 $banner = PageBanner::where('type', 54)->first();
                 $section1 = ProjectsModel::where('section',1)->first();
                 $section2 = ProjectsModel::where('section',2)->get();
                 return view('web.pages.list_project',get_defined_vars());
             } else {
-                return redirect()->route('web.rfx')->with('error', 'Access to this page is restricted to members and sponsors only.');
+                return redirect()->route('web.rfx')->with('error', 'Oops! Your account has been deactivated by the administrator.');
             }
         } else {
             return redirect()->route('web.rfx')->with('error', 'Access to this page is restricted to members and sponsors only.');

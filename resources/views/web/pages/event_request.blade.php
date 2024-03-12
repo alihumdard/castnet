@@ -122,12 +122,12 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group errorshow">
-                                    <input type="text" name="first_name" value="{{ Auth::user()->first_name }}" class="form-control" placeholder="Event Contact - First Name">
+                                    <input type="text" name="first_name" value="{{ session('eventRequestData.first_name') }}" class="form-control" placeholder="Event Contact - First Name">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group errorshow">
-                                    <input type="text" name="last_name" value="{{ Auth::user()->last_name }}" class="form-control" placeholder="Event Contact - Last Name">
+                                    <input type="text" name="last_name" value="{{ session('eventRequestData.last_name') }}" class="form-control" placeholder="Event Contact - Last Name">
                                 </div>
                             </div>
                             <div class="col-md-6">

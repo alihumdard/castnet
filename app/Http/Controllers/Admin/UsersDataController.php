@@ -187,7 +187,9 @@ class UsersDataController extends Controller
     }
 
     public function sponsorshipStatus(Request $request){
+        $sponsor = SponsorUser::find($request->id);
         SponsorUser::where('id',$request->id)->update(['status'=>$request->status]);
+        User::where('id',$sponsor->user_id)->update(['sponsor_status'=>$request->status]);
         return response()->json(array(
             'data' => true,
             'message' => 'Sponsorhsip status changed successfully.',
@@ -196,7 +198,9 @@ class UsersDataController extends Controller
     }
 
     public function partnershipStatus(Request $request){
+        $partner = PartnerUser::find($request->id);
         PartnerUser::where('id',$request->id)->update(['status'=>$request->status]);
+        User::where('id',$partner->user_id)->update(['partner_status'=>$request->status]);
         return response()->json(array(
             'data' => true,
             'message' => 'Partnership status changed successfully.',
@@ -205,7 +209,9 @@ class UsersDataController extends Controller
     }
 
     public function membershipStatus(Request $request){
+        $member = CompanyInformation::find($request->id);
         CompanyInformation::where('id',$request->id)->update(['status'=>$request->status]);
+        User::where('id',$member->user_id)->update(['member_status'=>$request->status]);
         return response()->json(array(
             'data' => true,
             'message' => 'Membership status changed successfully.',
