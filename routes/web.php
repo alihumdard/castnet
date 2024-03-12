@@ -102,6 +102,8 @@ Route::middleware('admin-not-access')->group(function() {
     Route::post('store-financial', [DefaultController::class,'storeFinancial'])->name('store.financial');
     Route::post('store-partneruser', [DefaultController::class,'storePartner'])->name('store.partneruser');
     Route::post('check-email',[DefaultController::class,'checkEmail']);
+
+    Route::get('filter-members',[DefaultController::class,'filterMembers'])->name('filter.members');
 });
 include __DIR__.'/admin.php';
 

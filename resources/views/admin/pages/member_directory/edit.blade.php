@@ -53,6 +53,15 @@
                                             <input type="text" name="position" value="{{$member->position}}" class="form-control" placeholder="Enter Position...">
                                         </div>
                                     </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group errorshow">
+                                            <label for="prin_title">Member Type</label>
+                                            <select name="member_type" class="form-control" id="">
+                                                <option value="Industry Sector" @if($member->member_type=="Industry Sector") selected @endif>Industry Sector</option>
+                                                <option value="Advocacy" @if($member->member_type=="Advocacy") selected @endif>Advocacy</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="col-sm-12">
                                         <div class="form-group errorshow">
                                             <label for="prin_title">Linkedin</label>

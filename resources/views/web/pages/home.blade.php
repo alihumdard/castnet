@@ -158,7 +158,7 @@ $setting = appSetting();
                                         <h3 class="card-title font-roboto">
                                             <a href="#">{{ $event->title }}</a>
                                         </h3>
-                                        <a href="#">
+                                        <a href="{{route('web.events')}}">
                                             <img src="assets/web/images/plus_vector.png" alt="plus" class="img-plus">
                                         </a>
                                     </div>
@@ -187,7 +187,7 @@ $setting = appSetting();
             <div class="col-lg-4 m-upcoming">
                 <h3 class="events_title">{{ $section5->sub_heading }}</h3>
                 <p class="events_text">{!! $section5->description !!}</p>
-                <a href="#" class="events_link">
+                <a href="{{route('web.events')}}" class="events_link">
                     <span>see all</span>
                     <img src="assets/web/images/icon_arrow_round.png" alt="arrow" class="icon_arrow">
                 </a>
@@ -235,7 +235,7 @@ $setting = appSetting();
                     <span class="sub_title">{{ $section7->title }}</span>
                     <h2 class="section_title">{{ $section7->heading }}</h2>
                     <p class="community_text">{{ $section7->description }}</p>
-                    <a href="#" class="btn btn-primary">read more <img src="assets/web/images/icon_arrow_alt.png" alt="arrow" class="img-icon"></a>
+                    <a href="{{route('web.blog')}}" class="btn btn-primary">read more <img src="assets/web/images/icon_arrow_alt.png" alt="arrow" class="img-icon"></a>
                 </div>
             </div>
             <div class="col-md-6 offset-lg-1 col-lg-5 px-0 order-1 order-md-2">
@@ -306,7 +306,7 @@ $setting = appSetting();
         </div>
         <div class="row">
             <div class="col-12 text-center">
-                <a href="#" class="btn btn-primary">learn more <img src="assets/web/images/icon_arrow_alt.png" alt="" class="img-arrow"></a>
+                <a href="{{route('web.about')}}" class="btn btn-primary">learn more <img src="assets/web/images/icon_arrow_alt.png" alt="" class="img-arrow"></a>
             </div>
         </div>
     </div>
