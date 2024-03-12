@@ -10,18 +10,6 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    public function companyInformation()
-    {
-        return $this->hasOne(CompanyInformation::class, 'user_id');
-    }
-    public function partnerUser()
-    {
-        return $this->hasOne(PartnerUser::class, 'user_id');
-    }
-    public function sponsorUser()
-    {
-        return $this->hasOne(SponsorUser::class, 'user_id');
-    }
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -49,4 +37,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function companyInformation(){
+        return $this->hasOne(CompanyInformation::class, 'user_id');
+    }
+
+    public function partnerUser(){
+        return $this->hasOne(PartnerUser::class, 'user_id');
+    }
+
+    public function sponsorUser(){
+        return $this->hasOne(SponsorUser::class, 'user_id');
+    }
 }

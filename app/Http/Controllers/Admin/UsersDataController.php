@@ -50,9 +50,9 @@ class UsersDataController extends Controller
 
     public function userDetail($id){
         $user= $id;
-        $memberRecord = CompanyInformation::where('user_id', $user)->first();
+        $memberRecord = CompanyInformation::where('user_id', $user)->with('paymentdetail')->first();
         $partnerRecord = PartnerUser::where('user_id', $user)->first();
-        $sponsorRecord = SponsorUser::where('user_id', $user)->first();           
+        $sponsorRecord = SponsorUser::where('user_id', $user)->with('paymentdetail')->first();           
         return view('admin.pages.users.user_detail',compact('memberRecord','partnerRecord','sponsorRecord'));
     }
 

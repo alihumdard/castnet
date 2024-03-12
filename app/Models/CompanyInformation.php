@@ -11,8 +11,11 @@ class CompanyInformation extends Model
     public $table = 'company_informations';
     protected $guarded = ['id'];
 
-    public function user()
-    {
+    public function user(){
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function paymentdetail(){
+        return $this->hasOne(PaymentModel::class, 'user_id','user_id');
     }
 }

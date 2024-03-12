@@ -155,6 +155,18 @@
                                                         <div class="col-sm-2"><h6>Reason To Join:</h6></div>
                                                         <div class="col-sm-10"><p>{{ $memberRecord->reason_joining }}</p></div>
                                                       </div>
+                                                    <hr>
+                                                      <h2 class="section_title m-0">Payment Details</h2>
+                                                      <br>
+                                                      <div class="row">
+                                                        <div class="col-sm-2"><h6>Paid Amount:</h6></div>
+                                                        <div class="col-sm-10"><p>${{ $memberRecord->paymentdetail->amount }}</p></div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-sm-2"><h6>Trx ID:</h6></div>
+                                                        <div class="col-sm-10"><p>{{ $memberRecord->paymentdetail->trx_id }}</p></div>
+                                                      </div>
+                                                    <hr>
                                                       <div class="row">
                                                         <div class="col-sm-2"><h6>Account Status:</h6></div>
                                                         @if($memberRecord->status==0)
@@ -265,6 +277,7 @@
                                                         <div class="col-sm-2"><h6>Data Protection Consent:</h6></div>
                                                         <div class="col-sm-10"><p>{{ $partnerRecord->data_protection_consent }}</p></div>
                                                       </div>
+                                                    <hr>
                                                       <div class="row">
                                                         <div class="col-sm-2"><h6>Account Status:</h6></div>
                                                         @if($partnerRecord->status==0)
@@ -379,6 +392,17 @@
                                                       <div class="row">
                                                         <div class="col-sm-2"><h6>DATA PROTECTION CONSENT:</h6></div>
                                                         <div class="col-sm-10"><p>{{ $sponsorRecord->data_protection_consent }}</p></div>
+                                                      </div>
+                                                    <hr>
+                                                      <h2 class="section_title m-0">Payment Details</h2>
+                                                      <br>
+                                                      <div class="row">
+                                                        <div class="col-sm-2"><h6>Paid Amount:</h6></div>
+                                                        <div class="col-sm-10"><p>${{ $sponsorRecord->paymentdetail->amount }}</p></div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-sm-2"><h6>Trx ID:</h6></div>
+                                                        <div class="col-sm-10"><p>{{ $sponsorRecord->paymentdetail->trx_id }}</p></div>
                                                       </div>
                                                     <hr>
                                                       <div class="row">

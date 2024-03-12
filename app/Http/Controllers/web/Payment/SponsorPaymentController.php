@@ -92,7 +92,7 @@ class SponsorPaymentController extends Controller
             PaymentModel::create([
                 'user_id'=>$user->id,
                 'trx_id'=>$stripe['id'],
-                'amount'=>$amount,
+                'amount'=>$amount->fee,
                 'type'=>4,
             ]);
             session()->forget('sponsorData');
