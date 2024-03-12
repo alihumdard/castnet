@@ -88,6 +88,10 @@ class PagesController extends Controller
         $section9feature = HomeSection9Feature::get();
         return view('web.pages.home',get_defined_vars());
     }
+    public function userdashboard(){
+        $banner = Banner::first();
+        return view('web.pages.userDashbord',get_defined_vars());
+    }
 
     public function aboutUs(){
         $banner = PageBanner::where('type',1)->first();
