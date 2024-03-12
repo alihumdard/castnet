@@ -51,6 +51,7 @@ class MemberDirectoryController extends Controller
             'image' => $file,
             'company' => $request->company,
             'position' => $request->position,
+            'member_type' =>$request->member_type,
             'linkedin' =>$request->linkedin,
         ]);
         return redirect('admin/memberdirectory')->with('success', 'Data saved successfully!');
@@ -105,6 +106,7 @@ class MemberDirectoryController extends Controller
             'image' => $file,
             'company' => $request->company,
             'position' => $request->position,
+            'member_type' =>$request->member_type,
             'linkedin' =>$request->linkedin,
         ];
         $item->update($data);
