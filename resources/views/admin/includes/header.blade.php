@@ -22,6 +22,7 @@
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
+                <a class="btn btn-sm btn-info mt-1" href="{{ route('account.setting') }}">Account Setting</a>
                 <a class="btn btn-sm btn-info mt-1" href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">Log out</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

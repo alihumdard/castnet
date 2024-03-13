@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Setting;
+use App\Models\User;
 class SettingController extends Controller
-{
+{ 
     public function index(){
         $setting = Setting::first();
         return view('admin.pages.setting', compact('setting'));
@@ -51,5 +54,39 @@ class SettingController extends Controller
         ];
         $setting->update($data);
         return redirect()->route('admin.setting')->with('success', 'Website setting updated successfully.');
+    }
+
+    public function setting(){
+        $setting = Auth::user()->first();
+        return view('admin.pages.account_setting',compact('setting'));
+    }
+
+    public function updateSetting(Request $request,$id){
+        $user = Auth::user();
+        $this->validate($request, [
+            'current_password' => 'required',
+            'password' => 'required|min:8|max:32',
+        ]);
+
+        if (Hash::check($request->current_password, $user->password)) {
+            if ($request->password == $request->password_confirmation) {
+                User::where('id', $user->id)->update(['password' => bcrypt($request->password),'email'=>$request->email]);
+                return redirect()->back()->with(['success' => 'The password has been changed.']);
+            } else {
+                return redirect()->back()->with(['error' => 'The new password and confirm password do not match.']);
+            }
+        } else {
+            return redirect()->back()->with(['error' => 'The current password you provided is incorrect.']);
+        }
+    }
+
+    public function checkPassword(Request $request){
+        $user = Auth::user();
+        $data = $request->all();
+        if (Hash::check($data['current_password'], $user->password)) {
+            echo "true";
+        } else {
+            echo "false";
+        }
     }
 }
