@@ -84,6 +84,9 @@ Route::middleware('auth')->group(function() {
             //---** Web setting **---//
             Route::get('/setting', [SettingController::class, 'index'])->name('admin.setting');
             Route::put('/setting-update/{id}', [SettingController::class,'update'])->name('setting.update');
+            Route::get('/account-setting', [SettingController::class,'setting'])->name('account.setting');
+            Route::put('/update-setting/{id}', [SettingController::class,'updateSetting'])->name('update.setting');
+            Route::post('/check-password', [SettingController::class,'checkPassword']);
 
             //---** Social links **---//
             Route::get('/sociallinks', [SocialLinkController::class, 'index'])->name('admin.sociallinks');
