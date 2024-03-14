@@ -22,7 +22,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/logged', [DefaultController::class, 'logged'])->name('logged.user');
 Route::middleware('admin-not-access')->group(function() {
     Route::get('/', [PagesController::class, 'index'])->name('web.index');
-    Route::get('/user-dashboard', [PagesController::class, 'userdashboard'])->name('web.user-dashboard');
+    // Route::get('/user-dashboard', [PagesController::class, 'userdashboard'])->name('web.user-dashboard');
+
+Route::get('/user-dashboard/{id}/{first_name}', [PagesController::class, 'userdashboard'])->name('web.user-dashboard');
+// Route::get('/user-dashboard/{id}/{first_name}/{last_name}', [PagesController::class, 'userdashboard'])->name('web.user-dashboard');
+
     Route::get('/about', [PagesController::class, 'aboutUs'])->name('web.about');
     Route::get('/who-we-are', [PagesController::class, 'whoweare'])->name('web.who-we-are');
     Route::get('/team', [PagesController::class, 'team'])->name('web.team');
@@ -81,6 +85,13 @@ Route::middleware('admin-not-access')->group(function() {
     Route::get('/job_detail/{id}', [PagesController::class, 'job_detail'])->name('web.job_detail');
     Route::get('/careers', [PagesController::class, 'careers'])->name('web.careers');
     Route::post('/filter-keywords', [FilterController::class, 'filterKeywords'])->name('filter.keywords');
+    
+    Route::post('/update-sponsor-info', [PagesController::class, 'updateSponser'])->name('sponsor.update');
+    Route::post('/update-partner-info', [PagesController::class, 'updatePartner'])->name('partner.update');
+    Route::post('/update-member-info', [PagesController::class, 'updateMember'])->name('member.update');
+
+
+
     Route::get('/filter-search', [FilterController::class, 'filterSearch'])->name('filter.search');
     Route::post('/subscribe-newsletter', [DefaultController::class, 'subscribe'])->name('subscribe.newsletter');
     Route::post('/satisfied_members', [DefaultController::class, 'satisfiedMembers'])->name('satisfied.members');
