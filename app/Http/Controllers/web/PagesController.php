@@ -66,6 +66,8 @@ use App\Models\Banner;
 use App\Models\MyBlog;
 use App\Models\User;
 use App\Models\Job;
+use App\Models\PartnerUser;
+use App\Models\SponsorUser;
 
 class PagesController extends Controller
 {
@@ -88,10 +90,114 @@ class PagesController extends Controller
         $section9feature = HomeSection9Feature::get();
         return view('web.pages.home',get_defined_vars());
     }
-    public function userdashboard(){
+    public function userdashboard(Request $request){
+
+        $id = $request->route('id');
+        $first_name = $request->route('first_name') ?? '';
+        $last_name = $request->route('last_name') ?? '';
+        $name = $first_name . ' ' . $last_name;
+
+
+        $partnerInfo = PartnerUser::where('user_id', $id)->get();
+        $sponsorInfo = SponsorUser::where('user_id', $id)->get();
+        $memberInfo = CompanyInformation::where('user_id', $id)->get();
+    
         $banner = Banner::first();
         return view('web.pages.userDashbord',get_defined_vars());
+
     }
+
+    public function updateSponser(Request $request)
+{
+
+    $sponsor = SponsorUser::findOrFail($request->input('sponsor_id'));
+    $data = [
+        'sponsor_name' => $request->sponsor_name,
+        'contact_person_name' => $request->contact_person_name,
+        'email' => $request->email,
+        'phone_number' => $request->phone_number,
+        'website_url' => $request->website_url,
+        'industry_sector' => $request->industry_sector,
+        'specific_interest' => $request->specific_interest,
+        'geographic_focus' => $request->geographic_focus,
+        'sponsorship_level' => $request->sponsorship_level,
+        'sponsorship_goals' => $request->sponsorship_goals,
+        'sponsorship_experiences' => $request->sponsorship_experiences,
+        'sponsorship_preferences' => $request->sponsorship_preferences,
+        'sponsorship_budget' => $request->sponsorship_budget,
+        'payment_schedule' => $request->payment_schedule,
+        'additional_support' => $request->additional_support,
+        'hear_about' => $request->hear_about,
+        'data_protection_consent' => $request->data_protection_consent,
+    ];
+
+    $sponsor->update($data);
+
+    return redirect()->back()->with('success', 'Sponsor information updated successfully!');
+}
+    public function updatePartner(Request $request)
+{
+
+    $partner = PartnerUser::findOrFail($request->input('partner_id'));
+    $data = [
+        'organization_name' => $request->organization_name,
+        'contact_person_name' => $request->contact_person_name,
+        'email' => $request->email,
+        'phone_number' => $request->phone_number,
+        'organization_website' => $request->organization_website,
+        'industry_sector' => $request->industry_sector,
+        'partnership_dur' => $request->partnership_dur,
+        'partnership_interest' => $request->partnership_interest,
+        'previous_partnership' => $request->previous_partnership,
+        'past_partnership_details' => $request->past_partnership_details,
+        'target_geographic_regions' => $request->target_geographic_regions,
+        'project_opportunities' => $request->project_opportunities,
+        'non_monetary_support' => $request->non_monetary_support,
+        'partnering_goals' => $request->partnering_goals,
+        'expected_outcomes' => $request->expected_outcomes,
+        'non_monetary_support_offered' => $request->non_monetary_support_offered,
+        'legal_compliance_agree' => $request->legal_compliance_agree,
+        'legal_compliance_understanding' => $request->legal_compliance_understanding,
+        'hear_about' => $request->hear_about,
+        'additional_information' => $request->additional_information,
+        'data_protection_consent' => $request->data_protection_consent,
+    ];
+
+    $partner->update($data);
+
+    return redirect()->back()->with('success', 'Partner information updated successfully!');
+}
+    public function updateMember(Request $request)
+{
+
+    $member = CompanyInformation::findOrFail($request->input('member_id'));
+    $data = [
+        'organization_name' => $request->organization_name,
+        'phone_number' => $request->phone_number,
+        'website_address' => $request->website_address,
+        'number_of_employees' => $request->number_of_employees,
+        'billing_email' => $request->billing_email,
+        'billing_address' => $request->billing_address,
+        'billing_city' => $request->billing_city,
+        'billing_state' => $request->billing_state,
+        'billing_zip' => $request->billing_zip,
+        'billing_country' => $request->billing_country,
+        'billing_address_check' => $request->billing_address_check,
+        'first_name' => $request->first_name,
+        'last_name' => $request->last_name,
+        'title' => $request->title,
+        'primary_phone' => $request->primary_phone,
+        'email' => $request->email,
+        'membership_level' => $request->membership_level,
+        'about_organization' => $request->about_organization,
+        'ownership_structure' => $request->ownership_structure,
+        'reason_joining' => $request->reason_joining,
+    ];
+
+    $member->update($data);
+
+    return redirect()->back()->with('success', 'Member information updated successfully!');
+}
 
     public function aboutUs(){
         $banner = PageBanner::where('type',1)->first();
