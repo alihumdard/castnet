@@ -54,7 +54,8 @@
                                     <img src="{{ asset('assets/web/images/down-arrow.png') }}" alt="profile" class="img-profile">
                                 </button>
                                 <ul class="dropdown-menu">  
-                                    <li><a class="dropdown-item" href="{{ route('web.user-dashboard') }}">Profile</a></li>                                    
+                                    <li><a class="dropdown-item" href="{{ route('web.user-dashboard') }}">Profile</a></li>  
+                                    <hr/>                                  
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();"> <span>Logout</span>
                                         <img src="{{ asset('assets/web/images/icon_log.png') }}" alt="icon login" class="icon-login"></a>
