@@ -246,7 +246,7 @@ $setting = appSetting();
                 <div class="row g-0">
                     <div class="col-12">
                         <div class="d-flex flex-column flex-lg-row gap-3">
-                            <div class="dashboard_side flex-lg-grow-1">
+                            <div class="dashboard_side flex-lg-grow-1" style="width: 31.5%;">
                                 <div class="profile-box">
                                     <img src="{{ asset('assets/web/images/dashboard_profile.png') }}" alt="profile" class="profile-img">
                                     <h3 class="profile-text mb-3">{{ Auth::user()->first_name }}</h3>

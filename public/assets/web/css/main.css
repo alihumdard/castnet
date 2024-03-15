@@ -5956,3 +5956,6 @@ section.section_block .sec-dir-card .sec-dir-card-med-icon a.media-icon-bg i {
         padding: 1.5rem 0;
     }
 }
+.section_topbar .profile-dropdown .dropdown-menu {
+    padding: 1.6rem 2rem;
+}
