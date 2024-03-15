@@ -91,16 +91,6 @@ class PagesController extends Controller
         return view('web.pages.home',get_defined_vars());
     }
 
-    public function userdashboard(Request $request){
-        $id = Auth::user()->id;
-        $banner = Banner::first();
-        $partnerInfo = PartnerUser::where('user_id', $id)->get();
-        $sponsorInfo = SponsorUser::where('user_id', $id)->get();
-        $memberInfo = CompanyInformation::where('user_id', $id)->get();
-    
-        return view('web.pages.userDashbord',get_defined_vars());
-    }
-
     public function updateSponser(Request $request){
         $sponsor = SponsorUser::findOrFail($request->input('sponsor_id'));
         $data = [

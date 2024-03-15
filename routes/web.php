@@ -3,6 +3,7 @@
 use App\Http\Controllers\Web\Payment\SponsorPaymentController;
 use App\Http\Controllers\Web\Payment\MemberPaymentController;
 use App\Http\Controllers\Web\Payment\EventPaymentController;
+use App\Http\Controllers\Web\UserSettingController;
 use App\Http\Controllers\Web\FeedbackController;
 use App\Http\Controllers\Web\DefaultController;
 use App\Http\Controllers\Web\FilterController;
@@ -22,7 +23,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/logged', [DefaultController::class, 'logged'])->name('logged.user');
 Route::middleware('admin-not-access')->group(function() {
     Route::get('/', [PagesController::class, 'index'])->name('web.index');
-    Route::get('/user-dashboard', [PagesController::class, 'userdashboard'])->name('web.user-dashboard');
     Route::get('/about', [PagesController::class, 'aboutUs'])->name('web.about');
     Route::get('/who-we-are', [PagesController::class, 'whoweare'])->name('web.who-we-are');
     Route::get('/team', [PagesController::class, 'team'])->name('web.team');
@@ -86,8 +86,6 @@ Route::middleware('admin-not-access')->group(function() {
     Route::post('/update-partner-info', [PagesController::class, 'updatePartner'])->name('partner.update');
     Route::post('/update-member-info', [PagesController::class, 'updateMember'])->name('member.update');
 
-
-
     Route::get('/filter-search', [FilterController::class, 'filterSearch'])->name('filter.search');
     Route::post('/subscribe-newsletter', [DefaultController::class, 'subscribe'])->name('subscribe.newsletter');
     Route::post('/satisfied_members', [DefaultController::class, 'satisfiedMembers'])->name('satisfied.members');
@@ -112,6 +110,12 @@ Route::middleware('admin-not-access')->group(function() {
     Route::post('check-email',[DefaultController::class,'checkEmail']);
 
     Route::get('filter-members',[DefaultController::class,'filterMembers'])->name('filter.members');
+
+    Route::get('/user-dashboard', [UserSettingController::class,'index'])->name('web.user-dashboard');
+    Route::put('/user-updpass/{id}', [UserSettingController::class,'updatePassword'])->name('user.updPass');
+    Route::get('/user-member', [UserSettingController::class,'member'])->name('web.user-member');
+    Route::get('/user-partner', [UserSettingController::class,'partner'])->name('web.user-partner');
+    Route::get('/user-sponsor', [UserSettingController::class,'sponsor'])->name('web.user-sponsor');
 });
 include __DIR__.'/admin.php';
 

@@ -76,6 +76,10 @@ use App\Http\Controllers\Admin\Privacy\PrivacyController;
 use App\Http\Controllers\Admin\Term_of_use\TermOfUseController;
 
 Route::get('/administrator', [PagesController::class, 'login'])->name('admin.login');
+
+Route::put('/update-setting/{id}', [SettingController::class,'updateSetting'])->name('update.setting');
+Route::post('/check-password', [SettingController::class,'checkPassword']);
+
 Route::middleware('auth')->group(function() {
     Route::middleware('user-not-access')->group(function() {
         Route::prefix('admin')->group(function () {
@@ -85,8 +89,6 @@ Route::middleware('auth')->group(function() {
             Route::get('/setting', [SettingController::class, 'index'])->name('admin.setting');
             Route::put('/setting-update/{id}', [SettingController::class,'update'])->name('setting.update');
             Route::get('/account-setting', [SettingController::class,'setting'])->name('account.setting');
-            Route::put('/update-setting/{id}', [SettingController::class,'updateSetting'])->name('update.setting');
-            Route::post('/check-password', [SettingController::class,'checkPassword']);
 
             //---** Social links **---//
             Route::get('/sociallinks', [SocialLinkController::class, 'index'])->name('admin.sociallinks');
