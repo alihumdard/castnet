@@ -25,14 +25,14 @@
                     </div>
                     <div class="col-md-6 col-lg-6">
                         <div class="d-flex gap-4 justify-content-md-end">
-                            <form action="#">
+                            {{-- <form action="#">
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="site search">
                                     <button type="submit" class="btn-search">
                                         <img src="{{ asset('assets/web/images/icon_search.png') }}" alt="search">
                                     </button>
                                 </div>
-                            </form>
+                            </form> --}}
                             {{-- @auth
                             <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"> <span>Logout</span>
@@ -54,26 +54,22 @@
                                     <img src="{{ asset('assets/web/images/down-arrow.png') }}" alt="profile" class="img-profile">
                                 </button>
                                 <ul class="dropdown-menu">  
-                                    
-                                    <li><a class="dropdown-item" href="{{ route('web.user-dashboard', [auth()->user()->id,  auth()->user()->first_name,auth()->user()->last_name]) }}">Edit Profile</a></li>
-
-                                    
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();"> <span>Logout</span>
-                                <img src="{{ asset('assets/web/images/icon_log.png') }}" alt="icon login" class="icon-login"></a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf   
-                            </form>
+                                    <li><a class="dropdown-item" href="{{ route('web.user-dashboard') }}">Profile</a></li>                                    
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();"> <span>Logout</span>
+                                        <img src="{{ asset('assets/web/images/icon_log.png') }}" alt="icon login" class="icon-login"></a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf   
+                                    </form>                                   
+                                    </li>
+                                </ul>
+                            </div>
                             @else
                             <a href="{{route('user.login')}}" class="btn btn-primary">
                                 <span>Login</span>
                                 <img src="{{ asset('assets/web/images/icon_log.png') }}" alt="icon login" class="icon-login">
                             </a>
                             @endauth
-                                    
-                                    </li>
-                                </ul>
-                            </div>
                             {{-- dashbord work endddddddddddddddddddddddddddddddddddddddddddddd --}}
                         </div>
                     </div>

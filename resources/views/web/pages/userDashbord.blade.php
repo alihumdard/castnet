@@ -237,7 +237,7 @@ $setting = appSetting();
                             <div class="dashboard_side flex-lg-grow-1">
                                 <div class="profile-box">
                                     <img src="{{ asset('assets/web/images/dashboard_profile.png') }}" alt="profile" class="profile-img">
-                                    <h3 class="profile-text mb-3">{{ $name }}</h3>
+                                    <h3 class="profile-text mb-3">{{ Auth::user()->first_name }}</h3>
                                 </div>
                                 <div class="d-flex gap-4 gap-lg-0 align-items-center justify-content-center flex-lg-column flex-wrap w-lg-100 tab-list">
                                     @if (!$memberInfo->isEmpty())

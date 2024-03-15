@@ -22,11 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/logged', [DefaultController::class, 'logged'])->name('logged.user');
 Route::middleware('admin-not-access')->group(function() {
     Route::get('/', [PagesController::class, 'index'])->name('web.index');
-    // Route::get('/user-dashboard', [PagesController::class, 'userdashboard'])->name('web.user-dashboard');
-
-Route::get('/user-dashboard/{id}/{first_name}', [PagesController::class, 'userdashboard'])->name('web.user-dashboard');
-// Route::get('/user-dashboard/{id}/{first_name}/{last_name}', [PagesController::class, 'userdashboard'])->name('web.user-dashboard');
-
+    Route::get('/user-dashboard', [PagesController::class, 'userdashboard'])->name('web.user-dashboard');
     Route::get('/about', [PagesController::class, 'aboutUs'])->name('web.about');
     Route::get('/who-we-are', [PagesController::class, 'whoweare'])->name('web.who-we-are');
     Route::get('/team', [PagesController::class, 'team'])->name('web.team');

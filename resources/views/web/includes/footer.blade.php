@@ -84,7 +84,7 @@ $result = socialLinks();
                     <p class="text-center text-lg-start fw-light fs-5">&copy; Copyright <?=date('Y')?> international chamber of Commerce. All rights reserved</p>
                 </div>
                 <div class="col-lg-6">
-                    <p class="text-center text-lg-end fw-light fs-5">Designed &amp; Developed by <a href="https://leadconcept.com/" target="_blank">LEADconcept</a></p>
+                    <p class="text-center text-lg-end fw-light fs-5"><a href="https://leadconcept.com/" onclick="window.open(this.href, '_blank', 'resizable=yes'); return false;">Designed &amp; Developed by LEADconcept</a></p>
                 </div>
             </div>
         </div>
