@@ -90,7 +90,7 @@ class DefaultController extends Controller
         if(Auth::user()->type==0){
             return redirect()->route('admin.index');
         }else{
-            return redirect()->route('web.index')->with('success','You have successfully login your account.');
+            return redirect()->route('web.user-dashboard')->with('success','You have successfully login your account.');
         }
     }
 
