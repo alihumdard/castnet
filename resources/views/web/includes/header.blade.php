@@ -50,11 +50,13 @@
                             @auth
                             <div class="dropdown profile-dropdown">
                                 <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="assets/web/images/user.jpg" alt="profile" class="img-profile">
+                                    <img src="{{ asset('assets/web/images/user.jpg') }}" alt="profile" class="img-profile">
+                                    <img src="{{ asset('assets/web/images/down-arrow.png') }}" alt="profile" class="img-profile">
                                 </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{{ route('web.user-dashboard') }}">edit profile</a></li>
-                                    <li>
+                                <ul class="dropdown-menu">  
+                                    
+                                    <li><a class="dropdown-item" href="{{ route('web.user-dashboard', [auth()->user()->id,  auth()->user()->first_name,auth()->user()->last_name]) }}">Edit Profile</a></li>
+
                                     
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"> <span>Logout</span>
